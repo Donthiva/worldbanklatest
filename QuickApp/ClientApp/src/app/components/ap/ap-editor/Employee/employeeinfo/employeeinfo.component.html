@@ -1,0 +1,88 @@
+<div class="card">
+    <!-- <div class="card-header">
+        <strong>AP View</strong>
+    </div> -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Info</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                       
+                        <div class="form-group col-md-6">
+                            <label for="city">Job Role</label>
+                            <input type="Text" class="form-control" id="city"
+                                placeholder="Address">
+                        </div>
+                      
+
+                  
+                            <div class="form-group col-md-6">
+                                <label for="city">Employer</label>
+                                <ng-select  class="custom"  bindLabel="name" bindValue="id"
+                                    [(ngModel)]="selectedCar" (change)="selectedCurrentType($event)">
+                                </ng-select>
+                            </div>
+    
+                      
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Employed</label>
+                            <ng-select  class="custom"  bindLabel="name" bindValue="id"
+                                [(ngModel)]="selectedCar" (change)="selectedCurrentType($event)">
+                            </ng-select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="city">Start Date</label>
+                            <input type="date" class="form-control" id="city" placeholder="Person DOB">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6" >
+                            <label for="city">How he found the job
+                                <input type="text" class="form-control">
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="country">Status of the employement</label>
+                            <input type="text" class="form-control" id="country" placeholder="Gender">
+                        </div>
+                    </div>
+                    <!--/.row-->
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Monthly Salary</label>
+                            <ng-select  class="custom"  bindLabel="name" bindValue="id"
+                                [(ngModel)]="selectedCar" (change)="selectedCurrentType($event)">
+                            </ng-select>
+                        </div>
+                       
+                    </div>
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+  
+    <!--/.col-->
+
+</div>

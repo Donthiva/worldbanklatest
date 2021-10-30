@@ -1,0 +1,1479 @@
+
+ <ngb-tabset #tabset="ngbTabset" [destroyOnHide]="false">
+
+    <ngb-tab title="General">
+        <ng-template ngbTabContent>
+
+            <div class="card">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+            
+                                <small>Personal Info</small>
+                            </div>
+                            <div class="card-body">
+            
+                                <div class="row"
+                                    style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;">
+                                    <div class="col-md-12 form-group" style="border-width: 10px;border-color: gray;">
+            
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>General Information</h6>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="col-md-4" style="text-align:start;align-items:flex-start;">
+            
+                                                <img [src]="apuserimage" alt="Avatar"
+                                                    style="vertical-align: middle; width: 50;height: 50px; border-radius: 50%;margin-top: 10px;">
+            
+            
+            
+            
+                                            </div>
+                                        </div>
+            
+            
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">AP Name</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_Name}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+            
+                                            <div class="col-md-4 form-group">
+            
+                                                <div class="row">
+                                                    <label for="vat" style="font-weight:700;">AP NIC</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_NIC}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">AP File number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_File_number}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+            
+                                        </div>
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Person DOB</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label>
+                                                </div>
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label style="font-weight:700;" for="city">AP File number</label>
+                                                </div>
+            
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="city">{{personModel.Person_File_number}}</label>
+                                                </div>
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label style="font-weight:700;" for="city">Current Type</label>
+                                                </div>
+            
+                                                <div class="row">
+                                                    <label style="text-align: center;">{{currentTypeName}}</label>
+                                                </div>
+                                            </div>
+            
+                                        </div>
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label style="font-weight:700;" for="city">Gender</label>
+                                                </div>
+            
+                                                <div class="row">
+                                                    <label style="text-align: center;"> {{genderName}}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+            
+                                        <hr>
+            
+                                    </div>
+            
+            
+                                    <div class="col-md-12 form-group">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Contact Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Land Line</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_Contact_Number}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Phone Number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Home_Contact_Number}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+            
+            
+                                        </div>
+            
+                                    </div>
+            
+                                    
+                                    
+            
+                                    <div class="col-md-12 form-group">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Bank Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Bank Name</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{bankNamevalue}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <!-- <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Bank Branch</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Home_Contact_Number}}</label>
+                                                </div>
+            
+                                            </div> -->
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Bank Account No</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.AccountNumber}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                    </div>
+                                    <div class="col-md-12 form-group" *ngIf="CurrentType==1">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Employee Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Job</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{personModel.JobRole}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Salary</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{personModel.Salary}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Employer</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Employer}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 form-group" *ngIf="CurrentType==2">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Busineess General</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Business Plan</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{businessPlanvalue}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Business Type</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{businessTypevalue}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is EntilementFund</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsEntitlementname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Is BankLoans</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{businessPlanvalue}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Business Type</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{businessTypevalue}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is EntilementFund</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsEntitlementname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Is BankLoans</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsBankLoansname}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is OwnService</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsOwnServicename}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is PawningJewellary</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{IsPawningJewellaryname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Is PartnerShip</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsPartnerShipname}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is formalLoans</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{IsformalLoansname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is BusinessChanged</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{IsBusinessChangedname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+            
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group " *ngIf="personModel.businessGeneral.IsBusinessChanged">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Previous Business at
+                                                        GSBS</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.businessGeneral.PreviousBusinessAtGoodShed}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">GSBS Previous Income</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.businessGeneral.GSBSPreviousIncome}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Reallocated Month and
+                                                        year</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{IsBusinessChangedname}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                    </div>
+            
+            
+            
+                                    <div class="col-md-12 form-group" *ngIf="CurrentType==3">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>ThreeWheel Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">initial Park at GSBS</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.threeWheelDriver.initialParkAtGSBS}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Monthly income at GSBS</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.threeWheelDriver.MonthlyIncomeGSBS}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Engagement at GSBS </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.threeWheelDriver.EngagementAtGSBS}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                    </div>
+                                    <div class="col-md-12 form-group" *ngIf="CurrentType==4">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Phase Out Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">File Number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.fileNumber}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Decision Made</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.DecisionMade}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Situation </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.Situation}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Month and Year</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.MonthAndYear}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Planed Business</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.PlanedBusiness}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Reason For PhaseOut </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.ReasonForPhaseOut}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Month and Year</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.MonthAndYear}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Use Of Entile Fund</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.UseOfEntileFund}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Social Well Being </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.SocialWellBeing}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Is Interest OfF Fixed
+                                                        Deposit</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{IsInterestOfFFixedDepositvalue}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Is lives with close family</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{Isliveswithclosefamilyvalue}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Social Well Being </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.phaseOut.SocialWellBeing}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+            
+                                    </div>
+                                </div>
+            
+                            </div>
+            
+                        </div>
+                    </div>
+            
+            
+            
+            
+                </div>
+            
+            
+                <div class="row"
+                    style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;height: 600px;">
+                    <div class="col-md-12 form-group">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Address Information</h6>
+                        </div>
+            
+                        <div class="row" style="font-size: small;">
+            
+                            <div class="col-md-4 form-group">
+                                <div class="row">
+                                    <label for="company" style="font-weight:700;">Address Number</label>
+                                </div>
+                                <div class="row">
+                                    <label style="text-align: center;" for="company">{{personModel.addressNo}}</label>
+                                </div>
+            
+            
+                            </div>
+            
+            
+                            <div class="col-md-4 form-group">
+            
+                                <div class="row">
+                                    <label for="vat" style="font-weight:700;">Address Street</label>
+                                </div>
+                                <div class="row">
+                                    <label style="text-align: center;" for="company">{{personModel.addressStreet}}</label>
+                                </div>
+            
+            
+                            </div>
+            
+            
+                            <div class="form-group col-md-4">
+                                <div class="row">
+                                    <label for="city" style="font-weight:700;">Country</label>
+                                </div>
+                                <div class="row">
+                                    <label style="text-align: center;" for="company">{{personCountryName}}</label>
+                                </div>
+            
+                            </div>
+            
+            
+            
+                        </div>
+            
+            
+                        <div class="row" style="font-size: small;">
+            
+                            <div class="col-md-4 form-group">
+                                <div class="row">
+                                    <label for="company" style="font-weight:700;">Address District</label>
+                                </div>
+                                <div class="row">
+                                    <label style="text-align: center;" for="company">{{personDistrictName}}</label>
+                                </div>
+            
+            
+                            </div>
+            
+            
+                            <div class="col-md-4 form-group">
+            
+                                <div class="row">
+                                    <label for="vat" style="font-weight:700;">Address City</label>
+                                </div>
+                                <div class="row">
+                                    <label style="text-align: center;" for="company">{{personCityName}}</label>
+                                </div>
+            
+            
+                            </div>
+            
+            
+            
+                        </div>
+                        <div class="row" style="padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+            
+            
+                                <!-- <agm-map [latitude]="lat" [longitude]="lng">
+                                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                                </agm-map> -->
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                </div>
+            
+            
+            
+               
+            
+            
+            
+            </div>
+
+
+        </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Monitoring">
+        <ng-template ngbTabContent>
+        <div class="row" *ngIf="personModel.vulnerabilityMonitorList != null">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small>Vulnerable Monitor Information</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" *ngFor="let vulnerable of personModel.vulnerabilityMonitorList"
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Monitoring Information</h6>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Stability</label>
+                                                </div>
+                                                <div class="row" style="text-align: center;"> <label> {{vulnerable.stability}} </label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Note</label></div>
+                                                <div class="row"> <label> {{vulnerable.note}}</label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Project Input</label>
+                                                </div>
+                                                <div class="row"> <label>{{vulnerable.projectInput}} </label></div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"> <label style="font-weight:700;">Vulnerability Status
+                                                    </label> </div>
+                                                <div class="row"> <label> {{vulnerable.vulnerabilityStatus}} </label> </div>
+    
+                                            </div>
+                                       
+                                            <div class="col-md-4">
+                                                <div class="row"> <label style="font-weight:700;">Monitor Date </label>
+                                                </div>
+                                                <div class="row"> <label> {{vulnerable.monitor.monitor_Date}} </label> </div>
+    
+                                            </div>
+    
+                                        </div>
+    
+    
+    
+                                    </div>
+                                </div>
+    
+    
+                            </div>
+    
+                        </div>
+    
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row" *ngIf="personModel.employeeMonitorList != null">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small>Employee Monitor Information</small>
+                    </div>
+                    <div class="card-body" *ngFor="let employee of personModel.employeeMonitorList">
+                        <div class="row" 
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Monitoring Information</h6>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Salary Status</label>
+                                                </div>
+                                                <div class="row" style="text-align: center;"> <label> {{employee.salaryStatus}} </label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Employment Remarks</label></div>
+                                                <div class="row"> <label> {{employee.employment_Remarks}}</label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">How found job</label>
+                                                </div>
+                                                <div class="row"> <label>{{employee.employment_How_he_found_the_job}} </label></div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                       
+    
+                                        
+                                          
+                                        </div>
+    
+                                    </div>
+                                </div>
+    
+                               
+                                   
+                        
+                            </div>
+                           
+    
+                            <accordion >
+                                <accordion-group heading="More">
+    
+                                <div class="row" 
+                                style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                                <div class="col-md-12">
+                                    <div class="row" style="font-size: small;">
+                                        <div class="col-md-4">
+                                            <div class="row"> <label style="font-weight:700;">Job engagement
+                                                </label> </div>
+                                            <div class="row"> <label> {{employee.jobengagementName}} </label> </div>
+        
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row"><label style="font-weight:700;">Salary</label> </div>
+                                            <div class="row"> <label> {{employee.employment_Salary}} </label> </div>
+        
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row"> <label style="font-weight:700;">Monitor Date </label>
+                                            </div>
+                                            <div class="row"> <label> {{employee.monitor.monitor_Date}} </label> </div>
+        
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            
+                                </div>
+                                    
+    
+    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <carousel [interval]="false">
+                                              <div *ngFor="let p of employee.employeeMonitorImages">
+                                                <slide>
+                                                  <img [src]="p.path" alt="First slide" style="display: block; width: 100%;">
+                                                  <div class="carousel-caption d-none d-md-block">
+                                                    
+                                                  </div>
+                                                </slide>
+                                              </div>
+                      
+                                            </carousel>
+                                            
+                                <div class="col-md-12 form-group" *ngIf="employee.employeeMonitorDocuments != null">
+                                    <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                        <h6>Ap Documents</h6>
+                                    </div>
+        
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">File Name</th>
+                                            <th scope="col">View</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let row of employee.employeeMonitorDocuments; let i=index" >
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{row.fileName}}</td>
+                                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                
+                                          </tr>
+                                        
+                                        </tbody>
+                                      </table>
+            
+        
+                                </div>
+        
+                                <div class="col-md-12 form-group" *ngIf="employee.employeeMonitorVideos != null">
+                                    <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                        <h6>Ap Videos</h6>
+                                    </div>
+        
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">File Name</th>
+                                            <th scope="col">View</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let row of employee.employeeMonitorVideos; let i=index" >
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{row.fileName}}</td>
+                                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                
+                                          </tr>
+                                        
+                                        </tbody>
+                                      </table>
+            
+        
+                                </div>
+                                          </div>
+                                    </div>
+                                  
+                                </accordion-group>
+                              
+                              </accordion>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row" *ngIf="personModel.businessMonitorList != null">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small>Business Monitor Information</small>
+                    </div>
+                    <div class="card-body" *ngFor="let business of personModel.businessMonitorList">
+                        <div class="row" 
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Monitoring Information</h6>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Business Status</label>
+                                                </div>
+                                                <div class="row" style="text-align: center;"> <label> {{business.businessStatus}} </label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Current Business</label></div>
+                                                <div class="row"> <label> {{business.currentBusiness}}</label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Income Status</label>
+                                                </div>
+                                                <div class="row"> <label>{{business.incomeStatus}} </label></div>
+    
+                                            </div>
+    
+                                        </div>
+    
+    
+    
+    
+                                    </div>
+                                </div>
+    
+    
+                            </div>
+    
+                        </div>
+    
+                        <accordion >
+                            <accordion-group heading="More">
+    
+                            <div class="row" 
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                              
+                                <div class="row" style="font-size: small;">
+                                    <div class="col-md-4">
+                                        <div class="row"> <label style="font-weight:700;">Old Business
+                                            </label> </div>
+                                        <div class="row"> <label> {{business.oldBusinesses}} </label> </div>
+    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row"><label style="font-weight:700;">Summary</label> </div>
+                                        <div class="row"> <label> {{business.summary}} </label> </div>
+    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row"> <label style="font-weight:700;">Monitor Date </label>
+                                        </div>
+                                        <div class="row"> <label> {{business.monitor.monitor_Date}} </label> </div>
+    
+                                    </div>
+    
+                                </div>
+                            </div>
+                        
+                            </div>
+                                
+    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <carousel [interval]="false">
+                                      <div *ngFor="let p of business.businessMonitorImages">
+                                        <slide>
+                                          <img [src]="p.path" alt="First slide" style="display: block; width: 100%;">
+                                          <div class="carousel-caption d-none d-md-block">
+                                            
+                                          </div>
+                                        </slide>
+                                      </div>
+              
+                                    </carousel>
+                                    
+                        <div class="col-md-12 form-group" *ngIf="business.businessMonitorDocuments != null">
+                            <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                <h6>Ap Documents</h6>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let row of business.businessMonitorDocuments; let i=index" >
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                        
+                                  </tr>
+                                
+                                </tbody>
+                              </table>
+    
+
+                        </div>
+
+                        <div class="col-md-12 form-group" *ngIf="business.businessMonitorVideos != null">
+                            <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                <h6>Ap Videos</h6>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let row of business.businessMonitorVideos; let i=index" >
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                        
+                                  </tr>
+                                
+                                </tbody>
+                              </table>
+    
+
+                        </div>
+                                  </div>
+                            </div>
+                          
+                            </accordion-group>
+                          
+                          </accordion>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row" *ngIf="personModel.threeWheelMonitorList != null">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small>ThreeWheel Monitor Information</small>
+                    </div>
+                    <div class="card-body" *ngFor="let threeWheel of personModel.threeWheelMonitorList">
+                        <div class="row" 
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Monitoring Information</h6>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Current Park</label>
+                                                </div>
+                                                <div class="row" style="text-align: center;"> <label> {{threeWheel.currentPark}} </label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Income Status</label></div>
+                                                <div class="row"> <label> {{threeWheel.incomeStatus}}</label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Situation</label>
+                                                </div>
+                                                <div class="row"> <label>{{threeWheel.situation}} </label></div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                      
+    
+    
+    
+                                    </div>
+                                </div>
+    
+    
+                            </div>
+    
+                        </div>
+
+
+                       
+    
+                        <accordion>
+                            <accordion-group heading="More">
+    
+                            <div class="row" 
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row" style="font-size: small;">
+                                    <div class="col-md-4">
+                                        <div class="row"> <label style="font-weight:700;">Status
+                                            </label> </div>
+                                        <div class="row"> <label> {{threeWheel.status}} </label> </div>
+    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row"><label style="font-weight:700;">Monitor Date</label> </div>
+                                        <div class="row"> <label> {{threeWheel.monitor.monitor_Date}} </label> </div>
+    
+                                    </div>
+                              
+    
+                                </div>
+                            </div>
+                        
+                            </div>
+                    
+        
+                            </accordion-group>
+                          
+                          </accordion>
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="row" *ngIf="personModel.phaseOutMonitorList != null">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <small>Phase Out Monitor Information</small>
+                    </div>
+                    <div class="card-body"  *ngFor="let phaseoutdata of personModel.phaseOutMonitorList">
+                        <div class="row"
+                            style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Monitoring Information</h6>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Situation</label>
+                                                </div>
+                                                <div class="row" style="text-align: center;"> <label> {{phaseoutdata.situation}} </label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Monitor Period</label></div>
+                                                <div class="row"> <label> {{phaseoutdata.monitorPeriod}}</label></div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">File No</label>
+                                                </div>
+                                                <div class="row"> <label>{{phaseoutdata.fileNumbe}} </label></div>
+    
+                                            </div>
+    
+                                        </div>
+    
+                                      
+    
+    
+    
+                                    </div>
+                                </div>
+    
+    
+                                <accordion>
+                                    <accordion-group heading="More">
+            
+                                    <div class="row" 
+                                    style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px">
+                                    <div class="col-md-12">
+                                        <div class="row" style="font-size: small;">
+                                            <div class="col-md-4">
+                                                <div class="row"> <label style="font-weight:700;">Decision Made
+                                                    </label> </div>
+                                                <div class="row"> <label> {{phaseoutdata.decisionMade}} </label> </div>
+    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row"><label style="font-weight:700;">Monitor Date</label> </div>
+                                                <div class="row"> <label> {{phaseoutdata.monitor.monitor_Date}} </label> </div>
+    
+                                            </div>
+                                      
+    
+                                        </div>
+                                    </div>
+                                
+                                    </div>
+                                        
+                        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <carousel [interval]="false">
+                                              <div *ngFor="let p of phaseoutdata.phaseOutMonitorImages">
+                                                <slide>
+                                                  <img [src]="p.path" alt="First slide" style="display: block; width: 100%;">
+                                                  <div class="carousel-caption d-none d-md-block">
+                                                    
+                                                  </div>
+                                                </slide>
+                                              </div>
+                      
+                                            </carousel>
+                                            
+                                <div class="col-md-12 form-group" *ngIf="phaseoutdata.phaseOutMonitorDocuments != null">
+                                    <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                        <h6>Ap Documents</h6>
+                                    </div>
+            
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">File Name</th>
+                                            <th scope="col">View</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let row of phaseoutdata.phaseOutMonitorDocuments; let i=index" >
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{row.fileName}}</td>
+                                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                
+                                          </tr>
+                                        
+                                        </tbody>
+                                      </table>
+            
+            
+                                </div>
+            
+                                <div class="col-md-12 form-group" *ngIf="phaseoutdata.phaseOutMonitorVideos != null">
+                                    <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                        <h6>Ap Videos</h6>
+                                    </div>
+            
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">File Name</th>
+                                            <th scope="col">View</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let row of phaseoutdata.phaseOutMonitorVideos; let i=index" >
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{row.fileName}}</td>
+                                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                
+                                          </tr>
+                                        
+                                        </tbody>
+                                      </table>
+            
+            
+                                </div>
+                                          </div>
+                                    </div>
+                                  
+                                    </accordion-group>
+                                  
+                                  </accordion>
+            
+    
+    
+                            </div>
+    
+                        </div>
+    
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        </ng-template>
+    </ngb-tab>
+
+</ngb-tabset>
+

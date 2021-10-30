@@ -1,0 +1,226 @@
+<div class="card">
+    <!-- <div class="card-header">
+        <strong>AP View</strong>
+    </div> -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Personal Info</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="company">AP Name</label>
+                            <input type="text" class="form-control" id="company" placeholder="AP Name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="vat">AP NIC</label>
+                            <input type="text" class="form-control" id="vat" placeholder="AP NIC">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">AP File number</label>
+                            <input type="number" class="form-control" id="city"
+                                placeholder="AP File number">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="city">Person DOB</label>
+                            <input type="text" class="form-control" id="city" placeholder="Person DOB">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Select Current Type</label>
+                            <ng-select  class="custom" [items]="cars" bindLabel="name" bindValue="id"
+                                [(ngModel)]="selectedCar" (change)="selectedCurrentType($event)">
+                            </ng-select>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="country">Enter Gender</label>
+                            <input type="text" class="form-control" id="country" placeholder="Gender">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Address Form</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="company">Address Number</label>
+                            <input type="text" class="form-control" id="company"
+                                placeholder="Address Number">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="vat">Address Owner Type</label>
+                            <input type="text" class="form-control" id="vat"
+                                placeholder="Address Owner Type">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Address Street 1</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Address Street 1">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Address Street 2</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Address Street 2">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Address City</label>
+                            <input type="text" class="form-control" id="city" placeholder="City">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="country">Address District</label>
+                            <input type="text" class="form-control" id="country"
+                                placeholder="Address District">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Address States</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Address State">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="city">Address Country</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Address Country">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Contact Information</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="company">Land Line</label>
+                            <input type="text" class="form-control" id="company"
+                                placeholder="Land Line">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="vat">Phone Number</label>
+                            <input type="text" class="form-control" id="vat"
+                                placeholder="Phone Number">
+                        </div>
+                    </div>
+
+
+                  
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Bank Information</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="company">Bank Name</label>
+                            <input type="text" class="form-control" id="company"
+                                placeholder="Bank Name">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="vat">Bank Type</label>
+                            <input type="text" class="form-control" id="vat"
+                                placeholder="Bank Type">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Bank Branch</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Bank Branch">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Bank Account No</label>
+                            <input type="text" class="form-control" id="city"
+                                placeholder="Bank Account No">
+                        </div>
+                    </div>
+                  
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.col-->
+
+
+
+    <div class="card-footer">
+        <button class="btn-primary"> Submit</button>
+        <button class="btn-danger"> Clear</button>
+    </div>
+</div>

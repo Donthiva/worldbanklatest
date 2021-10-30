@@ -1,0 +1,487 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+
+                <small>Monitor Info</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <small>Form</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-md-6 form-group">
+                                        <label for="vat">Monitor Period</label>
+                                        <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName"
+                                            bindValue="id" [(ngModel)]="phaseOutMonitor.monitorPeriodId">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.monitorPeriodId == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Monitor Period required</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6 form-group">
+                                        <label for="company">File Number</label>
+                                        <input type="text" class="form-control" id="company" placeholder="File Number"
+                                            [(ngModel)]="phaseOutMonitor.fileNumber">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(phaseOutMonitor.fileNumber == null || phaseOutMonitor.fileNumber == '')&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>File Number required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                            
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Situation</label>
+                                        <ng-select class="custom" [items]="EconStatus" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.situation">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.situation == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Situation required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Current Social and Economical Well-being</label>
+                                        <ng-select class="custom" [items]="EconStatus" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.socialWellBeing">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.socialWellBeing == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Current Social and Economical Well-being required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.row-->
+
+                                
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Better physical living condition</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.betterphysicallivingcondition"
+                                        >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.betterphysicallivingcondition == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Better physical living condition  required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Better caring and protection</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.bettercaringandprotection"
+                                           >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.bettercaringandprotection == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Better caring and protection required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Depend on the interest of fixed deposit</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.isInterestOfFixedDeposit"
+                                            (change)="selectedEcon($event)">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.isInterestOfFixedDeposit == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Depend on the  the interest of fixed deposit required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Lives with close family</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.isLivesWithcloseFamily"
+                                            (change)="selectedEcon($event)">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.isLivesWithcloseFamily == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Lives with close family required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                
+                                <!--/.row-->
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Phase out decision made</label>
+                                        <ng-select class="custom" [items]="decisionMade" bindLabel="name" bindValue="id"  [(ngModel)]="phaseOutMonitor.decisionMade"
+                                            >
+                                        </ng-select>
+                                        
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Socal Well-being</label>
+                                        <ng-select class="custom" [items]="socialWellBeign" bindLabel="name" bindValue="id" [(ngModel)]="phaseOutMonitor.socialWellBeing"
+                                            >
+                                        </ng-select>
+                                   
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Have other income generating source</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.isIncomeGeneratingSources"
+                                            (change)="selectedEcon($event)">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.isIncomeGeneratingSources == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Have other income generating source required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Other sources note</label>
+                                        <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="phaseOutMonitor.otherincomegeneratingnote"> </textarea>
+                                      
+                                    </div>
+                                  
+
+                                 
+                                </div>
+
+                                <div class="row">
+                                    
+
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Depend on close family members</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.dependonclosefamily"
+                                       >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.dependonclosefamily == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Depend on close family members required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Economy Well-being</label>
+                                        <ng-select class="custom" [items]="economyWellBeign" bindLabel="name" bindValue="id" [(ngModel)]="phaseOutMonitor.economyWellBeign"
+                                            >
+                                        </ng-select>
+                                   
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Any need/Requirement of AP</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.isaprequirement"
+                                       >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.isaprequirement == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Any need/Requirement of AP required</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Requirement Note</label>
+                                        <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="phaseOutMonitor.requirementnote"> </textarea>
+                                      
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Our intervention</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.isourintervention"
+                                       >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.isourintervention == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Any need/Requirement of AP required</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Note</label>
+                                        <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="phaseOutMonitor.ourinterventionnote"> </textarea>
+                                      
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="country">Statisfaction level</label>
+                                        <ng-select class="custom" [items]="satisfactionLevelList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.satisfactionlevel"
+                                       >
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.satisfactionlevel == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Statisfaction level required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Monitoring Date</label>
+                                        <input type="date" class="form-control" id="city"
+                                            [(ngModel)]="phaseOutMonitor.monitordate">
+                                        <div *ngIf="(phaseOutMonitor.monitordate == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Monitoring Date required</div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Contactable</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.contactable"
+                                            (change)="selectedEcon($event)">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.contactable == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Contactable required</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Healthy</label>
+                                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="phaseOutMonitor.healthy"
+                                            (change)="selectedEcon($event)">
+                                        </ng-select>
+                                        <div *ngIf="(phaseOutMonitor.healthy == null) && validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Healthy required</div>
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="city">Summary</label>
+                                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
+                                            [(ngModel)]="phaseOutMonitor.summary"> </textarea>
+                                      
+                                    </div>
+                                </div>
+                                <!--/.row-->
+
+                                <div class="card-header">
+
+                                    <small>Previous Documents</small>
+                                </div>
+                                <div class="card-body">
+
+
+
+                                    <div class="col-md-12 form-group"
+                                        *ngIf="phaseOutMonitor.phaseOutMonitorDocuments != null && editMode">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Ap Documents</h6>
+                                        </div>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">File Name</th>
+                                                    <th scope="col">View</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr
+                                                    *ngFor="let row of phaseOutMonitor.phaseOutMonitorDocuments; let i=index">
+                                                    <th scope="row">{{i+1}}</th>
+                                                    <td>{{row.fileName}}</td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="openDoc(row)"><i class="fa fa-eye"
+                                                                aria-hidden="true"></i> </a></td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="deleteDoc(row,i)"><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i> </a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-md-12 form-group"
+                                        *ngIf="phaseOutMonitor.phaseOutMonitorImages != null && editMode">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Ap Images</h6>
+                                        </div>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">File Name</th>
+                                                    <th scope="col">View</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr
+                                                    *ngFor="let row of phaseOutMonitor.phaseOutMonitorImages; let i=index">
+                                                    <th scope="row">{{i+1}}</th>
+                                                    <td>{{row.fileName}}</td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="openDoc(row)"><i class="fa fa-eye"
+                                                                aria-hidden="true"></i></a></td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="deleteImg(row,i)"><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i> </a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-md-12 form-group"
+                                        *ngIf="phaseOutMonitor.phaseOutMonitorVideos != null && editMode">
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Ap Videos</h6>
+                                        </div>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">File Name</th>
+                                                    <th scope="col">View</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr
+                                                    *ngFor="let row of phaseOutMonitor.phaseOutMonitorVideos; let i=index">
+                                                    <th scope="row">{{i+1}}</th>
+                                                    <td>{{row.fileName}}</td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="openDoc(row)"><i class="fa fa-eye"
+                                                                aria-hidden="true"></i> </a></td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="deleteVideo(row,i)"><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i> </a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">File Name</th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of fileListToUpload; let i=index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{row.name}}</td>
+                                            <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                    (click)="deletefile(i)"><i class="fa fa-trash-o"
+                                                        aria-hidden="true"></i> {{'roles.management.Delete' |
+                                                    translate}}</a></td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="city">import file</label>
+                                        <input multiple type="file" class="form-control" id="file"
+                                            (change)="handleFileInput($event.target.files)">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                </div>
+
+
+                <!--/.row-->
+
+
+
+                <!--/.row-->
+
+            </div>
+
+        </div>
+    </div>
+    <!--/.col-->
+
+
+
+</div>
+
+
+
+<div class="card-footer" *ngIf="!editMode">
+    <button class="btn-primary" (click)="addmonitor()"> Submit</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>
+
+<div class="card-footer" *ngIf="editMode">
+    <button class="btn-primary" (click)="updateMonitor()"> Update</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>

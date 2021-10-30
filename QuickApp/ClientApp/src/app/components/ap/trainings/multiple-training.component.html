@@ -1,0 +1,239 @@
+<div class="container">
+    <header class="pageHeader">
+        <h3><i class="fa fa-file-text-o" aria-hidden="true"></i> Tranings</h3>
+    </header>
+
+    <div class="row">
+        <div class="card form-group col-md-12">
+            <div class="card-header">
+                <p style="font-weight: bolder;">Add Tranings</p>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+    
+                    <small>Training Info</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+    
+                                    <small>Form</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Training Type</label>
+                                            <ng-select  class="custom" [items]="TrainigTypes"
+                                                bindLabel="training_Type_Description" bindValue="training_Type_ID"
+                                              id="trainingType"  [(ngModel)]="trainingdata.training_Type" (change)="selectedType($event)">
+                                            </ng-select>
+                                            <div *ngIf="trainingdata.training_Type == null && validationfailed" class="alert alert-danger" >
+                                                <div >Training Type is required</div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Note </label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.note">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.note == null || trainingdata.note == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Note is required</div>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+    
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Training Date</label>
+                                            <input type="date" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.trainingDate">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.trainingDate == null) && validationfailed" class="alert alert-danger" >
+                                                    <div >Training Date is required</div>
+                                                </div>
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Training Period</label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.trainigPeriod">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.trainigPeriod == null || trainingdata.trainigPeriod == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Training Period is required</div>
+                                                </div>
+                                        </div>
+    
+    
+                                    </div>
+                                    <!--/.row-->
+    
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Training Organization</label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.trainigOrganization">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.trainigOrganization == null || trainingdata.trainigOrganization == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Training Organization is required</div>
+                                                </div>
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="country">Is Employed</label>
+                                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="trainingdata.isEmployed" (change)="selectedIsEmp($event)">
+                                            </ng-select>
+                                            <div style="margin-top: 5%;" *ngIf="(trainingdata.isEmployed == null) && validationfailed" class="alert alert-danger" >
+                                                <div >Is Employed is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.row-->
+    
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Salary Status</label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.salaryStatus">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.salaryStatus == null) && validationfailed" class="alert alert-danger" >
+                                                    <div >Salary Status is required</div>
+                                                </div>
+                                        </div>
+    
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Status</label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.status">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.status == null || trainingdata.status == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Status is required</div>
+                                                </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Description </label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.description">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.description == null || trainingdata.description == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Description is required</div>
+                                                </div>
+                                        </div>
+    
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="country">Is Employed Sector Related</label>
+                                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="trainingdata.isEmployedSectorRelated"
+                                                (change)="employeSecRelated($event)">
+                                            </ng-select>
+                                            <div style="margin-top: 5%;" *ngIf="(trainingdata.isEmployedSectorRelated == null) && validationfailed" class="alert alert-danger" >
+                                                <div >Is Employed Sector Related is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="country">Is Socialy Recognized</label>
+                                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="trainingdata.socialRecognition">
+                                            </ng-select>
+                                            <div style="margin-top: 5%;" *ngIf="(trainingdata.socialRecognition == null) && validationfailed" class="alert alert-danger" >
+                                                <div >Is Socialy Recognized is required</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-group col-md-6">
+                                            <label for="country">Is Family Member Involved</label>
+                                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="trainingdata.isFamilyMemberInvolved">
+                                            </ng-select>
+                                            <div style="margin-top: 5%;" *ngIf="(trainingdata.isFamilyMemberInvolved == null) && validationfailed" class="alert alert-danger" >
+                                                <div >Is Family Member Involved is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Is Family Member Completed Training </label>
+                                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="trainingdata.isFamilyMemberCompletedTraining">
+                                        </ng-select>
+                                        <div style="margin-top: 5%;" *ngIf="(trainingdata.isFamilyMemberCompletedTraining == null) && validationfailed" class="alert alert-danger" >
+                                            <div >Is Family Member Completed Training is required</div>
+                                        </div>
+                                        </div>
+    
+    
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Training Done by </label>
+                                            <input type="text" class="form-control" id="city"
+                                                [(ngModel)]="trainingdata.trainingDoneBy">
+                                                <div style="margin-top: 5%;" *ngIf="(trainingdata.trainingDoneBy == null || trainingdata.trainingDoneBy == '') && validationfailed" class="alert alert-danger" >
+                                                    <div >Training Done is required</div>
+                                                </div>
+                                        </div>
+                                    </div>
+    
+                                  
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="city">Select APs </label>
+                                            <ng-select  [items]="personList" [multiple]="true" bindLabel="person_Name" bindValue="person_ID"  (change)="selectedAPs($event)"
+                                            >
+                                        </ng-select>
+                                        <div style="margin-top: 5%;" *ngIf="(selectedAPList.length == 0) && validationfailed" class="alert alert-danger" >
+                                            <div >Please select APs</div>
+                                        </div>
+                                        </div>
+    
+    
+                                    </div>
+    
+                                    <!--/.row-->
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+    
+    
+                    <!--/.row-->
+    
+    
+    
+                    <!--/.row-->
+    
+                </div>
+    
+            </div>
+        </div>
+        <!--/.col-->
+    
+    
+    
+    </div>
+    
+    
+    
+    <div class="card-footer" >
+        <button class="btn-primary" (click)="AddTrainingData()"> Submit</button>
+        <button class="btn-danger" (click)="Clear()"> Clear</button>
+    </div>
+    
+ 
+</div>

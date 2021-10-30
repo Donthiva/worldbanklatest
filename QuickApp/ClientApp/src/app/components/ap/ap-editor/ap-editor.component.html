@@ -1,0 +1,407 @@
+<div>
+
+
+    <ng-template #indexee let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionsee let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editEmployeeMonitor(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+
+
+
+    <ng-template #indexeebb let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionseebb let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editBusinessMonitor(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+
+
+
+    <ng-template #indexeett let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionseett let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editThreeWheelMonitor(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+
+    <ng-template #indexeepp let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionseepp let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editPhaseOutMonitor(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+
+
+
+
+    <ng-template #indexeevv let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionseevv let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editVulnerabilility(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+
+    <ng-template #indexeetr let-value="value">
+        <strong>{{value}}</strong>
+    </ng-template>
+
+
+
+    <ng-template #actionseetr let-row="row" let-value="value" let-i="index">
+        <a class="btn btn-link btn-sm" href="javascript:;" (click)="editTrainingData(row)"><i
+                class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'roles.management.Edit' | translate}}</a>
+
+    </ng-template>
+
+    <ngb-tabset #tabset="ngbTabset" [destroyOnHide]="false">
+
+
+        <ngb-tab id="tabbusiness" title="Businees Monitor" *ngIf="(CurrentType == 2 || CurrentType == 5) && !IsTraining">
+            <ng-template ngbTabContent>
+
+                <app-business-monitor [personData]="personModel" [monitorEditmode]="monitorEditmodebusiness" (updatedevent)="updatedBusiness($event)"
+                    [editMode]="editModeBusiness"></app-business-monitor>
+
+
+            </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab id="tabemp" title="Employee Monitor" *ngIf="CurrentType == 1 && !IsTraining">
+            <ng-template ngbTabContent>
+
+
+                <app-employee-monitor [personData]="personModel" [monitorEditmode]="monitorEditmode" (updatedevent)="updateEmpoyeeMon($event)"
+                    [editMode]="editMode"></app-employee-monitor>
+
+            </ng-template>
+        </ngb-tab>
+
+
+
+        <ngb-tab id="tabthreeWheel" title="Threewheel Monitor" *ngIf="CurrentType == 3 && !IsTraining">
+            <ng-template ngbTabContent>
+
+
+                <app-three-wheel-monitor [personData]="personModel" [monitorEditmode]="monitorEditmodeThreeWheel"  (updatedevent)="updatedeventThreeWheel($event)"
+                    [editMode]="editModeThreeWheel"></app-three-wheel-monitor>
+
+            </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab id="tabphaseOut" title="PhaseOut Monitor" *ngIf="CurrentType == 4 && !IsTraining">
+            <ng-template ngbTabContent>
+
+
+                <app-phase-out-monitor [personData]="personModel" [monitorEditmode]="monitorEditmodePhaseOut" (updatedevent)="updatedphaseMon($event)"
+                    [editMode]="editModePhaseOut"></app-phase-out-monitor>
+
+            </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab id="tabTraining" title="Training Data" *ngIf="IsTraining">
+            <ng-template ngbTabContent>
+
+
+                <app-training-data [personData]="personModel" [Trainingmode]="monitorTrainingEditMode" (updatedevent)="updatedTrainingMon($event)"
+                    [editMode]="editModeTraining"></app-training-data>
+
+            </ng-template>
+        </ngb-tab>
+
+
+       
+
+
+        <ngb-tab title="Vulnerability" *ngIf="isVulnerable && !IsTraining">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <small>Vulnerability Infomation</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card">
+                                            <div class="card-header">
+
+                                                <small>Form</small>
+                                            </div>
+                                            <div class="card-body">
+
+
+
+                                                <div class="row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Monitor Date</label>
+                                                        <input type="Date" class="form-control" id="city" [(ngModel)]="VulnerabilityModel.monitor.monitor_Date">
+                                                    </div>
+
+
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="vat">Monitor Period</label>
+                                                        <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName"
+                                                            bindValue="id" [(ngModel)]="VulnerabilityModel.monitorPeriodId">
+                                                        </ng-select>
+                                                     
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                                <div class="row">
+
+
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Stability</label>
+                                                        <input type="text" class="form-control" id="city"
+                                                            [(ngModel)]="VulnerabilityModel.stability">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Is Income Secure</label>
+                                                        <ng-select class="custom" [items]="IsList" bindLabel="name"
+                                                            bindValue="id"
+                                                            [(ngModel)]="VulnerabilityModel.isIncomeSecure"
+                                                            (change)="IsIncomeSecure($event)">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    
+
+
+
+                                                </div>
+
+
+                                                <div class="row">
+
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Is Better Physical Living Facility</label>
+                                                        <ng-select class="custom" [items]="IsList" bindLabel="name"
+                                                            bindValue="id"
+                                                            [(ngModel)]="VulnerabilityModel.isBetterPhysicalLivingFacility"
+                                                            (change)="isBetterPhysicalLivingFacility($event)">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Protection And Security</label>
+                                                        <ng-select class="custom" [items]="IsList" bindLabel="name"
+                                                            bindValue="id"
+                                                            [(ngModel)]="VulnerabilityModel.protectionAndSecurity"
+                                                            (change)="IsprotectionAndSecurity($event)">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Vulnerability Status</label>
+                                                        <ng-select class="custom" [items]="VulStatus" bindLabel="name"
+                                                            bindValue="id"
+                                                            [(ngModel)]="VulnerabilityModel.vulnerabilityStatus"
+                                                            (change)="SelectedVulnerbilityStatus($event)">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Project Input</label>
+                                                        <input type="text" class="form-control" id="city"
+                                                            [(ngModel)]="VulnerabilityModel.projectInput">
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="row">
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="city">Cover Day Today Expeneses</label>
+                                                        <ng-select class="custom" [items]="IsList" bindLabel="name"
+                                                            bindValue="id"
+                                                            [(ngModel)]="VulnerabilityModel.coverDaytoDayExpenses"
+                                                            (change)="CoverDayTodayExpenses($event)">
+                                                        </ng-select>
+                                                    </div>
+
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="vat">Note</label>
+                                                        <textarea type="text" class="form-control" id="vat"
+                                                            placeholder="Phase out decision made"
+                                                            [(ngModel)]="VulnerabilityModel.note"></textarea>
+                                                    </div>
+                                                </div>
+                                                
+                                        
+                                            </div>
+                            
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </div>
+                            
+                           
+                                <!--/.row-->
+                
+                
+                
+                                <!--/.row-->
+                
+                            </div>
+                
+                        </div>
+                    </div>
+                    <!--/.col-->
+                
+                
+                
+                </div>
+                
+                
+                
+                <div class="card-footer" *ngIf="!editmodevulnerability">
+                    <button class="btn-primary" (click)="AddVulnerability()"> Submit</button>
+                    <button class="btn-danger"> Clear</button>
+                </div>
+                
+                <div class="card-footer" *ngIf="editmodevulnerability">
+                    <button class="btn-primary" (click)="updateVulnerability()"> Update</button>
+                    <button class="btn-danger"> Clear</button>
+                </div>
+                
+                <div *ngIf="IsVulnerableDataReady">
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover" 
+                    [loadingIndicator]="loadingIndicator" [rows]="rows6" [rowHeight]="35" [headerHeight]="35"
+                    [footerHeight]="35" [columns]="columns6" [scrollbarV]="true" [columnMode]="'force'">
+                </ngx-datatable>
+                </div>
+               
+
+
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="Monitoring Deitals"  *ngIf="!IsTraining">
+            <ng-template ngbTabContent>
+
+
+
+                <div *ngIf="CurrentType == 1 && IsDataReady &&  !IsTraining">
+
+
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                        [loadingIndicator]="loadingIndicator" [rows]="rows2" [rowHeight]="35" [headerHeight]="35"
+                        [footerHeight]="35" [columns]="columns2" [scrollbarV]="true" [columnMode]="'force'">
+                    </ngx-datatable>
+
+                </div>
+
+
+
+                <div *ngIf="CurrentType == 2 && IsBusinessDataReady && !IsTraining">
+
+
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                        [loadingIndicator]="loadingIndicator" [rows]="rows3" [rowHeight]="35" [headerHeight]="35"
+                        [footerHeight]="35" [columns]="columns3" [scrollbarV]="true" [columnMode]="'force'">
+                    </ngx-datatable>
+
+                </div>
+
+
+
+                <div *ngIf="CurrentType == 3 && IsThreeWheelDataReady && !IsTraining">
+
+
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                        [loadingIndicator]="loadingIndicator" [rows]="rows4" [rowHeight]="35" [headerHeight]="35"
+                        [footerHeight]="35" [columns]="columns4" [scrollbarV]="true" [columnMode]="'force'">
+                    </ngx-datatable>
+
+                </div>
+
+
+                
+
+                <div *ngIf="CurrentType == 4 && IsPhaseOutDataReady && !IsTraining">
+
+
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                        [loadingIndicator]="loadingIndicator" [rows]="rows5" [rowHeight]="35" [headerHeight]="35"
+                        [footerHeight]="35" [columns]="columns5" [scrollbarV]="true" [columnMode]="'force'">
+                    </ngx-datatable>
+
+                </div>
+
+               
+
+
+            </ng-template>
+        </ngb-tab>
+
+
+        <ngb-tab  title="Training Deitals"  *ngIf="IsTraining">
+
+            <ng-template ngbTabContent>
+
+                <div *ngIf="IsTraining && IsTrainingDataReady">
+                    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                        [loadingIndicator]="loadingIndicator" [rows]="rows7" [rowHeight]="35" [headerHeight]="35"
+                        [footerHeight]="35" [columns]="columns7" [scrollbarV]="true" [columnMode]="'force'">
+                    </ngx-datatable>
+
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        
+
+
+
+
+    </ngb-tabset>
+
+
+</div>

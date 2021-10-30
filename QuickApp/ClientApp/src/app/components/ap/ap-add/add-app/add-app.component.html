@@ -1,0 +1,1482 @@
+<div class="card modelscroll">
+    <!-- <div class="card-header">
+        <strong>AP View</strong>
+    </div> -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <small>Personal Info</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>AP Name</label>
+                            <input type="text" class="form-control" id="company" [(ngModel)]="personModel.Person_Name"
+                                placeholder="AP Name">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Person_Name == null ||  personModel.Person_Name == '')&& validationfailed"
+                                class="alert alert-danger">
+                                <div>AP Name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>AP NIC</label>
+                            <input type="text" class="form-control" id="vat" [(ngModel)]="personModel.Person_NIC"
+                                placeholder="AP NIC">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Person_NIC == null || personModel.Person_NIC == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>NIC is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>AP File number</label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.Person_File_number" placeholder="AP File number">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Person_File_number == null || personModel.Person_File_number =='') && validationfailed"
+                                class="alert alert-danger">
+                                <div>AP File number is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Person DOB</label>
+                            <input type="date" class="form-control" id="dob" placeholder="Person DOB"
+                                [(ngModel)]="personModel.Person_DOB">
+                            <div style="margin-top: 5%;" *ngIf="personModel.Person_DOB == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Person DOB is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+                    <div class="row">
+
+
+
+                        <div class="form-group col-md-6">
+                            <label>Select Previous Type</label>
+                            <ng-select class="custom" [items]="personPreviouTypesarr" bindLabel="type"
+                                bindValue="person_Type_ID" [(ngModel)]="personModel.previousTypeId"
+                                (change)="selectedPreviousType($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.PersonType == null && validationfailed" class="alert alert-danger">
+                                <div> Previous Type is required</div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group col-md-6">
+                            <label>Select Current Type</label>
+                            <ng-select class="custom" [items]="personTypesarr" bindLabel="type"
+                                bindValue="person_Type_ID" [(ngModel)]="personModel.PersonType"
+                                (change)="selectedCurrentType($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.PersonType == null && validationfailed" class="alert alert-danger">
+                                <div> Current Type is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Select Gender</label>
+                            <ng-select class="custom" [items]="gender" bindLabel="user_Gender"
+                                bindValue="user_Gender_ID" [(ngModel)]="personModel.Person_Gender"
+                                (change)="selectedGender($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.Person_Gender == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Select Gender is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Martial Status</label>
+                            <ng-select class="custom" [items]="martialStatus" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.martialStatusId">
+                            </ng-select>
+                            <div *ngIf="personModel.martialStatusId == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Martial Status is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+
+
+                        <div class="form-group col-md-6">
+                            <label>Educational Level</label>
+                            <ng-select class="custom" [items]="EducationLevel" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.educationalLevelId" (change)="selectedGender($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.educationalLevelId == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Educational Level is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Business / Livelihood Relocation</label>
+                            <ng-select class="custom" [items]="Relocation" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessOrLivelihoodRelocationId"
+                                >
+                            </ng-select>
+                            <div *ngIf="personModel.businessOrLivelihoodRelocationId == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business / Livelihood Relocation is required</div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row">
+
+                    
+
+                        <div class="form-group col-md-6">
+                            <label>Dead</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.doa">
+                            </ng-select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <small>Add UserImage</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group" *ngIf="userImageUrl != ''">
+                                            <img [src]="userImageUrl" height="200" width="300"> <br />
+                                        </div>
+                                        <div class="col-md-6 form-group"
+                                            *ngIf="userImageUrl == '' && apuserimage != ''">
+                                            <img [src]="apuserimage" height="200" width="300"> <br />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label>add User Image</label>
+                                            <input type="file" class="form-control" id="file"
+                                                (change)="handleUserImage($event)">
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+
+
+
+                    <div class="row" style="padding: 10px;">
+
+                        <div class="form-group col-md-6">
+                            <label>Is Vulnerable</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="IsVulnerable" (change)="SelectedIsVulnerable($event)">
+                            </ng-select>
+
+                        </div>
+
+
+                    </div>
+                    <!--/.row-->
+
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row" *ngIf="IsVulnerable">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Vulnerability Information</small>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Vulnerability Type</label>
+                            <ng-select class="custom" [items]="vulnerabilityTypes"
+                                bindLabel="vulnerability_Type_Description" bindValue="vulnerability_Type_ID"
+                                [(ngModel)]="personModel.vulnerability.vulnerability_Type"
+                                (change)="selectedVulnerabilityType($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.vulnerability.vulnerability_Type == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Vulnerability Type is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Vulnerability Level</label>
+                            <ng-select class="custom" [items]="vulnerabilityLevles"
+                                bindLabel="vulnerability_Level_Description" bindValue="vulnerability_Level_ID"
+                                [(ngModel)]="personModel.vulnerability.vulnerability_Level"
+                                (change)="selectedVulnerabilityLevel($event)">
+                            </ng-select>
+                            <div *ngIf="personModel.vulnerability.vulnerability_Level == null && validationfailed"
+                                class="alert alert-danger">
+                                <div>Vulnerability Level is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>What is Vulnerability if other</label>
+                            <input type="text" class="form-control" id="company"
+                                [(ngModel)]="personModel.vulnerability.otherVulnerability" placeholder="other data">
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>BackGround Information </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.vulnerability.backgroundInformation"
+                                placeholder="BackGround Information">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.vulnerability.backgroundInformation == null || personModel.vulnerability.backgroundInformation == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Back Ground Information is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Initial Project</label>
+                            <input type="text" class="form-control" id="company"
+                                [(ngModel)]="personModel.vulnerability.initialProjectInput"
+                                placeholder="Initial Project">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.vulnerability.initialProjectInput == null || personModel.vulnerability.initialProjectInput == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Initial Project is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Notes </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.vulnerability.vulnerability_Remarks" placeholder="Notes">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.vulnerability.vulnerability_Remarks == null || personModel.vulnerability.vulnerability_Remarks == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Notes is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--/.row-->
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Address Form</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Address Number</label>
+                            <input type="text" class="form-control" id="company" [(ngModel)]="personModel.addressNo"
+                                placeholder="Address Number">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.addressNo == null || personModel.addressNo == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Address Number is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label> Street </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.addressStreet"
+                                placeholder="Address Street">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.addressStreet == null || personModel.addressStreet == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Street is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <!--/.row-->
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label> Country</label>
+                            <ng-select class="custom" [items]="country" bindLabel="country_Name" bindValue="country_ID"
+                                [(ngModel)]="personModel.country" (change)="selectedCountry($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.country == null) && validationfailed" class="alert alert-danger">
+                                <div> Country is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label> State</label>
+                            <ng-select class="custom" [items]="states" bindLabel="states_Name" bindValue="states_ID"
+                                [(ngModel)]="personModel.state" (change)="selectedState($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.state == null) && validationfailed" class="alert alert-danger">
+                                <div> State is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label> District</label>
+                            <ng-select class="custom" [items]="district" bindLabel="district_Name"
+                                bindValue="district_ID" [(ngModel)]="personModel.district"
+                                (change)="selectedDistrict($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.district == null) && validationfailed" class="alert alert-danger">
+                                <div> District is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label> City</label>
+                            <ng-select class="custom" [items]="City" bindLabel="city_Name" bindValue="city_ID"
+                                [(ngModel)]="personModel.City" (change)="selectedCity($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.City == null) && validationfailed" class="alert alert-danger">
+                                <div> City is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label> latitude</label>
+                            <input type="text" class="form-control" id="city" placeholder="latitude"
+                                [(ngModel)]="personModel.latitude">
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label> longitude</label>
+                            <input type="text" class="form-control" id="city" placeholder="longitude"
+                                [(ngModel)]="personModel.longitude">
+
+                        </div>
+
+
+                    </div>
+                    <!--/.row-->
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Contact Information</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- <div class="col-md-6 form-group">
+                            <label>Land Line</label>
+                            <input type="number" class="form-control" id="company"
+                                [(ngModel)]="personModel.Land_Line" placeholder="Land Line">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Land_Line == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Land Line is required</div>
+                            </div>
+                        </div> -->
+                        <div class="col-md-6 form-group">
+                            <label>Phone Number</label>
+                            <input type="number" class="form-control" id="vat"
+                                [(ngModel)]="personModel.Person_Contact_Number" placeholder="Phone Number">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Person_Contact_Number == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Phone Number is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Bank Information</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>Bank Type</label>
+                            <ng-select class="custom" [items]="BankType" bindLabel="bankTypeName" bindValue="id"
+                                [(ngModel)]="BankTypeId" (change)="selectedBankTypeValue($event)">
+                            </ng-select>
+                            <div *ngIf="(BankTypeId == null) && validationfailed" class="alert alert-danger">
+                                <div>Bank Type is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Bank Name</label>
+                            <ng-select class="custom" [items]="BankName" bindLabel="bank_Name" bindValue="bank_ID"
+                                [(ngModel)]="personModel.BankName" (change)="selectedBank($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.BankName == null) && validationfailed" class="alert alert-danger">
+                                <div>Bank Name is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Bank Branch</label>
+                            <ng-select class="custom" [items]="BankBranch" bindLabel="bank_Branch_Description"
+                                bindValue="bank_Branch_ID" [(ngModel)]="personModel.BankBranch"
+                                (change)="selectedBankBranch($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.BankBranch == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Bank Branch is required</div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>Bank Account No</label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.AccountNumber"
+                                placeholder="Bank Account No">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.AccountNumber == null || personModel.AccountNumber == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Bank Account is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+
+    <div class="row" *ngIf="CurrentType==1">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Employee</small>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>Reallocated Month and year</label>
+                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.employeeRealocatedMonthandYear">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.employeeRealocatedMonthandYear == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Reallocated Month and year is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Business/ Livelihood Relocation</label>
+                            <ng-select class="custom" [items]="reloacatedList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.employeeBusinessLivelihoodRealocation">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.isFirstBusinessPlan == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business/ Livelihood Relocation required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Special Observation(Note)</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"  [(ngModel)]="personModel.employeeSpecialNotes"> </textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row" *ngIf="CurrentType==2 || CurrentType==5">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small *ngIf="CurrentType==2">Busineess General</small>
+                    <small *ngIf="CurrentType==5">Mobile Vendor</small>
+
+                </div>
+                <div class="card-body">
+
+ 
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Preparation of First Business Plan</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.isFirstBusinessPlan">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.isFirstBusinessPlan == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Preparation of First Business Plan required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Business Plan</label>
+                            <ng-select class="custom" [items]="BusinessPlan" bindLabel="buiness_Plan_Description"
+                                bindValue="buiness_Plan_ID" [(ngModel)]="personModel.businessGeneral.BusinessPlanId"
+                                (change)="selectedBusinessPlan($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.BusinessPlanId == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business Plan is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Business Plan Note</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                [(ngModel)]="personModel.businessGeneral.businessPlanNote"> </textarea>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Is Business Plan change from initial BP</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.isBusinessPlanChangeFromInitialBP"
+                               >
+                            </ng-select>
+                           
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is BankLoans</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsBankLoans"
+                                (change)="selectedIsBankLoans($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsBankLoans == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is BankLoans is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Business Type</label>
+                            <ng-select class="custom" [items]="BusinessType" bindLabel="businessTypeName" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.BusinessTypeId"
+                                (change)="selectedBusinessType($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.BusinessTypeId == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business Type is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row" *ngIf="CurrentType==5">
+                        <div class="form-group col-md-6">
+                            <label for="city">Business Type Note</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                [(ngModel)]="personModel.businessGeneral.businessTypeNote"> </textarea>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Business information Note</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                [(ngModel)]="personModel.businessGeneral.businessInformationNote"> </textarea>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is EntilementFund</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsEntilementFund"
+                                (change)="selectedIsEntilementFund($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsEntilementFund == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is EntilementFund is required</div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label>Entiled Fund Amount</label>
+
+                            <input type="number" class="form-control" id="dob" placeholder="Entiled Fund Amount">
+
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Own Savings</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsOwnService"
+                                (change)="selectedIsOwnService($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsOwnService == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Own Savings is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is PawningJewellary</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsPawningJewellary"
+                                (change)="selectedIsPawningJewellary($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsPawningJewellary == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is PawningJewellary is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is PartnerShip</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsPartnerShip"
+                                (change)="selectedIsPartnerShip($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsPartnerShip == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is PartnerShip is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is formalLoans</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.businessGeneral.IsformalLoans"
+                                (change)="selectedIsformalLoans($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.IsformalLoans == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is formalLoans is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>GSBS Previous Income</label>
+                            <input type="number" class="form-control" id="city"
+                                [(ngModel)]="personModel.businessGeneral.GSBSPreviousIncome"
+                                placeholder="GSBS Previous Income">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.businessGeneral.GSBSPreviousIncome == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>GSBS Previous Income is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Reallocated Month and year</label>
+                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05"
+                                [(ngModel)]="personModel.businessGeneral.ReallocatedMonthandyear">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.businessGeneral.ReallocatedMonthandyear == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Reallocated Month and year is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Special Observation Note</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"> </textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <small>Add Business Plan</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">File Name</th>
+                                                    <th scope="col">Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let row of BusinessFileListToUpload; let i=index">
+                                                    <th scope="row">{{i+1}}</th>
+                                                    <td>{{row.name}}</td>
+                                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                                            (click)="deleteBusinessfile(i)"><i class="fa fa-trash-o"
+                                                                aria-hidden="true"></i> {{'roles.management.Delete' |
+                                                            translate}}</a></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                        <div class="form-group col-md-6">
+                                            <label>add business Plan Documents</label>
+                                            <input type="file" class="form-control" id="file"
+                                                (change)="handleBusinessPlan($event.target.files)">
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.col-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.col-->
+    <div class="row" *ngIf="CurrentType==3">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>ThreeWheel Driver</small>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label>Reallocated Month and year</label>
+                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.threeWheelDriver.realocatedMonthandYear">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.employeeRealocatedMonthandYear == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Reallocated Month and year is required</div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Business/ Livelihood Relocation</label>
+                            <ng-select class="custom" [items]="reloacatedList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.threeWheelDriver.businessLivelihoodRealocation">
+                            </ng-select>
+                            <div *ngIf="(personModel.businessGeneral.isFirstBusinessPlan == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business/ Livelihood Relocation required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Special Observation(Note)</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"  [(ngModel)]="personModel.threeWheelDriver.specialNotes"> </textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+
+    <div class="row" *ngIf="CurrentType==4">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Phase Out</small>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>File Number </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.fileNumber" placeholder="File Number">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.fileNumber == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>File Number is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Decision Made</label>
+                            <ng-select class="custom" [items]="decisionMade" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.phaseOut.DecisionMade">
+                            </ng-select>
+                            <div *ngIf="(personModel.phaseOut.DecisionMade == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Decision Made is required</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>PhaseOut Date </label>
+                            <input type="date" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.PhaseOutDate" placeholder="PhaseOut Date">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.PhaseOutDate == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Situation is required</div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group col-md-6">
+                            <label>Reallocated Month and Year </label>
+                            <input type="month" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.MonthAndYear" placeholder="Month and Year">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.MonthAndYear == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Month and Year is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- 
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Use Of Entile Fund </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.UseOfEntileFund" placeholder="Use Of Entile Fund">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.UseOfEntileFund == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Use Of Entile Fund is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Social Well Being </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.SocialWellBeing" placeholder="Social Well Being">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.SocialWellBeing == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Social Well Being is required</div>
+                            </div>
+                        </div>
+
+
+
+                    </div> -->
+
+
+                    <!-- <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Is Interest OfF Fixed Deposit</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.phaseOut.IsInterestOfFixedDeposit"
+                                (change)="selectedInterestOfFFixedDeposit($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.phaseOut.IsInterestOfFixedDeposit == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is Interest OfF Fixed Deposit is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Is lives with close family</label>
+                            <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                                [(ngModel)]="personModel.phaseOut.IsLivesWithcloseFamily"
+                                (change)="selectedLivesWithcloseFamily($event)">
+                            </ng-select>
+                            <div *ngIf="(personModel.phaseOut.IsLivesWithcloseFamily == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Is lives with close family is required</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Planed Business </label>
+                            <input type="text" class="form-control" id="city"
+                                [(ngModel)]="personModel.phaseOut.PlanedBusiness" placeholder="Planed Business">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.PlanedBusiness == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Planed Business is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Reason For PhaseOut </label>
+
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"
+                                [(ngModel)]="personModel.phaseOut.ReasonForPhaseOut"> </textarea>
+
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.phaseOut.ReasonForPhaseOut == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Reason For PhaseOut is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row" *ngIf="PreviousType==2">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header" >
+                    <small>Previously Employee</small>
+                </div>
+                <div class="card-body">
+                    <div class="row" >
+
+
+                        <div class="form-group col-md-6" >
+                            <label>GSBS Livelihood Engagement </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.gSBSLivelihoodEngagement"
+                                placeholder="GSBS Livelihood Engagement">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.gSBSLivelihoodEngagement == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Job is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Monthly Income (LKR) </label>
+                            <input type="number" class="form-control" id="city" [(ngModel)]="personModel.monthlyIncome" placeholder="Monthly Income">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.monthlyIncome == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Salary is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Employer </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.employer"
+                                placeholder="Employer">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.employer == null || personModel.employer == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Employer is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Special Observations at GSBS (Note) </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.specialObservationsatGSBS"
+                                placeholder="Note">
+                            <!-- <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Employer == null || personModel.Employer == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Employer is required</div>
+                            </div> -->
+                        </div>
+
+
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <small>GSBS Livelihood Engagement (Image)</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group" *ngIf="userImageUrl != ''">
+                                            <img [src]="userImageUrl" height="200" width="300"> <br />
+                                        </div>
+                                        <div class="col-md-6 form-group"
+                                            *ngIf="userImageUrl == '' && apuserimage != ''">
+                                            <img [src]="apuserimage" height="200" width="300"> <br />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label>add Image</label>
+                                            <input type="file" class="form-control" id="file"
+                                                (change)="handleUserImage($event)">
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div> -->
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    
+    <div class="row" *ngIf="PreviousType==3 || PreviousType==5">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header" >
+                    <small *ngIf="PreviousType==3">Previously Business Person</small>
+                    <small *ngIf="PreviousType==5">Mobile Vendor</small>
+                </div>
+                <div class="card-body">
+                    <div class="row" >
+
+
+                        <div class="form-group col-md-6" >
+                            <label>GSBS Livelihood Engagement </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.businessGeneral.gSBSLivelihoodEngagement"
+                                placeholder="GSBS Livelihood Engagement">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.businessGeneral.gSBSLivelihoodEngagement == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>GSBS Livelihood Engagement required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Monthly Income (LKR) </label>
+                            <input type="number" class="form-control" id="city" [(ngModel)]="personModel.businessGeneral.monthlyIncome" placeholder="Monthly Income">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.businessGeneral.monthlyIncome == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Monthly Income required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Business/Business Loaction </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.businessGeneral.business_BusinessLoaction"
+                                placeholder="Business/Business Loaction">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.businessGeneral.business_BusinessLoaction == null || personModel.businessGeneral.business_BusinessLoaction == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business/Business Loaction is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Special Observations at GSBS (Note) </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.businessGeneral.specialObservationsatGSBS"
+                                placeholder="Note">
+                            <!-- <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Employer == null || personModel.Employer == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Employer is required</div>
+                            </div> -->
+                        </div>
+
+
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <small>GSBS Livelihood Engagement (Image)</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group" *ngIf="userImageUrl != ''">
+                                            <img [src]="userImageUrl" height="200" width="300"> <br />
+                                        </div>
+                                        <div class="col-md-6 form-group"
+                                            *ngIf="userImageUrl == '' && apuserimage != ''">
+                                            <img [src]="apuserimage" height="200" width="300"> <br />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label>add Image</label>
+                                            <input type="file" class="form-control" id="file"
+                                                (change)="handleUserImage($event)">
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div> -->
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+
+    <div class="row" *ngIf="PreviousType==4">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header" >
+                    <small>Previously Three Wheel Driver </small>
+                </div>
+                <div class="card-body">
+                    <div class="row" >
+
+
+                        <div class="form-group col-md-6" >
+                            <label>GSBS Livelihood Engagement </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.threeWheelDriver.gSBSLivelihoodEngagement"
+                                placeholder="GSBS Livelihood Engagement">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.threeWheelDriver.gSBSLivelihoodEngagement == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>GSBS Livelihood Engagement required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Monthly Income (LKR) </label>
+                            <input type="number" class="form-control" id="city" [(ngModel)]="personModel.threeWheelDriver.monthlyIncome" placeholder="Monthly Income">
+                            <div style="margin-top: 5%;" *ngIf="(personModel.threeWheelDriver.monthlyIncome == null) && validationfailed"
+                                class="alert alert-danger">
+                                <div>Monthly Income required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="form-group col-md-6">
+                            <label>Business Loaction </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.threeWheelDriver.businessLoaction"
+                                placeholder="Business Loaction ">
+                            <div style="margin-top: 5%;"
+                                *ngIf="(personModel.threeWheelDriver.businessLoaction == null || personModel.threeWheelDriver.businessLoaction == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Business/Business Loaction is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Special Observations at GSBS (Note) </label>
+                            <input type="text" class="form-control" id="city" [(ngModel)]="personModel.threeWheelDriver.Employer"
+                                placeholder="Note">
+                            <!-- <div style="margin-top: 5%;"
+                                *ngIf="(personModel.Employer == null || personModel.Employer == '') && validationfailed"
+                                class="alert alert-danger">
+                                <div>Employer is required</div>
+                            </div>
+                        </div> -->
+                        </div>
+
+                    <!-- <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+
+                                    <small>GSBS Livelihood Engagement (Image)</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group" *ngIf="userImageUrl != ''">
+                                            <img [src]="userImageUrl" height="200" width="300"> <br />
+                                        </div>
+                                        <div class="col-md-6 form-group"
+                                            *ngIf="userImageUrl == '' && apuserimage != ''">
+                                            <img [src]="apuserimage" height="200" width="300"> <br />
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label>add Image</label>
+                                            <input type="file" class="form-control" id="file"
+                                                (change)="handleUserImage($event)">
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div> -->
+
+
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    </div>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">File Name</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of fileListToUpload; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{row.name}}</td>
+                <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deletefile(i)"><i class="fa fa-trash-o"
+                            aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>import file</label>
+            <input multiple type="file" class="form-control" id="file" (change)="handleFileInput($event.target.files)">
+        </div>
+
+    </div>
+
+    <div class="card-footer" *ngIf="!edit && !IsView">
+        <button class="btn-primary" (click)="addPersonData()"> Submit</button>
+        <button class="btn-danger" (click)="clear()"> Clear</button>
+    </div>
+
+
+    <div class="card-footer" *ngIf="edit && !IsView">
+        <button class="btn-primary" (click)="updataData()"> Update</button>
+        <button class="btn-danger" (click)="clear()"> Clear</button>
+    </div>
+</div>
+
+<ngx-spinner></ngx-spinner>

@@ -1,0 +1,33 @@
+.ng-select.custom {
+    border:0px;
+    min-height: 0px;
+    border-radius: 0;
+}
+.ng-select.custom ::ng-deep .ng-select-container {            
+    min-height: 27.5px;
+}
+
+
+
+.ng-select::ng-deep .ng-select-container .ng-value-container {
+    align-items: stretch;
+    padding: 0;
+    border-top: 0;
+}
+
+
+.modelscroll{
+    height: 80vh;
+    overflow-y: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

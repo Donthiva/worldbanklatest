@@ -1,0 +1,112 @@
+<div>
+    <div class="row control-box">
+      <div class="col-lg-8">
+        <div class="form-group search-box">
+          <app-search-box (searchChange)="onSearchChanged($event)" placeholder="{{'APs.tab.APList' | translate}}">></app-search-box>
+        </div>
+      </div>
+      <div class="col-lg-4 pr-lg-5">
+        <ul class="nav flex-column flex-lg-row justify-content-end">
+          <li *ngIf="canManageRoles" class="nav-item toolbaritem">
+            <a class="nav-link" href="javascript:;" (click)="newPerson()">
+              <i class="fa fa-plus-circle"></i> {{'APs.ApItems.NewAP' | translate}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div *ngIf="IsDataReady"> 
+    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+                   [loadingIndicator]="loadingIndicator"
+                   [rows]="rows"
+                    [columns]="columns"
+                    [headerHeight]="50"
+                    [footerHeight]="50"
+                    rowHeight="auto"
+                    [limit]="10"
+                   [columnMode]="'force'">
+    </ngx-datatable>
+  </div>
+    <ng-template #indexTemplate let-value="value">
+      <strong>{{value}}</strong>
+    </ng-template>
+  
+  
+    <ng-template #actionsTemplate let-row="row" let-value="value" let-i="index">
+      <a class="btn btn-link btn-sm" href="javascript:;" (click)="editPerson(row)" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'roles.management.Edit' | translate}}</a>
+      <a  class="btn btn-link btn-sm" href="javascript:;" (click)="viewPerson(row)"><i class="fa fa-eye" aria-hidden="true"></i> {{'roles.management.Details' | translate}}</a>
+      <a  class="btn btn-link btn-sm" href="javascript:;" (click)="AddMonitor(row)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{'roles.management.AddMonitor' | translate}}</a>
+      <a  class="btn btn-link btn-sm" href="javascript:;" (click)="AddTraining(row)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{'roles.management.AddTraining' | translate}}</a>
+      <a  class="btn btn-link btn-sm" href="javascript:;" (click)="DeletePerson(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a>
+      
+
+     <!-- <a  class="btn btn-link btn-sm" href="javascript:;" (click)="deleteRole(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a> -->
+    </ng-template>
+
+
+    <ng-template #actionsTemplatecurrentType let-row="row" let-value="value" let-i="index">
+      <span  class="badge badge-pill badge-secondary">{{row.PersonTypeName}}</span>
+      
+
+     <!-- <a  class="btn btn-link btn-sm" href="javascript:;" (click)="deleteRole(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a> -->
+    </ng-template>
+  
+  
+    <div class="modal fade" bsModal #editorModal="bs-modal" (onHidden)="onEditorModalHidden()" [config]="{backdrop: 'static'}" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary" >
+            <h4 style="color: aliceblue;" class="modal-title float-left"><i class="fa fa-shield"></i> Register AP</h4>
+            <!-- <h4 *ngIf="!canManageRoles" class="modal-title float-left"><i class="fa fa-shield"></i> {{'roles.management.RoleDetails' | translate:editingRoleName}}</h4>
+            <h4 *ngIf="canManageRoles" class="modal-title float-left"><i class="fa fa-shield"></i> {{editingRoleName ? ('roles.management.EditRole' | translate:editingRoleName) : ('roles.management.NewRole' | translate)}}</h4> -->
+            <button type="button" class="close float-right" title="Close" (click)="editorModal.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <app-add-app [ValidatoinFailed]="validationfalied" [personData]="persondataEdit" [edit]="Isedit" [IsView]="IsView" (loadApData)="LoadApData($event)" (clearEdit)="ClearEditEvent($event)" (updatedevent)="updatePersonData($event)"  #roleEditor></app-add-app>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" bsModal #ViewModal="bs-modal" (onHidden)="onViewModalHidden()" [config]="{backdrop: 'static'}" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h4 style="color: aliceblue;" class="modal-title float-left"><i class="fa fa-shield"></i> Report Card</h4>
+              <!-- <h4 *ngIf="!canManageRoles" class="modal-title float-left"><i class="fa fa-shield"></i> {{'roles.management.RoleDetails' | translate:editingRoleName}}</h4>
+              <h4 *ngIf="canManageRoles" class="modal-title float-left"><i class="fa fa-shield"></i> {{editingRoleName ? ('roles.management.EditRole' | translate:editingRoleName) : ('roles.management.NewRole' | translate)}}</h4> -->
+              <button type="button" class="close float-right" title="Close" (click)="ViewModal.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <app-ap-view [personData]="persondataEdit" [edit]="Isedit" [IsView]="IsView" (updatedevent)="updatePersonData($event)"  #roleEditor></app-ap-view>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" bsModal #MonitorModal="bs-modal" (onHidden)="onViewModalHidden()" [config]="{backdrop: 'static'}" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content ">
+            <div class="modal-header bg-primary">
+            <h4 style="color: aliceblue;" class="modal-title float-left"><i class="fa fa-shield"></i> Manage Monitor Details</h4>
+              <!-- <h4 *ngIf="canManageRoles" class="modal-title float-left"><i class="fa fa-shield"></i> {{editingRoleName ? ('roles.management.EditRole' | translate:editingRoleName) : ('roles.management.NewRole' | translate)}}</h4> -->
+              <button type="button" class="close float-right" title="Close" (click)="MonitorModal.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <app-ap-editor  [IsTraining]="IsTraining" [personData]="persondataEdit" [edit]="Isedit" [IsView]="IsView" (updatedevent)="updateTable($event)"  #roleEditor></app-ap-editor>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+  <ngx-spinner></ngx-spinner>

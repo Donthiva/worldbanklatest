@@ -1,0 +1,76 @@
+<div class="card">
+
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Add State</small>
+                </div>
+                <div class="card-body">
+                  
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Select Country</label>
+                            <ng-select  class="custom"  bindLabel="country_Name" bindValue="country_ID" [items]="countries" [(ngModel)]="stateModel.States_Country_ID"
+                            (change)="selectedCountry($event)"
+                               >
+                            </ng-select>
+                        </div>
+
+
+
+                        <div class="form-group col-md-6">
+                            <label for="state">State Name</label>
+                            <input type="text" class="form-control" id="state" [(ngModel)]="stateModel.States_Name" placeholder="Name">
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+
+
+                    <!--/.row-->
+
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+    <div class="card-footer" *ngIf="!update">
+        <button class="btn-primary" (click)="addNewState()"> Submit</button>
+        <button class="btn-danger"(click)="Clear()"> Clear</button>
+    </div>
+    <div class="card-footer" *ngIf="update">
+        <button class="btn-primary" (click)="updateState()"> Update</button>
+        <button class="btn-danger"(click)="Clear()"> Clear</button>
+    </div>
+
+    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+    [loadingIndicator]="loadingIndicator"
+    [rows]="rows"
+    [rowHeight]="35"
+    [headerHeight]="35"
+    [footerHeight]="35"
+    [columns]="columns"
+    [scrollbarV]="true"
+    [columnMode]="'force'">
+</ngx-datatable>
+
+<ng-template #indexTemplatestate let-value="value">
+<strong>{{value}}</strong>
+</ng-template>
+
+
+<ng-template #actionsTemplatestate let-row="row" let-value="value" let-i="index">
+<a class="btn btn-link btn-sm" href="javascript:;" (click)="view(row)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'roles.management.Edit' | translate}}</a>
+<a  class="btn btn-link btn-sm" href="javascript:;" (click)="delete(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a>
+</ng-template>
+
+
+</div>

@@ -1,0 +1,389 @@
+{
+  "app": {
+    "Welcome": "Welcome",
+    "Notifications": "Notifications",
+    "New": "New"
+  },
+  "mainMenu": {
+    "Appointments": "Appointments",
+    "Customers": "Customers",
+    "Add_Customer": "AP",
+    "Products": "Products",
+    "Orders": "Orders",
+    "About": "About",
+    "Logout": "Logout",
+    "MasterData" : "Master Data"
+  },
+  "pageHeader": {
+    "Dashboard": "Dashboard",
+    "Customers": "Customers",
+    "Products": "Products",
+    "Orders": "Orders",
+    "NotFound": "Not-Found",
+    "About": "About",
+    "Settings": "Settings",
+    "Add_Customer":"AP Management",
+    "MasterData": "Master Data"
+  },
+  "home": {
+    "NoWidgets1": "You have no widgets displayed. Goto",
+    "NoWidgets2": "to configure available widgets",
+    "StatisticsTitle": "Some Important Stuff"
+  },
+  "notFound": {
+    "404": "404",
+    "pageNotFound": "The page you are looking for does not exist",
+    "backToHome": "Back to home"
+  },
+  "settings": {
+    "tab": {
+      "Profile": "Profile",
+      "Preferences": "Preferences",
+      "Users": "Users",
+      "Roles": "Roles"
+    },
+    "header": {
+      "UserProfile": "User Profile",
+      "UserPreferences": "User Preferences",
+      "UserDepartments": "User Departments",
+      "UsersManagements": "Users Managements",
+      "RolesManagement": "Roles Management"
+    }
+  },
+  "APs": {
+    "tab": {
+      "APList": "AP's"
+    },
+    "ApItems":{
+      "list":{
+        "Id" : "ID no",
+        "Name" : "Name",
+        "Gender": "Gender",
+        "Type": "Current Type"
+
+      },
+      "Employee_Summary":{
+        "Current_Employer" : "Name",
+        "Salary" : "Salary",
+        "Start_Date": "Start Date"
+
+      },
+      "ThreeWheel_Monitor":{
+        "CurrentPark" : "CurrentPark",
+        "MonthlyIncome" : "Salary",
+        "Status": "Status"
+
+      },
+      "PhaseOut_Monitor":{
+        "fileNumber" : "fileNumber",
+        "situation" : "situation",
+        "reasonForPhaseOut": "reasonForPhaseOut"
+
+      },
+      "VulnerbilityMonitor":{
+        "stability" : "Stability",
+        "vulnerabilityStatus" : "Vulnerability Status",
+        "note": "note"
+
+      },
+      "Training":{
+        "dS_office" : "DS office",
+        "salaryStatus" : "Salary status",
+        "status": "Status"
+
+      },
+      "Business_Monitor":{
+        "Current_Business" : "Current Business",
+        "Income" : "Monthly Income",
+        "Summary": "Summary"
+
+      },
+      "NewAP" : "New AP"
+    },
+    "BankTypes":{
+      "list":{
+        "Name" : "Bank Type",
+        "Description" : "Description"
+      }
+    },
+    "MonitorPeriod":{
+      "list":{
+        "peroildName" : "Period Name",
+        "startDate" : "Start Date",
+        "endDate" : "End Date"
+      }
+    }, "BusinessPlan":{
+      "list":{
+        "business_Plan_Description" : "Business Plan Description"
+       
+      }
+    },"BusinessTypes":{
+      "list":{
+        "businessTypeName" : "Business Type Description"
+       
+      }
+    }
+    ,
+    "Countries":{
+      "list":{
+        "Country_Name" : "Country Name"
+      }
+    }
+    ,
+    "States":{
+      "list":{
+        "States_Name" : "States Name",
+        "Country_Name" : "Country Name"
+      }
+    }
+    ,
+    "Cities":{
+      "list":{
+        "City_Name" : "City Name",
+        "City_District_Name" : "District Name",
+        "City_States_Name" : "States Name",
+        "City_Country_Name" : "Country Name"
+      }
+    }
+    ,
+    "Districts":{
+      "list":{
+        "District_Name" : "District Name",
+        "State_Name" : "States Name",
+        "Country_Name" : "Country Name"
+      }
+    }
+    ,
+    "Bank":{
+      "list":{
+        "Bank_Name" : "Bank Name",
+        "Bank_Type_Name" : "Bank Type"
+      }
+    }
+    ,
+    "BankBranch":{
+      "list":{
+        "Bank_Branch" : "Bank Branch",
+        "Bank_Name" : "Bank Name"
+      }
+    }
+    ,
+    "BankAccountTypes":{
+      "list":{
+        "BankAccountType_Name" : "BankAccountType Name",
+        "BankAccountType_Description" : "Description"
+      }
+    }
+    ,
+    "EmployerTypes":{
+      "list":{
+        "Employer_Type_Name" : "Employer Type Name",
+        "EmployerType_Des" : "Description"
+      }
+    }
+    ,
+    "EmploymentStatuses":{
+      "list":{
+        "Status" : "Status",
+        "Status_Description" : "Description"
+      }
+    }
+    ,
+    "EmploymentTypes":{
+      "list":{
+        "Employment_Type_Name" : "Employment Type Name",
+        "Description" : "Description"
+      }
+    }
+    ,
+    "TrainingTypes":{
+      "list":{
+        "TrainingType_Name" : "TrainingType Name",
+        "TrainingType_Description" : "TrainingType Description"
+      }
+    }
+    ,
+    "VulnerabilityTypes":{
+      "list":{
+        "VulnerabilityType_Name" : "VulnerabilityType Name",
+        "Vulnerability_Type_Description" : "Description"
+      }
+    }
+    ,
+    "VulnerabilityLevels":{
+      "list":{
+        "VulnerabilityLevel_Name" : "VulnerabilityLevel Name",
+        "Vulnerability_Level_Description" : "Description"
+      }
+    }
+
+  },
+  "MasterData":{
+    "Cities" : "Cities",
+    "Add_Cities": "Add Cities",
+    "Types":"Types",
+    "Add_Types": "Add Types",
+    "Countries" : "Country",
+    "District": "District",
+    "State" : "State",
+    "bank" : "Bank",
+    "banktype" : "Bank Type",
+    "bankBranch" : "Bank Branch",
+    "bankaccountType" : "Bank Account Type",
+    "employerType" : "Employer Type",
+    "employementType" : "Employement Type",
+    "employementStatus" : "Employement Status",
+    "personType" : "Person Type",
+    "trainingType" : "Training Type",
+    "valnerability" : "Valnerability Type",
+    "valnerabilityLevel" : "Valnerability Level",
+    "MonitorPeriod": "Monitor Period",
+    "BusinessPlan" : "Business Plan",
+    "BusinessType": "Business Type"
+},
+
+  "preferences": {
+    "ReloadPreferences": "Reload Preferences:",
+    "ReloadPreferencesHint": "Load default preferences (local changes are discarded)",
+    "Language": "Language:",
+    "Default": "Default",
+    "English": "English",
+    "French": "French",
+    "German": "German",
+    "Portuguese": "Portuguese",
+    "Arabic": "Arabic",
+    "Korean": "Korean",
+    "LanguageHint": "Select the preferred language for your account",
+    "HomePage": "Home Page:",
+    "Dashboard": "Dashboard",
+    "Customers": "Customers",
+    "Products": "Products",
+    "Orders": "Orders",
+    "About": "About",
+    "Settings": "Settings",
+    "HomePageHint": "Select the default page to navigate to on login",
+    "Theme": "Theme:",
+    "DefaultTheme": "Default",
+    "CosmoTheme": "Cosmo",
+    "SolarTheme": "Solar",
+    "CeruleanTheme": "Cerulean",
+    "FlatlyTheme": "Flatly",
+    "SketchyTheme": "Sketchy",
+    "SlateTheme": "Slate",
+    "SpacelabTheme": "Spacelab",
+    "SuperheroTheme": "Superhero",
+    "UnitedTheme": "United",
+    "JournalTheme": "Journal",
+    "LumenTheme": "Lumen",
+    "MintyTheme": "Minty",
+    "PulseTheme": "Pulse",
+    "ThemeHint": "Select the default color theme for your account",
+    "DashboardStatistics": "Dashboard Statistics:",
+    "DashboardStatisticsHint": "Show demo graph widget on the dashboard",
+    "DashboardNotifications": "Dashboard Notifications:",
+    "DashboardNotificationsHint": "Show application notifications on the dashboard",
+    "DashboardTodo": "Dashboard Todo:",
+    "DashboardTodoHint": "Shows demo todo widget on the dashboard",
+    "DashboardBanner": "Dashboard Banner:",
+    "DashboardBannerHint": "Show demo information banner widget on the dashboard",
+    "ResetDefault": "Reset default",
+    "SetDefault": "Set as default"
+  },
+  "users": {
+    "management": {
+      "Search": "Search for user...",
+      "NewUser": "New User",
+      "View" : "View",
+      "Edit": "Edit",
+      "Delete": "Delete",
+      "EditUser": "Edit User \"{{name}}\"",
+      "Title": "Title",
+      "UserName": "User Name",
+      "FullName": "Full Name",
+      "Email": "Email",
+      "Roles": "Roles",
+      "PhoneNumber": "Phone Number"
+    },
+    "editor": {
+      "JobTitle": "Job Title: ",
+      "UserName": "User Name:",
+      "UserNameRequired": "User name is required (minimum of 2 and maximum of 200 characters)",
+      "Password": "Password:",
+      "PasswordHint": "Your password is required when changing user name",
+      "CurrentPasswordRequired": "Current password is required",
+      "Email": "Email:",
+      "EmailRequired": "Email address is required (maximum of 200 characters)",
+      "InvalidEmail": "Specified email is not valid",
+      "ChangePassword": "Change Password",
+      "CurrentPassword": "Current Password:",
+      "NewPassword": "New Password:",
+      "NewPasswordRequired": "New password is required (minimum of 6 characters)",
+      "ConfirmPassword": "Confirm Password:",
+      "ConfirmationPasswordRequired": "Confirmation password is required",
+      "PasswordMismatch": "New password and confirmation password do not match",
+      "Roles": "Roles:",
+      "FullName": " Full Name:",
+      "RoleRequired": " Role is required",
+      "PhoneNumber": "Phone #:",
+      "Enabled": "Enabled",
+      "Unblock": "Unblock",
+      "Close": "Close",
+      "Edit": "Edit",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Saving": "Saving..."
+    }
+  },
+  "roles": {
+    "management": {
+      "Search": "Search for role...",
+      "NewRole": "New Role",
+      "Edit": "Edit",
+      "Details": "Details",
+      "Delete": "Delete",
+      "RoleDetails": "Role Details \"{{name}}\"",
+      "EditRole": "Edit Role \"{{name}}\"",
+      "Name": "Name",
+      "Description": "Description",
+      "Users": "Users",
+      "AddMonitor":"Add Monitor",
+      "AddTraining":"Add Training"
+    },
+    "editor": {
+      "Name": "Name:",
+      "Description": "Description:",
+      "RoleNameRequired": "Role name is required (minimum of 2 and maximum of 200 characters)",
+      "SelectAll": "Select all",
+      "SelectNone": "Select none",
+      "Close": "Close",
+      "Cancel": "Cancel",
+      "Save": "Save",
+      "Saving": "Saving..."
+    }
+  },
+  "notifications": {
+    "Delete": "Delete notification",
+    "Pin": "Pin notification",
+    "Date": "Date",
+    "Notification": "Notification"
+  },
+  "todoDemo": {
+    "management": {
+      "Search": "Search for task...",
+      "HideCompleted": "Hide Completed",
+      "AddTask": "Add Task",
+      "Delete": "Delete task",
+      "Important": "Mark as important",
+      "Task": "Task",
+      "Description": "Description"
+    },
+    "editor": {
+      "NewTask": "New Task",
+      "Name": "Name",
+      "TaskNameRequired": "Task name is required",
+      "Description": "Description",
+      "Important": "Mark as important",
+      "AddTask": "Add Task"
+    }
+  }
+}

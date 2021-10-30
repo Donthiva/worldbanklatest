@@ -1,0 +1,572 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+
+                <small>Monitor Info</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Monitor Period</label>
+                        <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName" bindValue="id"
+                            [(ngModel)]="employeeMonitor.monitorPeriodId" (change)="IsSimilarCapacitySelected($event)">
+                        </ng-select>
+                        <div *ngIf="(employeeMonitor.monitorPeriodId == null) && validationfailed"
+                            class="alert alert-danger">
+                            <div>Monitor Period is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Job Engagement</label>
+                        <ng-select class="custom" [items]="jobEngagementList" bindLabel="engagement" bindValue="id"
+                            [(ngModel)]="employeeMonitor.jobengagementID" (change)="selectedJobEngagement($event)">
+                        </ng-select>
+                        <div *ngIf="employeeMonitor.jobengagementID == null && validationfailed"
+                            class="alert alert-danger">
+                            <div>Job Engagement is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- remove this -->
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Monitoring Date</label>
+                        <input type="date" class="form-control" id="city" placeholder="Monitor Startdate"
+                            [(ngModel)]="employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date"
+                            (change)="selectedStartDate($event)">
+                        <div style="margin-top: 5%;"
+                            *ngIf="employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null && validationfailed"
+                            class="alert alert-danger">
+                            <div>Monitoring is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Contactable</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.contactable">
+                        </ng-select>
+
+                    </div>
+
+                </div> 
+                
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">How job found</label>
+                        <input type="text" class="form-control" id="city" placeholder="How job found"
+                            [(ngModel)]="employeeMonitor.employment_How_he_found_the_job">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(employeeMonitor.employment_How_he_found_the_job == null || employeeMonitor.employment_How_he_found_the_job == '') && validationfailed"
+                            class="alert alert-danger">
+                            <div>How job found is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Summary of monitoring</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="employeeMonitor.employment_Remarks"> </textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(employeeMonitor.employment_Remarks == null || employeeMonitor.employment_Remarks == '') && validationfailed"
+                            class="alert alert-danger">
+                            <div>Summary is required</div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Address Changed</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <small>Address Form</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label>Address Number</label>
+                                        <input type="text" class="form-control" id="company"
+                                        [(ngModel)]="employeeMonitor.address.address_Number"  placeholder="Address Number">
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> Street </label>
+                                        <input type="text" class="form-control" id="city" placeholder="Address Street" [(ngModel)]="employeeMonitor.address.address_Street1" >
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <!--/.row-->
+
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> Country</label>
+                                        <ng-select class="custom" [items]="country" bindLabel="country_Name" [(ngModel)]="employeeMonitor.address.countryId"
+                                            bindValue="country_ID">
+                                        </ng-select>
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> State</label>
+                                        <ng-select class="custom" [items]="states" bindLabel="states_Name" [(ngModel)]="employeeMonitor.address.statesId"
+                                            bindValue="states_ID">
+                                        </ng-select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> District</label>
+                                        <ng-select class="custom" [items]="district" bindLabel="district_Name" [(ngModel)]="employeeMonitor.address.districtId"
+                                            bindValue="district_ID">
+                                        </ng-select>
+
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> City</label>
+                                        <ng-select class="custom" [items]="City" bindLabel="city_Name" [(ngModel)]="employeeMonitor.address.cityId"
+                                            bindValue="city_ID">
+                                        </ng-select>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> latitude</label>
+                                        <input type="text" class="form-control" id="city" placeholder="latitude" [(ngModel)]="employeeMonitor.address.Latitude">
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> longitude</label>
+                                        <input type="text" class="form-control" id="city" placeholder="longitude" [(ngModel)]="employeeMonitor.address.Longitude">
+
+                                    </div>
+
+
+                                </div>
+                                <!--/.row-->
+
+
+                                <!--/.row-->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Similar capasity compared to GSBS</label>
+                        <ng-select class="custom" [(ngModel)]="employeeMonitor.isSimilarCapasityComparedToGSBS" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Similar capasity compared to Previous Monitoring</label>
+                        <ng-select class="custom" [(ngModel)]="employeeMonitor.isSimilarCapasityComparedToPreviousMonitor" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+                </div>
+
+                
+<!-- 
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Job seeking</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">What kind of job seeking</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+                </div> -->
+<!-- 
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is cannot engage in a job</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Reason</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+                </div> -->
+
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Current Job</label>
+                        <ng-select class="custom" [(ngModel)]="employeeMonitor.currentJob"  [items]="CurrentJob" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Employee</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.isEmployee">
+                        </ng-select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label> Current Employer</label>
+                        <input type="text" class="form-control" id="city" placeholder="Current Employer" [(ngModel)]="employeeMonitor.currentEmployer">
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Job Started Date</label>
+                        <input type="date" class="form-control" id="city" placeholder="Job Started Date" [(ngModel)]="employeeMonitor.jobStartedDate">
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label> Monthly Income</label>
+                        <input type="text" class="form-control" id="city" placeholder="Monthly Income" [(ngModel)]="employeeMonitor.monthlyIncome">
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label> Daily Income</label>
+                        <input type="text" class="form-control" id="city" placeholder="Daily Income" [(ngModel)]="employeeMonitor.dailyIncome">
+
+                    </div>
+
+                </div>
+
+                
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Income status compared to GSBS </label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.incomStatusComparedtoGSBS">
+                        </ng-select>
+
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Income status compared to previous monitor</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.incomeStatusComparedtoPM">
+                        </ng-select>
+
+                    </div>
+
+
+                </div>
+
+               
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label> How job found</label>
+                        <input type="text" class="form-control" id="city" placeholder="longitude" [(ngModel)]="employeeMonitor.howJobFound">
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Any request needed</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Note"
+                            [(ngModel)]="employeeMonitor.anyRequestNeed"> </textarea>
+                      
+                    </div>
+                  
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">AP Situation</label>
+                        <ng-select class="custom" [items]="Situation" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.situation">
+                        </ng-select>
+
+                    </div>
+
+                    
+                    <div class="form-group col-md-6">
+                        <label for="city">Special Observation</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Note"
+                            [(ngModel)]="employeeMonitor.note"> </textarea>
+                      
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is same Employer compared to GSBS </label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.isSameEmployerCTG">
+                        </ng-select>
+
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is same Employer compared to previous monitor</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.isSameSameEmployerCPM">
+                        </ng-select>
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is same Employer compared to GSBS </label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.isSameEmployerCTG">
+                        </ng-select>
+
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is same Employer compared to previous monitor</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.isSameSameEmployerCPM">
+                        </ng-select>
+
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Employement Status</label>
+                        <ng-select class="custom" [items]="EmployementStatus" bindLabel="name" bindValue="id" [(ngModel)]="employeeMonitor.situation">
+                        </ng-select>
+
+                    </div>
+
+                    
+               
+                </div>
+
+
+                <div class="card-header">
+
+                    <small>Previous Documents</small>
+                </div>
+                <div class="card-body">
+
+
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="employeeMonitor.employeeMonitorDocuments != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Documents</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of employeeMonitor.employeeMonitorDocuments; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteDoc(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group" *ngIf="employeeMonitor.employeeMonitorImages != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Images</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of employeeMonitor.employeeMonitorImages; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteImg(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group" *ngIf="employeeMonitor.employeeMonitorVideos != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Videos</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of employeeMonitor.employeeMonitorVideos; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                            (click)="deleteVideo(row,i)"><i class="fa fa-trash-o"
+                                                aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of fileListToUpload; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{row.name}}</td>
+                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deletefile(i)"><i
+                                        class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' |
+                                    translate}}</a></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">import file</label>
+                        <input multiple type="file" class="form-control" id="file"
+                            (change)="handleFileInput($event.target.files)">
+                    </div>
+
+                </div>
+            </div>
+
+            <!--/.row-->
+
+
+
+            <!--/.row-->
+
+        </div>
+
+    </div>
+</div>
+<!--/.col-->
+
+
+
+<div class="card-footer" *ngIf="!editMode">
+    <button class="btn-primary" (click)="addmonitor()"> Submit</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>
+
+
+<div class="card-footer" *ngIf="editMode">
+    <button class="btn-primary" (click)="updateMonitor()"> Update</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>

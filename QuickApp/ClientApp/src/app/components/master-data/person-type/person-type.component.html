@@ -1,0 +1,41 @@
+<div class="card">
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Add Person Type</small>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="country">Type</label>
+                            <input type="text" class="form-control" id="country"  [(ngModel)]="persontypeModel.Type" placeholder="Type">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="country">Description</label>
+                            <input type="text" class="form-control" id="country"  [(ngModel)]="persontypeModel.Person_Type_Description" placeholder="Description">
+                        </div>
+
+                    </div>
+
+
+                
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+    <div class="card-footer">
+        <button class="btn-primary"(click)="addNewpersontype()"> Submit</button>
+        <button class="btn-danger"> Clear</button>
+    </div>
+</div>

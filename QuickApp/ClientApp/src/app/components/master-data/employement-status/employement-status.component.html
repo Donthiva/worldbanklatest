@@ -1,0 +1,64 @@
+<div class="card">
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Add Employement Status</small>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="country">Name</label>
+                            <input type="text" class="form-control" id="country" [(ngModel)]="employmentstatusModel.Status" placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="country">Description</label>
+                            <input type="text" class="form-control" id="country" [(ngModel)]="employmentstatusModel.Status_Description" placeholder="Description">
+                        </div> 
+
+                    </div>
+
+
+                
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+    <div class="card-footer" *ngIf="!update">
+        <button class="btn-primary"(click)="addNewemploymentStatus()"> Submit</button>
+        <button class="btn-danger"> Clear</button>
+    </div>
+    <div class="card-footer" *ngIf="update">
+        <button class="btn-primary" (click)="updateEmploymentStatus()"> Update</button>
+        <button class="btn-danger"(click)="Clear()"> Clear</button>
+    </div>
+    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+    [loadingIndicator]="loadingIndicator"
+    [rows]="rows"
+    [rowHeight]="35"
+    [headerHeight]="35"
+    [footerHeight]="35"
+    [columns]="columns"
+    [scrollbarV]="true"
+    [columnMode]="'force'">
+</ngx-datatable>
+
+<ng-template #indexTemplateemploymentStatus let-value="value">
+<strong>{{value}}</strong>
+</ng-template>
+
+
+<ng-template #actionsTemplateemploymentStatus let-row="row" let-value="value" let-i="index">
+<a class="btn btn-link btn-sm" href="javascript:;" (click)="view(row)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'roles.management.Edit' | translate}}</a>
+<a  class="btn btn-link btn-sm" href="javascript:;" (click)="delete(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a>
+</ng-template>
+</div>

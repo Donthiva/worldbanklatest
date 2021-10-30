@@ -1,0 +1,199 @@
+<div class="container">
+    <header class="pageHeader">
+        <h3><i class="fa fa-shopping-cart fa-lg page-caption" aria-hidden="true"></i> Reporting</h3>
+    </header>
+
+    <div class="row">
+        <div class="card form-group col-md-12">
+            <div class="card-header">
+                <p style="font-weight: bolder;">Select Report</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="city">Select Report</label>
+                        <ng-select class="custom" [items]="reports" bindLabel="name" bindValue="id"
+                            [(ngModel)]="selectedReport" (change)="selectedReportType($event)">
+                        </ng-select>
+                    </div>
+
+                </div>
+                <h6 *ngIf="reportId == 8" style="color: blue;">Select search params</h6>
+
+                <div class="row">
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Is Similar Capasity</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                            (change)="selectedSimilarCapasity($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Is Same Employee</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                            (change)="selectedSameEmployee($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Salary Status</label>
+                        <ng-select class="custom" [items]="SalaryStatus" bindLabel="name" bindValue="id"
+                            (change)="selectedSalaryStatus($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Job Enagagement</label>
+                        <ng-select class="custom" [items]="jobEngagementList" bindLabel="engagement" bindValue="id"
+                            (change)="selectedJobEnagagement($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Employement Status</label>
+                        <ng-select class="custom" [items]="EmployementStatus" bindLabel="status"
+                            bindValue="employment_Status_ID" (change)="selectedEmployementStatus($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Person Gender</label>
+                        <ng-select class="custom" [items]="gender" bindLabel="user_Gender" bindValue="user_Gender_ID"
+                            (change)="selectedPersonGender($event)">
+                        </ng-select>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Employement Status</label>
+                        <ng-select class="custom" [items]="EmployementStatus" bindLabel="status"
+                            bindValue="employment_Status_ID" (change)="selectedEmployementStatus($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Person Gender</label>
+                        <ng-select class="custom" [items]="gender" bindLabel="user_Gender" bindValue="user_Gender_ID"
+                            (change)="selectedPersonGender($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8">
+                        <label for="city">Employement Type</label>
+                        <ng-select class="custom" [items]="employmenttypearray" bindLabel="employment_Type_Name"
+                            bindValue="Employment_Type_ID" (change)="selectedEmployementType($event)">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-2" *ngIf="reportId == 8" style="padding: 2.5%;">
+                        <button type="button" (click)="Search()">Search</button>
+                    </div>
+                </div>
+
+
+                <h6 *ngIf="reportId == 8" style="color: blue;">Search by</h6>
+
+
+
+                <div class="row" *ngIf="reportId == 8">
+
+
+
+
+                    <div *ngIf="IsSimilarCapasity != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>IS SimilarCapasity </label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+                    <div *ngIf="IsSameEmployee != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Is SameEmployee </label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+                    <div *ngIf="SalaryStatusSelected != '-1'"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Salary Status</label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+
+                    <div *ngIf="JobEngagementSelected != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Job Engagement</label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+                    <div *ngIf="EmployementStatusSelected != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Employement Status</label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+
+                    <div *ngIf="GenderSelected != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Gender</label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+
+
+                    <div *ngIf="EmployementTypeSelected != -1"
+                        style="border: 2px solid rgb(125, 147, 235);height: 2rem;border-radius:2rem;text-align: center;margin: 0.25rem;display: inline-block;color:rgb(204, 203, 203);padding: 0.2rem;">
+
+                        <label>Employement Type</label>
+
+                        <!-- <i class="fa fa-times" style="margin-left:0.2rem" aria-hidden="true"></i> -->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="card form-group col-md-12">
+            <div class="card-header">
+                <p style="font-weight: bolder;">Select Addition Params</p>
+            </div>
+            <div class="card-body">
+              
+
+               
+
+
+              
+
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container" *ngIf="reportView">
+        <ssrs-reportviewer [reportserver]="reportServer" [reporturl]="reportUrl" [showparameters]="showParameters"
+            [parameters]="parameters" [language]="language" [width]="width" [height]="height" [toolbar]="toolbar">
+        </ssrs-reportviewer>
+    </div>
+</div>

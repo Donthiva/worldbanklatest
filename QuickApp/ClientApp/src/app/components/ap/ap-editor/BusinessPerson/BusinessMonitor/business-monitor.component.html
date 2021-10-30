@@ -1,0 +1,963 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+
+                <small>Monitor Info</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Monitor Period</label>
+                        <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.monitorPeriodId">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.monitorPeriodId == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monitor Period required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Monitoring Date</label>
+                        <input type="date" class="form-control" id="city" placeholder="date"
+                            [(ngModel)]="businessMonitorModel.monitor.monitor_Date">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.monitor.monitor_Date == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monitoring Date is required</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is AP dead</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="businessMonitorModel.isAPDead">
+                        </ng-select>
+
+                    </div>
+           
+
+                    <div class="form-group col-md-6">
+                        <label for="city">How is family</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Note" [(ngModel)]="businessMonitorModel.howIsFamilyIfdead"
+                            ></textarea>
+                    
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Business Changed</label>
+                        <ng-select class="custom" class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.business_changed"
+                            (change)="IsBusinessChangedSelected($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.business_changed == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Business Changed is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">How ?</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Note"   [(ngModel)]="businessMonitorModel.howBusinessCHange"
+                            ></textarea>
+                    
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+         
+                        
+                    <div class="form-group col-md-6" *ngIf="businessMonitorModel.business_changed">
+                        <label for="city">Old Business</label>
+                        <input type="text" class="form-control" id="city" placeholder="Old Business"
+                            [(ngModel)]="businessMonitorModel.oldBusinesses">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.oldBusinesses == null || businessMonitorModel.oldBusinesses == '')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Old Business is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Current Business</label>
+                        <input type="text" class="form-control" id="city" placeholder="Current business"
+                            [(ngModel)]="businessMonitorModel.currentBusiness">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.currentBusiness == null || businessMonitorModel.currentBusiness == '')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Current Business is required</div>
+                        </div>
+                    </div>
+
+                </div>
+
+              <div class="row">
+
+                <div class="form-group col-md-6">
+                    <label for="city">Contactable</label>
+                    <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="businessMonitorModel.contactable">
+                    </ng-select>
+
+                </div>
+       
+                <div class="form-group col-md-6">
+                    <label for="city">Is Business Diversified</label>
+                    <ng-select class="custom" class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                        [(ngModel)]="businessMonitorModel.isbuinessDiversified"
+                        (change)="IsBusinessChangedSelected($event)">
+                    </ng-select>
+                    <div *ngIf="(businessMonitorModel.isbuinessDiversified == null)&& validationfailed"
+                        class="alert alert-danger">
+                        <div>Is Business Diversified is required</div>
+                    </div>
+                </div>
+
+                
+              </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Alternative Site</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.isAlternativeSite" (change)="IsAlternativeSite($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.isAlternativeSite == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Is Alternative Site is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">Business location </label>
+                        <ng-select class="custom" [items]="CityOut" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.cityOut" (change)="cityOutSelected($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.cityOut == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>In city/Out of the city is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Monthly Income</label>
+                        <input type="number" class="form-control" id="city" placeholder="Monthly Income"
+                            [(ngModel)]="businessMonitorModel.gsbsPreviousIncome">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.gsbsPreviousIncome == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monthly Income is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Income status</label>
+                        <ng-select class="custom" [items]="IncomeStatus" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.incomeStatus" (change)="SelectedIncomeStatus($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.incomeStatus == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Income status is required</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Business Management Mode</label>
+                        <ng-select class="custom" class="custom" [items]="businessManagementMode" bindLabel="business_Management_Mode_Description" bindValue="business_Management_Mode_ID"
+                        [(ngModel)]="businessMonitorModel.business_Management_Mode"   >
+                        </ng-select>
+                     
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Is busines operated stable profit</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                           >
+                        </ng-select>
+                        
+                    </div>
+                </div>
+
+                
+                
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Income status compared to GSBS</label>
+                        <ng-select class="custom" class="custom" [items]="IncomeStatus" bindLabel="name" bindValue="id"  [(ngModel)]="businessMonitorModel.incomeStatusComparedToGSBS"
+                            >
+                        </ng-select>
+                     
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Income status compared to last monitoring</label>
+                        <ng-select class="custom" class="custom" [items]="IncomeStatus" bindLabel="name" bindValue="id" [(ngModel)]="businessMonitorModel.incomeStatusComparedToPM"
+                            >
+                        </ng-select>
+                     
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Business Situation</label>
+                        <ng-select class="custom" [items]="businessSituation" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.businessSituation"
+                            (change)="BusinessSituatoinSelected($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.incomeStatus == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Income status is required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Business status</label>
+                        <ng-select class="custom" [items]="BusinessStatus" bindLabel="name" bindValue="id"
+                            [(ngModel)]="businessMonitorModel.businessStatus" (change)="BusinessStatusSelected($event)">
+                        </ng-select>
+                        <div *ngIf="(businessMonitorModel.businessStatus == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Business status is required</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Staff</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Status</label>
+                                        <ng-select class="custom" [items]="BusinessStaffStatus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.businessStaff.status"
+                                            (change)="StaffSelected($event)">
+                                        </ng-select>
+                                        <div *ngIf="(businessMonitorModel.businessStaff.status == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.businessStaff.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessStaff.number == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.businessStaff.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessStaff.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Vehicle</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Purchased</label>
+                                        <ng-select class="custom" [items]="PurchasedStaus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.businessVehicle.purchased"
+                                            (change)="SelectedPurchsed($event)">
+                                        </ng-select>
+                                        <div *ngIf="(businessMonitorModel.businessVehicle.purchased == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.businessVehicle.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessVehicle.purchased == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.businessVehicle.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessVehicle.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Stocks</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Status</label>
+                                        <ng-select class="custom" [items]="BusinessStaffStatus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.businessStocks.status"
+                                            (change)="SelectedPurchsed($event)">
+                                        </ng-select>
+                                        <div *ngIf="(businessMonitorModel.businessStocks.status == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.businessStocks.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessStocks.number == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.businessStocks.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.businessStocks.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Clientele</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Status</label>
+                                        <ng-select class="custom" [items]="BusinessStaffStatus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.cilentele.status"
+                                            (change)="SelectedPurchsed($event)">
+                                        </ng-select>
+                                        <div *ngIf="(businessMonitorModel.cilentele.status == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.cilentele.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.cilentele.number == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.cilentele.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.cilentele.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Machinery Epquipment</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Status</label>
+                                        <ng-select class="custom" [items]="PurchasedStaus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.machinaryEquipment.status"
+                                            (change)="SelectedPurchsed($event)">
+                                        </ng-select>
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.machinaryEquipment.status == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.machinaryEquipment.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.machinaryEquipment.number == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.machinaryEquipment.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.machinaryEquipment.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <small>Shop Space</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Status</label>
+                                        <ng-select class="custom" [items]="PurchasedStaus" bindLabel="name"
+                                            bindValue="id" [(ngModel)]="businessMonitorModel.managementPractices.status"
+                                            (change)="SelectedPurchsed($event)">
+                                        </ng-select>
+                                        <div *ngIf="(businessMonitorModel.managementPractices.status == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Status required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Number</label>
+                                        <input type="number" class="form-control" id="city"
+                                            [(ngModel)]="businessMonitorModel.managementPractices.number">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.managementPractices.number == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Number required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="city">Note</label>
+                                        <input type="text" class="form-control" id="city" placeholder="Note"
+                                            [(ngModel)]="businessMonitorModel.managementPractices.note">
+                                        <div style="margin-top: 5%;"
+                                            *ngIf="(businessMonitorModel.managementPractices.note == null)&& validationfailed"
+                                            class="alert alert-danger">
+                                            <div>Note required</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Address Changed</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id">
+                        </ng-select>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <small>Address Form</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label>Address Number</label>
+                                        <input type="text" class="form-control" id="company"
+                                        [(ngModel)]="businessMonitorModel.address.address_Number" placeholder="Address Number">
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> Street </label>
+                                        <input type="text"  class="form-control" id="city" placeholder="Address Street"  [(ngModel)]="businessMonitorModel.address.address_Street1">
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <!--/.row-->
+
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> Country</label>
+                                        <ng-select class="custom" [items]="country" bindLabel="country_Name" [(ngModel)]="businessMonitorModel.address.countryId" (change)="selectedCountry($event)"
+                                            bindValue="country_ID">
+                                        </ng-select>
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> State</label>
+                                        <ng-select class="custom" [items]="states" bindLabel="states_Name" [(ngModel)]="businessMonitorModel.address.statesId" (change)="selectedState($event)"
+                                            bindValue="states_ID">
+                                        </ng-select>
+
+                                    </div>
+
+                                </div>
+
+
+                                
+
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> District</label>
+                                        <ng-select class="custom" [items]="district" bindLabel="district_Name" [(ngModel)]="businessMonitorModel.address.districtId" (change)="selectedDistrict($event)"
+                                            bindValue="district_ID">
+                                        </ng-select>
+
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> City</label>
+                                        <ng-select class="custom" [items]="City" bindLabel="city_Name" [(ngModel)]="businessMonitorModel.address.cityId" (change)="selectedCity($event)"
+                                            bindValue="city_ID">
+                                        </ng-select>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+
+                                    <div class="form-group col-md-6">
+                                        <label> latitude</label>
+                                        <input type="text" class="form-control" id="city" placeholder="latitude" [(ngModel)]="businessMonitorModel.address.Latitude">
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label> longitude</label>
+                                        <input type="text" class="form-control" id="city" placeholder="longitude" [(ngModel)]="businessMonitorModel.address.Longitude">
+
+                                    </div>
+
+
+                                </div>
+                                <!--/.row-->
+
+
+                                <!--/.row-->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/.col-->
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">File name</label>
+                        <input type="text" class="form-control" id="city" placeholder="File name"
+                            [(ngModel)]="businessMonitorModel.fileNumber">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.fileNumber == null ||  businessMonitorModel.fileNumber == '')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>File name is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Summary</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Note"
+                            [(ngModel)]="businessMonitorModel.summary"></textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.summary == null || businessMonitorModel.summary =='')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Summary required</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                
+                <div class="row">
+
+
+                 
+                    <div class="form-group col-md-3">
+                        <label for="city">Daily Income</label>
+                        <input type="number" class="form-control" id="city" placeholder="Daily Income"
+                            [(ngModel)]="businessMonitorModel.dailyIncome">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.dailyIncome == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Daily Income required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Summary</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="businessMonitorModel.summary"></textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.summary == null || businessMonitorModel.summary =='')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Summary required</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                  
+                <div class="row">
+
+
+                 
+                    <div class="form-group col-md-6">
+                        <label for="city">Is Need or requirement</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="businessMonitorModel.isNeedOrRequirment">
+                        </ng-select>
+
+                    </div>
+           
+
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Reason</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="businessMonitorModel.requirmentNeed"></textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.summary == null || businessMonitorModel.summary =='')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Reason required</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+        
+                <div class="row">
+    
+                    <div class="form-group col-md-6">
+                        <label for="city">Special Observation</label>
+                        <textarea type=text class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="businessMonitorModel.specialObservation"></textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(businessMonitorModel.summary == null || businessMonitorModel.summary =='')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Observation required</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="card-header">
+
+                    <small>Previous Documents</small>
+                </div>
+                <div class="card-body">
+
+
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="businessMonitorModel.businessMonitorDocuments != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Documents</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of businessMonitorModel.businessMonitorDocuments; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteDoc(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="businessMonitorModel.businessMonitorImages != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Images</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of businessMonitorModel.businessMonitorImages; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteImg(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="businessMonitorModel.businessMonitorVideos != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Videos</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of businessMonitorModel.businessMonitorVideos; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                            (click)="deleteVideo(row,i)"><i class="fa fa-trash-o"
+                                                aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of fileListToUpload; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{row.name}}</td>
+                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deletefile(i)"><i
+                                        class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' |
+                                    translate}}</a></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">import file</label>
+                        <input multiple type="file" class="form-control" id="file"
+                            (change)="handleFileInput($event.target.files)">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="card-footer" *ngIf="!editMode">
+    <button class="btn-primary" (click)="SubmitBusinessData()"> Submit</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>
+
+
+<div class="card-footer" *ngIf="editMode">
+    <button class="btn-primary" (click)="UpdateBusinessData()"> Update</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>

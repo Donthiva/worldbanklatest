@@ -1,0 +1,34 @@
+<div class="container">
+    <header class="pageHeader">
+        <h3><i class="fa fa-user-circle-o fa-lg page-caption" aria-hidden="true"></i>{{'pageHeader.Add_Customer' | translate}}
+        </h3>
+    </header>
+
+    <!-- <div [@fadeInOut]>
+        <span class="text-muted">-- Sample Page --</span>
+    </div> -->
+
+    <div [@fadeInOut]>
+        <div class="d-sm-flex flex-row">
+          <ul appBootstrapTab #tab="bootstrap-tab" (showBSTab)="onShowTab($event)" class="nav nav-tabs nav-tabs--vertical nav-tabs--left" role="navigation">
+            <li class="nav-item">
+              <a id="profileTab" [routerLink]="[]" fragment="APLIST" data-target="#APLIST" href="#APLIST" class="nav-link active" data-toggle="tab" role="tab" aria-controls="profile">
+                <i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i> {{'APs.tab.APList' | translate}}
+              </a>
+            </li>
+         
+          </ul>
+          <div class="tab-content w-100">
+            <div class="tab-pane show active" id="APLIST" role="tabpanel">
+              <h4>{{'APs.tab.APList' | translate}}</h4>
+              <hr class="separator-hr" />
+              <div [@fadeInOut] *ngIf="isProfileActivated" class="content-container pl-lg-2">
+                <app-ap-list></app-ap-list>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+

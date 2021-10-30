@@ -1,0 +1,345 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+
+                <small>Monitor Info</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6 form-group">
+                        <label for="vat">Monitor Period</label>
+                        <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName" bindValue="id"
+                            [(ngModel)]="threeWheelMonitor.monitorPeriodId">
+                        </ng-select>
+                        <div *ngIf="(threeWheelMonitor.monitorPeriodId == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monitor Period required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Monitor Date</label>
+                        <input type="date" class="form-control" id="city" placeholder="Monitor Startdate"
+                            [(ngModel)]="threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Start Date required</div>
+                        </div>
+                    </div>
+
+
+                  
+
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Status</label>
+                        <ng-select class="custom" [items]="Status" bindLabel="name" bindValue="id"
+                            [(ngModel)]="threeWheelMonitor.status" (change)="SelectedStatus($event)">
+                        </ng-select>
+                        <div *ngIf="(threeWheelMonitor.status == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Status required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">Monthly Income</label>
+                        <input type="number" class="form-control" id="city" placeholder="Daily Income"
+                            [(ngModel)]="threeWheelMonitor.monthlyIncome">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(threeWheelMonitor.monthlyIncome == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monthly Income required</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <!--/.row-->
+
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Income Status compared to GSBS</label>
+                        <ng-select class="custom" [items]="IncomeStatus" bindLabel="name" bindValue="id"
+                            [(ngModel)]="threeWheelMonitor.incomeStatus" (change)="SelectedIncomeStatus($event)">
+                        </ng-select>
+                        <div *ngIf="(threeWheelMonitor.incomeStatus == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Monthly Income required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Contactable</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id"
+                            [(ngModel)]="threeWheelMonitor.contactable" >
+                        </ng-select>
+                        <div *ngIf="(threeWheelMonitor.contactable == null)&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Contactable required</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Current Park</label>
+                        <input type="text" class="form-control" id="city" placeholder="Current Park"
+                            [(ngModel)]="threeWheelMonitor.currentPark">
+                        <div style="margin-top: 5%;"
+                            *ngIf="(threeWheelMonitor.currentPark == null || threeWheelMonitor.currentPark == '')&& validationfailed"
+                            class="alert alert-danger">
+                            <div>Current Park required</div>
+                        </div>
+                    </div>
+
+                 
+
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Engagement</label>
+                        <ng-select class="custom" [items]="EngageList" bindLabel="name" bindValue="id"  [(ngModel)]="threeWheelMonitor.engauagmentAtGSBS"
+                           >
+                        </ng-select>
+                        
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label for="city">Number of working days per week</label>
+                        <ng-select class="custom" [items]="NumberWorkingDays" bindLabel="name" bindValue="id"  [(ngModel)]="threeWheelMonitor.workingdays"
+                           >
+                        </ng-select>
+                        
+                    </div>
+                </div>
+
+             
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Three-wheel park</label>
+                        <ng-select class="custom" [items]="ThreeWheelPark" bindLabel="name" bindValue="id" [(ngModel)]="threeWheelMonitor.threewheelpark"
+                           >
+                        </ng-select>
+                        
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label for="city">Have other income generating sources</label>
+                        <ng-select class="custom" [items]="IsList" bindLabel="name" bindValue="id" [(ngModel)]="threeWheelMonitor.haveotherincomegeneratingsources"
+                           >
+                        </ng-select>
+                        
+                    </div>
+                </div>
+
+
+                
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">Daily Income</label>
+                        <input type="number" class="form-control" id="city" placeholder="Daily Income"
+                        [(ngModel)]="threeWheelMonitor.dailyIncome">
+                        
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">AP Situation</label>
+                        <ng-select class="custom" [items]="Situation" bindLabel="name" bindValue="id" [(ngModel)]="threeWheelMonitor.situation"
+                        >
+                     </ng-select>
+                        
+                    </div>
+                    
+                    
+                 
+                </div>
+
+                <div class="row">
+                    
+                    <div class="form-group col-md-6">
+                        <label for="city">Special Observation</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="threeWheelMonitor.specialObservation"> </textarea>
+                      
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Summary</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="threeWheelMonitor.summary"> </textarea>
+                      
+                    </div>
+                  
+
+                </div>
+
+                <div class="card-header">
+
+                    <small>Previous Documents</small>
+                </div>
+                <div class="card-body">
+
+
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="threeWheelMonitor.threeWheelMonitorDocuments != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Documents</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of threeWheelMonitor.threeWheelMonitorDocuments; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteDoc(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="threeWheelMonitor.threeWheelMonitorImages != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Images</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of threeWheelMonitor.threeWheelMonitorImages; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deleteImg(row,i)"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 form-group"
+                        *ngIf="threeWheelMonitor.threeWheelMonitorVideos != null && editMode">
+                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                            <h6>Ap Videos</h6>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">File Name</th>
+                                    <th scope="col">View</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of threeWheelMonitor.threeWheelMonitorVideos; let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{row.fileName}}</td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="openDoc(row)"><i
+                                                class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                                    <td><a class="btn btn-link btn-sm" href="javascript:;"
+                                            (click)="deleteVideo(row,i)"><i class="fa fa-trash-o"
+                                                aria-hidden="true"></i> </a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of fileListToUpload; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{row.name}}</td>
+                            <td><a class="btn btn-link btn-sm" href="javascript:;" (click)="deletefile(i)"><i
+                                        class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' |
+                                    translate}}</a></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="city">import file</label>
+                        <input multiple type="file" class="form-control" id="file"
+                            (change)="handleFileInput($event.target.files)">
+                    </div>
+
+                </div>
+                <!--/.row-->
+
+
+
+                <!--/.row-->
+
+            </div>
+
+        </div>
+    </div>
+    <!--/.col-->
+
+
+
+</div>
+
+
+
+<div class="card-footer" *ngIf="!editMode">
+    <button class="btn-primary" (click)="addThreeWheelMonitor()"> Submit</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>
+
+<div class="card-footer" *ngIf="editMode">
+    <button class="btn-primary" (click)="updateThreeWheelMonitor()"> Update</button>
+    <button class="btn-danger" (click)="clear()"> Clear</button>
+</div>

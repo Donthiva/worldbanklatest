@@ -1,0 +1,371 @@
+<div class="container">
+  <header class="pageHeader">
+    <h3>{{'pageHeader.MasterData' | translate}}
+    </h3>
+  </header>
+
+  <!-- <div [@fadeInOut]>
+        <span class="text-muted">-- Sample Page --</span>
+    </div> -->
+
+  <div [@fadeInOut]>
+    <div class="d-sm-flex flex-row">
+      <ul appBootstrapTab #tab="bootstrap-tab" (showBSTab)="onShowTab($event)"
+        class="nav nav-tabs nav-tabs--vertical nav-tabs--left" role="navigation">
+
+        <li class="nav-item">
+          <a id="country2Tab" [routerLink]="[]" fragment="country2" data-target="#country2" href="#country2"
+            class="nav-link" data-toggle="tab" role="tab" aria-controls="country2">
+            <i class="fa fa-compass" aria-hidden="true"></i> {{'MasterData.Countries' | translate}}
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a id="state2Tab" [routerLink]="[]" fragment="state2" data-target="#state2" href="#state2" class="nav-link"
+            data-toggle="tab" role="tab" aria-controls="state2">
+            <i class="fa fa-compass" aria-hidden="true"></i> {{'MasterData.State' | translate}}
+          </a>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a id="district2Tab" [routerLink]="[]" fragment="district2" data-target="#district2" href="#district2"
+            class="nav-link" data-toggle="tab" role="tab" aria-controls="district2">
+            <i class="fa fa-compass" aria-hidden="true"></i> {{'MasterData.District' | translate}}
+          </a>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a id="citiesTab" [routerLink]="[]" fragment="cities" data-target="#cities" href="#cities"
+            class="nav-link active" data-toggle="tab" role="tab" aria-controls="cities">
+            <i class="fa fa-compass" aria-hidden="true"></i> {{'MasterData.Cities' | translate}}
+          </a>
+
+        </li>
+
+
+
+
+
+
+        <li class="nav-item">
+          <a id="bank2Tab" [routerLink]="[]" fragment="bank2" data-target="#bank2" href="#bank2" class="nav-link"
+            data-toggle="tab" role="tab" aria-controls="bank2">
+            <i class="fa fa-university" aria-hidden="true"></i> {{'MasterData.bank' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="bank2typeTab" [routerLink]="[]" fragment="bank2type" data-target="#bank2type" href="#bank2type"
+            class="nav-link" data-toggle="tab" role="tab" aria-controls="bank2type">
+            <i class="fa fa-university" aria-hidden="true"></i> {{'MasterData.banktype' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="bank2BranchTab" [routerLink]="[]" fragment="bank2Branch" data-target="#bank2Branch" href="#bank2Branch"
+            class="nav-link" data-toggle="tab" role="tab" aria-controls="bank2Branch">
+            <i class="fa fa-university" aria-hidden="true"></i> {{'MasterData.bankBranch' | translate}}
+          </a>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a id="bankaccountTypeTab" [routerLink]="[]" fragment="bankaccountType" data-target="#bankaccountType"
+            href="#bankaccountType" class="nav-link" data-toggle="tab" role="tab" aria-controls="bankaccountType">
+            <i class="fa fa-university" aria-hidden="true"></i> {{'MasterData.bankaccountType' | translate}}
+          </a>
+
+        </li>
+        <!-- 
+          <li class="nav-item">
+            <a id="bankaccountTypeTab" [routerLink]="[]" fragment="bankaccountType" data-target="#bankaccountType" href="#bankaccountType" class="nav-link" data-toggle="tab" role="tab" aria-controls="bankaccountType">
+              <i class="fa fa-university" aria-hidden="true"></i> {{'MasterData.bankaccountType' | translate}}
+            </a>
+
+          </li> -->
+
+        <li class="nav-item">
+          <a id="employerTypeTab" [routerLink]="[]" fragment="employerType" data-target="#employerType"
+            href="#employerType" class="nav-link" data-toggle="tab" role="tab" aria-controls="employerType">
+            <i class="fa fa-universal-access" aria-hidden="true"></i> {{'MasterData.employerType' | translate}}
+          </a>
+
+        </li>
+
+
+        <li class="nav-item">
+          <a id="employementTypeTab" [routerLink]="[]" fragment="employementType" data-target="#employementType"
+            href="#employementType" class="nav-link" data-toggle="tab" role="tab" aria-controls="employementType">
+            <i class="fa fa-universal-access" aria-hidden="true"></i> {{'MasterData.employementType' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="employementStatusTab" [routerLink]="[]" fragment="employementStatus" data-target="#employementStatus"
+            href="#employementStatus" class="nav-link" data-toggle="tab" role="tab" aria-controls="employementStatus">
+            <i class="fa fa-universal-access" aria-hidden="true"></i> {{'MasterData.employementStatus' | translate}}
+          </a>
+
+        </li>
+
+        <!-- <li class="nav-item">
+          <a id="personTypeTab" [routerLink]="[]" fragment="personType" data-target="#personType" href="#personType"
+            class="nav-link" data-toggle="tab" role="tab" aria-controls="personType">
+            <i class="fa fa-male" aria-hidden="true"></i> {{'MasterData.personType' | translate}}
+          </a>
+
+        </li> -->
+
+
+
+        <li class="nav-item">
+          <a id="trainingTypeTab" [routerLink]="[]" fragment="trainingType" data-target="#trainingType"
+            href="#trainingType" class="nav-link" data-toggle="tab" role="tab" aria-controls="trainingType">
+            <i class="fa fa-life-ring" aria-hidden="true"></i> {{'MasterData.trainingType' | translate}}
+          </a>
+
+        </li>
+
+
+
+        <li class="nav-item">
+          <a id="valnerabilityTab" [routerLink]="[]" fragment="valnerability" data-target="#valnerability"
+            href="#valnerability" class="nav-link" data-toggle="tab" role="tab" aria-controls="valnerability">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{'MasterData.valnerability' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="valnerabilityLevelTab" [routerLink]="[]" fragment="valnerabilityLevel"
+            data-target="#valnerabilityLevel" href="#valnerabilityLevel" class="nav-link" data-toggle="tab" role="tab"
+            aria-controls="valnerabilityLevel">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{'MasterData.valnerabilityLevel' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="monitorPeriodTab" [routerLink]="[]" fragment="monitorPeriod"
+            data-target="#monitorPeriod" href="#monitorPeriod" class="nav-link" data-toggle="tab" role="tab"
+            aria-controls="monitorPeriod">
+            <i class="fa fa-calendar-o" aria-hidden="true"></i> {{'MasterData.MonitorPeriod' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="businessPlanTab" [routerLink]="[]" fragment="businessPlan"
+            data-target="#businessPlan" href="#businessPlan" class="nav-link" data-toggle="tab" role="tab"
+            aria-controls="businessPlan">
+            <i class="fa fa-book" aria-hidden="true"></i> {{'MasterData.BusinessPlan' | translate}}
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a id="businessTypeTab" [routerLink]="[]" fragment="businessType"
+            data-target="#businessType" href="#businessType" class="nav-link" data-toggle="tab" role="tab"
+            aria-controls="businessType">
+            <i class="fa fa-book" aria-hidden="true"></i> {{'MasterData.BusinessType' | translate}}
+          </a>
+
+        </li>
+
+      </ul>
+      <div class="tab-content w-100">
+        <div class="tab-pane" id="cities" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="iscitiesActivated" class="content-container pl-lg-2">
+            <app-cities></app-cities>
+          </div>
+
+        </div>
+        <div class="tab-pane" id="country2" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="IsCountryActivated" class="content-container pl-lg-2">
+
+            <app-country></app-country>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="district2" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="district2Activated" class="content-container pl-lg-2">
+
+            <app-district></app-district>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="state2" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="state2Activated" class="content-container pl-lg-2">
+
+            <app-states></app-states>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="bank2" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="bank2Activated" class="content-container pl-lg-2">
+
+            <app-bank></app-bank>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="bank2type" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="bank2typeActivated" class="content-container pl-lg-2">
+
+            <app-bank-type></app-bank-type>
+          </div>
+        </div>
+
+
+
+        <div class="tab-pane" id="bank2Branch" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="bank2BranchActivated" class="content-container pl-lg-2">
+
+            <app-bank-branch></app-bank-branch>
+          </div>
+        </div>
+
+
+
+        <div class="tab-pane" id="bankaccountType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="bankaccountTypeActivated" class="content-container pl-lg-2">
+
+            <app-bank-account-type></app-bank-account-type>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="employerType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="employerTypeActivated" class="content-container pl-lg-2">
+
+            <app-employer-type></app-employer-type>
+          </div>
+        </div>
+
+
+
+        <div class="tab-pane" id="employementType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="employementTypeTabActivated" class="content-container pl-lg-2">
+
+            <app-employement-type></app-employement-type>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="employementType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="employementTypeTabActivated" class="content-container pl-lg-2">
+
+            <app-employement-type></app-employement-type>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="employementStatus" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="employementStatusActivated" class="content-container pl-lg-2">
+
+            <app-employement-status></app-employement-status>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="trainingType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="trainingTypeActivated" class="content-container pl-lg-2">
+
+            <app-trainig-type></app-trainig-type>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="valnerability" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="valnerabilityActivated" class="content-container pl-lg-2">
+
+            <app-valnerability-type></app-valnerability-type>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="valnerabilityLevel" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="valnerabilityLevelActivated" class="content-container pl-lg-2">
+
+            <app-valnerability-level></app-valnerability-level>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" id="monitorPeriod" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="monitorPeriodActivated" class="content-container pl-lg-2">
+
+            <app-period-component></app-period-component>
+          </div>
+        </div>
+
+
+        
+        <div class="tab-pane" id="businessPlan" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="businessPlanActivated" class="content-container pl-lg-2">
+
+            <app-business-plan></app-business-plan>
+          </div>
+        </div>
+
+
+         
+        <div class="tab-pane" id="businessType" role="tabpanel">
+
+          <hr class="separator-hr" />
+          <div [@fadeInOut] *ngIf="businessTypeActivated" class="content-container pl-lg-2">
+
+            <app-business-type></app-business-type>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
