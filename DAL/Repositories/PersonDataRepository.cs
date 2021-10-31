@@ -131,7 +131,7 @@ namespace DAL.Repositories
 
                     p.employeeGeneral = eg;
                 }
-                else if(data.PersonType == 2)
+                else if(data.PersonType == 2 || data.PersonType == 5)
                 {
 
                     bg.BusineesPlanId = data.businessGeneral.BusinessPlanId;
@@ -150,6 +150,8 @@ namespace DAL.Repositories
                     bg.BusinessPlanNote = data.businessGeneral.BusinessPlanNote;
 
                     bg.IsFirstBusinessPlan = data.businessGeneral.IsFirstBusinessPlan;
+
+                    bg.BusinessAPType = data.businessGeneral.BusinessAPType;
 
                     p.businessGeneral = bg;
                 }

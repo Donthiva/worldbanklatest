@@ -185,7 +185,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           person.doa = this.dataArray[i].doa;
           person.previousTypeId = this.dataArray[i].previousTypeId;
 
-          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 1 ? 'Employee' : this.dataArray[i].person_Type == 2 ? 'Business Perosn ' : this.dataArray[i].person_Type == 3 ? 'ThreeWheel Driver' : 'Phase Out' : null;
+          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 1 ? 'Employee' : this.dataArray[i].person_Type == 2 ? 'Business Perosn ' : this.dataArray[i].person_Type == 3 ? 'ThreeWheel Driver' : this.dataArray[i].person_Type == 4 ? 'Phase Out' : 'Mobile Vendor' : null;
 
 
           person.Person_DOB = this.dataArray[i].person_DOB;

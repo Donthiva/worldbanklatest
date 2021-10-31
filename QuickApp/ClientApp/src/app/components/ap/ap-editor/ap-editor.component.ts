@@ -173,7 +173,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
       }
       else if (this.CurrentType == 1) {
         this.loadMonitoringData();
-      } else if (this.CurrentType == 2) {
+      } else if (this.CurrentType == 2 || this.CurrentType == 5) {
         this.loadBusinessMonitoringData();
       } else if (this.CurrentType == 3) {
         this.loadThreeWheelMonitoringData();
@@ -447,7 +447,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
   loadBusinessMonitoringData() {
     this.IsBusinessDataReady = false;
 
-    if (this.CurrentType == 2) {
+    if (this.CurrentType == 2 || this.CurrentType == 5) {
       this.monitorservice.GetAlldBusinessMonitor().subscribe(
         reponse => {
           this.responseOutputBusiness = reponse;

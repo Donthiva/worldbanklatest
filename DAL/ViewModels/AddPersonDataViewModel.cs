@@ -125,11 +125,14 @@ namespace DAL.ViewModels
 
         public string BusinessPlanNote { get; set; }
 
+        public int BusinessAPType { get; set; }
+
     }
 
 
     public class ThreeWheelDriver
     {
+
         public string initialParkAtGSBS { get; set; }
         public double MonthlyIncomeGSBS { get; set; }
         public string EngagementAtGSBS { get; set; }

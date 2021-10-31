@@ -340,7 +340,7 @@
 
 
 
-                <div *ngIf="CurrentType == 2 && IsBusinessDataReady && !IsTraining">
+                <div *ngIf="(CurrentType == 2 || CurrentType == 5) && IsBusinessDataReady && !IsTraining">
 
 
                     <ngx-datatable class="material colored-header sm table table-striped table-hover"
