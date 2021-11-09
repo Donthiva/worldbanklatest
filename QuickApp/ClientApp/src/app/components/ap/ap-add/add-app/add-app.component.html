@@ -594,7 +594,7 @@
                             <ng-select class="custom" [items]="reloacatedList" bindLabel="name" bindValue="id"
                                 [(ngModel)]="personModel.employeeBusinessLivelihoodRealocation">
                             </ng-select>
-                            <div *ngIf="(personModel.businessGeneral.isFirstBusinessPlan == null) && validationfailed"
+                            <div *ngIf="(personModel.employeeBusinessLivelihoodRealocation == null) && validationfailed"
                                 class="alert alert-danger">
                                 <div>Business/ Livelihood Relocation required</div>
                             </div>
