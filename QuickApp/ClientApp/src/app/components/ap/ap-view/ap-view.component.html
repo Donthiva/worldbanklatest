@@ -10,7 +10,6 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-            
                                 <small>Personal Info</small>
                             </div>
                             <div class="card-body">
@@ -22,16 +21,10 @@
                                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                                             <h6>General Information</h6>
                                         </div>
-            
                                         <div class="row">
                                             <div class="col-md-4" style="text-align:start;align-items:flex-start;">
-            
                                                 <img [src]="apuserimage" alt="Avatar"
                                                     style="vertical-align: middle; width: 50;height: 50px; border-radius: 50%;margin-top: 10px;">
-            
-            
-            
-            
                                             </div>
                                         </div>
             
@@ -39,7 +32,17 @@
             
             
                                         <div class="row" style="font-size: small;">
-            
+
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">File number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_File_number}}</label>
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-4 form-group">
                                                 <div class="row">
                                                     <label for="company" style="font-weight:700;">AP Name</label>
@@ -48,37 +51,27 @@
                                                     <label style="text-align: center;"
                                                         for="company">{{personModel.Person_Name}}</label>
                                                 </div>
-            
-            
                                             </div>
             
-            
                                             <div class="col-md-4 form-group">
-            
                                                 <div class="row">
-                                                    <label for="vat" style="font-weight:700;">AP NIC</label>
+                                                    <label for="vat" style="font-weight:700;">NIC</label>
                                                 </div>
                                                 <div class="row">
                                                     <label style="text-align: center;"
                                                         for="company">{{personModel.Person_NIC}}</label>
                                                 </div>
-            
-            
                                             </div>
             
-            
-                                            <div class="form-group col-md-4">
+                                            <!-- <div class="form-group col-md-4">
                                                 <div class="row">
-                                                    <label for="city" style="font-weight:700;">AP File number</label>
+                                                    <label for="city" style="font-weight:700;">File number</label>
                                                 </div>
                                                 <div class="row">
                                                     <label style="text-align: center;"
                                                         for="company">{{personModel.Person_File_number}}</label>
                                                 </div>
-            
-                                            </div>
-            
-            
+                                            </div> -->
             
                                         </div>
             
@@ -87,15 +80,16 @@
             
                                             <div class="form-group col-md-4">
                                                 <div class="row">
-                                                    <label for="city" style="font-weight:700;">Person DOB</label>
+                                                    <label for="city" style="font-weight:700;">Age</label>
                                                 </div>
                                                 <div class="row">
-                                                    <label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label>
+                                                    <!-- <label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label> -->
+                                                    <label style="text-align: center;" for="city">{{age}}</label>
                                                 </div>
             
                                             </div>
             
-                                            <div class="form-group col-md-4">
+                                            <!-- <div class="form-group col-md-4">
                                                 <div class="row">
                                                     <label style="font-weight:700;" for="city">AP File number</label>
                                                 </div>
@@ -105,23 +99,8 @@
                                                         for="city">{{personModel.Person_File_number}}</label>
                                                 </div>
             
-                                            </div>
-            
-                                            <div class="form-group col-md-4">
-                                                <div class="row">
-                                                    <label style="font-weight:700;" for="city">Current Type</label>
-                                                </div>
-            
-                                                <div class="row">
-                                                    <label style="text-align: center;">{{currentTypeName}}</label>
-                                                </div>
-                                            </div>
-            
-                                        </div>
-            
-            
-                                        <div class="row" style="font-size: small;">
-            
+                                            </div> -->
+
                                             <div class="form-group col-md-4">
                                                 <div class="row">
                                                     <label style="font-weight:700;" for="city">Gender</label>
@@ -131,15 +110,244 @@
                                                     <label style="text-align: center;"> {{genderName}}</label>
                                                 </div>
                                             </div>
+            
+                                            <!-- <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label style="font-weight:700;" for="city">Current Type</label>
+                                                </div>
+            
+                                                <div class="row">
+                                                    <label style="text-align: center;">{{currentTypeName}}</label>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Contact Number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Person_Contact_Number}}</label>
+                                                </div>
+                                            </div>           
+                                        </div>
+
+                                        <div class="col-md-12 form-group" >
+                                            <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                                <h6>Address</h6>
+                                            </div>
+                
+                                            <div class="row" style="font-size: small;">
+            
+                                                <div class="col-md-4 form-group">
+                                                    <div class="row">
+                                                        <label for="company" style="font-weight:700;">Number</label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label style="text-align: center;" for="company">{{personModel.addressNo}}</label>
+                                                    </div>
+                                
+                                
+                                                </div>
+                                
+                                
+                                                <div class="col-md-4 form-group">
+                                
+                                                    <div class="row">
+                                                        <label for="vat" style="font-weight:700;">Street</label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label style="text-align: center;" for="company">{{personModel.addressStreet}}</label>
+                                                    </div>
+                                
+                                
+                                                </div>
+
+                                                <div class="col-md-4 form-group">
+                                
+                                                    <div class="row">
+                                                        <label for="vat" style="font-weight:700;">City</label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label style="text-align: center;" for="company">{{personCityName}}</label>
+                                                    </div>
+                                
+                                
+                                                </div>
+                                
+                                
+                                                
+                                
+                                
+                                
+                                            </div>
+
+                                            <div class="row" style="font-size: small;">
+            
+                                                <div class="col-md-4 form-group">
+                                                    <div class="row">
+                                                        <label for="company" style="font-weight:700;">District</label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label style="text-align: center;" for="company">{{personDistrictName}}</label>
+                                                    </div>
+                                
+                                
+                                                </div>
+
+                                                <div class="form-group col-md-4">
+                                                    <div class="row">
+                                                        <label for="city" style="font-weight:700;">Country</label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <label style="text-align: center;" for="company">{{personCountryName}}</label>
+                                                    </div>
+                                
+                                                </div>
+                                
+                                
+                                                
+                                
+                                
+                                
+                                            </div>
                                         </div>
             
             
-                                        <hr>
+                                        <!-- <div class="row" style="font-size: small;">
+
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Land Phone Number</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.Home_Contact_Number}}</label>
+                                                </div>
             
+                                            </div>
+            
+                                            
+                                        </div> -->
+            
+            
+                                        <!-- <hr> -->
+            
+                                    </div>
+
+                                    <div class="col-md-12 form-group" >
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>GSBS Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">GSBS category</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company">{{precatagory}}</label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">GSBS livelihood engagement</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company"></label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">GSBS income/profit</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;"
+                                                        for="company">{{personModel.businessGeneral.GSBSPreviousIncome}}</label>
+                                                </div>
+            
+                                            </div>
+            
+            
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 form-group" >
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Compensation package</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Entitled fund amount (LKR)</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company"></label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Break down of the key component</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company"></label>
+                                                </div>
+            
+                                            </div>
+            
+            
+            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group" >
+                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                            <h6>Relocation Information</h6>
+                                        </div>
+            
+                                        <div class="row" style="font-size: small;">
+            
+                                            <div class="col-md-4 form-group">
+                                                <div class="row">
+                                                    <label for="company" style="font-weight:700;">Immediate AP category after relocation</label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company"></label>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="form-group col-md-4">
+                                                <div class="row">
+                                                    <label for="city" style="font-weight:700;">Business/livelihood relocation </label>
+                                                </div>
+                                                <div class="row">
+                                                    <label style="text-align: center;" for="company"></label>
+                                                </div>
+            
+                                            </div>
+            
+            
+            
+                                        </div>
                                     </div>
             
             
-                                    <div class="col-md-12 form-group">
+                                    <!-- <div class="col-md-12 form-group">
                                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                                             <h6>Contact Information</h6>
                                         </div>
@@ -174,13 +382,13 @@
             
                                         </div>
             
-                                    </div>
+                                    </div> -->
             
                                     
                                     
             
-                                    <div class="col-md-12 form-group">
-                                        <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+                                    <!-- <div class="col-md-12 form-group"> -->
+                                        <!-- <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                                             <h6>Bank Information</h6>
                                         </div>
             
@@ -195,7 +403,7 @@
                                                 </div>
             
             
-                                            </div>
+                                            </div> -->
             
                                             <!-- <div class="form-group col-md-4">
                                                 <div class="row">
@@ -209,7 +417,7 @@
                                             </div> -->
             
             
-                                            <div class="form-group col-md-4">
+                                            <!-- <div class="form-group col-md-4">
                                                 <div class="row">
                                                     <label for="city" style="font-weight:700;">Bank Account No</label>
                                                 </div>
@@ -218,12 +426,16 @@
                                                         for="company">{{personModel.AccountNumber}}</label>
                                                 </div>
             
-                                            </div>
+                                            </div> -->
             
             
-                                        </div>
+                                        <!-- </div> -->
             
-                                    </div>
+                                    <!-- </div> -->
+
+
+
+                                    
                                     <div class="col-md-12 form-group" *ngIf="CurrentType==1">
                                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                                             <h6>Employee Information</h6>
@@ -702,14 +914,14 @@
                 </div>
             
             
-                <div class="row"
-                    style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;height: 600px;">
-                    <div class="col-md-12 form-group">
+                <!-- <div class="row"
+                    style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;height: 600px;"> -->
+                    <!-- <div class="col-md-12 form-group">
                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                             <h6>Address Information</h6>
-                        </div>
+                        </div> -->
             
-                        <div class="row" style="font-size: small;">
+                        <!-- <div class="row" style="font-size: small;">
             
                             <div class="col-md-4 form-group">
                                 <div class="row">
@@ -749,9 +961,9 @@
             
             
                         </div>
+             -->
             
-            
-                        <div class="row" style="font-size: small;">
+                        <!-- <div class="row" style="font-size: small;">
             
                             <div class="col-md-4 form-group">
                                 <div class="row">
@@ -779,20 +991,20 @@
             
             
             
-                        </div>
-                        <div class="row" style="padding: 20px;border-radius: 10;margin: 20px">
+                        </div> -->
+                        <!-- <div class="row" style="padding: 20px;border-radius: 10;margin: 20px">
                             <div class="col-md-12">
             
             
-                                <!-- <agm-map [latitude]="lat" [longitude]="lng">
+                                 <agm-map [latitude]="lat" [longitude]="lng">
                                     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                                </agm-map> -->
+                                </agm-map> 
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
             
             
-                </div>
+                <!-- </div> -->
             
             
             

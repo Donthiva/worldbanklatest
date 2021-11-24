@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { registerEscClick } from 'ngx-bootstrap/utils';
@@ -52,8 +53,8 @@ export class ApViewComponent implements OnInit, OnChanges {
 
     this.personModel = new PersonalData();
   }
-
-
+  precatagory:string;
+  age:number;
   selectedCar: number;
   cars = [
     { id: 1, name: 'Bussiness Person' },
@@ -114,7 +115,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
     this.LoadMonitorPeriods();
 
-    
+    this.loadage();
 
 
   }
@@ -258,6 +259,9 @@ export class ApViewComponent implements OnInit, OnChanges {
     else if (this.IsView == true) {
       this.personModel = this.personData;
       this.CurrentType = this.personData.PersonType
+      this.loadage();
+      this.loadprecatagory();
+      console.log("agenumber",this.age);
 
 
 
@@ -793,7 +797,28 @@ export class ApViewComponent implements OnInit, OnChanges {
     )
   }
 
+loadage(){
+  if (this.personModel.Person_DOB) {
 
+    var today = new Date();
+    var dateParts = this.personModel.Person_DOB.split("-");
+    var birthDate = new Date(+dateParts[0], +dateParts[1] - 1, +dateParts[2]);
+     this.age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        this.age--;
+    }
+    console.log(this.personModel.businessGeneral.GSBSPreviousIncome);
+
+
+  }
+}
+
+loadprecatagory(){
+  if(this.personModel.previousTypeId==0||this.personModel.previousTypeId==1)
+  this.precatagory="employee";
+}
 
 
 

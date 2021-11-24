@@ -900,7 +900,7 @@ export class AddAppComponent implements OnInit, OnChanges {
     this.Personservice.GetPreviousPersonTypes().subscribe(
       reponse => {
         this.personPreviouTypesarr = reponse;
-        console.log('personTypesarr', this.personTypesarr);
+        console.log('personTypesarr', this.personPreviouTypesarr);
       }
     )
   }
