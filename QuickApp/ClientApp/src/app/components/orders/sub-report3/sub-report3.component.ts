@@ -27,7 +27,8 @@ export class SubReport3Component implements OnInit {
 
   ShowNandPofBusinessPersonUndergoneTrainig:boolean = false;
   ShowNandPofBusinessPersonDiversifiedBusiness:boolean =false;
-
+  ShowParticularCategoryBusinessPersonGreen:boolean =false;
+  ShowParticularCategoryBusinessPersonYellow: boolean = false;
  
   ngOnInit(): void {
     this.LoadMonitorPeriods()
@@ -58,11 +59,13 @@ export class SubReport3Component implements OnInit {
 
   thirdQuestion(event){
     this.reportView = false;
+    this.ShowParticularCategoryBusinessPersonGreen  = event.target.checked ? true : false;
   
   }
 
   fourthQuestion(event){
     this.reportView = false;
+    this.ShowParticularCategoryBusinessPersonYellow  = event.target.checked ? true : false;
   
   }
 
@@ -109,8 +112,8 @@ export class SubReport3Component implements OnInit {
     this.params = {
       "ShowNandPofBusinessPersonUndergoneTrainig": this.ShowNandPofBusinessPersonUndergoneTrainig ,
       "BusinessPersonUndergoneTrainigPeriod" :this.selectedPeriodId,
-      "ShowNandPofBusinessPersonDiversifiedBusiness":this.ShowNandPofBusinessPersonDiversifiedBusiness
-
+      "ShowNandPofBusinessPersonDiversifiedBusiness":this.ShowNandPofBusinessPersonDiversifiedBusiness,
+      "ShowParticularCategoryBusinessPersonGreen" : this.ShowParticularCategoryBusinessPersonGreen
     }
 
     this.parameters = this.params;
