@@ -242,6 +242,16 @@
     "BusinessType": "Business Type"
 },
 
+"ReportData":{
+  "SubReport1" : "SubReport 1",
+  "SubReport2": "SubReport 2",
+  "SubReport3" : "SubReport 3",
+  "SubReport4":"SubReport 4"
+
+
+},
+
+
   "preferences": {
     "ReloadPreferences": "Reload Preferences:",
     "ReloadPreferencesHint": "Load default preferences (local changes are discarded)",

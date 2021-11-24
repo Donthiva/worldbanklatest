@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { APComponent } from './components/ap/ap.component';
-import { OrdersComponent } from './components/orders/orders.component';
+
 import { SettingsComponent } from './components/settings/settings.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -19,6 +19,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { Utilities } from './services/utilities';
 import { MasterdatapageComponent } from './components/master-data/masterdatapage.component';
 import { MultipleTrainingComponent } from './components/ap/trainings/multiple-training.component';
+import { MainReportComponent } from './components/orders/main-report.component';
 
 
 
@@ -49,7 +50,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent, data: { title: 'Login' } },
     { path: 'masterdata', component: MasterdatapageComponent, canActivate: [AuthGuard], data: { title: 'masterdata' } },
     { path: 'ap', component: APComponent, canActivate: [AuthGuard], data: { title: 'Ap' } },
-    { path: 'reports', component: OrdersComponent, canActivate: [AuthGuard], data: { title: 'Reports' } },
+    { path: 'reports', component: MainReportComponent, canActivate: [AuthGuard], data: { title: 'Reports' } },
     { path: 'trainings', component: MultipleTrainingComponent, canActivate: [AuthGuard], data: { title: 'Tranings' } },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
     { path: 'about', component: AboutComponent, data: { title: 'About Us' } },

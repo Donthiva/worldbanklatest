@@ -59,6 +59,10 @@ namespace DAL.Models.Customer_Related
 
         public string BusinessPlanNote { get; set; }
 
+        public decimal EntitlementFund { get; set; }
+
+        public bool IsEntitleFund { get; set; }
+
         public Address Address { get; set; }
 
         public Gender Gender { get; set; }

@@ -1,0 +1,302 @@
+<div class="container">
+    <!-- <header class="pageHeader">
+        <h3><i class="fa fa-shopping-cart fa-lg page-caption" aria-hidden="true"></i> Reporting</h3>
+    </header> -->
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="city">Monitor Period</label>
+            <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName" bindValue="id"
+            (change)="selectedPeriod($event)">
+            </ng-select>
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card form-group col-md-12">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p style="font-weight: bolder;">Seach the data</p>
+                    </div>
+                    <div class="col-md-10" style="text-align: end;">
+                        <button class="btn-primary"  (click)="Search()"> Search</button>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="card-body">
+              <div class="row">
+                  <div class="col-md-1" >
+                    <input (change)="firstQuestion($event)"
+                    type="checkbox"
+                   />
+                  </div>
+                  <div class="col-md-11" style="text-align: left;">
+                  <p>• Number and percentage of APs in the business operator category who have undergone any type of business training segregated by gender</p>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-1">
+                  <input (change)="secondQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators who have diversified their businesses</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="thirdQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators in the green category </p>
+              
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="fourthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators in the yellow category  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="fifthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators in the red category   </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="sixthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators who have entered into new businesses </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="seventhQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators completely closed down their businesses after relocation  </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="eightQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of business operators  who are satisfied with their livelihoods after relocation </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="ninthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage in the employee category who have undergone any type of training segregated by gender  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage in the employee category who have started new businesses segregated by gender  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of employee family members who have enrolled in the vocational training segregated by gender   </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of employees who are satisfied with their livelihoods after relocation  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage among the mobile vendor category who got the registration for doing business at temporary bus stand   </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage among the mobile vendors who have started new businesses   </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage among the mobile vendors who have started new businesses   </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of mobile vendors who are satisfied with their livelihoods after relocation  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage among the Three-wheel operators who have obtained new registration under the Three- wheeler upgrade program of the LRP  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage among the Three-wheel operators who have undergone any type of training under the LRP </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs among the three-wheel operators who are satisfied with their lives after relocation   </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs among the three-wheel operators who are satisfied with their lives after relocation     </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of phased – out APs who are engaged in any type of income generation activities      </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of phase – out who are depend on their families/children </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of phased -out APs who are getting interest income from the fixed deposits/savings </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of phased out APs who are satisfied with their lives after relocation  </p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" *ngIf="reportView">
+        <ssrs-reportviewer [reportserver]="reportServer" [reporturl]="reportUrl" [showparameters]="showParameters"
+            [parameters]="parameters" [language]="language" [width]="width" [height]="height" [toolbar]="toolbar">
+        </ssrs-reportviewer>
+    </div>
+</div>

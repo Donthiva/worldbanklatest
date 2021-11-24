@@ -47,7 +47,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CustomersComponent } from './components/customers/customers.component';
 
-import { OrdersComponent } from './components/orders/orders.component';
+
 import { SettingsComponent } from './components/settings/settings.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -117,6 +117,13 @@ import { PeriodComponentComponent } from './components/master-data/periods/perio
 import { BusinessPlanComponent } from './components/master-data/businessPlan/business-plan.component';
 import { BusinessTypeComponent } from './components/master-data/business-type/business-type.component';
 import { MultipleTrainingComponent } from './components/ap/trainings/multiple-training.component';
+import { OrdersComponent } from './components/orders/SubReport1/orders.component';
+import { MainReportComponent } from './components/orders/main-report.component';
+import { SubReport2Component } from './components/orders/sub-report2/sub-report2.component';
+import { SubReport3Component } from './components/orders/sub-report3/sub-report3.component';
+import { SubReport4Component } from './components/orders/sub-report4/sub-report4.component';
+import { SubRepo5Component } from './components/orders/sub-repo5/sub-repo5.component';
+
 
 
 
@@ -211,7 +218,8 @@ import { MultipleTrainingComponent } from './components/ap/trainings/multiple-tr
     PeriodComponentComponent,
     BusinessPlanComponent,
     BusinessTypeComponent,
-    MultipleTrainingComponent
+    MultipleTrainingComponent,MainReportComponent, SubReport2Component, SubReport3Component, SubReport4Component, SubRepo5Component
+
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },

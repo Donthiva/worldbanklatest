@@ -1,0 +1,154 @@
+<div class="container">
+    <!-- <header class="pageHeader">
+        <h3><i class="fa fa-shopping-cart fa-lg page-caption" aria-hidden="true"></i> Reporting</h3>
+    </header> -->
+
+    <div class="row">
+     
+    </div>
+
+    <div class="row">
+        <div class="card form-group col-md-12">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p style="font-weight: bolder;">Seach the data</p>
+                    </div>
+                    <div class="col-md-10" style="text-align: end;">
+                        <button class="btn-primary"  (click)="Search()"> Search</button>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="card-body">
+              <div class="row">
+                  <div class="col-md-1" >
+                    <input (change)="firstQuestion($event)"
+                    type="checkbox"
+                   />
+                  </div>
+                  <div class="col-md-11" style="text-align: left;">
+                  <p>• Number and percentage of APs belong to each category? (Of the total population)</p>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-1">
+                  <input (change)="secondQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of men and women of among the total population of APs?</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="thirdQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of age categories among the APs disaggregated by gender?</p>
+                <div class="row">
+                    <div class="col-2">
+
+                    </div>
+                   <div class="col-6">
+                    <p>• Male Youth below 35 years of age</p>
+                    <p>• Female youth below 35 years of age </p>
+                    <p>• Male adults – between 36-65 </p>
+                    <p>• Female adults – between 36-65 </p>
+                    <p>• Male elderly – above 65 years of age  </p>
+                    <p>• Female elderly – above 65 years of age  </p>
+                   </div>
+                    
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="fourthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of vulnerable among the APs of all categories? </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="fifthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs who have undergone any type of training/awareness as part of the LRP?  </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="sixthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Categorization of the EAC approved compensation as high/medium/low   </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="seventhQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs who belong to the highest category in terms of the amount received as the compensation package?    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="eightQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs who belong to the medium category in terms of the amount received as the compensation package? </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="ninthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs who belong to the lowest category in terms of the amount received as the compensation package?  </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                  <input (change)="tenthQuestion($event)"
+                  type="checkbox"
+                 />
+                </div>
+                <div class="col-md-11" style="text-align: left;">
+                <p>• Number and percentage of APs who have received the disability grant as part of the compensation package?  </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" *ngIf="reportView">
+        <ssrs-reportviewer [reportserver]="reportServer" [reporturl]="reportUrl" [showparameters]="showParameters"
+            [parameters]="parameters" [language]="language" [width]="width" [height]="height" [toolbar]="toolbar">
+        </ssrs-reportviewer>
+    </div>
+</div>

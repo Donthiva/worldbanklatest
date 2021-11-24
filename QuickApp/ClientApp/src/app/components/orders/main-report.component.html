@@ -1,0 +1,91 @@
+<div class="container">
+    <header class="pageHeader">
+      <h3>Reports
+      </h3>
+    </header>
+  
+  
+  
+    <div [@fadeInOut]>
+      <div class="d-sm-flex flex-row">
+        <ul appBootstrapTab #tab="bootstrap-tab" (showBSTab)="onShowTab($event)"
+          class="nav nav-tabs nav-tabs--vertical nav-tabs--left" role="navigation">
+  
+          <li class="nav-item">
+            <a id="subRep1Tab" [routerLink]="[]" fragment="subRep1" data-target="#subRep1" href="#subRep1"
+              class="nav-link" data-toggle="tab" role="tab" aria-controls="subRep1">
+              <i class="fa fa-compass" aria-hidden="true"></i> {{'ReportData.SubReport1' | translate}}
+            </a>
+          </li>
+  
+  
+          <li class="nav-item">
+            <a id="subRep2Tab" [routerLink]="[]" fragment="subRep2" data-target="#subRep2" href="#subRep2" class="nav-link"
+              data-toggle="tab" role="tab" aria-controls="subRep2">
+              <i class="fa fa-compass" aria-hidden="true"></i> {{'ReportData.SubReport2' | translate}}
+            </a>
+  
+          </li>
+
+          <li class="nav-item">
+            <a id="subRep3Tab" [routerLink]="[]" fragment="subRep3" data-target="#subRep3" href="#subRep3" class="nav-link"
+              data-toggle="tab" role="tab" aria-controls="subRep3">
+              <i class="fa fa-compass" aria-hidden="true"></i> {{'ReportData.SubReport3' | translate}}
+            </a>
+  
+          </li>
+
+          <li class="nav-item">
+            <a id="subRep4Tab" [routerLink]="[]" fragment="subRep4" data-target="#subRep4" href="#subRep4" class="nav-link"
+              data-toggle="tab" role="tab" aria-controls="subRep4">
+              <i class="fa fa-compass" aria-hidden="true"></i> {{'ReportData.SubReport4' | translate}}
+            </a>
+  
+          </li>
+  
+  
+  
+        </ul>
+        <div class="tab-content w-100">
+          <div class="tab-pane" id="subRep1" role="tabpanel">
+  
+            <hr class="separator-hr" />
+            <div [@fadeInOut] *ngIf="IsSubRep1Activated" class="content-container pl-lg-2">
+              <app-orders></app-orders>
+            </div>
+  
+          </div>
+          <div class="tab-pane" id="subRep2" role="tabpanel">
+  
+            <hr class="separator-hr" />
+            <div [@fadeInOut] *ngIf="IsSubRep2Activated" class="content-container pl-lg-2">
+  
+              <app-sub-report2></app-sub-report2>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="subRep3" role="tabpanel">
+  
+            <hr class="separator-hr" />
+            <div [@fadeInOut] *ngIf="IsSubRep3Activated" class="content-container pl-lg-2">
+  
+              <app-sub-report3></app-sub-report3>
+            </div>
+          </div>
+  
+          <div class="tab-pane" id="subRep4" role="tabpanel">
+  
+            <hr class="separator-hr" />
+            <div [@fadeInOut] *ngIf="IsSubRep4Activated" class="content-container pl-lg-2">
+  
+              <app-sub-report4></app-sub-report4>
+            </div>
+          </div>
+  
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  </div>

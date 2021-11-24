@@ -1,0 +1,28 @@
+<div class="container">
+    <!-- <header class="pageHeader">
+        <h3><i class="fa fa-shopping-cart fa-lg page-caption" aria-hidden="true"></i> Reporting</h3>
+    </header> -->
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="city">Monitor Period</label>
+            <ng-select class="custom" [items]="MonitorPeriod" bindLabel="peroildName" bindValue="id"
+            (change)="selectedPeriod($event)" >
+            </ng-select>
+            
+        </div>
+        
+        <div class="col-md-8" style="text-align: end;">
+           
+                <button class="btn-primary"  (click)="Search()"> Search</button>
+            
+        </div>
+    </div>
+
+    <div class="container" *ngIf="reportView">
+        <ssrs-reportviewer [reportserver]="reportServer" [reporturl]="reportUrl" [showparameters]="showParameters"
+            [parameters]="parameters" [language]="language" [width]="width" [height]="height" [toolbar]="toolbar">
+        </ssrs-reportviewer>
+    </div>
+
+</div>

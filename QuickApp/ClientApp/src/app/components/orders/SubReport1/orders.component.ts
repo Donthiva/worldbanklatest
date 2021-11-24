@@ -6,10 +6,11 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { employmenttypes } from 'src/app/models/employment_types';
+import { fadeInOut } from 'src/app/services/animations';
 import { EmploymentEndpoint } from 'src/app/services/masterdataservice/employmentService';
 import { PersonEndpoint } from 'src/app/services/masterdataservice/personService';
 import { MonitorEndpoint } from 'src/app/services/monitor/monitorService';
-import { fadeInOut } from '../../services/animations';
+
 
 @Component({
   selector: 'app-orders',
