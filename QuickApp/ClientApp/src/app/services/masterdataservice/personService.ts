@@ -28,6 +28,10 @@ export class PersonEndpoint extends EndpointBase {
 
   get getAllPersonData() { return this.configurations.baseUrl + '/api/Person/GetAllPersonsData'; }
 
+  get getApProgressBOData() { return this.configurations.baseUrl + '/api/Person/GetApProgressBOData'; }
+
+  get getTrainingData() { return this.configurations.baseUrl + '/api/Person/GetTrainingData'; }
+
   get getAllVulnerabilityLevelURL() { return this.configurations.baseUrl + '/api/Person/GetAllValnerbilityLevel'; }
 
 
@@ -103,7 +107,28 @@ export class PersonEndpoint extends EndpointBase {
 
     return this.http.get<T>(this.getAllPersonData, this.requestHeaders).pipe<T>(
       catchError(error => {
-        return this.handleError(error, () => this.GetPersonTypes());
+        return this.handleError(error, () => this.GetAllPersonData());
+      }));
+  }
+
+
+  GetApProgressBOData<T>(Id:number): Observable<T> {
+    
+    const endpointUrl = `${this.getApProgressBOData}/${Id}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetApProgressBOData(Id));
+      }));
+  }
+
+  GetTrainingData<T>(Id:number): Observable<T> {
+    
+    const endpointUrl = `${this.getTrainingData}/${Id}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetTrainingData(Id));
       }));
   }
 

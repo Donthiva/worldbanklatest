@@ -11,7 +11,7 @@ export class SubReport4Component implements OnInit {
   constructor(private personservice:PersonEndpoint) { }
 
 
-  reportServer: string = 'http://lkcontsaranat01//ReportServer';
+  reportServer: string = 'http://lkconrbandara02//ReportServer';
   reportUrl: string = 'Report Project1/Report1';
   showParameters: string = "false";
   parameters: any = {

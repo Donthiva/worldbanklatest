@@ -70,7 +70,7 @@ export class OrdersComponent implements OnInit {
   employmenttypearray:any=[];
 
 
-  reportServer: string = 'http://lkcontsaranat01//ReportServer';
+  reportServer: string = 'http://lkconrbandara02//ReportServer';
   reportUrl: string = 'Report Project1/Report1';
   showParameters: string = "false";
   parameters: any = {

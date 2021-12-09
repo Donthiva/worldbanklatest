@@ -5,9 +5,12 @@ using DAL.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
+using System.Data;
 
 namespace DAL.Repositories
 {
@@ -56,6 +59,78 @@ namespace DAL.Repositories
 
                 
                 return data;
+
+            }
+            catch (Exception ex)
+            {
+                var z = ex;
+
+                return null;
+            }
+
+        }
+
+        public async Task<IEnumerable<APProgressBO>> getApProgressBO(int PersonId)
+        {
+            try
+            {
+
+                IEnumerable<APProgressBO> APlist;
+
+
+                using (IDbConnection db = new SqlConnection("Server = (local); Database = QuickApp; Trusted_Connection = True; MultipleActiveResultSets = true"))
+                {
+                    db.Open();
+
+                    var dictionary = new Dictionary<string, object>
+                    {
+                    { "@PersonId", PersonId }
+
+                    };
+
+                    APlist = db.Query<APProgressBO>("GETAPProgressBO", dictionary,
+                         commandType: CommandType.StoredProcedure);
+                }
+
+                
+
+                return APlist;
+
+            }
+            catch (Exception ex)
+            {
+                var z = ex;
+
+                return null;
+            }
+
+        }
+
+        public async Task<IEnumerable<TrainigDataViewModel>> getTraining(int PersonId)
+        {
+            try
+            {
+
+                IEnumerable<TrainigDataViewModel> TRlist;
+
+
+                using (IDbConnection db = new SqlConnection("Server = (local); Database = QuickApp; Trusted_Connection = True; MultipleActiveResultSets = true"))
+                {
+                    db.Open();
+
+                    var dictionary = new Dictionary<string, object>
+                    {
+                    { "@PersonId", PersonId }
+
+                    };
+
+                    TRlist = db.Query<TrainigDataViewModel>("GetTraining", dictionary,
+                         commandType: CommandType.StoredProcedure);
+                }
+
+
+
+                return TRlist;
 
             }
             catch (Exception ex)

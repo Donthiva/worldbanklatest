@@ -10,7 +10,7 @@ export class SubReport2Component implements OnInit {
   constructor() { }
 
 
-  reportServer: string = 'http://lkcontsaranat01//ReportServer';
+  reportServer: string = 'http://lkconrbandara02//ReportServer';
   reportUrl: string = 'Report Project1/TotalPopMainRep';
   showParameters: string = "false";
   parameters: any = {

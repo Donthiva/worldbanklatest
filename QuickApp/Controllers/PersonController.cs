@@ -332,6 +332,8 @@ namespace QuickApp.Controllers
             {
                 var data = await _person.getallPersonData();
 
+               // var data2 = await _person.getApProgressBO(1);
+                
                 
                 return Ok(data);
 
@@ -344,13 +346,55 @@ namespace QuickApp.Controllers
                 return Ok("error");
             }
 
-         
+            //string jsonString = JsonSerializer.Serialize<IEnumerable<Person>>(data);   
+        }
 
+        [HttpGet("GetApProgressBOData/{Id:int}")]
+        public async Task<IActionResult> GetApProgressBO(int id)
+        {
+            try
+            {
+             
+                var data2 = await _person.getApProgressBO(id);
+
+                return Ok(data2);
+
+            }
+            catch (Exception ex)
+            {
+                var data = ex;
+
+                return Ok("error");
+            }
 
             //string jsonString = JsonSerializer.Serialize<IEnumerable<Person>>(data);
 
-           
         }
+
+
+
+        [HttpGet("GetTrainingData/{Id:int}")]
+        public async Task<IActionResult> GetTrainingBO(int id)
+        {
+            try
+            {
+
+                var data2 = await _person.getTraining(id);
+
+                return Ok(data2);
+
+            }
+            catch (Exception ex)
+            {
+                var data = ex;
+
+                return Ok("error");
+            }
+
+            //string jsonString = JsonSerializer.Serialize<IEnumerable<Person>>(data);
+
+        }
+
 
 
         [HttpGet("GetAllPersonsDataWithoutRelated")]

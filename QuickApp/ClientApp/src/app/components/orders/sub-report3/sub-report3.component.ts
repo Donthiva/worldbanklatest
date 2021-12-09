@@ -10,7 +10,7 @@ export class SubReport3Component implements OnInit {
 
   constructor(private personservice:PersonEndpoint) { }
 
-  reportServer: string = 'http://lkcontsaranat01//ReportServer';
+  reportServer: string = 'http://lkconrbandara02//ReportServer';
   reportUrl: string = 'Report Project1/SpecificPopMainRep';
   showParameters: string = "false";
   parameters: any = {
@@ -113,7 +113,8 @@ export class SubReport3Component implements OnInit {
       "ShowNandPofBusinessPersonUndergoneTrainig": this.ShowNandPofBusinessPersonUndergoneTrainig ,
       "BusinessPersonUndergoneTrainigPeriod" :this.selectedPeriodId,
       "ShowNandPofBusinessPersonDiversifiedBusiness":this.ShowNandPofBusinessPersonDiversifiedBusiness,
-      "ShowParticularCategoryBusinessPersonGreen" : this.ShowParticularCategoryBusinessPersonGreen
+      "ShowParticularCategoryBusinessPersonGreen" : this.ShowParticularCategoryBusinessPersonGreen,
+      "ShowParticularCategoryBusinessPersonYellow":this.ShowParticularCategoryBusinessPersonYellow
     }
 
     this.parameters = this.params;

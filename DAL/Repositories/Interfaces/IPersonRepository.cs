@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using DAL.Models.Customer_Related;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,9 @@ namespace DAL.Repositories.Interfaces
         Task<DataTransModel> updatePersonData(Person data);
 
         Task<IEnumerable<Person>> GetAllPersonsDataWithoutRelated();
+
+        Task<IEnumerable<APProgressBO>> getApProgressBO(int PersonId);
+
+        Task<IEnumerable<TrainigDataViewModel>> getTraining(int PersonId);
     }
 }

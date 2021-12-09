@@ -1,9 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { registerEscClick } from 'ngx-bootstrap/utils';
 import { cpuUsage } from 'process';
+import { ApProgressBOData } from 'src/app/models/app-add/ApProgressBOData';
 import { BusinessGeneral, PersonalData, PhaseOut, ThreeWheelDriver } from 'src/app/models/app-add/personalData';
+import { TrainingData } from 'src/app/models/app-add/TrainingData';
 import { businessMonitorModel } from 'src/app/models/MoniorModels/businessMonitorModel';
 import { EmployeeMonitor } from 'src/app/models/MoniorModels/employeeMonitorModel';
 import { phaseOutMonitor } from 'src/app/models/MoniorModels/phaseOut';
@@ -12,6 +14,7 @@ import { SelectPersonTypes } from 'src/app/models/selectPersonType';
 import { AlertService, MessageSeverity } from 'src/app/services/alert.service';
 import { AddressService } from 'src/app/services/ap-services.ts/addressService';
 import { BusinessService } from 'src/app/services/ap-services.ts/businessService';
+import { AppTranslationService } from 'src/app/services/app-translation.service';
 import { ConfigurationService } from 'src/app/services/configuration.service';
 import { BankEndpoint } from 'src/app/services/masterdataservice/bankService';
 import { PersonEndpoint } from 'src/app/services/masterdataservice/personService';
@@ -34,6 +37,7 @@ export class ApViewComponent implements OnInit, OnChanges {
   personTypes: SelectPersonTypes;
 
   personModel: PersonalData;
+  ApProgressBOModel: ApProgressBOData;
   selectedGenderType: number;
   selectedStreet: number;
   selectedBankName: number;
@@ -47,11 +51,32 @@ export class ApViewComponent implements OnInit, OnChanges {
   lng = 7.809007;
 
 
-  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint) {
+  columns: any[] = [];
+  rows: any[] = [];
+  columns2: any[] = [];
+  rows2: any[] = [];
+  loadingIndicator: boolean;
+
+  @ViewChild('indexTemplateapprogress', { static: true })
+  indexTemplatecity: TemplateRef<any>;
+
+  @ViewChild('actionsTemplateapprogress', { static: true })
+  actionsTemplatecity: TemplateRef<any>;
+
+  @ViewChild('indexTemplateTraining', { static: true })
+  indexTemplatetraining: TemplateRef<any>;
+
+  @ViewChild('actionsTemplateTraining', { static: true })
+  actionsTemplatetraining: TemplateRef<any>;
+
+
+  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint,private translationService: AppTranslationService) {
 
     this.personTypes = new SelectPersonTypes();
 
     this.personModel = new PersonalData();
+
+
   }
   precatagory:string;
   age:number;
@@ -108,6 +133,24 @@ export class ApViewComponent implements OnInit, OnChanges {
   CurrentType: number = 1;
   ngOnInit(): void {
 
+    const gT = (key: string) => this.translationService.getTranslation(key);
+
+    this.columns = [
+      { prop: 'period', name: gT('APs.ApProgressBO.list.Period'), width: 100, cellTemplate: this.indexTemplatecity, canAutoResize: false },
+      { prop: 'businessstauts', name: gT('APs.ApProgressBO.list.Businessstauts'), width: 320 }, 
+      { prop: 'incomestatus', name: gT('APs.ApProgressBO.Incomestatus.'), width: 320 },  
+      { prop: 'businesssituation', name: gT('APs.ApProgressBO.list.Businesssituation'), width: 320 }
+      // { name: '', width: 250, cellTemplate: this.actionsTemplatecity, resizeable: false, canAutoResize: false, sortable: false, draggable: false }
+    ];
+    const gT2 = (key: string) => this.translationService.getTranslation(key);
+    this.columns2 = [
+      { prop: 'date', name: gT2('APs.TrainingData.list.date'), width: 100, cellTemplate: this.indexTemplatetraining, canAutoResize: false },
+      { prop: 'nameOfTraining', name: gT2('APs.TrainingData.list.nameOfTraining'), width: 320 }, 
+      { prop: 'generaldescription', name: gT2('APs.TrainingData.list.generaldescription'), width: 320 }
+      // { prop: 'businesssituation', name: gT('APs.ApProgressBO.list.Businesssituation'), width: 320 },
+      // { name: '', width: 250, cellTemplate: this.actionsTemplatecity, resizeable: false, canAutoResize: false, sortable: false, draggable: false }
+    ];
+
     //this.loadAddressRelatedData();
     this.loadPeronData();
 
@@ -116,6 +159,8 @@ export class ApViewComponent implements OnInit, OnChanges {
     this.LoadMonitorPeriods();
 
     this.loadage();
+
+   
 
 
   }
@@ -145,7 +190,8 @@ export class ApViewComponent implements OnInit, OnChanges {
   }
 
   employeeMonitorListCustom = new Array<EmployeeMonitor>();
-
+  ApProgressBOList = new Array<ApProgressBOData>();
+  TrainingList=new Array<TrainingData>();
   currentTypeName: string
   genderName: string;
   personCountryName: string;
@@ -286,6 +332,10 @@ export class ApViewComponent implements OnInit, OnChanges {
 
 
       this.LoadAllBankBranchers(this.personModel.BankBranch);
+
+      this.loadApProgressBOData(this.personData.Person_ID);
+
+      this.loadTrainingData(this.personData.Person_ID);
     }
 
 
@@ -796,6 +846,29 @@ export class ApViewComponent implements OnInit, OnChanges {
       }
     )
   }
+
+
+  loadApProgressBOData(Id){
+  this.Personservice.GetApProgressBOData(Id).subscribe(
+    response => {
+      this.ApProgressBOList = response as Array<ApProgressBOData>;
+      console.log('ApProgressBOList', this.ApProgressBOList);
+      this.rows = this.ApProgressBOList;
+    }
+  )
+
+  }
+
+  loadTrainingData(Id){
+    this.Personservice.GetTrainingData(Id).subscribe(
+      response => {
+        this.TrainingList = response as Array<TrainingData>;
+        console.log('TrainingList', this.TrainingList);
+        this.rows2 = this.TrainingList;
+      }
+    )
+  
+    }
 
 loadage(){
   if (this.personModel.Person_DOB) {

@@ -216,6 +216,23 @@
         "Vulnerability_Level_Description" : "Description"
       }
     }
+    ,
+    "ApProgressBO":{
+      "list":{
+        "Period" : "Period",
+        "Businessstauts" : "Business Status",
+        "Incomestatus":"Income Status",
+        "Businesssituation":"Businesssituation"
+      }
+    }
+    ,
+    "TrainingData":{
+      "list":{
+        "date" : "Date",
+        "nameOfTraining" : "Name Of Training",
+        "generaldescription":"General Description"
+      }
+    }
 
   },
   "MasterData":{
