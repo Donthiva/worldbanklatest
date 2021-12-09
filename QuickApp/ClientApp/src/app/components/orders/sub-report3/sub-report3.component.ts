@@ -29,6 +29,14 @@ export class SubReport3Component implements OnInit {
   ShowNandPofBusinessPersonDiversifiedBusiness:boolean =false;
   ShowParticularCategoryBusinessPersonGreen:boolean =false;
   ShowParticularCategoryBusinessPersonYellow: boolean = false;
+  ShowParticularCategoryBusinessPersonRed : boolean = false;
+  ShowParticularCategoryEmployeeStartedNewBusiness : boolean = false;
+  ShowParticularCategoryEmployeeFamilyTraining : boolean = false;
+  ShowParticularCategoryMobileVendorsStartedNewBusiness : boolean = false;
+  ShowParticularCategoryThreeWheelOperatorsTraining  : boolean = false;
+  ShowParticularCategoryPhaseOutEngageInIncomeGenration : boolean = false;
+  ShowParticularCategoryPhaseOutDepenedOnFamily : boolean = false;
+  ShowParticularCategoryPhaseOutHasIntrestIncome : boolean = false;
  
   ngOnInit(): void {
     this.LoadMonitorPeriods()
@@ -71,6 +79,7 @@ export class SubReport3Component implements OnInit {
 
   fifthQuestion(event){
     this.reportView = false;
+    this.ShowParticularCategoryBusinessPersonRed  = event.target.checked ? true : false;
  
   }
 
@@ -96,12 +105,54 @@ export class SubReport3Component implements OnInit {
 
   tenthQuestion(event){
     this.reportView = false;
+    this.ShowParticularCategoryEmployeeStartedNewBusiness  = event.target.checked ? true : false;
 
   }
+
+  eleventhhQuestion(event){
+    this.reportView = false;
+    this.ShowParticularCategoryEmployeeFamilyTraining  = event.target.checked ? true : false;
+
+  }
+
+  twelththhQuestion(event){
+    // this.reportView = false;
+    // this.ShowParticularCategoryEmployeeFamilyTraining  = event.target.checked ? true : false;
+
+  }
+
+  fourteenQuestion(event){
+  this.reportView = false;
+    this.ShowParticularCategoryMobileVendorsStartedNewBusiness  = event.target.checked ? true : false;
+  }
+
+
+  seventeenQuestion(event){
+    this.reportView = false;
+    this.ShowParticularCategoryThreeWheelOperatorsTraining  = event.target.checked ? true : false;
+  }
+
+  NinteenQuestion(event){
+    this.reportView = false;
+    this.ShowParticularCategoryPhaseOutEngageInIncomeGenration  = event.target.checked ? true : false;
+  }
+
+  TewntyQuestion(event){
+    this.reportView = false;
+    this.ShowParticularCategoryPhaseOutDepenedOnFamily  = event.target.checked ? true : false;
+  }
+
+  TewntyOneQuestion(event){
+    this.reportView = false;
+    this.ShowParticularCategoryPhaseOutHasIntrestIncome  = event.target.checked ? true : false;
+  }
+
+
 
   selectedPeriod(event) {
     this.reportView = false;
     this.selectedPeriodId = event.id
+    
 
   }
 
@@ -114,7 +165,16 @@ export class SubReport3Component implements OnInit {
       "BusinessPersonUndergoneTrainigPeriod" :this.selectedPeriodId,
       "ShowNandPofBusinessPersonDiversifiedBusiness":this.ShowNandPofBusinessPersonDiversifiedBusiness,
       "ShowParticularCategoryBusinessPersonGreen" : this.ShowParticularCategoryBusinessPersonGreen,
-      "ShowParticularCategoryBusinessPersonYellow":this.ShowParticularCategoryBusinessPersonYellow
+      "ShowParticularCategoryBusinessPersonYellow":this.ShowParticularCategoryBusinessPersonYellow,
+    
+      "ShowParticularCategoryBusinessPersonRed" : this.ShowParticularCategoryBusinessPersonRed,
+      "ShowParticularCategoryEmployeeStartedNewBusiness" : this.ShowParticularCategoryEmployeeStartedNewBusiness,
+      "ShowParticularCategoryEmployeeFamilyTraining" : this.ShowParticularCategoryEmployeeFamilyTraining,
+      "ShowParticularCategoryMobileVendorsStartedNewBusiness" : this.ShowParticularCategoryMobileVendorsStartedNewBusiness,
+      "ShowParticularCategoryThreeWheelOperatorsTraining" : this.ShowParticularCategoryThreeWheelOperatorsTraining,
+      "ShowParticularCategoryPhaseOutEngageInIncomeGenration" : this.ShowParticularCategoryPhaseOutEngageInIncomeGenration,
+      "ShowParticularCategoryPhaseOutDepenedOnFamily" : this.ShowParticularCategoryPhaseOutDepenedOnFamily,
+      "ShowParticularCategoryPhaseOutHasIntrestIncome" : this.ShowParticularCategoryPhaseOutHasIntrestIncome
     }
 
     this.parameters = this.params;
