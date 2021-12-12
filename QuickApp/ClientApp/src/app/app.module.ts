@@ -123,6 +123,7 @@ import { SubReport2Component } from './components/orders/sub-report2/sub-report2
 import { SubReport3Component } from './components/orders/sub-report3/sub-report3.component';
 import { SubReport4Component } from './components/orders/sub-report4/sub-report4.component';
 import { SubRepo5Component } from './components/orders/sub-repo5/sub-repo5.component';
+import { GraphEndpoint } from './services/masterdataservice/graphService';
 
 
 
@@ -236,6 +237,7 @@ import { SubRepo5Component } from './components/orders/sub-repo5/sub-repo5.compo
     OidcHelperService,
     BankEndpoint,
     PersonEndpoint,
+    GraphEndpoint,
     AddressService,
     BusinessService,
     MonitorEndpoint,

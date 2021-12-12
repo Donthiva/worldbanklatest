@@ -14,14 +14,21 @@
         </div>
       </div>
 
+      <div class="form-group col-md-4">
+        <label for="city">Select Report</label>
+        <ng-select class="custom" [items]="reports" bindLabel="name" bindValue="id"
+            (change)="selectedReportType($event)">
+        </ng-select>
+    </div>
+
       <div *ngIf="configurations.showDashboardStatistics" class="col-12 my-3">
         <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="clearfix"></div>
         <div class="card card-body bg-light">
-          <h5 class="text-muted d-inline-block">{{'home.StatisticsTitle' | translate}}</h5>
-          <app-statistics-demo></app-statistics-demo>
+          <h5 class="text-muted d-inline-block">{{Title}}</h5>
+          <app-statistics-demo [chartData]="chartData" [chartLabels]="chartLabels" Title="Title"></app-statistics-demo>
         </div>
       </div>
 

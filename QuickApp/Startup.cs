@@ -32,6 +32,8 @@ using DAL.Repositories.Interfaces;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http.Features;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace QuickApp
 {
@@ -282,6 +284,9 @@ namespace QuickApp
 
             services.AddScoped<IBusinessManagementModeRepository, BusinessManagementModeRepository>();
 
+            services.AddScoped<IGpraphRepository, GraphRepository>();
+            
+
             // Auth Handlers
             services.AddSingleton<IAuthorizationHandler, ViewUserAuthorizationHandler>();
             services.AddSingleton<IAuthorizationHandler, ManageUserAuthorizationHandler>();
@@ -290,6 +295,9 @@ namespace QuickApp
 
             // DB Creation and Seeding
             services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
+
+            services.AddTransient<IDbConnection>(db => new SqlConnection(
+                    Configuration["ConnectionStrings:DefaultConnection"]));
 
         }
 
