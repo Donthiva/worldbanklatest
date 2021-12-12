@@ -98,9 +98,9 @@ export class HomeComponent implements OnInit {
 
 
           var array = [];
-          array.push(reponsecame[i].total_number_of_businesses);
-          array.push(reponsecame[i].improved_businesses);
-          array.push(reponsecame[i].non_improved_business);
+          array.push(reponsecame[i].nature_of_previous_livelihood);
+          array.push(reponsecame[i].new_business_established);
+          array.push(reponsecame[i].operating_with_stable_profit);
       
 
           chartDatalocal.push({
@@ -117,6 +117,198 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  getDeliverableOutPut3Data(){
+    this.Title = "Deliverable Output 3"
+    this.chartData = [];
+    var chartDatalocal: any = [];
+    this.graphEndpoint.GetDeliverableOutput2().subscribe(
+      response=>{
+        console.log(response);
+
+        var reponsecame = response as any;
+
+        console.log('before data in home',this.chartData)
+
+        for(let i =0 ;i<reponsecame.length;i++){
+
+
+
+          var array = [];
+          array.push(reponsecame[i].total_number_of_businesses);
+          array.push(reponsecame[i].improved_businesses);
+          array.push(reponsecame[i].non_improved_business);
+      
+
+          chartDatalocal.push({
+          data:array,label:'Hide Data'
+          })
+        }
+
+        this.chartData =chartDatalocal; 
+        
+        console.log("data in home",chartDatalocal);
+
+        this.chartLabels = ['Nature_of_previous_livelihood', 'New_business_established', 'Operating_with_stable_profit'];
+      }
+    )
+  }
+
+  getDeliverableOutPut4Data(){
+    this.Title = "Deliverable Output 4"
+    this.chartData = [];
+    var chartDatalocal: any = [];
+    this.graphEndpoint.GetDeliverableOutput4().subscribe(
+      response=>{
+        console.log(response);
+
+        var reponsecame = response as any;
+
+        console.log('before data in home',this.chartData)
+
+        for(let i =0 ;i<reponsecame.length;i++){
+
+
+
+          var array = [];
+          array.push(reponsecame[i].number_of_employees_at_GSBS);
+          array.push(reponsecame[i].employed_with_the_same_employer);
+          array.push(reponsecame[i].employed_with_the_new_employer);
+          array.push(reponsecame[i].similar_or_higher_wages);
+          array.push(reponsecame[i].lower_wages);
+          array.push(reponsecame[i].engage_in_a_job);
+          array.push(reponsecame[i].job_seeking);
+          array.push(reponsecame[i].cannot_engage_in_a_job);
+      
+
+          chartDatalocal.push({
+          data:array,label:'Hide Data'
+          })
+        }
+
+        this.chartData =chartDatalocal; 
+        
+        console.log("data in home",chartDatalocal);
+
+        this.chartLabels = ['Number_of_employees_at_GSBS', 'Employed_with_the_same_employer', 'Employed_with_the_new_employer','Similar_or_higher_wages','Lower_wages','Engage_in_a_job','Job_seeking','Cannot_engage_in_a_job'];
+      }
+    )
+  }
+
+  getDeliverableOutPut5Data(){
+    this.Title = "Deliverable Output 5"
+    this.chartData = [];
+    var chartDatalocal: any = [];
+    this.graphEndpoint.GetDeliverableOutput5().subscribe(
+      response=>{
+        console.log(response);
+
+        var reponsecame = response as any;
+
+        console.log('before data in home',this.chartData)
+
+        for(let i =0 ;i<reponsecame.length;i++){
+
+
+
+          var array = [];
+          array.push(reponsecame[i].number_of_total_employments);
+          array.push(reponsecame[i].employees_completed_vocational_trainings);
+          array.push(reponsecame[i].family_members_of_the_employees_who_have_completed_the_vocational_trainings);
+          array.push(reponsecame[i].employed_in_a_sector_related_to_their_training);
+          array.push(reponsecame[i].higher_wages);
+          array.push(reponsecame[i].social_recognition);
+          
+      
+
+          chartDatalocal.push({
+          data:array,label:'Hide Data'
+          })
+        }
+
+        this.chartData =chartDatalocal; 
+        
+        console.log("data in home",chartDatalocal);
+
+        this.chartLabels = ['Number_of_total_employments', 'Employees_completed_vocational_trainings', 'Family_members_of_the_employees_who_have_completed_the_vocational_trainings','Employed_in_a_sector_related_to_their_training','Higher_wages','Social_recognition'];
+      }
+    )
+  }
+
+  getDeliverableOutPut6Data(){
+    this.Title = "Deliverable Output 6"
+    this.chartData = [];
+    var chartDatalocal: any = [];
+    this.graphEndpoint.GetDeliverableOutput6().subscribe(
+      response=>{
+        console.log(response);
+
+        var reponsecame = response as any;
+
+        console.log('before data in home',this.chartData)
+
+        for(let i =0 ;i<reponsecame.length;i++){
+
+
+
+          var array = [];
+          array.push(reponsecame[i].number_of_businesses);
+          array.push(reponsecame[i].diversified_businesses);
+          array.push(reponsecame[i].scaled_up_businesses);
+     
+      
+
+          chartDatalocal.push({
+          data:array,label:'Hide Data'
+          })
+        }
+
+        this.chartData =chartDatalocal; 
+        
+        console.log("data in home",chartDatalocal);
+
+        this.chartLabels = ['Number_of_businesses', 'Diversified_businesses', 'Scaled_up_businesses'];
+      }
+    )
+  }
+
+  getDeliverableOutPut8Data(){
+    this.Title = "Deliverable Output 8"
+    this.chartData = [];
+    var chartDatalocal: any = [];
+    this.graphEndpoint.GetDeliverableOutput8().subscribe(
+      response=>{
+        console.log(response);
+
+        var reponsecame = response as any;
+
+        console.log('before data in home',this.chartData)
+
+        for(let i =0 ;i<reponsecame.length;i++){
+
+
+
+          var array = [];
+          array.push(reponsecame[i].number_of_vulnerable_APs);
+          array.push(reponsecame[i].family_social_support);
+          array.push(reponsecame[i].improved_living_conditions);
+          array.push(reponsecame[i].no_improvement_or_stability);
+     
+      
+
+          chartDatalocal.push({
+          data:array,label:'Hide Data'
+          })
+        }
+
+        this.chartData =chartDatalocal; 
+        
+        console.log("data in home",chartDatalocal);
+
+        this.chartLabels = ['Number_of_vulnerable_APs', 'Family_social_support', 'Improved_living_conditions','No_improvement_or_stability'];
+      }
+    )
+  }
+
 
   reportId: number;
   selectedReportType(event) {
@@ -128,6 +320,16 @@ export class HomeComponent implements OnInit {
       this.getDeliverableOutPut1Data();
     }else if(this.selectedReport == 2){
       this.getDeliverableOutPut2Data()
+    }else if(this.selectedReport == 3){
+      this.getDeliverableOutPut3Data()
+    }else if(this.selectedReport == 4){
+      this.getDeliverableOutPut4Data()
+    }else if(this.selectedReport == 5){
+      this.getDeliverableOutPut5Data()
+    }else if(this.selectedReport == 6){
+      this.getDeliverableOutPut6Data()
+    }else if(this.selectedReport == 8){
+      this.getDeliverableOutPut8Data()
     }
 
 
