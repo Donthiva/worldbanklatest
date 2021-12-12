@@ -11,5 +11,15 @@ namespace DAL.Repositories.Interfaces
         IEnumerable<DeliverableOutput1DataModel> getAllDeliverableOutput1Data();
 
         IEnumerable<DeliverableOutput2DataModel> getAllDeliverableOutput2Data();
+
+        IEnumerable<DeliverableOutput3DataModel> getAllDeliverableOutput3Data();
+
+        IEnumerable<DeliverableOutput4DataModel> getAllDeliverableOutput4Data();
+
+        IEnumerable<DeliverableOutput5DataModel> getAllDeliverableOutput5Data();
+
+        IEnumerable<DeliverableOutput6DataModel> getAllDeliverableOutput6Data();
+
+        IEnumerable<DeliverableOutput8DataModel> getAllDeliverableOutput8Data();
     }
 }
