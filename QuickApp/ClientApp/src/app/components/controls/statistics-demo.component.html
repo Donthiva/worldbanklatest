@@ -1,5 +1,5 @@
 <div class="row statistics-container">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="chart-container">
       <canvas baseChart width="600" height="250"
               [datasets]="chartData"
@@ -12,8 +12,8 @@
               (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
-  <div  class="col-md-4">
-    <div  class="d-none d-sm-block table-responsive">
+  <!-- <div  class="col-md-4"> -->
+    <!-- <div  class="d-none d-sm-block table-responsive"> -->
       <!-- <table class="table table-sm">
         <thead>
           <tr>
@@ -28,8 +28,8 @@
           </tr>
         </tbody>
       </table> -->
-    </div>
-    <button class="refresh-btn" (click)="randomize();showMessage('Manual refresh!');">REFSH</button>
+    <!-- </div> -->
+    <!-- <button class="refresh-btn" (click)="randomize();showMessage('Manual refresh!');">REFSH</button>
     <div class="chart-type-container" dropdown>
       <button id="chartType" type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart"></i></button>
       <ul class="dropdown-menu">
@@ -55,6 +55,6 @@
       </ul>
     </div>
     <button (click)="showMessage('You\'ve clicked on the menu')"><i class="fa fa-bars"></i></button>
-    <button (click)="showDialog('Enter some value to do serious configuration...')"><i class="fa fa-cogs"></i></button>
-  </div>
+    <button (click)="showDialog('Enter some value to do serious configuration...')"><i class="fa fa-cogs"></i></button> -->
+  <!-- </div> -->
 </div>

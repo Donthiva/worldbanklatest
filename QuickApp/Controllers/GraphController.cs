@@ -73,5 +73,33 @@ namespace QuickApp.Controllers
             return Ok(data);
         }
 
+        [HttpGet("GetAPCategoryWisePercentage")]
+        public ActionResult GetAPCategoryWisePercentage()
+        {
+            var data = _gpraphRepository.GetAPCategoryWisePercentage();
+            return Ok(data);
+        }
+
+        [HttpGet("GetGenderWiseDataPercentage")]
+        public ActionResult GetGenderWiseDataPercentage()
+        {
+            var data = _gpraphRepository.GetGenderWiseDataPercentage();
+            return Ok(data);
+        }
+
+        [HttpGet("GetAgeWiseAPsCategories")]
+        public ActionResult GetAgeWiseAPsCategories()
+        {
+            var data = _gpraphRepository.GetAgeWiseAPsCategories();
+            return Ok(data);
+        }
+
+        [HttpGet("GetVulnerabilitiesAPPercentage")]
+        public ActionResult GetVulnerabilitiesAPPercentage()
+        {
+            var data = _gpraphRepository.GetVulnerabilitiesAPPercentage();
+            return Ok(data);
+        }
+
     }
 }

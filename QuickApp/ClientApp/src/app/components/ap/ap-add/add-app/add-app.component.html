@@ -127,7 +127,7 @@
                         <div class="form-group col-md-6">
                             <label>Educational Level</label>
                             <ng-select class="custom" [items]="EducationLevel" bindLabel="name" bindValue="id"
-                                [(ngModel)]="personModel.educationalLevelId" (change)="selectedGender($event)">
+                                [(ngModel)]="personModel.educationalLevelId" >
                             </ng-select>
                             <div *ngIf="personModel.educationalLevelId == null && validationfailed"
                                 class="alert alert-danger">
@@ -931,7 +931,7 @@
                             <label>Reallocated Month and year</label>
                             <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.threeWheelDriver.realocatedMonthandYear">
                             <div style="margin-top: 5%;"
-                                *ngIf="(personModel.employeeRealocatedMonthandYear == null) && validationfailed"
+                                *ngIf="(personModel.threeWheelDriver.realocatedMonthandYear == null) && validationfailed"
                                 class="alert alert-danger">
                                 <div>Reallocated Month and year is required</div>
                             </div>
@@ -943,7 +943,7 @@
                             <ng-select class="custom" [items]="reloacatedList" bindLabel="name" bindValue="id"
                                 [(ngModel)]="personModel.threeWheelDriver.businessLivelihoodRealocation">
                             </ng-select>
-                            <div *ngIf="(personModel.businessGeneral.isFirstBusinessPlan == null) && validationfailed"
+                            <div *ngIf="(personModel.threeWheelDriver.businessLivelihoodRealocation == null) && validationfailed"
                                 class="alert alert-danger">
                                 <div>Business/ Livelihood Relocation required</div>
                             </div>

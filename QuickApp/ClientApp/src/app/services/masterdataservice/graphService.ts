@@ -27,6 +27,22 @@ export class GraphEndpoint extends EndpointBase {
 
   get getDeliverableOutput8() { return this.configurations.baseUrl + '/api/Graph/GetDeliverable8Report'; }
 
+  //cross tabulations
+  
+  get getAPCategoryWisePercentage() { return this.configurations.baseUrl + '/api/Graph/GetAPCategoryWisePercentage'; }
+
+  get getGenderWiseDataPercentage() { return this.configurations.baseUrl + '/api/Graph/GetGenderWiseDataPercentage'; }
+
+  get getAgeWiseAPsCategories() { return this.configurations.baseUrl + '/api/Graph/GetAgeWiseAPsCategories'; }
+
+  get getVulnerabilitiesAPPercentage() {return this.configurations.baseUrl + '/api/Graph/GetVulnerabilitiesAPPercentage';}
+
+
+
+
+  
+  
+
   constructor(private configurations: ConfigurationService, http: HttpClient, authService: AuthService) {
     super(http, authService);
   }
@@ -99,6 +115,49 @@ export class GraphEndpoint extends EndpointBase {
     return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
       catchError(error => {
         return this.handleError(error, () => this.GetDeliverableOutput8());
+      }));
+  }
+
+  GetAPCategoryWisePercentage<T>(): Observable<T> {
+    
+    const endpointUrl = `${this.getAPCategoryWisePercentage}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetAPCategoryWisePercentage());
+      }));
+  }
+
+
+  GetGenderWiseDataPercentage<T>(): Observable<T> {
+    
+    const endpointUrl = `${this.getGenderWiseDataPercentage}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetGenderWiseDataPercentage());
+      }));
+  }
+
+
+  GetAgeWiseAPsCategories<T>(): Observable<T> {
+    
+    const endpointUrl = `${this.getAgeWiseAPsCategories}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetAgeWiseAPsCategories());
+      }));
+  }
+
+
+  GetVulnerabilitiesAPPercentage<T>(): Observable<T> {
+    
+    const endpointUrl = `${this.getVulnerabilitiesAPPercentage}`;
+
+    return this.http.get<T>(endpointUrl, this.requestHeaders).pipe<T>(
+      catchError(error => {
+        return this.handleError(error, () => this.GetAgeWiseAPsCategories());
       }));
   }
 }

@@ -18,6 +18,8 @@ namespace DAL.Repositories
             _IDbConnection = iDbConnection;
         }
 
+      
+
         public  IEnumerable<DeliverableOutput1DataModel> getAllDeliverableOutput1Data()
         {
             IEnumerable<DeliverableOutput1DataModel> data = new List<DeliverableOutput1DataModel>();
@@ -152,6 +154,75 @@ namespace DAL.Repositories
 
         }
 
+        public IEnumerable<TotalPopulationCrossTabulationsAPCategoryWisePercentage> GetAPCategoryWisePercentage()
+        {
+            IEnumerable<TotalPopulationCrossTabulationsAPCategoryWisePercentage> data = new List<TotalPopulationCrossTabulationsAPCategoryWisePercentage>();
 
+            using (IDbConnection db = _IDbConnection)
+            {
+
+                data = db.Query<TotalPopulationCrossTabulationsAPCategoryWisePercentage>("NandPofAPsbelongtoeachcategory",
+               commandType: CommandType.StoredProcedure);
+
+
+
+            }
+
+            return data;
+        }
+
+        public IEnumerable<GenderWiseDataPercentage> GetGenderWiseDataPercentage()
+        {
+            IEnumerable<GenderWiseDataPercentage> data = new List<GenderWiseDataPercentage>();
+
+            using (IDbConnection db = _IDbConnection)
+            {
+
+                data = db.Query<GenderWiseDataPercentage>("GenderWiseData",
+               commandType: CommandType.StoredProcedure);
+
+
+
+            }
+
+            return data;
+        }
+
+
+
+        public IEnumerable<AgeWiseAPsCategories> GetAgeWiseAPsCategories()
+        {
+            IEnumerable<AgeWiseAPsCategories> data = new List<AgeWiseAPsCategories>();
+
+            using (IDbConnection db = _IDbConnection)
+            {
+
+                data = db.Query<AgeWiseAPsCategories>("AgeWiseAPs",
+               commandType: CommandType.StoredProcedure);
+
+
+
+            }
+
+            return data;
+        }
+
+
+        public IEnumerable<VulnerableAPPercentage> GetVulnerabilitiesAPPercentage()
+        {
+            IEnumerable<VulnerableAPPercentage> data = new List<VulnerableAPPercentage>();
+
+            using (IDbConnection db = _IDbConnection)
+            {
+
+                data = db.Query<VulnerableAPPercentage>("NandPVulnerableofAllAps",
+               commandType: CommandType.StoredProcedure);
+
+
+
+            }
+
+            return data;
+        }
     }
 }

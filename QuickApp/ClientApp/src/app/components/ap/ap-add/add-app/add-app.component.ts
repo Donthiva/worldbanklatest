@@ -401,7 +401,7 @@ export class AddAppComponent implements OnInit, OnChanges {
 
 
     if (this.personModel.PersonType == 1 && !this.validationfailed) {
-      if ((this.personModel.Salary == undefined || this.personModel.Salary == null) || (this.personModel.JobRole == null || this.personModel.JobRole == undefined) || (this.personModel.Employer == null || this.personModel.Employer == undefined)) {
+      if ((this.personModel.employeeRealocatedMonthandYear == undefined || this.personModel.employeeBusinessLivelihoodRealocation == null)) {
         this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
         this.validationfailed = true;
       } else {
@@ -527,9 +527,8 @@ export class AddAppComponent implements OnInit, OnChanges {
       }
     } else if (this.personModel.PersonType == 3 && !this.validationfailed) {
       if (
-        (this.personModel.threeWheelDriver.EngagementAtGSBS == null || this.personModel.threeWheelDriver.EngagementAtGSBS == undefined || this.personModel.threeWheelDriver.EngagementAtGSBS == "") ||
-        (this.personModel.threeWheelDriver.MonthlyIncomeGSBS == null || this.personModel.threeWheelDriver.MonthlyIncomeGSBS == undefined) ||
-        (this.personModel.threeWheelDriver.initialParkAtGSBS == null || this.personModel.threeWheelDriver.initialParkAtGSBS == undefined || this.personModel.threeWheelDriver.initialParkAtGSBS == "")
+        (this.personModel.threeWheelDriver.realocatedMonthandYear == null || this.personModel.threeWheelDriver.realocatedMonthandYear == undefined ) ||
+        (this.personModel.threeWheelDriver.businessLivelihoodRealocation == null || this.personModel.threeWheelDriver.businessLivelihoodRealocation == undefined ) 
       ) {
         this.alertService.showMessage('Validation Failed', 'Please fill threewheel driver specific information correctly', MessageSeverity.warn);
         this.validationfailed = true;

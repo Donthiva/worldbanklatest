@@ -21,5 +21,17 @@ namespace DAL.Repositories.Interfaces
         IEnumerable<DeliverableOutput6DataModel> getAllDeliverableOutput6Data();
 
         IEnumerable<DeliverableOutput8DataModel> getAllDeliverableOutput8Data();
+
+
+        IEnumerable<TotalPopulationCrossTabulationsAPCategoryWisePercentage> GetAPCategoryWisePercentage();
+
+        IEnumerable<GenderWiseDataPercentage> GetGenderWiseDataPercentage();
+
+
+        IEnumerable<AgeWiseAPsCategories> GetAgeWiseAPsCategories();
+
+
+        IEnumerable<VulnerableAPPercentage> GetVulnerabilitiesAPPercentage();
+
     }
 }

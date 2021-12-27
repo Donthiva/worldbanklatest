@@ -14,23 +14,191 @@
         </div>
       </div>
 
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
         <label for="city">Select Report</label>
         <ng-select class="custom" [items]="reports" bindLabel="name" bindValue="id"
             (change)="selectedReportType($event)">
         </ng-select>
-    </div>
+    </div> -->
 
-      <div *ngIf="configurations.showDashboardStatistics" class="col-12 my-3">
-        <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <div class="clearfix"></div>
-        <div class="card card-body bg-light">
-          <h5 class="text-muted d-inline-block">{{Title}}</h5>
-          <app-statistics-demo [chartData]="chartData" [chartLabels]="chartLabels" Title="Title"></app-statistics-demo>
+    
+
+      <div *ngIf="configurations.showDashboardStatistics" class="col-12">
+      
+        <div class="row">
+          <div class="col-md-12">
+            <label style="padding-right: 1rem;">Show all deliverables</label>
+            <label class="switch">
+              <input type="checkbox"  (click)="showOtherDeliverables($event)">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+         </div>
+
+          <div class="row">
+            <div class="col-md-6" *ngIf="this.chartsModel.Del1show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.Del1.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.Del1.chartData" [chartLabels]="chartsModel.Del1.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+            
+            <div class="col-md-6"  *ngIf="this.chartsModel.Del2show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.Del2.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.Del2.chartData" [chartLabels]="chartsModel.Del2.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+
+           
+          </div>
+
+
+          <div class="row" style="padding-top: 0.5rem;">
+            <div class="col-md-6"   *ngIf="this.chartsModel.Del3show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.Del3.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.Del3.chartData" [chartLabels]="chartsModel.Del3.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="this.chartsModel.Del4show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.Del4.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.Del4.chartData" [chartLabels]="chartsModel.Del4.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+          </div>
+
+      
+
+         <div class="row" *ngIf="showDeliverables">
+          <div class="col-md-6" *ngIf="this.chartsModel.Del5show">
+            <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="clearfix"></div>
+            <div class="card card-body bg-light">
+              <h5 class="text-muted d-inline-block">{{chartsModel.Del5.chartName}}</h5>
+              <app-statistics-demo [chartData]="chartsModel.Del5.chartData" [chartLabels]="chartsModel.Del5.chartLabels" Title="Title"></app-statistics-demo>
+            </div>
+          </div>
+          
+          <div class="col-md-6"  *ngIf="this.chartsModel.Del6show">
+            <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="clearfix"></div>
+            <div class="card card-body bg-light">
+              <h5 class="text-muted d-inline-block">{{chartsModel.Del6.chartName}}</h5>
+              <app-statistics-demo [chartData]="chartsModel.Del6.chartData" [chartLabels]="chartsModel.Del6.chartLabels" Title="Title"></app-statistics-demo>
+            </div>
+          </div>
+         
         </div>
+
+
+        <div class="row" style="padding-top: 0.5rem;" *ngIf="showDeliverables">
+          <div class="col-md-6"   *ngIf="this.chartsModel.Del8show">
+            <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="clearfix"></div>
+            <div class="card card-body bg-light">
+              <h5 class="text-muted d-inline-block">{{chartsModel.Del8.chartName}}</h5>
+              <app-statistics-demo [chartData]="chartsModel.Del8.chartData" [chartLabels]="chartsModel.Del8.chartLabels" Title="Title"></app-statistics-demo>
+            </div>
+          </div>
+
+        
+        </div>
+        
       </div>
+
+      <div *ngIf="configurations.showDashboardStatistics" class="col-12" style="padding-top: 2rem;">
+      
+        <div class="row">
+          <div class="col-md-12">
+            <label style="padding-right: 1rem;">Show all CrossTabulations</label>
+            <label class="switch">
+              <input type="checkbox"  (click)="showOtherCrossTabulations($event)">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6" *ngIf="this.chartsModel.Cross1Show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.cross1.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.cross1.chartData" [chartLabels]="chartsModel.cross1.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="this.chartsModel.Cross2Show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.cross2.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.cross2.chartData" [chartLabels]="chartsModel.cross2.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+            
+           
+           
+          </div>
+
+          <div class="row" style="padding-top: 0.5rem;">
+            <div class="col-md-6" *ngIf="this.chartsModel.Cross3Show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.cross3.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.cross3.chartData" [chartLabels]="chartsModel.cross3.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+
+            <div class="col-md-6" *ngIf="this.chartsModel.Cross4Show">
+              <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardStatistics = false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="clearfix"></div>
+              <div class="card card-body bg-light">
+                <h5 class="text-muted d-inline-block">{{chartsModel.cross4.chartName}}</h5>
+                <app-statistics-demo [chartData]="chartsModel.cross4.chartData" [chartLabels]="chartsModel.cross4.chartLabels" Title="Title"></app-statistics-demo>
+              </div>
+            </div>
+           
+           
+          </div>
+
+         </div>
+        
 
       <div *ngIf="configurations.showDashboardNotifications" class="col-12 my-3">
         <button type="button" class="close" aria-label="Close" title="Close" (click)="configurations.showDashboardNotifications = false">

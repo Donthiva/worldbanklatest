@@ -65,7 +65,7 @@ export class StatisticsDemoComponent implements OnInit, OnDestroy,OnChanges {
     }
   ];
   chartLegend = true;
-  chartType = 'line';
+  chartType = 'bar';
 
   timerReference: any;
   windowWidth$: Observable<number>;
@@ -98,7 +98,7 @@ export class StatisticsDemoComponent implements OnInit, OnDestroy,OnChanges {
 
 
   ngOnInit() {
-    this.timerReference = setInterval(() => this.randomize(), 5000);
+    // this.timerReference = setInterval(() => this.randomize(), 5000);
 
     const initialWidth$ = of(window.innerWidth);
     const resizedWidth$ = fromEvent(window, 'resize').pipe(map((event: any) => event.target.innerWidth as number));

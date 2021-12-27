@@ -94,7 +94,8 @@ export class EmployeeMonitorComponent implements OnInit {
     this.GetAllJobEngagementTypes();
     this.GetAllEmployementStatus();
     this.GetAllEmployerTypes();
-    this.LoadMonitorPeriods()
+    this.LoadMonitorPeriods();
+  
   }
 
 
@@ -164,6 +165,8 @@ export class EmployeeMonitorComponent implements OnInit {
   personTypeId: number;
   ngOnChanges() {
 
+    this.loadAddressRelatedData();
+
     console.log("employee monitor data", this.personData);
     this.personModel = this.personData;
     if (this.personData != undefined) {
@@ -195,6 +198,8 @@ export class EmployeeMonitorComponent implements OnInit {
     }
 
   }
+
+ 
 
 
 
@@ -367,14 +372,12 @@ export class EmployeeMonitorComponent implements OnInit {
   addmonitor() {
     if ((this.employeeMonitor.jobengagementID == undefined || this.employeeMonitor.jobengagementID == null) ||
       (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
-      (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == null) ||
+      
       (this.employeeMonitor.employment_Status == undefined || this.employeeMonitor.employment_Status == null) ||
-      (this.employeeMonitor.employment_Status == undefined || this.employeeMonitor.employment_Status == null) ||
-      (this.employeeMonitor.isSameEmployer == undefined || this.employeeMonitor.isSameEmployer == null) ||
+
+     
       (this.employeeMonitor.isSimilarCapacity == undefined || this.employeeMonitor.isSimilarCapacity == null) ||
-      (this.employeeMonitor.current_Employer == undefined || this.employeeMonitor.current_Employer == null || this.employeeMonitor.current_Employer == "") ||
-      (this.employeeMonitor.employment_Salary == undefined || this.employeeMonitor.employment_Salary == null) ||
-      (this.employeeMonitor.salaryStatus == undefined || this.employeeMonitor.salaryStatus == null) ||
+  
       (this.employeeMonitor.employment_How_he_found_the_job == undefined || this.employeeMonitor.employment_How_he_found_the_job == null || this.employeeMonitor.employment_How_he_found_the_job == "") ||
       (this.employeeMonitor.employment_Remarks == undefined || this.employeeMonitor.employment_Remarks == null || this.employeeMonitor.employment_Remarks == "")
     ) {
