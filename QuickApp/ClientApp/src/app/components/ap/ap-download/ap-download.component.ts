@@ -37,13 +37,10 @@ export class ApDownloadComponent implements OnInit {
   // }
 
   openPDF(): void {
-    const DATA = this.pdfTable.nativeElement;
-    const doc: jsPDF = new jsPDF("p", "mm", "a4");
-    doc.html(DATA, {
-      callback: (doc) => {
-        doc.output("dataurlnewwindow");
-      }
-    });
+    const doc = new jsPDF('letter')
+    const ta = document.getElementById('pdfTable');
+    doc.fromHTML(ta, 0, 0);
+    doc.save('demo.pdf')
   }
 
 
