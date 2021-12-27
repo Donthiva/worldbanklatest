@@ -1,0 +1,28 @@
+<hello name="{{ name }}"></hello>
+<div class="m-4">
+	<button (click)="openPDF()">Print Coupon</button>
+</div>
+<div class="row coupon-wrapper" id="pdfTable" #pdfTable>
+
+	<div class="coupon-container">
+		<table class="coupon-detail">
+			<tr>
+				<td>Card No:</td>
+				<td class="bold">00001</td>
+			</tr>
+			<tr>
+				<td>Cost Center:</td>
+				<td class="bold">IT0001</td>
+			</tr>
+			<tr>
+				<td>Sign:</td>
+				<td class="signature"></td>
+			</tr>
+			<tr>
+				<td>Month:</td>
+				<td class="bold">Septemeber 2020</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

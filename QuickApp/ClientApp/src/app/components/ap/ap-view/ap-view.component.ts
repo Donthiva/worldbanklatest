@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { ThrowStmt } from '@angular/compiler';
+import { Route } from '@angular/compiler/src/core';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { registerEscClick } from 'ngx-bootstrap/utils';
 import { cpuUsage } from 'process';
 import { ApProgressBOData } from 'src/app/models/app-add/ApProgressBOData';
@@ -70,7 +72,7 @@ export class ApViewComponent implements OnInit, OnChanges {
   actionsTemplatetraining: TemplateRef<any>;
 
 
-  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint,private translationService: AppTranslationService) {
+  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint,private translationService: AppTranslationService,private route:Router) {
 
     this.personTypes = new SelectPersonTypes();
 
@@ -238,7 +240,7 @@ export class ApViewComponent implements OnInit, OnChanges {
     )
 
   }
-
+  
 
 
 
@@ -281,6 +283,12 @@ export class ApViewComponent implements OnInit, OnChanges {
         this.personCityName = (this.City.length > 0 && this.City != undefined && this.personModel.City != undefined) ? this.City.find(x => x.city_ID == this.personModel.City).city_Name : "";
       }
     )
+
+  }
+
+  viewanddownload(){
+
+    this.route.navigate(['/appdf']);
 
   }
 

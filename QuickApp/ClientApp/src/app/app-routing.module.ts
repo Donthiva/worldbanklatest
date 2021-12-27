@@ -20,6 +20,7 @@ import { Utilities } from './services/utilities';
 import { MasterdatapageComponent } from './components/master-data/masterdatapage.component';
 import { MultipleTrainingComponent } from './components/ap/trainings/multiple-training.component';
 import { MainReportComponent } from './components/orders/main-report.component';
+import { ApDownloadComponent } from './components/ap/ap-download/ap-download.component';
 
 
 
@@ -55,7 +56,9 @@ const routes: Routes = [
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
     { path: 'about', component: AboutComponent, data: { title: 'About Us' } },
     { path: 'home', redirectTo: '/', pathMatch: 'full' },
+    { path: 'appdf', component: ApDownloadComponent, data: { title: 'PDF' } },
     { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found' } }
+    
 ];
 
 

@@ -124,6 +124,7 @@ import { SubReport3Component } from './components/orders/sub-report3/sub-report3
 import { SubReport4Component } from './components/orders/sub-report4/sub-report4.component';
 import { SubRepo5Component } from './components/orders/sub-repo5/sub-repo5.component';
 import { GraphEndpoint } from './services/masterdataservice/graphService';
+import { ApDownloadComponent } from './components/ap/ap-download/ap-download.component';
 
 
 
@@ -219,7 +220,7 @@ import { GraphEndpoint } from './services/masterdataservice/graphService';
     PeriodComponentComponent,
     BusinessPlanComponent,
     BusinessTypeComponent,
-    MultipleTrainingComponent,MainReportComponent, SubReport2Component, SubReport3Component, SubReport4Component, SubRepo5Component
+    MultipleTrainingComponent,MainReportComponent, SubReport2Component, SubReport3Component, SubReport4Component, SubRepo5Component, ApDownloadComponent
 
   ],
   providers: [
