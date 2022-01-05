@@ -71,6 +71,8 @@ namespace QuickApp.Controllers
 
         private IMartialStatusRepository _martialStatusRepository;
 
+        private IInterventionRepository _InterventionRepository;
+
 
         public PersonController(IMapper mapper, IUnitOfWork unitOfWork, ILogger<CustomerController> logger, IPersonDataRepository personRepo, IGenderRepository gender, IPersonTypeRepository personType, IPersonRepository person,
             IVulnerabilityLevelRepository vulnerabilityLevelRepository, IVulnerabilityTypeRepository vulnerabilityTypeRepository, IVulnerabilityRepository vulnerabilityRepository, IVulnerabilityMonitorRepository vulnerabilityMonitorRepository,
@@ -83,7 +85,7 @@ namespace QuickApp.Controllers
          IEducationLevelRepositoy educationLevelRepositoy,
          IBusinessOrLivelihoodRelocationRepository businessOrLivelihoodRelocationRepository,
          IMartialStatusRepository martialStatusRepository,
-         ITrainingRepository trainingRepository)
+         ITrainingRepository trainingRepository, IInterventionRepository interventionRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -116,6 +118,8 @@ namespace QuickApp.Controllers
 
 
         _martialStatusRepository = martialStatusRepository;
+
+            _InterventionRepository = interventionRepository;
     }
 
         // delete bank types
@@ -893,6 +897,33 @@ namespace QuickApp.Controllers
 
 
         }
+
+
+        // POST Interventions
+        [HttpGet("GetALLInterventions")]
+        public async Task<IActionResult> GetALLInterventions()
+        {
+          var data = await _InterventionRepository.GetAllasync();
+
+            return Ok(data);
+        }
+
+
+
+        // POST Interventions
+        [HttpPost("AddInterventions")]
+        public void AddInterventions([FromBody]Intervention value)
+        {
+            _InterventionRepository.Add(value);
+        }
+
+        // POST Interventions
+        [HttpPost("UpdateInterventions")]
+        public void UpdateInterventions([FromBody]Intervention value)
+        {
+            _InterventionRepository.Update(value);
+        }
+
 
 
     }

@@ -285,7 +285,9 @@ namespace QuickApp
             services.AddScoped<IBusinessManagementModeRepository, BusinessManagementModeRepository>();
 
             services.AddScoped<IGpraphRepository, GraphRepository>();
-            
+
+            services.AddScoped<IInterventionRepository, InterventionRepository>();
+
 
             // Auth Handlers
             services.AddSingleton<IAuthorizationHandler, ViewUserAuthorizationHandler>();

@@ -92,6 +92,10 @@
         "status": "Status"
 
       },
+      "Intervention":{
+      "nameOfEvent" : "Name of Event",
+      "briefDescription": "Description"
+      },
       "Business_Monitor":{
         "Current_Business" : "Current Business",
         "Income" : "Monthly Income",

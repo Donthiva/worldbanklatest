@@ -81,6 +81,14 @@ export class PersonEndpoint2 extends EndpointBase {
   get UpdateAllTrainingDataURL() { return this.configurations.baseUrl + '/api/Person/UpdateTrainingData'; }
 
 
+    get addInterventions() { return this.configurations.baseUrl + '/api/Person/AddInterventions'; }
+
+
+    get getALLInterventions() { return this.configurations.baseUrl + '/api/Person/GetALLInterventions'; }
+
+    get updateInterventions() { return this.configurations.baseUrl + '/api/Person/UpdateInterventions'; }
+
+
 
   constructor(private configurations: ConfigurationService, http: HttpClient, authService: AuthService) {
     super(http, authService);
@@ -334,6 +342,46 @@ AddTrainingDataMultiple<T>(TrainingDataObject: any): Observable<T> {
     }));
 }
 
+
+AddIntervention<T>(Intervention: any): Observable<T> {
+
+  console.log('json',JSON.stringify(Intervention) );
+
+  console.log('data',Intervention);
+
+  const headers = new HttpHeaders({
+    Authorization: 'Bearer ' + this.tokentest,
+  });
+  return this.http.post<T>(this.addInterventions,JSON.stringify(Intervention), this.requestHeaders).pipe<T>(
+    catchError(error => {
+      return this.handleError(error, () => this.AddIntervention(Intervention));
+    }));
+}
+
+
+UpdateIntervention<T>(Intervention: any): Observable<T> {
+
+  console.log('json',JSON.stringify(Intervention) );
+
+  console.log('data',Intervention);
+
+  const headers = new HttpHeaders({
+    Authorization: 'Bearer ' + this.tokentest,
+  });
+  return this.http.post<T>(this.updateInterventions,JSON.stringify(Intervention), this.requestHeaders).pipe<T>(
+    catchError(error => {
+      return this.handleError(error, () => this.AddIntervention(Intervention));
+    }));
+}
+
+
+GetALLInterventions<T>(): Observable<T> {
+  
+  return this.http.get<T>(this.getALLInterventions, this.requestHeaders).pipe<T>(
+catchError(error => {
+  return this.handleError(error, () => this.GetALLInterventions());
+}));
+}
 
 
 }

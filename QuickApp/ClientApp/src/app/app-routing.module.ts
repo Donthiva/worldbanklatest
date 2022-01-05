@@ -21,6 +21,7 @@ import { MasterdatapageComponent } from './components/master-data/masterdatapage
 import { MultipleTrainingComponent } from './components/ap/trainings/multiple-training.component';
 import { MainReportComponent } from './components/orders/main-report.component';
 import { ApDownloadComponent } from './components/ap/ap-download/ap-download.component';
+import { ApInterventionComponent } from './components/ap/ap-intervention/ap-intervention.component';
 
 
 
@@ -57,6 +58,7 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent, data: { title: 'About Us' } },
     { path: 'home', redirectTo: '/', pathMatch: 'full' },
     { path: 'appdf', component: ApDownloadComponent, data: { title: 'PDF' } },
+    { path: 'intervention', component: ApInterventionComponent, data: { title: 'intervention' } },
     { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found' } }
     
 ];

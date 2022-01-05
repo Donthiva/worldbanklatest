@@ -117,6 +117,11 @@ namespace DAL
 
         public DbSet<BusinessOrLivelihoodRelocation> businessOrLivelihoodRelocation { get; set; }
 
+        public DbSet<Intervention> Intervention { get; set; }
+
+        public DbSet<EventwiseParticipants> EventwiseParticipants { get; set; }
+
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }
 
@@ -426,8 +431,8 @@ namespace DAL
             builder.Entity<PhaseOutMonitorVideos>().HasOne(c => c.PhaseOut).WithMany(v => v.phaseOutMonitorVideos).HasForeignKey(n => n.EmployeeMonitorId).OnDelete(DeleteBehavior.NoAction);
 
 
-
-
+            builder.Entity<Intervention>().HasKey(c => new { c.Id });
+            builder.Entity<Intervention>().HasMany(c => c.Participants).WithOne(v => v.Interventions).HasForeignKey(n => n.EventId);
 
             builder.Entity<MonitorPerioid>().HasKey(c => new { c.Id });
 

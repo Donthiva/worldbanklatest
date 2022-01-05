@@ -1,0 +1,104 @@
+<div class="card">
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <small>Add Intervention</small>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="country">Date</label>
+                            <input type="Date" class="form-control" id="country"  [(ngModel)]="InterventionData.date"  placeholder="Date">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Type of Event</label>
+                            <ng-select class="custom" bindLabel="name" bindValue="id" [items]="eventTypes" [(ngModel)]="InterventionData.typeOfEventId" >
+                            </ng-select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="country">Name of event/workshop ect</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Name of the event" [(ngModel)]="InterventionData.nameOfEvent"> </textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="country">Brief Decription</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Brief Decription" [(ngModel)]="InterventionData.briefDescription"> </textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="country">Main Stackeholders Participated</label>
+                            <textarea type="text" class="form-control" id="city" placeholder="Main Stackeholders" [(ngModel)]="InterventionData.mainStakeholdersParticipated"> </textarea>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">Specific AP Category</label>
+                            <ng-select class="custom" bindLabel="type" bindValue="id" [items]="personTypesarr" [(ngModel)]="InterventionData.apCategoryId">
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="country">Number of participants</label>
+                            <input type="number" class="form-control" id="country"  placeholder="participants" [(ngModel)]="InterventionData.numberOfParticipants">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="city">List of participants </label>
+                            <ng-select  [items]="personList" [multiple]="true" bindLabel="person_Name" bindValue="person_ID"  (change)="selectedAPs($event)"  [(ngModel)]="InterventionData.selectedPersons"
+                            >
+                        </ng-select>
+                      
+                        </div>
+                    </div>
+
+                
+                </div>
+
+            </div>
+        </div>
+        <!--/.col-->
+
+
+
+    </div>
+    <div class="card-footer" *ngIf="!update">
+        <button class="btn-primary"(click)="addNewIntervention()"> Submit</button>
+        <button class="btn-danger"> Clear</button>
+    </div>
+    <div class="card-footer" *ngIf="update">
+        <button class="btn-primary" (click)="updateIntervention()"> Update</button>
+        <button class="btn-danger"(click)="Clear()"> Clear</button>
+    </div>
+    <ngx-datatable class="material colored-header sm table table-striped table-hover"
+    [loadingIndicator]="loadingIndicator"
+    [rows]="rows"
+    [rowHeight]="35"
+    [headerHeight]="35"
+    [footerHeight]="35"
+    [columns]="columns"
+    [scrollbarV]="true"
+    [columnMode]="'force'">
+</ngx-datatable>
+
+<ng-template #indexTemplateIntervention let-value="value">
+<strong>{{value}}</strong>
+</ng-template>
+
+
+<ng-template #actionsTemplateIntervention let-row="row" let-value="value" let-i="index">
+<a class="btn btn-link btn-sm" href="javascript:;" (click)="view(row)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'roles.management.Edit' | translate}}</a>
+
+</ng-template>
+</div>
