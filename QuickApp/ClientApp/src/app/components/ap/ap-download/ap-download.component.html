@@ -1,26 +1,26 @@
 
 <div class="m-4">
-	<button (click)="openPDF()">Print Coupon</button>
+	<button (click)="openPDF()">Get PDF</button>
 </div>
-<div class="row coupon-wrapper" id="pdfTable" #pdfTable>
+<div class="row coupon-wrapper" id="pdfTable" style="align-items: center; text-align: center;" #pdfTable>
 
 	<div class="coupon-container">
 		<table class="coupon-detail">
 			<tr>
-				<td>Card No:</td>
-				<td class="bold">00001</td>
+				<td>AP File Number:</td>
+				<td class="bold">{{this.pdfDataSharing.personModel.Person_File_number}}</td>
 			</tr>
 			<tr>
-				<td>Cost Center:</td>
-				<td class="bold">IT0001</td>
+				<td>AP NAME:</td>
+				<td class="bold">{{this.pdfDataSharing.personModel.Person_Name}}</td>
 			</tr>
 			<tr>
-				<td>Sign:</td>
-				<td class="signature"></td>
+				<td>AP Contact Number:</td>
+				<td class="signature">{{this.pdfDataSharing.personModel.Person_Contact_Number}}</td>
 			</tr>
 			<tr>
-				<td>Month:</td>
-				<td class="bold">Septemeber 2020</td>
+				<td>AP NIC:</td>
+				<td class="bold">{{this.pdfDataSharing.personModel.Person_NIC}}</td>
 			</tr>
 		</table>
 	</div>

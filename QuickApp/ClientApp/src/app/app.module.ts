@@ -126,6 +126,7 @@ import { SubRepo5Component } from './components/orders/sub-repo5/sub-repo5.compo
 import { GraphEndpoint } from './services/masterdataservice/graphService';
 import { ApDownloadComponent } from './components/ap/ap-download/ap-download.component';
 import { ApInterventionComponent } from './components/ap/ap-intervention/ap-intervention.component';
+import { PdfDataSharing } from './services/pdf-data-sharing.service';
 
 
 
@@ -246,7 +247,8 @@ import { ApInterventionComponent } from './components/ap/ap-intervention/ap-inte
     AddressEndpoint,
     PersonEndpoint2,
     EmploymentEndpoint,
-    DatePipe
+    DatePipe,
+    PdfDataSharing 
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

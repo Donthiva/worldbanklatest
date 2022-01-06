@@ -21,6 +21,7 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
 import { BankEndpoint } from 'src/app/services/masterdataservice/bankService';
 import { PersonEndpoint } from 'src/app/services/masterdataservice/personService';
 import { MonitorEndpoint } from 'src/app/services/monitor/monitorService';
+import { PdfDataSharing } from 'src/app/services/pdf-data-sharing.service';
 
 @Component({
   selector: 'app-ap-view',
@@ -72,7 +73,7 @@ export class ApViewComponent implements OnInit, OnChanges {
   actionsTemplatetraining: TemplateRef<any>;
 
 
-  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint,private translationService: AppTranslationService,private route:Router) {
+  constructor(private Personservice: PersonEndpoint, private personservice: PersonEndpoint, private businessService: BusinessService, private addressService: AddressService, private bankservicedata: BankEndpoint, private alertService: AlertService, private configurations: ConfigurationService, private monitorservice: MonitorEndpoint,private translationService: AppTranslationService,private route:Router,private pdfDataSharing:PdfDataSharing ) {
 
     this.personTypes = new SelectPersonTypes();
 
@@ -312,6 +313,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
     else if (this.IsView == true) {
       this.personModel = this.personData;
+      this.pdfDataSharing.personModel=this.personData;
       this.CurrentType = this.personData.PersonType
       this.loadage();
       this.loadprecatagory();

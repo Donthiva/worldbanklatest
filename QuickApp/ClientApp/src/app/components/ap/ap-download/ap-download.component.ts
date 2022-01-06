@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
  import  jsPDF  from 'jspdf';
+import { PdfDataSharing } from 'src/app/services/pdf-data-sharing.service';
 
 
 @Component({
@@ -9,15 +10,18 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class ApDownloadComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private pdfDataSharing:PdfDataSharing) { }
+  
   ngOnInit(): void {
+
+    
+    
   }
   name = 'Angular Html To Pdf ';
 
   @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
 
-
+   
   // public downloadAsPDF() {
   //   const doc = new jsPDF();
 
@@ -40,7 +44,7 @@ export class ApDownloadComponent implements OnInit {
     const doc = new jsPDF('letter')
     const ta = document.getElementById('pdfTable');
     doc.fromHTML(ta, 0, 0);
-    doc.save('demo.pdf')
+    doc.save('APInfor.pdf')
   }
 
 
