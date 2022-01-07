@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace QuickApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210902184515_phase")]
-    partial class phase
+    [Migration("20220105085833_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -660,8 +660,8 @@ namespace QuickApp.Migrations
                     b.Property<string>("Address_Street2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Adress_Owner_ID")
-                        .HasColumnType("int");
+                    b.Property<string>("Adress_Owner_ID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Adress_Owner_Type")
                         .HasColumnType("int");
@@ -1057,6 +1057,9 @@ namespace QuickApp.Migrations
                     b.Property<string>("CityOut")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Contactable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1067,6 +1070,9 @@ namespace QuickApp.Migrations
                     b.Property<string>("CurrentBusiness")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("DailyIncome")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("FileNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -1076,8 +1082,23 @@ namespace QuickApp.Migrations
                     b.Property<double>("GSBSPreviousIncome")
                         .HasColumnType("float");
 
+                    b.Property<string>("HowBusinessCHange")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HowIsFamilyIfdead")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IncomeStatus")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomeStatusComparedToGSBS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomeStatusComparedToPM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAPDead")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsAlternativeSite")
                         .HasColumnType("bit");
@@ -1092,6 +1113,9 @@ namespace QuickApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsInformalLoans")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsNeedOrRequirment")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsOperatingWithStableProfit")
@@ -1119,6 +1143,12 @@ namespace QuickApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreviousBusiness")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RequirmentNeed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecialObservation")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Summary")
@@ -1228,14 +1258,17 @@ namespace QuickApp.Migrations
                     b.Property<double>("Entittlment_Grand_Total")
                         .HasColumnType("float");
 
-                    b.Property<int>("Entittlment_Person_ID")
-                        .HasColumnType("int");
+                    b.Property<string>("Entittlment_Person_ID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Entittlment_Sub_Total")
                         .HasColumnType("float");
 
                     b.Property<double>("Entittlment_retention_10_percent")
                         .HasColumnType("float");
+
+                    b.Property<int?>("Person_ID")
+                        .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(256)
@@ -1246,7 +1279,7 @@ namespace QuickApp.Migrations
 
                     b.HasKey("Entittlment_ID");
 
-                    b.HasIndex("Entittlment_Person_ID");
+                    b.HasIndex("Person_ID");
 
                     b.ToTable("Entittlments");
                 });
@@ -1277,7 +1310,22 @@ namespace QuickApp.Migrations
                     b.Property<string>("Education")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Employer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("EntitlementFund")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("GSBSLivelihoodEngagement")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("GenderUser_Gender_ID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsEntitleFund")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MonthlyIncome")
                         .HasColumnType("int");
 
                     b.Property<int>("Person_Address")
@@ -1306,6 +1354,9 @@ namespace QuickApp.Migrations
 
                     b.Property<int>("PreviousTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("SpecialObservationsatGSBS")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(256)
@@ -1351,11 +1402,26 @@ namespace QuickApp.Migrations
                     b.Property<int>("BusineesPlanId")
                         .HasColumnType("int");
 
+                    b.Property<int>("BusinessAPType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BusinessInformationNote")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BusinessPlanNote")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BusinessTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("BusinessTypeNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Business_BusinessLoaction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GSBSLivelihoodEngagement")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("GSBSPreviousIncome")
                         .HasColumnType("float");
@@ -1364,6 +1430,9 @@ namespace QuickApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsBusinessChanged")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsBusinessPlanChangeFromInitialBP")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsEntilementFund")
@@ -1384,13 +1453,22 @@ namespace QuickApp.Migrations
                     b.Property<bool>("IsPawingJewelery")
                         .HasColumnType("bit");
 
+                    b.Property<int>("MonthlyIncome")
+                        .HasColumnType("int");
+
                     b.Property<int?>("PersonId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreviousBusinessAtGoodShed")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RelocatedMonthandyear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecialObservationsatGSBS")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1443,6 +1521,15 @@ namespace QuickApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("EmployeeBusinessLivelihoodRealocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeRealocatedMonthandYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeSpecialNotes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Employer")
                         .HasColumnType("nvarchar(max)");
 
@@ -1462,6 +1549,26 @@ namespace QuickApp.Migrations
                         .HasFilter("[PersonId] IS NOT NULL");
 
                     b.ToTable("EmployeeGeneral");
+                });
+
+            modelBuilder.Entity("DAL.Models.Genaral.EventwiseParticipants", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ParticipantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventwiseParticipants");
                 });
 
             modelBuilder.Entity("DAL.Models.Genaral.Gender", b =>
@@ -1491,6 +1598,39 @@ namespace QuickApp.Migrations
                     b.HasKey("User_Gender_ID");
 
                     b.ToTable("Gender");
+                });
+
+            modelBuilder.Entity("DAL.Models.Genaral.Intervention", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ApCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BriefDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MainStakeholdersParticipated")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameOfEvent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfParticipants")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TypeOfEventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Intervention");
                 });
 
             modelBuilder.Entity("DAL.Models.Genaral.MartialStatus", b =>
@@ -1536,6 +1676,9 @@ namespace QuickApp.Migrations
                     b.Property<int?>("PersonID")
                         .HasColumnType("int");
 
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhaseOutDecisionMade")
                         .HasColumnType("nvarchar(max)");
 
@@ -1564,17 +1707,41 @@ namespace QuickApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("BusinessLivelihoodRealocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BusinessLoaction")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EngagementAtGSBS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GSBSLivelihoodEngagement")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InitialParkAtGSBS")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MonthlyIncome")
+                        .HasColumnType("int");
 
                     b.Property<double>("MonthlyIncomeAtGSBS")
                         .HasColumnType("float");
 
                     b.Property<int?>("PersonId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RealocatedMonthandYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecialObservationsatGSBS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("specialNotes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -1862,6 +2029,12 @@ namespace QuickApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AnyRequestNeed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Contactable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1869,8 +2042,17 @@ namespace QuickApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CurrentEmployer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CurrentJob")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Current_Employer")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("DailyIncome")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("EmployementAddressId")
                         .HasColumnType("int");
@@ -1905,11 +2087,38 @@ namespace QuickApp.Migrations
                     b.Property<int>("Employment_Type")
                         .HasColumnType("int");
 
+                    b.Property<string>("HowJobFound")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomStatusComparedtoGSBS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IncomeStatusComparedtoPM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsEmployee")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsSameEmployer")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSameEmployerCTG")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSameSameEmployerCPM")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsSimilarCapacity")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("IsSimilarCapasityComparedToGSBS")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSimilarCapasityComparedToPreviousMonitor")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("JobStartedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Job_Role")
                         .HasColumnType("nvarchar(max)");
@@ -1920,10 +2129,19 @@ namespace QuickApp.Migrations
                     b.Property<int>("MonitorID")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("MonthlyIncome")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Person_ID")
                         .HasColumnType("int");
 
                     b.Property<string>("SalaryStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Situation")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
@@ -2063,14 +2281,17 @@ namespace QuickApp.Migrations
                     b.Property<double>("Monitor_Monthly_income")
                         .HasColumnType("float");
 
-                    b.Property<int?>("Monitor_Person_ID")
-                        .HasColumnType("int");
+                    b.Property<string>("Monitor_Person_ID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Monitor_Remarks")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Monitor_Update")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Person_ID")
+                        .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(256)
@@ -2083,7 +2304,7 @@ namespace QuickApp.Migrations
 
                     b.HasIndex("Monitor_Duration");
 
-                    b.HasIndex("Monitor_Person_ID");
+                    b.HasIndex("Person_ID");
 
                     b.ToTable("Monitor");
                 });
@@ -2361,8 +2582,14 @@ namespace QuickApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Contactable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("CurrentPark")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("DailyIncome")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("EngauagmentAtGSBS")
                         .HasColumnType("nvarchar(max)");
@@ -2388,7 +2615,13 @@ namespace QuickApp.Migrations
                     b.Property<int?>("PersonID")
                         .HasColumnType("int");
 
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Situation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecialObservation")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -2557,6 +2790,9 @@ namespace QuickApp.Migrations
                     b.Property<string>("OtherVulnerability")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -2614,7 +2850,7 @@ namespace QuickApp.Migrations
                     b.Property<bool>("IsIncomeSecure")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MonitorId")
+                    b.Property<int?>("MonitorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Note")
@@ -2625,6 +2861,9 @@ namespace QuickApp.Migrations
 
                     b.Property<int?>("PersonId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectInput")
                         .HasColumnType("nvarchar(max)");
@@ -2641,13 +2880,17 @@ namespace QuickApp.Migrations
                     b.Property<string>("VulnerabilityStatus")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("monitorDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("monitorPeriodId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MonitorId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[MonitorId] IS NOT NULL");
 
                     b.HasIndex("PersonId");
 
@@ -2729,8 +2972,23 @@ namespace QuickApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Bettercaringandprotection")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Betterphysicallivingcondition")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Contactable")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Dateofphaseout")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("DecisionMade")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Dependonclosefamily")
+                        .HasColumnType("bit");
 
                     b.Property<string>("EconomyWellBeign")
                         .HasColumnType("nvarchar(max)");
@@ -2741,6 +2999,9 @@ namespace QuickApp.Migrations
                     b.Property<string>("FileNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Healthy")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsIncomeGeneratingSources")
                         .HasColumnType("bit");
 
@@ -2750,10 +3011,22 @@ namespace QuickApp.Migrations
                     b.Property<bool>("IsLivesWithcloseFamily")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MonitorId")
-                        .HasColumnType("int");
+                    b.Property<bool>("Isaprequirement")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Isourintervention")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Monitordate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("MonthAndYear")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Otherincomegeneratingnote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ourinterventionnote")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PersonID")
@@ -2763,6 +3036,9 @@ namespace QuickApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReasonForPhaseOut")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Satisfactionlevel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Situation")
@@ -2780,10 +3056,10 @@ namespace QuickApp.Migrations
                     b.Property<int>("monitorPeriodId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("requirementnote")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("MonitorId")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.HasIndex("PersonID");
 
@@ -3460,9 +3736,7 @@ namespace QuickApp.Migrations
                 {
                     b.HasOne("DAL.Models.Customer_Related.Person", "Person")
                         .WithMany("Entittlment")
-                        .HasForeignKey("Entittlment_Person_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Person_ID");
 
                     b.Navigation("Person");
                 });
@@ -3550,6 +3824,17 @@ namespace QuickApp.Migrations
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("person");
+                });
+
+            modelBuilder.Entity("DAL.Models.Genaral.EventwiseParticipants", b =>
+                {
+                    b.HasOne("DAL.Models.Genaral.Intervention", "Interventions")
+                        .WithMany("Participants")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Interventions");
                 });
 
             modelBuilder.Entity("DAL.Models.Genaral.PhaseOutGeneral", b =>
@@ -3699,8 +3984,7 @@ namespace QuickApp.Migrations
 
                     b.HasOne("DAL.Models.Customer_Related.Person", "Person")
                         .WithMany("Monitor")
-                        .HasForeignKey("Monitor_Person_ID")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .HasForeignKey("Person_ID");
 
                     b.Navigation("MonitorDuration");
 
@@ -3848,8 +4132,7 @@ namespace QuickApp.Migrations
                     b.HasOne("DAL.Models.Monitoring_Information.Monitor", "monitor")
                         .WithOne("vulnerability")
                         .HasForeignKey("DAL.Models.Monitoring_Information.VulnerabilityMonitor", "MonitorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DAL.Models.Customer_Related.Person", "Person")
                         .WithMany("VulnerabilityMonitor")
@@ -3879,12 +4162,6 @@ namespace QuickApp.Migrations
 
             modelBuilder.Entity("DAL.Models.Monitoring_Information.phaseOut", b =>
                 {
-                    b.HasOne("DAL.Models.Monitoring_Information.Monitor", "monitor")
-                        .WithOne("PhaseOut")
-                        .HasForeignKey("DAL.Models.Monitoring_Information.phaseOut", "MonitorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("DAL.Models.Customer_Related.Person", "person")
                         .WithMany("phaseOut")
                         .HasForeignKey("PersonID")
@@ -3895,8 +4172,6 @@ namespace QuickApp.Migrations
                         .HasForeignKey("monitorPeriodId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("monitor");
 
                     b.Navigation("monitorPeriod");
 
@@ -4173,6 +4448,11 @@ namespace QuickApp.Migrations
                     b.Navigation("Persons");
                 });
 
+            modelBuilder.Entity("DAL.Models.Genaral.Intervention", b =>
+                {
+                    b.Navigation("Participants");
+                });
+
             modelBuilder.Entity("DAL.Models.Genaral.MartialStatus", b =>
                 {
                     b.Navigation("Persons");
@@ -4226,8 +4506,6 @@ namespace QuickApp.Migrations
                     b.Navigation("Business");
 
                     b.Navigation("Employment");
-
-                    b.Navigation("PhaseOut");
 
                     b.Navigation("ThreeWheeler");
 

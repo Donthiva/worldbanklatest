@@ -166,13 +166,13 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
           person.longitude = this.dataArray[i].address.longitude;
 
-          person.GenderName = this.dataArray[i].person_Gender != null ? this.dataArray[i].person_Gender == 1 ? 'Male' : 'Female' : null;
+          person.GenderName =  this.dataArray[i].person_Gender != null ? this.dataArray[i].person_Gender == 1 ? 'Male' : 'Female' : null;
 
-          person.BankName = this.dataArray[i].bank[0].bank_ID;
+          person.BankName = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_ID : '';
 
-          person.BankBranch = this.dataArray[i].bank[0].bank_Branch_ID;
+          person.BankBranch = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_Branch_ID : null;
 
-          person.AccountNumber = this.dataArray[i].bank[0].bank_Account_Number;
+          person.AccountNumber = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_Account_Number : '';
 
           person.PersonType = this.dataArray[i].person_Type;
 
@@ -185,7 +185,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           person.doa = this.dataArray[i].doa;
           person.previousTypeId = this.dataArray[i].previousTypeId;
 
-          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 1 ? 'Employee' : this.dataArray[i].person_Type == 2 ? 'Business Perosn ' : this.dataArray[i].person_Type == 3 ? 'ThreeWheel Driver' : this.dataArray[i].person_Type == 4 ? 'Phase Out' : 'Mobile Vendor' : null;
+          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 1 ? 'Employee' : this.dataArray[i].person_Type == 2 ? 'Business Perosn ' : this.dataArray[i].person_Type == 3 ? 'ThreeWheel Driver' : this.dataArray[i].person_Type == 4 ? 'Phase Out' : this.dataArray[i].person_Type == 5 ? 'Mobile Vendor' : 'N/A' : 'N/A';
 
 
           person.Person_DOB = this.dataArray[i].person_DOB;

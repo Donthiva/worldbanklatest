@@ -51,7 +51,7 @@ export class phaseOutMonitor{
 
     public isaprequirement:boolean
     
-    
+
     
 
     public monitorId: number;

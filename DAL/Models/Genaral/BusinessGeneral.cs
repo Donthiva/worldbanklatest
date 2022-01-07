@@ -13,6 +13,8 @@ namespace DAL.Models.Genaral
 
         public int BusineesPlanId { get; set; }
 
+        public string PersonNIC { get; set; }
+
         public int BusinessTypeId { get; set; }
 
         public bool IsEntilementFund { get; set; }

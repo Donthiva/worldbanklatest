@@ -993,10 +993,14 @@ export class AddAppComponent implements OnInit, OnChanges {
     this.bankservicedata.GetAllBankNamesAll().subscribe(
       response => {
         this.BankName = response;
+        console.log('BankName',this.BankName );
+       if(this.BankName != undefined ){
         var data = this.BankName.find(x => x.bank_ID == Id)
         this.BankTypeId = data.bank_Type;
 
         this.LoadAllBankBranchers(Id);
+       }
+     
       }
     )
   }
@@ -1015,7 +1019,7 @@ export class AddAppComponent implements OnInit, OnChanges {
 
 
   LoadAllBankBranchers(Id) {
-
+    console.log('Id',Id);
     this.bankservicedata.GetAllBankBranch(Id).subscribe(
       response => {
         this.BankBranch = response;

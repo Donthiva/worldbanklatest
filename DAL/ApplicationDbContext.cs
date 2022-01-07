@@ -180,7 +180,7 @@ namespace DAL
 
             //Entittlment
             builder.Entity<Entittlment>().HasKey(c => new { c.Entittlment_ID });
-            builder.Entity<Entittlment>().HasOne(c => c.Person).WithMany(x => x.Entittlment).HasForeignKey(v=>v.Entittlment_Person_ID);
+            //builder.Entity<Entittlment>().HasOne(c => c.Person).WithMany(x => x.Entittlment).HasForeignKey(v=>v.Entittlment_Person_ID);
 
             //Business
             builder.Entity<Business>().HasKey(c => new { c.Business_ID });
@@ -242,7 +242,7 @@ namespace DAL
 
             //Monitor
             builder.Entity<Models.Monitoring_Information.Monitor>().HasKey(c => new { c.Monitor_ID });
-            builder.Entity<Models.Monitoring_Information.Monitor>().HasOne(c => c.Person).WithMany(x => x.Monitor).HasForeignKey(s=>s.Monitor_Person_ID).OnDelete(DeleteBehavior.NoAction);
+            //builder.Entity<Models.Monitoring_Information.Monitor>().HasOne(c => c.Person).WithMany(x => x.Monitor).HasForeignKey(s=>s.Monitor_Person_ID).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<Models.Monitoring_Information.Monitor>().HasOne(c => c.MonitorDuration).WithMany(x => x.Monitor).HasForeignKey(w=>w.Monitor_Duration).OnDelete(DeleteBehavior.NoAction);
 
 
@@ -341,7 +341,7 @@ namespace DAL
 
             builder.Entity<phaseOut>().HasKey(c => new { c.Id });
             builder.Entity<phaseOut>().HasOne(v => v.person).WithMany(c => c.phaseOut).HasForeignKey(c => c.PersonID).OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<phaseOut>().HasOne(v => v.monitor).WithOne(c => c.PhaseOut).HasForeignKey<phaseOut>(d => d.MonitorId).OnDelete(DeleteBehavior.NoAction);
+            //builder.Entity<phaseOut>().HasOne(v => v.monitor).WithOne(c => c.PhaseOut).HasForeignKey<phaseOut>(d => d.MonitorId).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<phaseOut>().HasOne(v => v.monitorPeriod).WithMany(c => c.phaseOut).HasForeignKey(d => d.monitorPeriodId).OnDelete(DeleteBehavior.NoAction);
 
 

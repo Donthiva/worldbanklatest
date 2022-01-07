@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickApp.Migrations
 {
-    public partial class addedPtype : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -212,6 +212,19 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "businessOrLivelihoodRelocation",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_businessOrLivelihoodRelocation", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BusinessType",
                 columns: table => new
                 {
@@ -239,6 +252,19 @@ namespace QuickApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Country", x => x.Country_ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "educationLevel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_educationLevel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -313,6 +339,25 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Intervention",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TypeOfEventId = table.Column<int>(type: "int", nullable: false),
+                    NameOfEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BriefDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MainStakeholdersParticipated = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ApCategoryId = table.Column<int>(type: "int", nullable: false),
+                    NumberOfParticipants = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Intervention", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "JobEngagement",
                 columns: table => new
                 {
@@ -323,6 +368,19 @@ namespace QuickApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_JobEngagement", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "martialStatus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_martialStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -375,6 +433,21 @@ namespace QuickApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Person_Type", x => x.Person_Type_ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "previousType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Person_Type_ID = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Person_Type_Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_previousType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -659,6 +732,26 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EventwiseParticipants",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<int>(type: "int", nullable: false),
+                    ParticipantId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventwiseParticipants", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EventwiseParticipants_Intervention_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Intervention",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppOrderDetails",
                 columns: table => new
                 {
@@ -785,7 +878,7 @@ namespace QuickApp.Migrations
                 {
                     Address_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Adress_Owner_ID = table.Column<int>(type: "int", nullable: false),
+                    Adress_Owner_ID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Adress_Owner_Type = table.Column<int>(type: "int", nullable: false),
                     Address_Number = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address_Street1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -796,6 +889,8 @@ namespace QuickApp.Migrations
                     districtId = table.Column<int>(type: "int", nullable: false),
                     statesId = table.Column<int>(type: "int", nullable: false),
                     countryId = table.Column<int>(type: "int", nullable: false),
+                    Longitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Latitude = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -836,13 +931,23 @@ namespace QuickApp.Migrations
                     Person_File_number = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Gender = table.Column<int>(type: "int", nullable: false),
-                    MartialStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GSBSLivelihoodEngagement = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthlyIncome = table.Column<int>(type: "int", nullable: false),
+                    Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SpecialObservationsatGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Contact_Number = table.Column<double>(type: "float", nullable: false),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Address = table.Column<int>(type: "int", nullable: false),
                     Person_Type = table.Column<int>(type: "int", nullable: false),
                     Person_DOB = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    martialStatusId = table.Column<int>(type: "int", nullable: false),
+                    educationalLevelId = table.Column<int>(type: "int", nullable: false),
+                    businessOrLivelihoodRelocationId = table.Column<int>(type: "int", nullable: false),
+                    BusinessPlanNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EntitlementFund = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsEntitleFund = table.Column<bool>(type: "bit", nullable: false),
                     GenderUser_Gender_ID = table.Column<int>(type: "int", nullable: true),
+                    PreviousTypeId = table.Column<int>(type: "int", nullable: false),
                     DOA = table.Column<bool>(type: "bit", nullable: false),
                     EACdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -860,11 +965,26 @@ namespace QuickApp.Migrations
                         principalColumn: "Address_ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_Persons_businessOrLivelihoodRelocation_businessOrLivelihoodRelocationId",
+                        column: x => x.businessOrLivelihoodRelocationId,
+                        principalTable: "businessOrLivelihoodRelocation",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Persons_educationLevel_educationalLevelId",
+                        column: x => x.educationalLevelId,
+                        principalTable: "educationLevel",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Persons_Gender_GenderUser_Gender_ID",
                         column: x => x.GenderUser_Gender_ID,
                         principalTable: "Gender",
                         principalColumn: "User_Gender_ID",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Persons_martialStatus_martialStatusId",
+                        column: x => x.martialStatusId,
+                        principalTable: "martialStatus",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Persons_Person_Type_Person_Type",
                         column: x => x.Person_Type,
@@ -1053,6 +1173,7 @@ namespace QuickApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BusineesPlanId = table.Column<int>(type: "int", nullable: false),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessTypeId = table.Column<int>(type: "int", nullable: false),
                     IsEntilementFund = table.Column<bool>(type: "bit", nullable: false),
                     IsBankLoans = table.Column<bool>(type: "bit", nullable: false),
@@ -1062,9 +1183,19 @@ namespace QuickApp.Migrations
                     IsPartnerShip = table.Column<bool>(type: "bit", nullable: false),
                     IsBusinessChanged = table.Column<bool>(type: "bit", nullable: false),
                     GSBSPreviousIncome = table.Column<double>(type: "float", nullable: false),
+                    IsFirstBusinessPlan = table.Column<bool>(type: "bit", nullable: false),
+                    BusinessPlanNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PreviousBusinessAtGoodShed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RelocatedMonthandyear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: true)
+                    BusinessAPType = table.Column<int>(type: "int", nullable: false),
+                    BusinessTypeNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BusinessInformationNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsBusinessPlanChangeFromInitialBP = table.Column<bool>(type: "bit", nullable: false),
+                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    GSBSLivelihoodEngagement = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthlyIncome = table.Column<int>(type: "int", nullable: false),
+                    Business_BusinessLoaction = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SpecialObservationsatGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1095,6 +1226,9 @@ namespace QuickApp.Migrations
                     JobRole = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Salary = table.Column<double>(type: "float", nullable: false),
+                    EmployeeRealocatedMonthandYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeBusinessLivelihoodRealocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeSpecialNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PersonId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -1113,10 +1247,11 @@ namespace QuickApp.Migrations
                 {
                     Entittlment_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Entittlment_Person_ID = table.Column<int>(type: "int", nullable: false),
+                    Entittlment_Person_ID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Entittlment_Sub_Total = table.Column<double>(type: "float", nullable: false),
                     Entittlment_retention_10_percent = table.Column<double>(type: "float", nullable: false),
                     Entittlment_Grand_Total = table.Column<double>(type: "float", nullable: false),
+                    Person_ID = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1126,11 +1261,11 @@ namespace QuickApp.Migrations
                 {
                     table.PrimaryKey("PK_Entittlments", x => x.Entittlment_ID);
                     table.ForeignKey(
-                        name: "FK_Entittlments_Persons_Entittlment_Person_ID",
-                        column: x => x.Entittlment_Person_ID,
+                        name: "FK_Entittlments_Persons_Person_ID",
+                        column: x => x.Person_ID,
                         principalTable: "Persons",
                         principalColumn: "Person_ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -1139,13 +1274,14 @@ namespace QuickApp.Migrations
                 {
                     Monitor_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Monitor_Person_ID = table.Column<int>(type: "int", nullable: true),
+                    Monitor_Person_ID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Monitor_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Monitor_Duration = table.Column<int>(type: "int", nullable: false),
                     Monitor_Update = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Monitor_Monthly_income = table.Column<double>(type: "float", nullable: false),
                     Monitor_LRP_Responds_action = table.Column<int>(type: "int", nullable: false),
                     Monitor_Remarks = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Person_ID = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1160,8 +1296,60 @@ namespace QuickApp.Migrations
                         principalTable: "Monitor_Duration",
                         principalColumn: "Monitor_Duratione_ID");
                     table.ForeignKey(
-                        name: "FK_Monitor_Persons_Monitor_Person_ID",
-                        column: x => x.Monitor_Person_ID,
+                        name: "FK_Monitor_Persons_Person_ID",
+                        column: x => x.Person_ID,
+                        principalTable: "Persons",
+                        principalColumn: "Person_ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "phaseOut",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FileNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DecisionMade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Situation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthAndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlanedBusiness = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReasonForPhaseOut = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EntileMentFundReceive = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UseOfEntileFund = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SocialWellBeing = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EconomyWellBeign = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsInterestOfFixedDeposit = table.Column<bool>(type: "bit", nullable: false),
+                    IsLivesWithcloseFamily = table.Column<bool>(type: "bit", nullable: false),
+                    IsIncomeGeneratingSources = table.Column<bool>(type: "bit", nullable: false),
+                    PersonID = table.Column<int>(type: "int", nullable: true),
+                    monitorPeriodId = table.Column<int>(type: "int", nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Monitordate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Dateofphaseout = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Contactable = table.Column<bool>(type: "bit", nullable: false),
+                    Otherincomegeneratingnote = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Dependonclosefamily = table.Column<bool>(type: "bit", nullable: false),
+                    Betterphysicallivingcondition = table.Column<bool>(type: "bit", nullable: false),
+                    Bettercaringandprotection = table.Column<bool>(type: "bit", nullable: false),
+                    Healthy = table.Column<bool>(type: "bit", nullable: false),
+                    Isaprequirement = table.Column<bool>(type: "bit", nullable: false),
+                    requirementnote = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Isourintervention = table.Column<bool>(type: "bit", nullable: false),
+                    Satisfactionlevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ourinterventionnote = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_phaseOut", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_phaseOut_MonitorPerioid_monitorPeriodId",
+                        column: x => x.monitorPeriodId,
+                        principalTable: "MonitorPerioid",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_phaseOut_Persons_PersonID",
+                        column: x => x.PersonID,
                         principalTable: "Persons",
                         principalColumn: "Person_ID");
                 });
@@ -1172,6 +1360,7 @@ namespace QuickApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhaseOutDecisionMade = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MonthAndYearPhaseOut = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessPlan = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1200,10 +1389,18 @@ namespace QuickApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PersonId = table.Column<int>(type: "int", nullable: true),
                     InitialParkAtGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MonthlyIncomeAtGSBS = table.Column<double>(type: "float", nullable: false),
-                    EngagementAtGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    EngagementAtGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RealocatedMonthandYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BusinessLivelihoodRealocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    specialNotes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GSBSLivelihoodEngagement = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthlyIncome = table.Column<int>(type: "int", nullable: false),
+                    BusinessLoaction = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SpecialObservationsatGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1264,6 +1461,7 @@ namespace QuickApp.Migrations
                 {
                     Vulnerability_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vulnerability_Person_ID = table.Column<int>(type: "int", nullable: true),
                     Vulnerability_IS_Vulnerable = table.Column<bool>(type: "bit", nullable: false),
                     Vulnerability_Type = table.Column<int>(type: "int", nullable: false),
@@ -1334,7 +1532,7 @@ namespace QuickApp.Migrations
                     IsbuinessDiversified = table.Column<bool>(type: "bit", nullable: false),
                     OldBusinesses = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsBusinessChangeFromInitial = table.Column<bool>(type: "bit", nullable: false),
-                    CityOut = table.Column<bool>(type: "bit", nullable: false),
+                    CityOut = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IncomeStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsOperatingWithStableProfit = table.Column<bool>(type: "bit", nullable: false),
                     IsAlternativeSite = table.Column<bool>(type: "bit", nullable: false),
@@ -1343,6 +1541,17 @@ namespace QuickApp.Migrations
                     IsneedRequested = table.Column<bool>(type: "bit", nullable: false),
                     monitorId = table.Column<int>(type: "int", nullable: false),
                     monitorPeriodId = table.Column<int>(type: "int", nullable: false),
+                    BusinessAddressId = table.Column<int>(type: "int", nullable: true),
+                    Contactable = table.Column<bool>(type: "bit", nullable: false),
+                    IsAPDead = table.Column<bool>(type: "bit", nullable: false),
+                    HowIsFamilyIfdead = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HowBusinessCHange = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IncomeStatusComparedToGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IncomeStatusComparedToPM = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DailyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsNeedOrRequirment = table.Column<bool>(type: "bit", nullable: false),
+                    RequirmentNeed = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SpecialObservation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BuinessPlan2Buiness_Plan_ID = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -1352,6 +1561,11 @@ namespace QuickApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Businesses", x => x.Business_ID);
+                    table.ForeignKey(
+                        name: "FK_Businesses_Address_BusinessAddressId",
+                        column: x => x.BusinessAddressId,
+                        principalTable: "Address",
+                        principalColumn: "Address_ID");
                     table.ForeignKey(
                         name: "FK_Businesses_Buiness_Plan_BuinessPlan2Buiness_Plan_ID",
                         column: x => x.BuinessPlan2Buiness_Plan_ID,
@@ -1415,6 +1629,24 @@ namespace QuickApp.Migrations
                     MonitorID = table.Column<int>(type: "int", nullable: false),
                     IsSimilarCapacity = table.Column<bool>(type: "bit", nullable: false),
                     monitorPeriodId = table.Column<int>(type: "int", nullable: false),
+                    EmployementAddressId = table.Column<int>(type: "int", nullable: true),
+                    Contactable = table.Column<bool>(type: "bit", nullable: false),
+                    IsEmployee = table.Column<bool>(type: "bit", nullable: false),
+                    CurrentEmployer = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JobStartedDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthlyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DailyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IsSameEmployerCTG = table.Column<bool>(type: "bit", nullable: false),
+                    IsSameSameEmployerCPM = table.Column<bool>(type: "bit", nullable: false),
+                    HowJobFound = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AnyRequestNeed = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Situation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsSimilarCapasityComparedToGSBS = table.Column<bool>(type: "bit", nullable: false),
+                    IsSimilarCapasityComparedToPreviousMonitor = table.Column<bool>(type: "bit", nullable: false),
+                    IncomStatusComparedtoGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IncomeStatusComparedtoPM = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CurrentJob = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1423,6 +1655,11 @@ namespace QuickApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employment", x => x.Employment_ID);
+                    table.ForeignKey(
+                        name: "FK_Employment_Address_EmployementAddressId",
+                        column: x => x.EmployementAddressId,
+                        principalTable: "Address",
+                        principalColumn: "Address_ID");
                     table.ForeignKey(
                         name: "FK_Employment_Employment_Status_Employment_Status",
                         column: x => x.Employment_Status,
@@ -1456,54 +1693,13 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "phaseOut",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FileNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DecisionMade = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Situation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MonthAndYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PlanedBusiness = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReasonForPhaseOut = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EntileMentFundReceive = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UseOfEntileFund = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SocialWellBeing = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsInterestOfFixedDeposit = table.Column<bool>(type: "bit", nullable: false),
-                    IsLivesWithcloseFamily = table.Column<bool>(type: "bit", nullable: false),
-                    IsIncomeGeneratingSources = table.Column<bool>(type: "bit", nullable: false),
-                    PersonID = table.Column<int>(type: "int", nullable: true),
-                    MonitorId = table.Column<int>(type: "int", nullable: false),
-                    monitorPeriodId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_phaseOut", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_phaseOut_Monitor_MonitorId",
-                        column: x => x.MonitorId,
-                        principalTable: "Monitor",
-                        principalColumn: "Monitor_ID");
-                    table.ForeignKey(
-                        name: "FK_phaseOut_MonitorPerioid_monitorPeriodId",
-                        column: x => x.monitorPeriodId,
-                        principalTable: "MonitorPerioid",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_phaseOut_Persons_PersonID",
-                        column: x => x.PersonID,
-                        principalTable: "Persons",
-                        principalColumn: "Person_ID");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ThreeWheeler",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InitalParkAtGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MonthlyIcomeAtGSBS = table.Column<double>(type: "float", nullable: false),
                     EngauagmentAtGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CurrentPark = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1513,7 +1709,14 @@ namespace QuickApp.Migrations
                     IncomeStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Situation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MonitorId = table.Column<int>(type: "int", nullable: false),
-                    monitorPeriodId = table.Column<int>(type: "int", nullable: false)
+                    monitorPeriodId = table.Column<int>(type: "int", nullable: false),
+                    Workingdays = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Haveotherincomegeneratingsources = table.Column<bool>(type: "bit", nullable: false),
+                    Threewheelpark = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Contactable = table.Column<bool>(type: "bit", nullable: false),
+                    DailyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SpecialObservation = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1536,12 +1739,76 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PhaseOutMonitorDocuments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhaseOutMonitorDocuments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PhaseOutMonitorDocuments_phaseOut_EmployeeMonitorId",
+                        column: x => x.EmployeeMonitorId,
+                        principalTable: "phaseOut",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PhaseOutMonitorImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhaseOutMonitorImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PhaseOutMonitorImages_phaseOut_EmployeeMonitorId",
+                        column: x => x.EmployeeMonitorId,
+                        principalTable: "phaseOut",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PhaseOutMonitorVideos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhaseOutMonitorVideos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PhaseOutMonitorVideos_phaseOut_EmployeeMonitorId",
+                        column: x => x.EmployeeMonitorId,
+                        principalTable: "phaseOut",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "VulnerabilityMonitor",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Period = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProjectInput = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VulnerabilityStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Stability = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1551,10 +1818,11 @@ namespace QuickApp.Migrations
                     BetterSocialFamilyEnvironment = table.Column<bool>(type: "bit", nullable: false),
                     ProtectionAndSecurity = table.Column<bool>(type: "bit", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MonitorId = table.Column<int>(type: "int", nullable: false),
+                    MonitorId = table.Column<int>(type: "int", nullable: true),
                     PersonId = table.Column<int>(type: "int", nullable: true),
                     VulnerabilityID = table.Column<int>(type: "int", nullable: false),
-                    monitorPeriodId = table.Column<int>(type: "int", nullable: false)
+                    monitorPeriodId = table.Column<int>(type: "int", nullable: false),
+                    monitorDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -1861,69 +2129,6 @@ namespace QuickApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PhaseOutMonitorDocuments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PhaseOutMonitorDocuments", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PhaseOutMonitorDocuments_phaseOut_EmployeeMonitorId",
-                        column: x => x.EmployeeMonitorId,
-                        principalTable: "phaseOut",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PhaseOutMonitorImages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PhaseOutMonitorImages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PhaseOutMonitorImages_phaseOut_EmployeeMonitorId",
-                        column: x => x.EmployeeMonitorId,
-                        principalTable: "phaseOut",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PhaseOutMonitorVideos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeMonitorId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PhaseOutMonitorVideos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PhaseOutMonitorVideos_phaseOut_EmployeeMonitorId",
-                        column: x => x.EmployeeMonitorId,
-                        principalTable: "phaseOut",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "threeWheelMonitorDocuments",
                 columns: table => new
                 {
@@ -2174,6 +2379,13 @@ namespace QuickApp.Migrations
                 column: "Business_Type");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Businesses_BusinessAddressId",
+                table: "Businesses",
+                column: "BusinessAddressId",
+                unique: true,
+                filter: "[BusinessAddressId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Businesses_monitorId",
                 table: "Businesses",
                 column: "monitorId",
@@ -2288,6 +2500,13 @@ namespace QuickApp.Migrations
                 column: "EmployeeMonitorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Employment_EmployementAddressId",
+                table: "Employment",
+                column: "EmployementAddressId",
+                unique: true,
+                filter: "[EmployementAddressId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Employment_Employment_Status",
                 table: "Employment",
                 column: "Employment_Status");
@@ -2319,9 +2538,14 @@ namespace QuickApp.Migrations
                 column: "Person_ID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Entittlments_Entittlment_Person_ID",
+                name: "IX_Entittlments_Person_ID",
                 table: "Entittlments",
-                column: "Entittlment_Person_ID");
+                column: "Person_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventwiseParticipants_EventId",
+                table: "EventwiseParticipants",
+                column: "EventId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MachinaryEquipment_BusinessId",
@@ -2341,14 +2565,29 @@ namespace QuickApp.Migrations
                 column: "Monitor_Duration");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Monitor_Monitor_Person_ID",
+                name: "IX_Monitor_Person_ID",
                 table: "Monitor",
-                column: "Monitor_Person_ID");
+                column: "Person_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Persons_businessOrLivelihoodRelocationId",
+                table: "Persons",
+                column: "businessOrLivelihoodRelocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Persons_educationalLevelId",
+                table: "Persons",
+                column: "educationalLevelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Persons_GenderUser_Gender_ID",
                 table: "Persons",
                 column: "GenderUser_Gender_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Persons_martialStatusId",
+                table: "Persons",
+                column: "martialStatusId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Persons_Person_Address",
@@ -2360,12 +2599,6 @@ namespace QuickApp.Migrations
                 name: "IX_Persons_Person_Type",
                 table: "Persons",
                 column: "Person_Type");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_phaseOut_MonitorId",
-                table: "phaseOut",
-                column: "MonitorId",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_phaseOut_monitorPeriodId",
@@ -2479,7 +2712,8 @@ namespace QuickApp.Migrations
                 name: "IX_VulnerabilityMonitor_MonitorId",
                 table: "VulnerabilityMonitor",
                 column: "MonitorId",
-                unique: true);
+                unique: true,
+                filter: "[MonitorId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VulnerabilityMonitor_monitorPeriodId",
@@ -2587,6 +2821,9 @@ namespace QuickApp.Migrations
                 name: "Entittlments");
 
             migrationBuilder.DropTable(
+                name: "EventwiseParticipants");
+
+            migrationBuilder.DropTable(
                 name: "MachinaryEquipment");
 
             migrationBuilder.DropTable(
@@ -2603,6 +2840,9 @@ namespace QuickApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "PhaseOutMonitorVideos");
+
+            migrationBuilder.DropTable(
+                name: "previousType");
 
             migrationBuilder.DropTable(
                 name: "Shopspace");
@@ -2642,6 +2882,9 @@ namespace QuickApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Employment");
+
+            migrationBuilder.DropTable(
+                name: "Intervention");
 
             migrationBuilder.DropTable(
                 name: "phaseOut");
@@ -2713,7 +2956,16 @@ namespace QuickApp.Migrations
                 name: "Address");
 
             migrationBuilder.DropTable(
+                name: "businessOrLivelihoodRelocation");
+
+            migrationBuilder.DropTable(
+                name: "educationLevel");
+
+            migrationBuilder.DropTable(
                 name: "Gender");
+
+            migrationBuilder.DropTable(
+                name: "martialStatus");
 
             migrationBuilder.DropTable(
                 name: "Person_Type");

@@ -9,6 +9,8 @@ namespace DAL.Models.Genaral
     {
         public int Id { get; set; }
 
+        public string PersonNIC { get; set; }
+
         public int? PersonId { get; set; }
 
         public string InitialParkAtGSBS { get; set; }

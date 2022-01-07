@@ -37,8 +37,7 @@ namespace DAL.Models.Monitoring_Information
 
         public int? PersonID { get; set; }
 
-        public int MonitorId { get; set; }
-
+   
         public int monitorPeriodId { get; set; }
 
         public string  Summary { get; set; }
@@ -71,7 +70,7 @@ namespace DAL.Models.Monitoring_Information
 
         public Person person { get; set; }
 
-        public Monitor monitor { get; set; }
+     
 
         public ICollection<PhaseOutMonitorImages> phaseOutMonitorImages { get; set; }
 

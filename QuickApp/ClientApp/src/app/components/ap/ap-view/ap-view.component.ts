@@ -912,7 +912,7 @@ loadprecatagory(){
         this.BankName = reponse;
         console.log('BankName', this.BankName);
 
-        this.bankNamevalue = (this.BankName != undefined && this.personModel.BankName != undefined) ? this.BankName.find(x => x.bank_ID == Id).bank_Name : "";
+        this.bankNamevalue = (this.BankName != undefined && this.personModel.BankName != undefined) ? this.BankName.find(x => x.bank_ID == Id) == undefined ?    "" : this.BankName.find(x => x.bank_ID == Id).bank_Name : "";
 
       }
     )
@@ -921,15 +921,17 @@ loadprecatagory(){
 
 
   LoadAllBankBranchers(Id) {
-
-    this.bankservicedata.GetAllBankBranch(Id).subscribe(
-      response => {
-        this.BankBranch = response;
-        console.log('BankBranch', this.BankBranch);
-        this.bankbranchvalue = (this.BankBranch != undefined && this.personModel.BankBranch != undefined) ? this.BankBranch.find(x => x.bank_Branch_ID == this.personModel.BankBranch).bank_Branch_Description : "";
-
-      }
-    )
+    if(Id != null){
+      this.bankservicedata.GetAllBankBranch(Id).subscribe(
+        response => {
+          this.BankBranch = response;
+          console.log('BankBranch', this.BankBranch);
+          this.bankbranchvalue = (this.BankBranch != undefined && this.personModel.BankBranch != undefined) ? this.BankBranch.find(x => x.bank_Branch_ID == this.personModel.BankBranch).bank_Branch_Description : "";
+  
+        }
+      )
+    }
+  
   }
 
 

@@ -26,9 +26,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-               
-                     data =  db.Query<DeliverableOutput1DataModel>("Deliverable_Output_1",
-                    commandType: CommandType.StoredProcedure);
+                try
+                {
+
+                    data = db.Query<DeliverableOutput1DataModel>("Deliverable_Output_1",
+                   commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<DeliverableOutput1DataModel>();
+                }
 
                 
                
@@ -46,9 +53,15 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<DeliverableOutput2DataModel>("Deliverable_Output_2",
+                try
+                {
+                    data = db.Query<DeliverableOutput2DataModel>("Deliverable_Output_2",
                commandType: CommandType.StoredProcedure);
+                }
+                catch
+                { 
+                    data = new List<DeliverableOutput2DataModel>();
+                }
 
 
 
@@ -65,9 +78,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<DeliverableOutput3DataModel>("Deliverable_Output_3",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<DeliverableOutput3DataModel>("Deliverable_Output_3",
+              commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data =  new List<DeliverableOutput3DataModel>();
+                }
+               
 
 
 
@@ -84,9 +104,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<DeliverableOutput4DataModel>("Deliverable_Output_4",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<DeliverableOutput4DataModel>("Deliverable_Output_4",
+             commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<DeliverableOutput4DataModel>();
+                }
+              
 
 
 
@@ -103,9 +130,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
+                try
+                {
+                    data = db.Query<DeliverableOutput5DataModel>("Deliverable_Output_5",
+              commandType: CommandType.StoredProcedure);
 
-                data = db.Query<DeliverableOutput5DataModel>("Deliverable_Output_5",
-               commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<DeliverableOutput5DataModel>();
+                }
 
 
 
@@ -122,9 +156,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<DeliverableOutput6DataModel>("Deliverable_Output_6",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<DeliverableOutput6DataModel>("Deliverable_Output_6",
+            commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<DeliverableOutput6DataModel>();
+                }
+             
 
 
 
@@ -141,9 +182,17 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
+                try
+                {
+                    data = db.Query<DeliverableOutput8DataModel>("Deliverable_Output_8",
+              commandType: CommandType.StoredProcedure);
 
-                data = db.Query<DeliverableOutput8DataModel>("Deliverable_Output_8",
-               commandType: CommandType.StoredProcedure);
+                }
+                catch
+                { 
+                    data = new List<DeliverableOutput8DataModel>(); 
+                }
+
 
 
 
@@ -160,9 +209,15 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<TotalPopulationCrossTabulationsAPCategoryWisePercentage>("NandPofAPsbelongtoeachcategory",
+                try
+                {
+                    data = db.Query<TotalPopulationCrossTabulationsAPCategoryWisePercentage>("NandPofAPsbelongtoeachcategory",
                commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<TotalPopulationCrossTabulationsAPCategoryWisePercentage>();
+                }
 
 
 
@@ -177,9 +232,16 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<GenderWiseDataPercentage>("GenderWiseData",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<GenderWiseDataPercentage>("GenderWiseData",
+              commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<GenderWiseDataPercentage>();
+                }
+               
 
 
 
@@ -196,9 +258,15 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<AgeWiseAPsCategories>("AgeWiseAPs",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<AgeWiseAPsCategories>("AgeWiseAPs",
+              commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<AgeWiseAPsCategories>();
+                }
 
 
 
@@ -214,9 +282,15 @@ namespace DAL.Repositories
 
             using (IDbConnection db = _IDbConnection)
             {
-
-                data = db.Query<VulnerableAPPercentage>("NandPVulnerableofAllAps",
-               commandType: CommandType.StoredProcedure);
+                try
+                {
+                    data = db.Query<VulnerableAPPercentage>("NandPVulnerableofAllAps",
+              commandType: CommandType.StoredProcedure);
+                }
+                catch
+                {
+                    data = new List<VulnerableAPPercentage>();
+                }
 
 
 

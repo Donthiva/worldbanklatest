@@ -11,6 +11,8 @@ namespace DAL.Models.Monitoring_Information
 
         public string InitalParkAtGSBS { get; set; }
 
+        public string PersonNIC { get; set; }
+
         public double MonthlyIcomeAtGSBS { get; set; }
 
        ///drop down

@@ -8,7 +8,7 @@ namespace DAL.Models.Customer_Related
     {
         public int Entittlment_ID { get; set; }
         //foreign key of person
-        public int Entittlment_Person_ID { get; set; }
+        public string Entittlment_Person_ID { get; set; }
 
         public double Entittlment_Sub_Total { get; set; }
 

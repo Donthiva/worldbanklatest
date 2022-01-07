@@ -29,7 +29,7 @@ namespace DAL.Repositories
             try
             {
 
-                var data = await _context2.phaseOut.Include(r => r.monitor).Include(r => r.monitor.MonitorDuration).Include(r=>r.phaseOutMonitorDocuments).Include(r=>r.phaseOutMonitorImages).Include(r=>r.phaseOutMonitorVideos).ToListAsync();
+                var data = await _context2.phaseOut.Include(r=>r.phaseOutMonitorDocuments).Include(r=>r.phaseOutMonitorImages).Include(r=>r.phaseOutMonitorVideos).ToListAsync();
                 return data;
 
             }

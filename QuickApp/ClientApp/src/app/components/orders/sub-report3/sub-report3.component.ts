@@ -10,7 +10,7 @@ export class SubReport3Component implements OnInit {
 
   constructor(private personservice:PersonEndpoint) { }
 
-  reportServer: string = 'http://lkconrbandara02//ReportServer';
+  reportServer: string = 'http://lkcontsaranat01//ReportServer';
   reportUrl: string = 'Report Project1/SpecificPopMainRep';
   showParameters: string = "false";
   parameters: any = {

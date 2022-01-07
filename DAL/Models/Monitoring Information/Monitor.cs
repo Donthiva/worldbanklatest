@@ -10,7 +10,7 @@ namespace DAL.Models.Monitoring_Information
 
         public int Monitor_ID { get; set; }
         // foreign key of Person
-        public int? Monitor_Person_ID { get; set; }
+        public string? Monitor_Person_ID { get; set; }
         public DateTime Monitor_Date { get; set; }
         // foreign key of monitor duration 
         public int Monitor_Duration { get; set; }
@@ -25,7 +25,7 @@ namespace DAL.Models.Monitoring_Information
 
         public Business Business { get; set; }
 
-        public phaseOut PhaseOut { get; set; }
+    
 
         public ThreeWheeler ThreeWheeler { get; set; }
         

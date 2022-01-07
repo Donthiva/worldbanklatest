@@ -9,6 +9,8 @@ namespace DAL.Models.Genaral
     {
         public int Id { get; set; }
 
+        public string PersonNIC { get; set; }
+
         //decision Made
         public string PhaseOutDecisionMade { get; set; }
 

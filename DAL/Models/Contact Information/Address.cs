@@ -10,7 +10,7 @@ namespace DAL.Models.Contact_Information
     {
         public int Address_ID { get; set; }
         //foreging key from person related 
-        public int Adress_Owner_ID { get; set; }
+        public string Adress_Owner_ID { get; set; }
         //foreign key from address owner type
         public int Adress_Owner_Type { get; set; }
         public string Address_Number { get; set; }
