@@ -318,6 +318,7 @@ export class ApViewComponent implements OnInit, OnChanges {
       this.loadage();
       this.loadprecatagory();
       console.log("agenumber",this.age);
+      this.pdfDataSharing.age=this.age;
 
 
 

@@ -2,7 +2,7 @@
 <div class="m-4">
 	<button (click)="openPDF()">Get PDF</button>
 </div>
-<div class="row coupon-wrapper" id="pdfTable" style="align-items: center; text-align: center;" #pdfTable>
+<!-- <div class="row coupon-wrapper" id="pdfTable" style="align-items: center; text-align: center;" #pdfTable>
 
 	<div class="coupon-container">
 		<table class="coupon-detail">
@@ -25,4 +25,230 @@
 		</table>
 	</div>
 
-</div>
+</div> -->
+
+<div class="card-body">
+            
+	<div class="row" id="pdfTable"
+		style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;">
+		<div class="col-md-12 form-group" style="border-width: 10px;border-color: gray; align-items: center; text-align: center;">
+
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>General Information</h6>
+			</div>
+			<!-- <div class="row">
+				<div class="col-md-4" style="text-align:start;align-items:flex-start;">
+					<img [src]="apuserimage" alt="Avatar"
+						style="vertical-align: middle; width: 50;height: 50px; border-radius: 50%;margin-top: 10px;">
+				</div>
+			</div> -->
+
+
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">File number</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.Person_File_number}}</label>
+					</div>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">AP Name</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.Person_Name}}</label>
+					</div>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="vat" style="font-weight:700;">NIC</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.Person_NIC}}</label>
+					</div>
+				</div>
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">File number</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{personModel.Person_File_number}}</label>
+					</div>
+				</div> -->
+
+			</div>
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Age</label>
+					</div>
+					<div class="row">
+						<!-- <label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label> -->
+						<!-- <label style="text-align: center;" for="city"></label> -->
+					</div>
+
+				</div>
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label style="font-weight:700;" for="city">AP File number</label>
+					</div>
+
+					<div class="row">
+						<label style="text-align: center;"
+							for="city">{{personModel.Person_File_number}}</label>
+					</div>
+
+				</div> -->
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label style="font-weight:700;" for="city">Gender</label>
+					</div>
+
+					<div class="row">
+						<!-- <label style="text-align: center;"></label> -->
+					</div>
+				</div>
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label style="font-weight:700;" for="city">Current Type</label>
+					</div>
+
+					<div class="row">
+						<label style="text-align: center;">{{currentTypeName}}</label>
+					</div>
+				</div> -->
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Contact Number</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.Person_Contact_Number}}</label>
+					</div>
+				</div>           
+			</div>
+
+			<div class="col-md-12 form-group" >
+				<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+					<h6>Address</h6>
+				</div>
+
+				<div class="row" style="font-size: small;">
+
+					<div class="col-md-4 form-group">
+						<div class="row">
+							<label for="company" style="font-weight:700;">Number</label>
+						</div>
+						<div class="row">
+							<label style="text-align: center;" for="company">{{this.pdfDataSharing.personModel.addressNo}}</label>
+						</div>
+	
+	
+					</div>
+	
+	
+					<div class="col-md-4 form-group">
+	
+						<div class="row">
+							<label for="vat" style="font-weight:700;">Street</label>
+						</div>
+						<div class="row">
+							<label style="text-align: center;" for="company">{{this.pdfDataSharing.personModel.addressStreet}}</label>
+						</div>
+	
+	
+					</div>
+
+					<!-- <div class="col-md-4 form-group">
+	
+						<div class="row">
+							<label for="vat" style="font-weight:700;">City</label>
+						</div>
+						<div class="row">
+							<label style="text-align: center;" for="company"></label>
+						</div>
+	
+	
+					</div>
+	 -->
+	
+					
+	
+	
+	
+				</div>
+
+				<div class="row" style="font-size: small;">
+
+					<div class="col-md-4 form-group">
+						<div class="row">
+							<label for="company" style="font-weight:700;">District</label>
+						</div>
+						<div class="row">
+							<!-- <label style="text-align: center;" for="company">{{personDistrictName}}</label> -->
+						</div>
+	
+	
+					</div>
+
+					<div class="form-group col-md-4">
+						<div class="row">
+							<label for="city" style="font-weight:700;">Country</label>
+						</div>
+						<div class="row">
+							<!-- <label style="text-align: center;" for="company">{{personCountryName}}</label> -->
+						</div>
+	
+					</div>
+	
+	
+					
+	
+	
+	
+				</div>
+			</div>
+
+
+			<!-- <div class="row" style="font-size: small;">
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Land Phone Number</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{personModel.Home_Contact_Number}}</label>
+					</div>
+
+				</div>
+
+				
+			</div> -->
+
+
+			<!-- <hr> -->
+
+		</div>
+
+		</div>
+		</div>

@@ -143,7 +143,7 @@ export class address{
     public  Address_Street2:string;
 
     public  cordinateX:number;
-
+ 
     public  cordinateY:number;
 
     public  cityId:number

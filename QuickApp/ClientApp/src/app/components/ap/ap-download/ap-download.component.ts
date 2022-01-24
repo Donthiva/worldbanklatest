@@ -10,7 +10,7 @@ import { PdfDataSharing } from 'src/app/services/pdf-data-sharing.service';
 })
 export class ApDownloadComponent implements OnInit {
 
-  constructor(private pdfDataSharing:PdfDataSharing) { }
+  constructor(public pdfDataSharing:PdfDataSharing) { }
   
   ngOnInit(): void {
 

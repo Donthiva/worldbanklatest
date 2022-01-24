@@ -9,10 +9,11 @@ import { PersonalData } from '../models/app-add/personalData';
 export class PdfDataSharing 
 {
     personModel: PersonalData;
+    age:Number;
     
   constructor() 
   {
-
+    
 
   }
   
