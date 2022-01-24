@@ -12,36 +12,38 @@ namespace DAL.Models.Monitoring_Information
         // foreign key of person ID
         public int? Person_ID { get; set; }
 
-        public int Employment_Duration { get; set; }
+        public string  PersonNIC { get; set; }
+
+        public int? Employment_Duration { get; set; }
         //foreign key of employee status
         public int Employment_Status { get; set; }
-        public DateTime Employment_Started_date { get; set; }
-        public double Employment_Salary { get; set; }
+        public DateTime? Employment_Started_date { get; set; }
+        public double? Employment_Salary { get; set; }
         //foreing key of employeement types
         public int Employment_Type { get; set; }
 
-        public string Employment_Employer { get; set; }
+        public string? Employment_Employer { get; set; }
         //foreing key of employeement types
         public int Employment_Employer_Type { get; set; }
 
-        public string Employment_How_he_found_the_job { get; set; }
+        public string? Employment_How_he_found_the_job { get; set; }
 
-        public string Employment_If_not_angeged_in_a_job_reason { get; set; }
+        public string? Employment_If_not_angeged_in_a_job_reason { get; set; }
 
-        public string Employment_Remarks { get; set; }
+        public string? Employment_Remarks { get; set; }
 
-        public string Job_Role { get; set; }
+        public string? Job_Role { get; set; }
 
         public bool IsSameEmployer { get; set; }
 
-        public string SalaryStatus { get; set; }
+        public string? SalaryStatus { get; set; }
 
-        public string Current_Employer { get; set; }
+        public string? Current_Employer { get; set; }
 
         //create master data for job enguagement
         public int JobengagementID { get; set; }
 
-        public int MonitorID { get; set; }
+        public int? MonitorID { get; set; }
 
         public bool IsSimilarCapacity { get; set; }
 
@@ -53,13 +55,13 @@ namespace DAL.Models.Monitoring_Information
 
         public bool IsEmployee { get; set; }
 
-        public string CurrentEmployer { get; set; }
+        public string? CurrentEmployer { get; set; }
 
-        public string JobStartedDate { get; set; }
+        public string? JobStartedDate { get; set; }
 
-        public decimal MonthlyIncome { get; set; }
+        public decimal? MonthlyIncome { get; set; }
 
-        public decimal DailyIncome { get; set; }
+        public decimal? DailyIncome { get; set; }
 
         public bool IsSameEmployerCTG { get; set; }
 
@@ -72,6 +74,8 @@ namespace DAL.Models.Monitoring_Information
         public string Situation { get; set; }
 
         public string Note { get; set; }
+
+        public DateTime MonitorDate { get; set; }
 
         public bool IsSimilarCapasityComparedToGSBS { get; set; }
 

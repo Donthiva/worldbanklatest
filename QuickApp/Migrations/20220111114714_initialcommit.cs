@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialcommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -1224,6 +1224,7 @@ namespace QuickApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobRole = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Salary = table.Column<double>(type: "float", nullable: false),
                     EmployeeRealocatedMonthandYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1611,10 +1612,11 @@ namespace QuickApp.Migrations
                     Employment_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Person_ID = table.Column<int>(type: "int", nullable: true),
-                    Employment_Duration = table.Column<int>(type: "int", nullable: false),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Employment_Duration = table.Column<int>(type: "int", nullable: true),
                     Employment_Status = table.Column<int>(type: "int", nullable: false),
-                    Employment_Started_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Employment_Salary = table.Column<double>(type: "float", nullable: false),
+                    Employment_Started_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Employment_Salary = table.Column<double>(type: "float", nullable: true),
                     Employment_Type = table.Column<int>(type: "int", nullable: false),
                     Employment_Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Employment_Employer_Type = table.Column<int>(type: "int", nullable: false),
@@ -1626,7 +1628,7 @@ namespace QuickApp.Migrations
                     SalaryStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Current_Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobengagementID = table.Column<int>(type: "int", nullable: false),
-                    MonitorID = table.Column<int>(type: "int", nullable: false),
+                    MonitorID = table.Column<int>(type: "int", nullable: true),
                     IsSimilarCapacity = table.Column<bool>(type: "bit", nullable: false),
                     monitorPeriodId = table.Column<int>(type: "int", nullable: false),
                     EmployementAddressId = table.Column<int>(type: "int", nullable: true),
@@ -1634,14 +1636,15 @@ namespace QuickApp.Migrations
                     IsEmployee = table.Column<bool>(type: "bit", nullable: false),
                     CurrentEmployer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobStartedDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MonthlyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    DailyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MonthlyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    DailyIncome = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     IsSameEmployerCTG = table.Column<bool>(type: "bit", nullable: false),
                     IsSameSameEmployerCPM = table.Column<bool>(type: "bit", nullable: false),
                     HowJobFound = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AnyRequestNeed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Situation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonitorDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsSimilarCapasityComparedToGSBS = table.Column<bool>(type: "bit", nullable: false),
                     IsSimilarCapasityComparedToPreviousMonitor = table.Column<bool>(type: "bit", nullable: false),
                     IncomStatusComparedtoGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -2525,7 +2528,8 @@ namespace QuickApp.Migrations
                 name: "IX_Employment_MonitorID",
                 table: "Employment",
                 column: "MonitorID",
-                unique: true);
+                unique: true,
+                filter: "[MonitorID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employment_monitorPeriodId",

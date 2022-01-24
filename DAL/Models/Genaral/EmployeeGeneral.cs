@@ -11,6 +11,8 @@ namespace DAL.Models.Genaral
 
         public string JobRole { get; set; }
 
+        public string PersonNIC { get; set; }
+
         public string Employer { get; set; }
 
         public double Salary { get; set; }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace QuickApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220105085833_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220111114714_initialcommit")]
+    partial class initialcommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1539,6 +1539,9 @@ namespace QuickApp.Migrations
                     b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Salary")
                         .HasColumnType("float");
 
@@ -2051,13 +2054,13 @@ namespace QuickApp.Migrations
                     b.Property<string>("Current_Employer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("DailyIncome")
+                    b.Property<decimal?>("DailyIncome")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("EmployementAddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Employment_Duration")
+                    b.Property<int?>("Employment_Duration")
                         .HasColumnType("int");
 
                     b.Property<string>("Employment_Employer")
@@ -2075,10 +2078,10 @@ namespace QuickApp.Migrations
                     b.Property<string>("Employment_Remarks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Employment_Salary")
+                    b.Property<double?>("Employment_Salary")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("Employment_Started_date")
+                    b.Property<DateTime?>("Employment_Started_date")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Employment_Status")
@@ -2126,13 +2129,19 @@ namespace QuickApp.Migrations
                     b.Property<int>("JobengagementID")
                         .HasColumnType("int");
 
-                    b.Property<int>("MonitorID")
+                    b.Property<DateTime>("MonitorDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MonitorID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("MonthlyIncome")
+                    b.Property<decimal?>("MonthlyIncome")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonNIC")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Person_ID")
@@ -2167,7 +2176,8 @@ namespace QuickApp.Migrations
                     b.HasIndex("JobengagementID");
 
                     b.HasIndex("MonitorID")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[MonitorID] IS NOT NULL");
 
                     b.HasIndex("Person_ID");
 
@@ -3945,8 +3955,7 @@ namespace QuickApp.Migrations
                     b.HasOne("DAL.Models.Monitoring_Information.Monitor", "monitor")
                         .WithOne("Employment")
                         .HasForeignKey("DAL.Models.Monitoring_Information.Employment", "MonitorID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DAL.Models.Customer_Related.Person", "Person")
                         .WithMany("Employment")

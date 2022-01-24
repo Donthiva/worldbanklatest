@@ -173,7 +173,12 @@ export class AddAppComponent implements OnInit, OnChanges {
       if (this.personData.vulnerability.vulnerability_ID != null) {
         this.IsVulnerable = this.personData.vulnerability.vulnerability_IS_Vulnerable;
       }
-      this.apuserimage = this.configurations.baseUrl + '/' + this.personData.apUserImage.path;
+
+      if (this.personData.apUserImage != null) {
+        this.apuserimage = this.configurations.baseUrl + '/' +  this.personData.apUserImage.path;
+      }
+
+    
 
       console.log("user image link", this.apuserimage)
 
@@ -996,9 +1001,13 @@ export class AddAppComponent implements OnInit, OnChanges {
         console.log('BankName',this.BankName );
        if(this.BankName != undefined ){
         var data = this.BankName.find(x => x.bank_ID == Id)
+        if(data != undefined){
         this.BankTypeId = data.bank_Type;
-
-        this.LoadAllBankBranchers(Id);
+        }
+        if(Id != ""){
+          this.LoadAllBankBranchers(Id);
+        }
+        
        }
      
       }

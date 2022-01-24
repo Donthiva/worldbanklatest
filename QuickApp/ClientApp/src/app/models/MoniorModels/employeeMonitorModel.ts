@@ -1,3 +1,4 @@
+import { StringValueToken } from "html2canvas/dist/types/css/syntax/tokenizer";
 import { address } from "./businessMonitorModel";
 
 export class EmployeeMonitor {
@@ -69,6 +70,8 @@ export class EmployeeMonitor {
     public note:string;
 
     public currentJob:string;
+
+   public  MonitorDate:string;
 
     public isSimilarCapasityComparedToGSBS:boolean;
 

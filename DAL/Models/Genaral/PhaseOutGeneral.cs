@@ -11,6 +11,8 @@ namespace DAL.Models.Genaral
 
         public string PersonNIC { get; set; }
 
+
+
         //decision Made
         public string PhaseOutDecisionMade { get; set; }
 

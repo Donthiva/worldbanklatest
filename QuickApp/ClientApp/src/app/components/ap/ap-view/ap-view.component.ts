@@ -323,7 +323,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
       console.log("person image data", this.personData)
       if (this.personData.apUserImage != null) {
-        this.apuserimage = this.configurations.baseUrl + '/' + this.personData.apUserImage.path;
+        this.apuserimage = this.configurations.baseUrl + '/' + this.personData.apUserImage == null ?   '' : this.personData.apUserImage.path;
         console.log("userimagelink", this.apuserimage)
       }
       this.LoadMonitorPeriods();
