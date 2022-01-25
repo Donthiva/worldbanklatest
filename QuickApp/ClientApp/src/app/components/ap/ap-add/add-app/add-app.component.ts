@@ -391,9 +391,9 @@ export class AddAppComponent implements OnInit, OnChanges {
       (this.personModel.district == undefined || this.personModel.district == null) ||
       (this.personModel.City == undefined || this.personModel.City == null) ||
       (this.personModel.Person_Contact_Number == undefined || this.personModel.Person_Contact_Number == null) ||
-      (this.personModel.BankName == undefined || this.personModel.BankName == null) ||
-      (this.personModel.BankBranch == undefined || this.personModel.BankBranch == null) ||
-      (this.personModel.AccountNumber == undefined || this.personModel.AccountNumber == null || this.personModel.AccountNumber == "") ||
+      // (this.personModel.BankName == undefined || this.personModel.BankName == null) ||
+      // (this.personModel.BankBranch == undefined || this.personModel.BankBranch == null) ||
+      // (this.personModel.AccountNumber == undefined || this.personModel.AccountNumber == null || this.personModel.AccountNumber == "") ||
       (this.personModel.educationalLevelId == undefined || this.personModel.educationalLevelId == null) ||
       (this.personModel.businessOrLivelihoodRelocationId == undefined || this.personModel.businessOrLivelihoodRelocationId == null) ||
       (this.personModel.doa == undefined || this.personModel.doa == null) ||
