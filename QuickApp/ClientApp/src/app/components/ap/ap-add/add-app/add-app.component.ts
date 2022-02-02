@@ -167,6 +167,7 @@ export class AddAppComponent implements OnInit, OnChanges {
     if (this.edit) {
       console.log("persondata", this.personData);
       this.personModel = this.personData;
+    
       this.CurrentType = this.personData.PersonType;
       this.userImageUrl = '';
 
@@ -191,8 +192,8 @@ export class AddAppComponent implements OnInit, OnChanges {
       this.loadGetAllCities(this.personModel.country, this.personModel.state, this.personModel.district);
 
 
-      this.LoadBankData();
-      this.LoadAllBankNameAll(this.personModel.BankName)
+      // this.LoadBankData();
+      // this.LoadAllBankNameAll(this.personModel.BankName)
 
     }
     else if (this.IsView == true) {
@@ -202,6 +203,7 @@ export class AddAppComponent implements OnInit, OnChanges {
 
     else {
       this.personModel = new PersonalData();
+
     }
 
   }
@@ -384,16 +386,12 @@ export class AddAppComponent implements OnInit, OnChanges {
       (this.personModel.Person_DOB == undefined || this.personModel.Person_DOB == null || this.personModel.Person_DOB == "") ||
       (this.personModel.PersonType == undefined || this.personModel.PersonType == null) ||
       (this.personModel.Person_Gender == undefined || this.personModel.Person_Gender == null) ||
-      (this.personModel.addressNo == undefined || this.personModel.addressNo == null || this.personModel.addressNo == "") ||
       (this.personModel.addressStreet == undefined || this.personModel.addressStreet == null) ||
       (this.personModel.country == undefined || this.personModel.country == null) ||
       (this.personModel.state == undefined || this.personModel.state == null) ||
       (this.personModel.district == undefined || this.personModel.district == null) ||
       (this.personModel.City == undefined || this.personModel.City == null) ||
       (this.personModel.Person_Contact_Number == undefined || this.personModel.Person_Contact_Number == null) ||
-      (this.personModel.BankName == undefined || this.personModel.BankName == null) ||
-      (this.personModel.BankBranch == undefined || this.personModel.BankBranch == null) ||
-      (this.personModel.AccountNumber == undefined || this.personModel.AccountNumber == null || this.personModel.AccountNumber == "") ||
       (this.personModel.educationalLevelId == undefined || this.personModel.educationalLevelId == null) ||
       (this.personModel.businessOrLivelihoodRelocationId == undefined || this.personModel.businessOrLivelihoodRelocationId == null) ||
       (this.personModel.doa == undefined || this.personModel.doa == null) ||
@@ -403,8 +401,6 @@ export class AddAppComponent implements OnInit, OnChanges {
       this.validationfailed = true;
 
     }
-
-
     if (this.personModel.PersonType == 1 && !this.validationfailed) {
       if ((this.personModel.employeeRealocatedMonthandYear == undefined || this.personModel.employeeBusinessLivelihoodRealocation == null)) {
         this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
@@ -414,6 +410,10 @@ export class AddAppComponent implements OnInit, OnChanges {
 
         if (this.IsVulnerable) {
           this.personModel.vulnerability.vulnerability_IS_Vulnerable = this.IsVulnerable;
+        }
+
+        if(this.personModel.addressNo == undefined || this.personModel.addressNo == null || this.personModel.addressNo == ""){
+          this.personModel.addressNo = "N/A";
         }
 
 
@@ -477,7 +477,8 @@ export class AddAppComponent implements OnInit, OnChanges {
       ) {
         this.alertService.showMessage('Validation Failed', 'Please fill business person specific information correctly', MessageSeverity.warn);
         this.validationfailed = true;
-      } else {
+      } 
+      else {
 
 
         this.personModel.Salary = 0;
@@ -486,7 +487,7 @@ export class AddAppComponent implements OnInit, OnChanges {
         this.personModel.Employer = "";
         this.personModel.threeWheelDriver = new ThreeWheelDriver();
         this.personModel.phaseOut = new PhaseOut();
-        console.log("post data", this.personModel)
+        console.log("post data", this.personModel);
 
         if (this.IsVulnerable) {
           this.personModel.vulnerability.vulnerability_IS_Vulnerable = this.IsVulnerable;

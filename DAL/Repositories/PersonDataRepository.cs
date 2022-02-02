@@ -57,10 +57,10 @@ namespace DAL.Repositories
                 a.Latitude = data.Latitude;
                 a.Longitude = data.Longitude;
 
-                ba.Bank_Account_Number = data.AccountNumber;
-                ba.Bank_Branch_ID = data.BankBranch;
-                ba.Bank_ID = data.BankName;
-                ba.Bank_Account_Type_ID = 1;
+                //ba.Bank_Account_Number = data.AccountNumber;
+                //ba.Bank_Branch_ID = data.BankBranch;
+                //ba.Bank_ID = data.BankName;
+                //ba.Bank_Account_Type_ID = 1;
 
                 p.Person_NIC = data.Person_NIC;
                 p.Person_Name = data.Person_Name;
@@ -85,8 +85,8 @@ namespace DAL.Repositories
                 ge.User_Gender_ID = data.Person_Gender;
 
                 p.Person_Gender = 1;
-                p.Bank = new List<Bank_Account>();
-                p.Bank.Add(ba);
+                //p.Bank = new List<Bank_Account>();
+                //p.Bank.Add(ba);
                 p.Address = a;
 
             

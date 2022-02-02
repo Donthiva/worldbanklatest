@@ -168,11 +168,11 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
           person.GenderName =  this.dataArray[i].person_Gender != null ? this.dataArray[i].person_Gender == 1 ? 'Male' : 'Female' : null;
 
-          person.BankName = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_ID : '';
+          // person.BankName = this.dataArray[i].bank != undefined && this.dataArray[i].bank[0] != undefined ? this.dataArray[i].bank[0].bank_ID : '';
 
-          person.BankBranch = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_Branch_ID : null;
+          // person.BankBranch = this.dataArray[i].bank != undefined && this.dataArray[i].bank[0] != undefined ? this.dataArray[i].bank[0].bank_Branch_ID : null;
 
-          person.AccountNumber = this.dataArray[i].bank == undefined ? this.dataArray[i].bank[0].bank_Account_Number : '';
+          // person.AccountNumber = this.dataArray[i].bank != undefined && this.dataArray[i].bank[0] != undefined ? this.dataArray[i].bank[0].bank_Account_Number : '';
 
           person.PersonType = this.dataArray[i].person_Type;
 
@@ -404,17 +404,13 @@ export class ApListComponent implements OnInit, AfterViewInit {
         (person.Person_DOB == undefined || person.Person_DOB == null || person.Person_DOB == "") ||
         (person.PersonType == undefined || person.PersonType == null) ||
         (person.Person_Gender == undefined || person.Person_Gender == null) ||
-        (person.addressNo == undefined || person.addressNo == null || person.addressNo == "") ||
         (person.addressStreet == undefined || person.addressStreet == null) ||
         (person.country == undefined || person.country == null) ||
         (person.state == undefined || person.state == null) ||
         (person.district == undefined || person.district == null) ||
         (person.City == undefined || person.City == null) ||
-        (person.Person_Contact_Number == undefined || person.Person_Contact_Number == null) ||
-        (person.BankName == undefined || person.BankName == null) ||
-        (person.BankBranch == undefined || person.BankBranch == null) ||
-        (person.AccountNumber == undefined || person.AccountNumber == null || person.AccountNumber == "") ||
-        (person.AccountNumber == undefined || person.AccountNumber == null || person.AccountNumber == "")
+        (person.Person_Contact_Number == undefined || person.Person_Contact_Number == null) 
+     
       ) {
 
         this.GeneralValidation = false;
@@ -522,11 +518,24 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
         data.previousTypeId = person.previousTypeId;
 
-        data.bank[0].bank_ID = person.BankName;
+        // if(data.bank[0] != undefined || data.bank[0] != null){
+        //   data.bank[0].bank_ID = person.BankName;
+  
+        //   data.bank[0].bank_Branch_ID = person.BankBranch;
+  
+        //   data.bank[0].bank_Account_Number = person.AccountNumber;
+        // }else{
+        //   data.bank= [];
+        //   data.bank.push(
+        //     {
+        //       bank_ID:person.BankName,
+        //       bank_Branch_ID:person.BankBranch,
+        //       bank_Account_Number:person.AccountNumber,
+        //       bank_Account_Type_ID:1
+        //     }
+        //   )
+        // }
 
-        data.bank[0].bank_Branch_ID = person.BankBranch;
-
-        data.bank[0].Bank_Account_Number = person.AccountNumber;
 
         data.person_Type = person.PersonType;
 
