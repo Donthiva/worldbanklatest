@@ -28,7 +28,7 @@ export class ThreeWheeler{
     
 
     public summary:string;
-
+    public  MonitorDate:string;
     public monitorPeriodId:number;
     public monitorId: number;
     public monitor: Monitor = new Monitor();

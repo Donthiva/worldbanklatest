@@ -124,8 +124,9 @@ export class PhaseOutMonitorComponent implements OnInit {
     }
 
     if (this.editMode) {
-      console.log("came to monitor edit")
+      console.log("came to monitor edit",this.monitorEditmode);
       this.phaseOutMonitor = this.monitorEditmode;
+       this.phaseOutMonitor.monitordate = this.datepipe.transform(this.monitorEditmode.monitordate, 'yyyy-MM-dd');
       this.phaseOutMonitorOriginal = JSON.parse(JSON.stringify(this.phaseOutMonitor));
       console.log("monitor data", this.phaseOutMonitor)
     }

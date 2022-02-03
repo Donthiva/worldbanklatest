@@ -124,7 +124,7 @@
 
                                 
                                 <!--/.row-->
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="city">Phase out decision made</label>
                                         <ng-select class="custom" [items]="decisionMade" bindLabel="name" bindValue="id"  [(ngModel)]="phaseOutMonitor.decisionMade"
@@ -140,7 +140,7 @@
                                    
                                     </div>
 
-                                </div>
+                                </div> -->
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -180,14 +180,20 @@
                                             <div>Depend on close family members required</div>
                                         </div>
                                     </div>
-
                                     <div class="form-group col-md-6">
+                                        <label for="city">Phase out decision made</label>
+                                        <ng-select class="custom" [items]="decisionMade" bindLabel="name" bindValue="id"  [(ngModel)]="phaseOutMonitor.decisionMade"
+                                            >
+                                        </ng-select>
+                                        
+                                    </div>    
+                                    <!-- <div class="form-group col-md-6">
                                         <label for="city">Economy Well-being</label>
                                         <ng-select class="custom" [items]="economyWellBeign" bindLabel="name" bindValue="id" [(ngModel)]="phaseOutMonitor.economyWellBeign"
                                             >
                                         </ng-select>
                                    
-                                    </div>
+                                    </div> -->
 
                                 </div>
 

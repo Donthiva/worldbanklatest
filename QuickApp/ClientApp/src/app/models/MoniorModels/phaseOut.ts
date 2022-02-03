@@ -26,7 +26,7 @@ export class phaseOutMonitor{
 
     public economyWellBeign:string;
 
-    public monitordate:Date
+    public monitordate:string
 
     public contactable:boolean;
 

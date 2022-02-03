@@ -22,9 +22,9 @@
                     <div class="form-group col-md-6">
                         <label for="city">Monitor Date</label>
                         <input type="date" class="form-control" id="city" placeholder="Monitor Startdate"
-                            [(ngModel)]="threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date">
+                            [(ngModel)]="threeWheelMonitor.MonitorDate">
                         <div style="margin-top: 5%;"
-                            *ngIf="(threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null)&& validationfailed"
+                            *ngIf="(threeWheelMonitor.MonitorDate == null)&& validationfailed"
                             class="alert alert-danger">
                             <div>Start Date required</div>
                         </div>

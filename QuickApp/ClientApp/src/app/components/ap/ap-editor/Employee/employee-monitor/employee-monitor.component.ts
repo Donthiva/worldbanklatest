@@ -180,8 +180,8 @@ export class EmployeeMonitorComponent implements OnInit {
       this.employeeMonitor = this.monitorEditmode;
 
       console.log("edit came json", JSON.stringify(this.monitorEditmode));
-      this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_Start_date, 'yyyy-MM-dd');
-      this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_End_date, 'yyyy-MM-dd');
+      // this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_Start_date, 'yyyy-MM-dd');
+      // this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_End_date, 'yyyy-MM-dd');
 
       this.employeeMonitorOrginal = JSON.parse(JSON.stringify(this.employeeMonitor));
       console.log("monitor data", this.employeeMonitor);

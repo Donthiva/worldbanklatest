@@ -38,10 +38,10 @@
                     <div class="form-group col-md-6">
                         <label for="city">Monitoring Date</label>
                         <input type="date" class="form-control" id="city" placeholder="Monitor Startdate"
-                            [(ngModel)]="employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date"
+                            [(ngModel)]="employeeMonitor.MonitorDate"
                             (change)="selectedStartDate($event)">
                         <div style="margin-top: 5%;"
-                            *ngIf="employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null && validationfailed"
+                            *ngIf="employeeMonitor.MonitorDate == null && validationfailed"
                             class="alert alert-danger">
                             <div>Monitoring is required</div>
                         </div>

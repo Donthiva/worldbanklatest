@@ -115,7 +115,7 @@ export class ThreeWheelMonitorComponent implements OnInit {
 
       console.log("came to monitor edit")
       this.threeWheelMonitor = this.monitorEditmode;
-      this.threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_Start_date, 'yyyy-MM-dd');
+      // this.threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date = this.datepipe.transform(this.monitorEditmode.monitor.monitorDuration.monitor_Duration_Start_date, 'yyyy-MM-dd');
       this.threeWheelMonitorOriginal = JSON.parse(JSON.stringify(this.monitorEditmode));
       console.log("monitor data", this.threeWheelMonitor)
     }

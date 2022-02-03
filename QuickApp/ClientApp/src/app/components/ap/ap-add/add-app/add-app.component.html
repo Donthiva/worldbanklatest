@@ -184,6 +184,11 @@
                                             <img [src]="apuserimage" height="200" width="300"> <br />
                                         </div>
 
+                                        <div class="col-md-6 form-group" 
+                                        *ngIf="userImageUrl == '' && apuserimage == '' && CurrentType != 1">
+                                        <img [src]="userimageURL" height="200" width="200"> <br />
+                                    </div>
+
                                         <div class="form-group col-md-6">
                                             <label>add User Image</label>
                                             <input type="file" class="form-control" id="file"
@@ -618,7 +623,7 @@
             </div>
         </div>
         <!--/.col-->
-    </div>
+    <!-- </div> -->
 
     <div class="row" *ngIf="CurrentType==2 || CurrentType==5">
         <div class="col-sm-12">

@@ -146,8 +146,10 @@ export class AddAppComponent implements OnInit, OnChanges {
 
   CurrentType: number = 1;
   PreviousType: number = 0;
+  userimageURL:string = '';
   ngOnInit(): void {
 
+    this.userimageURL = this.configurations.baseUrl + '/assets/userimages/user.png';
     this.BankTypeId = undefined;
 
     this.loadAddressRelatedData();
@@ -373,7 +375,7 @@ export class AddAppComponent implements OnInit, OnChanges {
     }
     console.log("userimage", this.userImageToUpload);
 
-    if (this.userImageToUpload == null || this.userImageToUpload == undefined) {
+    if ((this.userImageToUpload == null || this.userImageToUpload == undefined) &&  this.personModel.PersonType == 1 ) {
       this.alertService.showMessage('Error', 'Please Add User Image', MessageSeverity.warn);
       this.validationfailed = true;
     }
