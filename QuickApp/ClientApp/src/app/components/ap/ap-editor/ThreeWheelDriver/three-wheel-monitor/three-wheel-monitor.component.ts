@@ -207,7 +207,7 @@ export class ThreeWheelMonitorComponent implements OnInit {
   adddatareponse2: any;
   addThreeWheelMonitor() {
     this.validationfailed = false;
-    if ((this.threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.threeWheelMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
+    if (
       (this.threeWheelMonitor.currentPark == undefined || this.threeWheelMonitor.currentPark == null || this.threeWheelMonitor.currentPark == "") ||
       (this.threeWheelMonitor.status == undefined || this.threeWheelMonitor.status == null || this.threeWheelMonitor.status == "") ||
       (this.threeWheelMonitor.monthlyIncome == undefined || this.threeWheelMonitor.monthlyIncome == null) ||

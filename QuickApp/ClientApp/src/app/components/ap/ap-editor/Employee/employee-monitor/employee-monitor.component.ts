@@ -187,14 +187,14 @@ export class EmployeeMonitorComponent implements OnInit {
       console.log("monitor data", this.employeeMonitor);
 
 
-      if (this.employeeMonitor.address != null) {
-        console.log('address not null');
-        this.loadGetAllStates(this.employeeMonitor.address.countryId);
-        this.loadGetAllDistricts(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId);
-        this.loadGetAllCities(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId, this.employeeMonitor.address.districtId);
-      } else {
-        this.employeeMonitor.address = new address();
-      }
+      // if (this.employeeMonitor.address != null) {
+      //   console.log('address not null');
+      //   this.loadGetAllStates(this.employeeMonitor.address.countryId);
+      //   this.loadGetAllDistricts(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId);
+      //   this.loadGetAllCities(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId, this.employeeMonitor.address.districtId);
+      // } else {
+      //   this.employeeMonitor.address = new address();
+      // }
     }
 
   }
@@ -208,14 +208,14 @@ export class EmployeeMonitorComponent implements OnInit {
     console.log("before update employee", this.employeeMonitor)
 
     if ((this.employeeMonitor.jobengagementID == undefined || this.employeeMonitor.jobengagementID == null) ||
-      (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
-      (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == null) ||
+      // (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
+      // (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_End_date == null) ||
       (this.employeeMonitor.employment_Status == undefined || this.employeeMonitor.employment_Status == null) ||
-      (this.employeeMonitor.isSameEmployer == undefined || this.employeeMonitor.isSameEmployer == null) ||
-      (this.employeeMonitor.isSimilarCapacity == undefined || this.employeeMonitor.isSimilarCapacity == null) ||
-      (this.employeeMonitor.current_Employer == undefined || this.employeeMonitor.current_Employer == null || this.employeeMonitor.current_Employer == "") ||
-      (this.employeeMonitor.employment_Salary == undefined || this.employeeMonitor.employment_Salary == null) ||
-      (this.employeeMonitor.salaryStatus == undefined || this.employeeMonitor.salaryStatus == null) ||
+      // (this.employeeMonitor.isSameEmployer == undefined || this.employeeMonitor.isSameEmployer == null) ||
+      // (this.employeeMonitor.isSimilarCapacity == undefined || this.employeeMonitor.isSimilarCapacity == null) ||
+      // (this.employeeMonitor.current_Employer == undefined || this.employeeMonitor.current_Employer == null || this.employeeMonitor.current_Employer == "") ||
+      // (this.employeeMonitor.employment_Salary == undefined || this.employeeMonitor.employment_Salary == null) ||
+      // (this.employeeMonitor.salaryStatus == undefined || this.employeeMonitor.salaryStatus == null) ||
       (this.employeeMonitor.employment_How_he_found_the_job == undefined || this.employeeMonitor.employment_How_he_found_the_job == null || this.employeeMonitor.employment_How_he_found_the_job == "") ||
       (this.employeeMonitor.employment_Remarks == undefined || this.employeeMonitor.employment_Remarks == null || this.employeeMonitor.employment_Remarks == "")
     ) {
@@ -343,7 +343,7 @@ export class EmployeeMonitorComponent implements OnInit {
   }
 
   selectedStartDate(data) {
-    console.log("Get data for start", this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date);
+    // console.log("Get data for start", this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date);
 
     //this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date = data.monitor.monitorDuration.monitor_Duration_Start_date;
   }
@@ -371,16 +371,16 @@ export class EmployeeMonitorComponent implements OnInit {
   adddatareponse: any;
   addmonitor() {
     if ((this.employeeMonitor.jobengagementID == undefined || this.employeeMonitor.jobengagementID == null) ||
-      (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
+      // (this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == undefined || this.employeeMonitor.monitor.monitorDuration.monitor_Duration_Start_date == null) ||
       
       (this.employeeMonitor.employment_Status == undefined || this.employeeMonitor.employment_Status == null) ||
 
-     
-      (this.employeeMonitor.isSimilarCapacity == undefined || this.employeeMonitor.isSimilarCapacity == null) ||
+    
   
       (this.employeeMonitor.employment_How_he_found_the_job == undefined || this.employeeMonitor.employment_How_he_found_the_job == null || this.employeeMonitor.employment_How_he_found_the_job == "") ||
       (this.employeeMonitor.employment_Remarks == undefined || this.employeeMonitor.employment_Remarks == null || this.employeeMonitor.employment_Remarks == "")
     ) {
+      console.log("DATA",this.employeeMonitor);
       this.alertService.showMessage('Altert', 'Please fill employe related data correctly', MessageSeverity.info);
       this.validationfailed = true;
     } else {
@@ -444,9 +444,9 @@ export class EmployeeMonitorComponent implements OnInit {
   selectedCountry(data) {
 
     if (data != undefined) {
-      this.employeeMonitor.address.countryId = data.country_ID;
+      // this.employeeMonitor.address.countryId = data.country_ID;
 
-      this.loadGetAllStates(data.country_ID);
+      // this.loadGetAllStates(data.country_ID);
 
     }
 
@@ -457,9 +457,9 @@ export class EmployeeMonitorComponent implements OnInit {
     console.log("data state", data);
 
     if (data != undefined) {
-      this.employeeMonitor.address.statesId = data.states_ID;
+      // this.employeeMonitor.address.statesId = data.states_ID;
 
-      this.loadGetAllDistricts(this.employeeMonitor.address.countryId, data.states_ID);
+      // this.loadGetAllDistricts(this.employeeMonitor.address.countryId, data.states_ID);
 
     }
 
@@ -469,9 +469,9 @@ export class EmployeeMonitorComponent implements OnInit {
   selectedDistrict(data) {
 
     if (data != undefined) {
-      this.employeeMonitor.address.districtId = data.district_ID;
+      // this.employeeMonitor.address.districtId = data.district_ID;
 
-      this.loadGetAllCities(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId, this.personModel.district);
+      // this.loadGetAllCities(this.employeeMonitor.address.countryId, this.employeeMonitor.address.statesId, this.personModel.district);
     }
 
 
@@ -481,7 +481,7 @@ export class EmployeeMonitorComponent implements OnInit {
   selectedCity(data) {
 
     if (data != undefined) {
-      this.employeeMonitor.address.cityId = data.city_ID
+      // this.employeeMonitor.address.cityId = data.city_ID
     }
 
 

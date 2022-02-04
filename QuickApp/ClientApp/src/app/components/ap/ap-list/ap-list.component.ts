@@ -174,6 +174,14 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
           // person.AccountNumber = this.dataArray[i].bank != undefined && this.dataArray[i].bank[0] != undefined ? this.dataArray[i].bank[0].bank_Account_Number : '';
 
+
+          person.monthlyIncome = this.dataArray[i].monthlyIncome;
+          person.employer =  this.dataArray[i].employer;
+          person.specialObservationsatGSBS =  this.dataArray[i].specialObservationsatGSBS;
+          person.previousTypeId = this.dataArray[i].previousTypeId;
+
+
+
           person.PersonType = this.dataArray[i].person_Type;
 
           person.martialStatusId = this.dataArray[i].martialStatusId;
@@ -192,7 +200,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           person.Person_File_number = this.dataArray[i].person_File_number;
           person.Person_Contact_Number = this.dataArray[i].person_Contact_Number;
 
-     
+          person.employeeGeneral = this.dataArray[i].employeeGeneral != null ? this.dataArray[i].employeeGeneral : null;
 
           //employee general
           person.JobRole = this.dataArray[i].employeeGeneral != null ? this.dataArray[i].employeeGeneral.jobRole : null;
@@ -253,6 +261,12 @@ export class ApListComponent implements OnInit, AfterViewInit {
           person.threeWheelDriver.MonthlyIncomeGSBS = this.dataArray[i].threeWheelGeneral != null ? this.dataArray[i].threeWheelGeneral.monthlyIncomeAtGSBS : null;
 
           person.threeWheelDriver.ThreeWheelDriverId = this.dataArray[i].threeWheelGeneral != null ? this.dataArray[i].threeWheelGeneral.Id : null;
+
+          person.threeWheelDriver.realocatedMonthandYear = this.dataArray[i].threeWheelGeneral != null ? this.dataArray[i].threeWheelGeneral.realocatedMonthandYear : null;
+
+          person.threeWheelDriver.specialNotes = this.dataArray[i].threeWheelGeneral != null ? this.dataArray[i].threeWheelGeneral.specialNotes : null;
+
+          person.threeWheelDriver.specialObservationsatGSBS = this.dataArray[i].threeWheelGeneral != null ? this.dataArray[i].threeWheelGeneral.specialObservationsatGSBS : null;
 
           //phase out 
           person.phaseOut.DecisionMade = this.dataArray[i].phaseOutGeneral != null ? this.dataArray[i].phaseOutGeneral.phaseOutDecisionMade : null;
@@ -343,7 +357,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
   PhaseOutValidation: boolean = true;
   validationfalied: boolean = false;
   VulnerabilityValidation: boolean = false;
-  updatePersonData(person) {
+  updatePersonData(person:PersonalData) {
 
     var castnew = JSON.parse(JSON.stringify(person));
     castnew.employeeMonitorList = null;
@@ -442,7 +456,6 @@ export class ApListComponent implements OnInit, AfterViewInit {
           (person.businessGeneral.IsPartnerShip == null || person.businessGeneral.IsPartnerShip == undefined) ||
           (person.businessGeneral.IsPawningJewellary == null || person.businessGeneral.IsPawningJewellary == undefined) ||
           (person.businessGeneral.IsformalLoans == null || person.businessGeneral.IsformalLoans == undefined) ||
-          (person.businessGeneral.PreviousBusinessAtGoodShed == null || person.businessGeneral.PreviousBusinessAtGoodShed == undefined || person.businessGeneral.PreviousBusinessAtGoodShed == "") ||
           (person.businessGeneral.ReallocatedMonthandyear == null || person.businessGeneral.ReallocatedMonthandyear == undefined || person.businessGeneral.ReallocatedMonthandyear == "")
         ) {
           this.BusinessValidation = false;
@@ -474,10 +487,10 @@ export class ApListComponent implements OnInit, AfterViewInit {
       }
 
 
-      if (person.PhaseOutId > 0 && person.PersonType == 4) {
+      if (person.phaseOut.PhaseOutId > 0 && person.PersonType == 4) {
         if (
           (person.phaseOut.DecisionMade == null || person.phaseOut.DecisionMade == undefined || person.phaseOut.DecisionMade == "") ||
-          (person.phaseOut.FileNumber == null || person.phaseOut.FileNumber == undefined || person.phaseOut.FileNumber == "") ||
+          (person.phaseOut.fileNumber == null || person.phaseOut.fileNumber == undefined || person.phaseOut.fileNumber == "") ||
           (person.phaseOut.IsIncomeGeneratingSources == null || person.phaseOut.IsIncomeGeneratingSources == undefined) ||
           (person.phaseOut.IsInterestOfFixedDeposit == null || person.phaseOut.IsInterestOfFixedDeposit == undefined) ||
           (person.phaseOut.IsLivesWithcloseFamily == null || person.phaseOut.IsLivesWithcloseFamily == undefined) ||
@@ -514,8 +527,13 @@ export class ApListComponent implements OnInit, AfterViewInit {
         data.address.districtId = person.district;
         data.address.cityId = person.City;
         data.person_Gender = person.Person_Gender;
-        data.person_Gender = person.Person_Gender
+        data.person_Gender = person.Person_Gender;
 
+        data.dOA = person.doa;
+       
+        data.monthlyIncome = person.monthlyIncome;
+        data.employer =  person.employer;
+        data.specialObservationsatGSBS = person.specialObservationsatGSBS;
         data.previousTypeId = person.previousTypeId;
 
         // if(data.bank[0] != undefined || data.bank[0] != null){
@@ -575,6 +593,9 @@ export class ApListComponent implements OnInit, AfterViewInit {
           data.employeeGeneral = {}
           data.employeeGeneral.jobRole = person.JobRole;
           data.employeeGeneral.salary = person.Salary;
+          data.employeeGeneral.employeeBusinessLivelihoodRealocation =  person.employeeGeneral.employeeBusinessLivelihoodRealocation;
+          data.employeeGeneral.employeeRealocatedMonthandYear =  person.employeeGeneral.employeeRealocatedMonthandYear;
+          data.employeeGeneral.employeeSpecialNotes =  person.employeeGeneral.employeeSpecialNotes;
 
 
         } else if (data.employeeGeneral != null) {
@@ -598,7 +619,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           data.businessGeneral.gsbsPreviousIncome = person.businessGeneral.GSBSPreviousIncome;
 
 
-          data.businessGeneral.isBankLoans = person.businessGeneral.IsBankLoan;
+          data.businessGeneral.isBankLoans = person.businessGeneral.IsBankLoans;
 
 
           data.businessGeneral.isBusinessChanged = person.businessGeneral.IsBusinessChanged;
@@ -612,6 +633,8 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
           data.businessGeneral.isPartnerShip = person.businessGeneral.IsPartnerShip;
 
+          data.businessGeneral.isBusinessChanged = false;
+
 
           data.businessGeneral.isPawingJewelery = person.businessGeneral.IsPawningJewellary;
 
@@ -619,7 +642,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           data.businessGeneral.isInformalLoans = person.businessGeneral.IsformalLoans;
 
 
-          data.businessGeneral.previousBusinessAtGoodShed = person.businessGeneral.PreviousBusinessAtGoodShed;
+          data.businessGeneral.previousBusinessAtGoodShed = person.businessGeneral.PreviousBusinessAtGoodShed == null ? "" : person.businessGeneral.PreviousBusinessAtGoodShed;
 
 
           data.businessGeneral.relocatedMonthandyear = person.businessGeneral.ReallocatedMonthandyear;
@@ -633,10 +656,10 @@ export class ApListComponent implements OnInit, AfterViewInit {
           data.businessGeneral.gsbsPreviousIncome = person.businessGeneral.GSBSPreviousIncome;
 
 
-          data.businessGeneral.isBankLoans = person.businessGeneral.IsBankLoan;
+          data.businessGeneral.isBankLoans = person.businessGeneral.IsBankLoans;
 
 
-          data.businessGeneral.isBusinessChanged = person.businessGeneral.IsBusinessChanged;
+          data.businessGeneral.isBusinessChanged = false;
 
 
           data.businessGeneral.isEntilementFund = person.businessGeneral.IsEntilementFund;
@@ -668,18 +691,32 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
           console.log("data after b", data)
           // threewheel driver 
-          data.threeWheelGeneral.engagementAtGSBS = person.threeWheelDriver.EngagementAtGSBS;
+          data.threeWheelGeneral.engagementAtGSBS = "";
 
-          data.threeWheelGeneral.initialParkAtGSBS = person.threeWheelDriver.initialParkAtGSBS;
+          data.threeWheelGeneral.initialParkAtGSBS = "";
 
-          data.threeWheelGeneral.monthlyIncomeAtGSBS = person.threeWheelDriver.MonthlyIncomeGSBS;
+          data.threeWheelGeneral.monthlyIncomeAtGSBS = 0;
+
+          data.threeWheelGeneral.realocatedMonthandYear = person.threeWheelDriver.realocatedMonthandYear;
+
+          data.threeWheelGeneral.businessLivelihoodRealocation = person.threeWheelDriver.businessLivelihoodRealocation;
+
+          data.threeWheelGeneral.businessLivelihoodRealocation = person.threeWheelDriver.specialNotes;
+
+
+
         } else if (data.threeWheelGeneral != null) {
           // threewheel driver 
-          data.threeWheelGeneral.engagementAtGSBS = person.threeWheelDriver.EngagementAtGSBS;
+          data.threeWheelGeneral.engagementAtGSBS = "";
+          data.threeWheelGeneral.initialParkAtGSBS = "";
 
-          data.threeWheelGeneral.initialParkAtGSBS = person.threeWheelDriver.initialParkAtGSBS;
+          data.threeWheelGeneral.monthlyIncomeAtGSBS = 0;
 
-          data.threeWheelGeneral.monthlyIncomeAtGSBS = person.threeWheelDriver.MonthlyIncomeGSBS;
+          data.threeWheelGeneral.realocatedMonthandYear = person.threeWheelDriver.realocatedMonthandYear;
+
+          data.threeWheelGeneral.businessLivelihoodRealocation = person.threeWheelDriver.businessLivelihoodRealocation;
+
+          data.threeWheelGeneral.businessLivelihoodRealocation = person.threeWheelDriver.specialNotes;
         }
 
 
@@ -742,7 +779,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
         this.validationfalied = false;
 
-        console.log("data send to server", JSON.stringify(data))
+        console.log("data send to server", JSON.stringify(data));
         this.spinner.show();
 
         this.persondata.UpdatePersonData(data).subscribe(

@@ -564,7 +564,7 @@
             </div>
         </div>
         
-    </div>
+    </div> -->
 
 
     <div class="row" *ngIf="CurrentType==1">
@@ -581,9 +581,9 @@
 
                         <div class="form-group col-md-6">
                             <label>Reallocated Month and year</label>
-                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.employeeRealocatedMonthandYear">
+                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.employeeGeneral.employeeRealocatedMonthandYear">
                             <div style="margin-top: 5%;"
-                                *ngIf="(personModel.employeeRealocatedMonthandYear == null) && validationfailed"
+                                *ngIf="(personModel.employeeGeneral.employeeRealocatedMonthandYear == null) && validationfailed"
                                 class="alert alert-danger">
                                 <div>Reallocated Month and year is required</div>
                             </div>
@@ -593,9 +593,9 @@
                         <div class="form-group col-md-6">
                             <label>Business/ Livelihood Relocation</label>
                             <ng-select class="custom" [items]="reloacatedList" bindLabel="name" bindValue="id"
-                                [(ngModel)]="personModel.employeeBusinessLivelihoodRealocation">
+                                [(ngModel)]="personModel.employeeGeneral.employeeBusinessLivelihoodRealocation">
                             </ng-select>
-                            <div *ngIf="(personModel.employeeBusinessLivelihoodRealocation == null) && validationfailed"
+                            <div *ngIf="(personModel.employeeGeneral.employeeBusinessLivelihoodRealocation == null) && validationfailed"
                                 class="alert alert-danger">
                                 <div>Business/ Livelihood Relocation required</div>
                             </div>
@@ -609,7 +609,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="city">Special Observation(Note)</label>
-                            <textarea type="text" class="form-control" id="city" placeholder="Note"  [(ngModel)]="personModel.employeeSpecialNotes"> </textarea>
+                            <textarea type="text" class="form-control" id="city" placeholder="Note"  [(ngModel)]="personModel.employeeGeneral.employeeSpecialNotes"> </textarea>
 
                         </div>
 
@@ -622,8 +622,8 @@
 
             </div>
         </div>
-        <!--/.col-->
-    <!-- </div> -->
+       
+     </div> 
 
     <div class="row" *ngIf="CurrentType==2 || CurrentType==5">
         <div class="col-sm-12">

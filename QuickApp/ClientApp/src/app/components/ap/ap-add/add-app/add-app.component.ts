@@ -79,6 +79,9 @@ export class AddAppComponent implements OnInit, OnChanges {
 
   reloacatedList = [
     {
+      id: 'N/A',name: 'N/A',
+    },
+    {
       id: 'Within the Kandy City Limit',name: 'Within the Kandy City Limit',
     },
     {
@@ -171,6 +174,7 @@ export class AddAppComponent implements OnInit, OnChanges {
       this.personModel = this.personData;
     
       this.CurrentType = this.personData.PersonType;
+      this.PreviousType = this.personData.previousTypeId;
       this.userImageUrl = '';
 
       if (this.personData.vulnerability.vulnerability_ID != null) {

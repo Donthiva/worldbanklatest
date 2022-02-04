@@ -83,7 +83,7 @@ export class EmployeeMonitor {
 
     public monitor: Monitor = new Monitor();
 
-    public address : address = new address();
+    // public address : address = new address();
 
     public employeeMonitorImages : Array<EmployeeMonitorImages> = new Array<EmployeeMonitorImages>();
 

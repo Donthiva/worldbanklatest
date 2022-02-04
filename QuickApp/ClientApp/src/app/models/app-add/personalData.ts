@@ -81,7 +81,7 @@ export class PersonalData {
 
 
 
-
+    public employeeGeneral:EmployeeGeneral= new EmployeeGeneral();
     public businessGeneral:BusinessGeneral= new BusinessGeneral();
     public threeWheelDriver:ThreeWheelDriver = new ThreeWheelDriver();
     public phaseOut:PhaseOut = new PhaseOut();
@@ -152,6 +152,25 @@ export class BusinessGeneral{
 
 
 
+}
+
+export class EmployeeGeneral{
+    public  id:number;
+
+    public  jobRole:string;
+
+    public  personNIC:string;
+    public  employer:string;
+
+    public  salary:number;
+
+    public  employeeRealocatedMonthandYear:string
+
+    public  employeeBusinessLivelihoodRealocation:string
+
+    public  employeeSpecialNotes:string
+
+    public  personId:number
 }
 
 export class ThreeWheelDriver{
