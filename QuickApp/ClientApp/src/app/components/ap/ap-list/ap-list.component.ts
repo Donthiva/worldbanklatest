@@ -193,7 +193,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
           person.doa = this.dataArray[i].doa;
           person.previousTypeId = this.dataArray[i].previousTypeId;
 
-          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 1 ? 'Employee' : this.dataArray[i].person_Type == 2 ? 'Business Perosn ' : this.dataArray[i].person_Type == 3 ? 'ThreeWheel Driver' : this.dataArray[i].person_Type == 4 ? 'Phase Out' : this.dataArray[i].person_Type == 5 ? 'Mobile Vendor' : 'N/A' : 'N/A';
+          person.PersonTypeName = this.dataArray[i].person_Type != null ? this.dataArray[i].person_Type == 7 ? 'Employee' : this.dataArray[i].person_Type == 3 ? 'Business Perosn ' : this.dataArray[i].person_Type == 13 ? 'ThreeWheel Driver' : this.dataArray[i].person_Type == 11 ? 'Phase Out' : this.dataArray[i].person_Type == 10 ? 'Mobile Vendor' : 'N/A' : 'N/A';
 
 
           person.Person_DOB = this.dataArray[i].person_DOB;
@@ -433,7 +433,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
       }
 
-      if (person.EmployeeId > 0 && person.PersonType == 1) {
+      if (person.EmployeeId > 0 && person.PersonType == 7) {
         if ((person.Salary == undefined || person.Salary == null) || (person.JobRole == null || person.JobRole == undefined) || (person.Employer == null || person.Employer == undefined)) {
           this.Empvalidation = false;
           this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
@@ -446,7 +446,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
         }
       }
 
-      if (person.businessGeneral.BusineesPersonId > 0 && (person.PersonType == 2 || person.PersonType == 5)) {
+      if (person.businessGeneral.BusineesPersonId > 0 && (person.PersonType == 3 || person.PersonType == 10)) {
         if ((person.businessGeneral.BusinessPlanId == null || person.businessGeneral.BusinessPlanId == undefined) ||
           (person.businessGeneral.BusinessTypeId == null || person.businessGeneral.BusinessTypeId == undefined) ||
           (person.businessGeneral.GSBSPreviousIncome == null || person.businessGeneral.GSBSPreviousIncome == undefined) ||
@@ -469,7 +469,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
         }
       }
 
-      if (person.threeWheelDriver.ThreeWheelDriverId > 0 && person.PersonType == 3) {
+      if (person.threeWheelDriver.ThreeWheelDriverId > 0 && person.PersonType == 13) {
         if (
           (person.threeWheelDriver.EngagementAtGSBS == null || person.threeWheelDriver.EngagementAtGSBS == undefined || person.threeWheelDriver.EngagementAtGSBS == "") ||
           (person.threeWheelDriver.MonthlyIncomeGSBS == null || person.threeWheelDriver.MonthlyIncomeGSBS == undefined) ||
@@ -487,20 +487,17 @@ export class ApListComponent implements OnInit, AfterViewInit {
       }
 
 
-      if (person.phaseOut.PhaseOutId > 0 && person.PersonType == 4) {
+      if (person.phaseOut.PhaseOutId > 0 && person.PersonType == 11) {
         if (
           (person.phaseOut.DecisionMade == null || person.phaseOut.DecisionMade == undefined || person.phaseOut.DecisionMade == "") ||
           (person.phaseOut.fileNumber == null || person.phaseOut.fileNumber == undefined || person.phaseOut.fileNumber == "") ||
-          (person.phaseOut.IsIncomeGeneratingSources == null || person.phaseOut.IsIncomeGeneratingSources == undefined) ||
-          (person.phaseOut.IsInterestOfFixedDeposit == null || person.phaseOut.IsInterestOfFixedDeposit == undefined) ||
-          (person.phaseOut.IsLivesWithcloseFamily == null || person.phaseOut.IsLivesWithcloseFamily == undefined) ||
+       
           (person.phaseOut.MonthAndYear == null || person.phaseOut.MonthAndYear == undefined || person.phaseOut.MonthAndYear == "") ||
           (person.phaseOut.PersonID == null || person.phaseOut.PersonID == undefined) ||
           (person.phaseOut.PlanedBusiness == null || person.phaseOut.PlanedBusiness == undefined || person.phaseOut.PlanedBusiness == "") ||
-          (person.phaseOut.ReasonForPhaseOut == null || person.phaseOut.ReasonForPhaseOut == undefined || person.phaseOut.ReasonForPhaseOut == "") ||
-          (person.phaseOut.Situation == null || person.phaseOut.Situation == undefined || person.phaseOut.Situation == "") ||
-          (person.phaseOut.SocialWellBeing == null || person.phaseOut.SocialWellBeing == undefined || person.phaseOut.SocialWellBeing == "") ||
-          (person.phaseOut.UseOfEntileFund == null || person.phaseOut.UseOfEntileFund == undefined || person.phaseOut.UseOfEntileFund == "")
+          (person.phaseOut.ReasonForPhaseOut == null || person.phaseOut.ReasonForPhaseOut == undefined || person.phaseOut.ReasonForPhaseOut == "") 
+       
+         
 
         ) {
           this.PhaseOutValidation = false;
@@ -589,7 +586,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
 
         //business general
-        if (data.employeeGeneral == null && person.PersonType == 1) {
+        if (data.employeeGeneral == null && person.PersonType == 7) {
           data.employeeGeneral = {}
           data.employeeGeneral.jobRole = person.JobRole;
           data.employeeGeneral.salary = person.Salary;
@@ -604,7 +601,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
         }
 
 
-        if (data.businessGeneral == null && (person.PersonType == 2 || person.PersonType ==  5)) {
+        if (data.businessGeneral == null && (person.PersonType == 3 || person.PersonType ==  10)) {
           data.businessGeneral = {}
 
 
@@ -686,7 +683,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
 
 
-        if (data.threeWheelGeneral == null && person.PersonType == 3) {
+        if (data.threeWheelGeneral == null && person.PersonType == 13) {
           data.threeWheelGeneral = {}
 
           console.log("data after b", data)
@@ -723,7 +720,7 @@ export class ApListComponent implements OnInit, AfterViewInit {
 
 
 
-        if (data.phaseOutGeneral == null && person.PersonType == 4) {
+        if (data.phaseOutGeneral == null && person.PersonType == 11) {
           data.phaseOutGeneral = {}
 
           data.phaseOutGeneral.phaseOutDecisionMade = person.phaseOut.DecisionMade;

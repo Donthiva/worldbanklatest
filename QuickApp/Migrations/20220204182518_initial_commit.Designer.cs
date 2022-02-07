@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace QuickApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220111114714_initialcommit")]
-    partial class initialcommit
+    [Migration("20220204182518_initial_commit")]
+    partial class initial_commit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -885,7 +885,7 @@ namespace QuickApp.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("districtId")
+                    b.Property<int?>("districtId")
                         .HasColumnType("int");
 
                     b.HasKey("States_ID");
@@ -1012,8 +1012,8 @@ namespace QuickApp.Migrations
                     b.Property<int?>("BuinessPlan2Buiness_Plan_ID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Buisness_In_Out")
-                        .HasColumnType("int");
+                    b.Property<string>("Buisness_In_Out")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BusinessAddressId")
                         .HasColumnType("int");
@@ -1039,7 +1039,7 @@ namespace QuickApp.Migrations
                     b.Property<int?>("Business_Person_ID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Business_Second_Buiness_Plan")
+                    b.Property<int?>("Business_Second_Buiness_Plan")
                         .HasColumnType("int");
 
                     b.Property<string>("Business_Second_Business")
@@ -1048,8 +1048,8 @@ namespace QuickApp.Migrations
                     b.Property<int>("Business_Type")
                         .HasColumnType("int");
 
-                    b.Property<int>("Business_address")
-                        .HasColumnType("int");
+                    b.Property<string>("Business_address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Business_changed")
                         .HasColumnType("bit");
@@ -1142,6 +1142,9 @@ namespace QuickApp.Migrations
                     b.Property<string>("OldBusinesses")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PersonNIC")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PreviousBusiness")
                         .HasColumnType("nvarchar(max)");
 
@@ -1164,24 +1167,20 @@ namespace QuickApp.Migrations
                     b.Property<string>("businessSummary")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("monitorId")
+                    b.Property<int?>("monitorId")
                         .HasColumnType("int");
 
                     b.Property<int>("monitorPeriodId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("relocatedMonthAndYear")
+                    b.Property<DateTime?>("relocatedMonthAndYear")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Business_ID");
 
-                    b.HasIndex("BuinessPlan2Buiness_Plan_ID");
-
                     b.HasIndex("BusinessAddressId")
                         .IsUnique()
                         .HasFilter("[BusinessAddressId] IS NOT NULL");
-
-                    b.HasIndex("Business_First_Buiness_Plan");
 
                     b.HasIndex("Business_Management_Mode");
 
@@ -1190,7 +1189,8 @@ namespace QuickApp.Migrations
                     b.HasIndex("Business_Type");
 
                     b.HasIndex("monitorId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[monitorId] IS NOT NULL");
 
                     b.HasIndex("monitorPeriodId");
 
@@ -1331,7 +1331,7 @@ namespace QuickApp.Migrations
                     b.Property<int>("Person_Address")
                         .HasColumnType("int");
 
-                    b.Property<double>("Person_Contact_Number")
+                    b.Property<double?>("Person_Contact_Number")
                         .HasColumnType("float");
 
                     b.Property<string>("Person_DOB")
@@ -2387,7 +2387,7 @@ namespace QuickApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Person_Type_Description")
@@ -3670,20 +3670,10 @@ namespace QuickApp.Migrations
 
             modelBuilder.Entity("DAL.Models.Customer_Related.Business", b =>
                 {
-                    b.HasOne("DAL.Models.Monitoring_Information.Business_Plan", "BuinessPlan2")
-                        .WithMany()
-                        .HasForeignKey("BuinessPlan2Buiness_Plan_ID");
-
                     b.HasOne("DAL.Models.Contact_Information.Address", "address")
                         .WithOne("business")
                         .HasForeignKey("DAL.Models.Customer_Related.Business", "BusinessAddressId")
                         .OnDelete(DeleteBehavior.NoAction);
-
-                    b.HasOne("DAL.Models.Monitoring_Information.Business_Plan", "BuinessPlan1")
-                        .WithMany("Business")
-                        .HasForeignKey("Business_First_Buiness_Plan")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
 
                     b.HasOne("DAL.Models.Monitoring_Information.Business_Management_Mode", "BusinessManagementMode")
                         .WithMany("Business")
@@ -3705,8 +3695,7 @@ namespace QuickApp.Migrations
                     b.HasOne("DAL.Models.Monitoring_Information.Monitor", "monitor")
                         .WithOne("Business")
                         .HasForeignKey("DAL.Models.Customer_Related.Business", "monitorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DAL.Models.Monitoring_Information.MonitorPerioid", "monitorPeriod")
                         .WithMany("Businesses")
@@ -3715,10 +3704,6 @@ namespace QuickApp.Migrations
                         .IsRequired();
 
                     b.Navigation("address");
-
-                    b.Navigation("BuinessPlan1");
-
-                    b.Navigation("BuinessPlan2");
 
                     b.Navigation("BusinessManagementMode");
 
@@ -4481,8 +4466,6 @@ namespace QuickApp.Migrations
 
             modelBuilder.Entity("DAL.Models.Monitoring_Information.Business_Plan", b =>
                 {
-                    b.Navigation("Business");
-
                     b.Navigation("businessGeneral");
                 });
 

@@ -11,7 +11,7 @@ namespace DAL.Models.Contact_Information
         //foreign key from country
         public int States_Country_ID { get; set; }
 
-        public int districtId { get; set; }
+        public int? districtId { get; set; }
 
         public ICollection<Address> address { get; set; }
 

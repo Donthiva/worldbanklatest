@@ -36,7 +36,7 @@
     <ng-template #actionsTemplate let-row="row" let-value="value" let-i="index">
       <a class="btn btn-link btn-sm" href="javascript:;" (click)="editPerson(row)" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'roles.management.Edit' | translate}}</a>
       <a  class="btn btn-link btn-sm" href="javascript:;" (click)="viewPerson(row)"><i class="fa fa-eye" aria-hidden="true"></i> {{'roles.management.Details' | translate}}</a>
-      <ng-template [ngIf]="row.PersonType == 1 || row.PersonType == 2 || row.PersonType == 3 || row.PersonType == 4 || row.PersonType == 5">  <a class="btn btn-link btn-sm" href="javascript:;" (click)="AddMonitor(row)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{'roles.management.AddMonitor' | translate}}</a></ng-template>
+      <ng-template [ngIf]="row.PersonType == 7 || row.PersonType == 3 || row.PersonType == 13 || row.PersonType == 11 || row.PersonType == 10">  <a class="btn btn-link btn-sm" href="javascript:;" (click)="AddMonitor(row)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{'roles.management.AddMonitor' | translate}}</a></ng-template>
     
       <a  class="btn btn-link btn-sm" href="javascript:;" (click)="AddTraining(row)"><i class="fa fa-plus-circle" aria-hidden="true"></i> {{'roles.management.AddTraining' | translate}}</a>
       <a  class="btn btn-link btn-sm" href="javascript:;" (click)="DeletePerson(row)"><i class="fa fa-trash-o" aria-hidden="true"></i> {{'roles.management.Delete' | translate}}</a>

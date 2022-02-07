@@ -35,7 +35,7 @@ namespace DAL.Models.Customer_Related
 
         //drop down
 
-        public double Person_Contact_Number { get; set; }
+        public double? Person_Contact_Number { get; set; }
 
         //drop down
         public string Education { get; set; }

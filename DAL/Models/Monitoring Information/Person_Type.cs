@@ -8,7 +8,7 @@ namespace DAL.Models.Monitoring_Information
 {
     public class Person_Type : AuditableEntity
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Person_Type_ID { get; set; }
 

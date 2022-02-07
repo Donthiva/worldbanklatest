@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickApp.Migrations
 {
-    public partial class initialcommit : Migration
+    public partial class initial_commit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -422,7 +422,7 @@ namespace QuickApp.Migrations
                 columns: table => new
                 {
                     Person_Type_ID = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: true),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Type_Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -715,7 +715,7 @@ namespace QuickApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     States_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     States_Country_ID = table.Column<int>(type: "int", nullable: false),
-                    districtId = table.Column<int>(type: "int", nullable: false),
+                    districtId = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -935,7 +935,7 @@ namespace QuickApp.Migrations
                     MonthlyIncome = table.Column<int>(type: "int", nullable: false),
                     Employer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SpecialObservationsatGSBS = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Person_Contact_Number = table.Column<double>(type: "float", nullable: false),
+                    Person_Contact_Number = table.Column<double>(type: "float", nullable: true),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Person_Address = table.Column<int>(type: "int", nullable: false),
                     Person_Type = table.Column<int>(type: "int", nullable: false),
@@ -1505,24 +1505,26 @@ namespace QuickApp.Migrations
                     Business_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Business_Person_ID = table.Column<int>(type: "int", nullable: true),
+                    PersonNIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessSituation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FileNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Business_address = table.Column<int>(type: "int", nullable: false),
+                    Business_address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Business_GIS = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Business_First_Buiness_Plan = table.Column<int>(type: "int", nullable: false),
-                    Business_Second_Buiness_Plan = table.Column<int>(type: "int", nullable: false),
+                    Business_Second_Buiness_Plan = table.Column<int>(type: "int", nullable: true),
                     Business_Type = table.Column<int>(type: "int", nullable: false),
                     Business_changed = table.Column<bool>(type: "bit", nullable: false),
                     Business_Second_Business = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Business_Management_Mode = table.Column<int>(type: "int", nullable: false),
                     Business_Investment_Sources = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Buisness_In_Out = table.Column<int>(type: "int", nullable: false),
+                    BuinessPlan2Buiness_Plan_ID = table.Column<int>(type: "int", nullable: true),
+                    Buisness_In_Out = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PreviousBusiness = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CurrentBusiness = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GSBSPreviousIncome = table.Column<double>(type: "float", nullable: false),
                     GBBSBusinessDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    relocatedMonthAndYear = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    relocatedMonthAndYear = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsEntitlementFund = table.Column<bool>(type: "bit", nullable: false),
                     IsBankLoan = table.Column<bool>(type: "bit", nullable: false),
                     IsOwnSaving = table.Column<bool>(type: "bit", nullable: false),
@@ -1540,7 +1542,7 @@ namespace QuickApp.Migrations
                     businessSummary = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsneedRequested = table.Column<bool>(type: "bit", nullable: false),
-                    monitorId = table.Column<int>(type: "int", nullable: false),
+                    monitorId = table.Column<int>(type: "int", nullable: true),
                     monitorPeriodId = table.Column<int>(type: "int", nullable: false),
                     BusinessAddressId = table.Column<int>(type: "int", nullable: true),
                     Contactable = table.Column<bool>(type: "bit", nullable: false),
@@ -1553,7 +1555,6 @@ namespace QuickApp.Migrations
                     IsNeedOrRequirment = table.Column<bool>(type: "bit", nullable: false),
                     RequirmentNeed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SpecialObservation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BuinessPlan2Buiness_Plan_ID = table.Column<int>(type: "int", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -1567,17 +1568,6 @@ namespace QuickApp.Migrations
                         column: x => x.BusinessAddressId,
                         principalTable: "Address",
                         principalColumn: "Address_ID");
-                    table.ForeignKey(
-                        name: "FK_Businesses_Buiness_Plan_BuinessPlan2Buiness_Plan_ID",
-                        column: x => x.BuinessPlan2Buiness_Plan_ID,
-                        principalTable: "Buiness_Plan",
-                        principalColumn: "Buiness_Plan_ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Businesses_Buiness_Plan_Business_First_Buiness_Plan",
-                        column: x => x.Business_First_Buiness_Plan,
-                        principalTable: "Buiness_Plan",
-                        principalColumn: "Buiness_Plan_ID");
                     table.ForeignKey(
                         name: "FK_Businesses_Business_Management_Mode_Business_Management_Mode",
                         column: x => x.Business_Management_Mode,
@@ -2357,16 +2347,6 @@ namespace QuickApp.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Businesses_BuinessPlan2Buiness_Plan_ID",
-                table: "Businesses",
-                column: "BuinessPlan2Buiness_Plan_ID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Businesses_Business_First_Buiness_Plan",
-                table: "Businesses",
-                column: "Business_First_Buiness_Plan");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Businesses_Business_Management_Mode",
                 table: "Businesses",
                 column: "Business_Management_Mode");
@@ -2392,7 +2372,8 @@ namespace QuickApp.Migrations
                 name: "IX_Businesses_monitorId",
                 table: "Businesses",
                 column: "monitorId",
-                unique: true);
+                unique: true,
+                filter: "[monitorId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Businesses_monitorPeriodId",
@@ -2885,6 +2866,9 @@ namespace QuickApp.Migrations
                 name: "Bank_Branch");
 
             migrationBuilder.DropTable(
+                name: "Buiness_Plan");
+
+            migrationBuilder.DropTable(
                 name: "Employment");
 
             migrationBuilder.DropTable(
@@ -2925,9 +2909,6 @@ namespace QuickApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "JobEngagement");
-
-            migrationBuilder.DropTable(
-                name: "Buiness_Plan");
 
             migrationBuilder.DropTable(
                 name: "Business_Management_Mode");

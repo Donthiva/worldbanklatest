@@ -10,7 +10,7 @@ namespace DAL.Models.Monitoring_Information
     {
         public int Buiness_Plan_ID { get; set; }
         public string Buiness_Plan_Description { get; set; }
-        public ICollection<Business> Business { get; set; }
+    
 
         public ICollection<BusinessGeneral> businessGeneral { get; set; }
     }

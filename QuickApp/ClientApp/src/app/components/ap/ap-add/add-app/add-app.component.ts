@@ -379,7 +379,7 @@ export class AddAppComponent implements OnInit, OnChanges {
     }
     console.log("userimage", this.userImageToUpload);
 
-    if ((this.userImageToUpload == null || this.userImageToUpload == undefined) &&  this.personModel.PersonType == 1 ) {
+    if ((this.userImageToUpload == null || this.userImageToUpload == undefined) &&  this.personModel.PersonType == 7 ) {
       this.alertService.showMessage('Error', 'Please Add User Image', MessageSeverity.warn);
       this.validationfailed = true;
     }
@@ -407,7 +407,7 @@ export class AddAppComponent implements OnInit, OnChanges {
       this.validationfailed = true;
 
     }
-    if (this.personModel.PersonType == 1 && !this.validationfailed) {
+    if (this.personModel.PersonType == 7 && !this.validationfailed) {
       if ((this.personModel.employeeRealocatedMonthandYear == undefined || this.personModel.employeeBusinessLivelihoodRealocation == null)) {
         this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
         this.validationfailed = true;
@@ -467,7 +467,7 @@ export class AddAppComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if ((this.personModel.PersonType == 2 || this.personModel.PersonType == 5) && !this.validationfailed) {
+    } else if ((this.personModel.PersonType == 3 || this.personModel.PersonType == 10) && !this.validationfailed) {
       if ((this.personModel.businessGeneral.BusinessPlanId == null || this.personModel.businessGeneral.BusinessPlanId == undefined) ||
         (this.personModel.businessGeneral.BusinessTypeId == null || this.personModel.businessGeneral.BusinessTypeId == undefined) ||
         (this.personModel.businessGeneral.GSBSPreviousIncome == null || this.personModel.businessGeneral.GSBSPreviousIncome == undefined) ||
@@ -488,7 +488,7 @@ export class AddAppComponent implements OnInit, OnChanges {
 
 
         this.personModel.Salary = 0;
-        this.personModel.businessGeneral.businessAPType = this.personModel.PersonType == 2 ? 1 : 2 ;
+        this.personModel.businessGeneral.businessAPType = this.personModel.PersonType == 3 ? 1 : 2 ;
         this.personModel.JobRole = "";
         this.personModel.Employer = "";
         this.personModel.threeWheelDriver = new ThreeWheelDriver();
@@ -537,7 +537,7 @@ export class AddAppComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if (this.personModel.PersonType == 3 && !this.validationfailed) {
+    } else if (this.personModel.PersonType == 13 && !this.validationfailed) {
       if (
         (this.personModel.threeWheelDriver.realocatedMonthandYear == null || this.personModel.threeWheelDriver.realocatedMonthandYear == undefined ) ||
         (this.personModel.threeWheelDriver.businessLivelihoodRealocation == null || this.personModel.threeWheelDriver.businessLivelihoodRealocation == undefined ) 
@@ -597,7 +597,7 @@ export class AddAppComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if (this.personModel.PersonType == 4 && !this.validationfailed) {
+    } else if (this.personModel.PersonType == 11 && !this.validationfailed) {
       if (
         (this.personModel.phaseOut.DecisionMade == null || this.personModel.phaseOut.DecisionMade == undefined || this.personModel.phaseOut.DecisionMade == "") ||
         (this.personModel.phaseOut.fileNumber == null || this.personModel.phaseOut.fileNumber == undefined || this.personModel.phaseOut.fileNumber == "") ||

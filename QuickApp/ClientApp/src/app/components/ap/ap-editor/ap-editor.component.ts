@@ -171,13 +171,13 @@ export class ApEditorComponent implements OnInit, OnChanges {
       if(this.IsTraining){
         this.loadTrainingData();
       }
-      else if (this.CurrentType == 1) {
+      else if (this.CurrentType == 7) {
         this.loadMonitoringData();
-      } else if (this.CurrentType == 2 || this.CurrentType == 5) {
+      } else if (this.CurrentType == 3 || this.CurrentType == 10) {
         this.loadBusinessMonitoringData();
-      } else if (this.CurrentType == 3) {
+      } else if (this.CurrentType == 13) {
         this.loadThreeWheelMonitoringData();
-      } else if (this.CurrentType == 4) {
+      } else if (this.CurrentType == 11) {
         this.loadPhaseOutMonitoringData()
       }
 
@@ -425,7 +425,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
   loadMonitoringData() {
     this.IsDataReady = false;
 
-    if (this.CurrentType == 1) {
+    if (this.CurrentType == 7) {
       this.monitorservice.GetAllEmployeeData().subscribe(
         reponse => {
           this.responseOutput = reponse;
@@ -447,7 +447,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
   loadBusinessMonitoringData() {
     this.IsBusinessDataReady = false;
 
-    if (this.CurrentType == 2 || this.CurrentType == 5) {
+    if (this.CurrentType == 3 || this.CurrentType == 10) {
       this.monitorservice.GetAlldBusinessMonitor().subscribe(
         reponse => {
           this.responseOutputBusiness = reponse;
@@ -470,7 +470,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
   loadThreeWheelMonitoringData() {
     this.IsThreeWheelDataReady = false;
 
-    if (this.CurrentType == 3) {
+    if (this.CurrentType == 13) {
       this.monitorservice.GetAllThreeWheelMonitor().subscribe(
         reponse => {
           this.responseOutputThreeWheel = reponse;
@@ -492,7 +492,7 @@ export class ApEditorComponent implements OnInit, OnChanges {
   responseOutputPhaseOut: any = [];
   loadPhaseOutMonitoringData() {
     this.IsPhaseOutDataReady = false;
-    if (this.CurrentType == 4) {
+    if (this.CurrentType == 11) {
       this.monitorservice.GetPhaseOutMonitor().subscribe(
         reponse => {
           this.responseOutputPhaseOut = reponse;

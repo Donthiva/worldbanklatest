@@ -122,7 +122,7 @@ export class BusinessMonitorComponent implements OnInit {
     if (this.editMode) {
       console.log("came to monitor edit")
       this.businessMonitorModel = this.monitorEditmode;
-      this.businessMonitorModel.monitor.monitor_Date = this.datepipe.transform(this.monitorEditmode.monitor.monitor_Date, 'yyyy-MM-dd');
+      // this.businessMonitorModel.monitor.monitor_Date = this.datepipe.transform(this.monitorEditmode.monitor.monitor_Date, 'yyyy-MM-dd');
       this.businessMonitorModelOriginal = JSON.parse(JSON.stringify(this.businessMonitorModel));
       console.log("monitor data", this.businessMonitorModel);
 
@@ -405,9 +405,9 @@ export class BusinessMonitorComponent implements OnInit {
       this.validationfailed = false;
 
       if ((this.businessMonitorModel.fileNumber == undefined || this.businessMonitorModel.fileNumber == null || this.businessMonitorModel.fileNumber == "") ||
-        (this.businessMonitorModel.monitor.monitor_Date == undefined || this.businessMonitorModel.monitor.monitor_Date == null) ||
+       
         (this.businessMonitorModel.business_changed == undefined || this.businessMonitorModel.business_changed == null) ||
-        (this.businessMonitorModel.oldBusinesses == undefined || this.businessMonitorModel.oldBusinesses == null || this.businessMonitorModel.oldBusinesses == "") ||
+        // (this.businessMonitorModel.oldBusinesses == undefined || this.businessMonitorModel.oldBusinesses == null || this.businessMonitorModel.oldBusinesses == "") ||
         (this.businessMonitorModel.isbuinessDiversified == undefined || this.businessMonitorModel.isbuinessDiversified == null) ||
         (this.businessMonitorModel.currentBusiness == undefined || this.businessMonitorModel.currentBusiness == null || this.businessMonitorModel.currentBusiness == "") ||
         (this.businessMonitorModel.isAlternativeSite == undefined || this.businessMonitorModel.isAlternativeSite == null) ||

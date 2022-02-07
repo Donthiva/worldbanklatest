@@ -185,7 +185,6 @@ namespace DAL
             //Business
             builder.Entity<Business>().HasKey(c => new { c.Business_ID });
             builder.Entity<Business>().HasOne(v => v.Person).WithMany(c => c.Business).HasForeignKey(c=>c.Business_Person_ID).OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Business>().HasOne(v => v.BuinessPlan1).WithMany(c => c.Business).HasForeignKey(b=>b.Business_First_Buiness_Plan).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<Business>().HasOne(v => v.BusinessManagementMode).WithMany(c => c.Business).HasForeignKey(m => m.Business_Management_Mode).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<Business>().HasOne(v => v.businessType).WithMany(c => c.Business).HasForeignKey(m => m.Business_Type).OnDelete(DeleteBehavior.NoAction);
 

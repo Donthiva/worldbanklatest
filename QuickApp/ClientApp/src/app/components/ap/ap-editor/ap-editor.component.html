@@ -88,7 +88,7 @@
     <ngb-tabset #tabset="ngbTabset" [destroyOnHide]="false">
 
 
-        <ngb-tab id="tabbusiness" title="Businees Monitor" *ngIf="(CurrentType == 2 || CurrentType == 5) && !IsTraining">
+        <ngb-tab id="tabbusiness" title="Businees Monitor" *ngIf="(CurrentType == 3 || CurrentType == 10) && !IsTraining">
             <ng-template ngbTabContent>
 
                 <app-business-monitor [personData]="personModel" [monitorEditmode]="monitorEditmodebusiness" (updatedevent)="updatedBusiness($event)"
@@ -99,7 +99,7 @@
         </ngb-tab>
 
 
-        <ngb-tab id="tabemp" title="Employee Monitor" *ngIf="CurrentType == 1 && !IsTraining">
+        <ngb-tab id="tabemp" title="Employee Monitor" *ngIf="CurrentType == 7 && !IsTraining">
             <ng-template ngbTabContent>
 
 
@@ -111,7 +111,7 @@
 
 
 
-        <ngb-tab id="tabthreeWheel" title="Threewheel Monitor" *ngIf="CurrentType == 3 && !IsTraining">
+        <ngb-tab id="tabthreeWheel" title="Threewheel Monitor" *ngIf="CurrentType == 13 && !IsTraining">
             <ng-template ngbTabContent>
 
 
@@ -122,7 +122,7 @@
         </ngb-tab>
 
 
-        <ngb-tab id="tabphaseOut" title="PhaseOut Monitor" *ngIf="CurrentType == 4 && !IsTraining">
+        <ngb-tab id="tabphaseOut" title="PhaseOut Monitor" *ngIf="CurrentType == 11 && !IsTraining">
             <ng-template ngbTabContent>
 
 
@@ -328,7 +328,7 @@
 
 
 
-                <div *ngIf="CurrentType == 1 && IsDataReady &&  !IsTraining">
+                <div *ngIf="CurrentType == 7 && IsDataReady &&  !IsTraining">
 
 
                     <ngx-datatable class="material colored-header sm table table-striped table-hover"
@@ -340,7 +340,7 @@
 
 
 
-                <div *ngIf="(CurrentType == 2 || CurrentType == 5) && IsBusinessDataReady && !IsTraining">
+                <div *ngIf="(CurrentType == 3 || CurrentType == 10) && IsBusinessDataReady && !IsTraining">
 
 
                     <ngx-datatable class="material colored-header sm table table-striped table-hover"
@@ -352,7 +352,7 @@
 
 
 
-                <div *ngIf="CurrentType == 3 && IsThreeWheelDataReady && !IsTraining">
+                <div *ngIf="CurrentType == 13 && IsThreeWheelDataReady && !IsTraining">
 
 
                     <ngx-datatable class="material colored-header sm table table-striped table-hover"
@@ -365,7 +365,7 @@
 
                 
 
-                <div *ngIf="CurrentType == 4 && IsPhaseOutDataReady && !IsTraining">
+                <div *ngIf="CurrentType == 11 && IsPhaseOutDataReady && !IsTraining">
 
 
                     <ngx-datatable class="material colored-header sm table table-striped table-hover"

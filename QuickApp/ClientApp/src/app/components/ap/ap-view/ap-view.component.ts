@@ -593,7 +593,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
       this.alertService.showMessage('Validation Failed', 'Please fill general information correctly', MessageSeverity.warn);
 
-    } else if (this.personModel.PersonType == 1) {
+    } else if (this.personModel.PersonType == 7) {
       if ((this.personModel.Salary == undefined || this.personModel.Salary == null) || (this.personModel.JobRole == null || this.personModel.JobRole == undefined) || (this.personModel.Employer == null || this.personModel.Employer == undefined)) {
         this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
       } else {
@@ -618,7 +618,7 @@ export class ApViewComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if (this.personModel.PersonType == 2) {
+    } else if (this.personModel.PersonType == 3) {
       if ((this.personModel.businessGeneral.BusinessPlanId == null || this.personModel.businessGeneral.BusinessPlanId == undefined) ||
         (this.personModel.businessGeneral.BusinessTypeId == null || this.personModel.businessGeneral.BusinessTypeId == undefined) ||
         (this.personModel.businessGeneral.GSBSPreviousIncome == null || this.personModel.businessGeneral.GSBSPreviousIncome == undefined) ||
@@ -655,7 +655,7 @@ export class ApViewComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if (this.personModel.PersonType == 3) {
+    } else if (this.personModel.PersonType == 13) {
       if (
         (this.personModel.threeWheelDriver.EngagementAtGSBS == null || this.personModel.threeWheelDriver.EngagementAtGSBS == undefined || this.personModel.threeWheelDriver.EngagementAtGSBS == "") ||
         (this.personModel.threeWheelDriver.MonthlyIncomeGSBS == null || this.personModel.threeWheelDriver.MonthlyIncomeGSBS == undefined) ||
@@ -685,7 +685,7 @@ export class ApViewComponent implements OnInit, OnChanges {
           }
         )
       }
-    } else if (this.personModel.PersonType == 4) {
+    } else if (this.personModel.PersonType == 11) {
       if (
         (this.personModel.phaseOut.DecisionMade == null || this.personModel.phaseOut.DecisionMade == undefined || this.personModel.phaseOut.DecisionMade == "") ||
         (this.personModel.phaseOut.fileNumber == null || this.personModel.phaseOut.fileNumber == undefined || this.personModel.phaseOut.fileNumber == "") ||
