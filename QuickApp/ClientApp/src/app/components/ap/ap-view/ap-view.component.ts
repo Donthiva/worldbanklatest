@@ -234,7 +234,7 @@ export class ApViewComponent implements OnInit, OnChanges {
         console.log('country', this.country);
 
         this.personCountryName = (this.country.length > 0 && this.country != undefined && this.personModel.country != undefined) ? this.country.find(x => x.country_ID == this.personModel.country).country_Name : "";
-
+        this.pdfDataSharing.personCountryName=this.personCountryName;
         console.log('personCountryName', this.personCountryName);
 
       }
@@ -266,7 +266,7 @@ export class ApViewComponent implements OnInit, OnChanges {
         this.district = reponse;
         console.log('district', this.district);
         this.personDistrictName = (this.district.length > 0 && this.district != undefined && this.personModel.district != undefined) ? this.district.find(x => x.district_ID == this.personModel.district).district_Name : "";
-
+        this.pdfDataSharing.personDistrictName=this.personDistrictName;
       }
     )
 
@@ -282,6 +282,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
 
         this.personCityName = (this.City.length > 0 && this.City != undefined && this.personModel.City != undefined) ? this.City.find(x => x.city_ID == this.personModel.City).city_Name : "";
+        this.pdfDataSharing.personCityName=this.personCityName;
       }
     )
 
@@ -347,6 +348,8 @@ export class ApViewComponent implements OnInit, OnChanges {
       this.loadApProgressBOData(this.personData.Person_ID);
 
       this.loadTrainingData(this.personData.Person_ID);
+
+      
     }
 
 
@@ -361,7 +364,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
     this.genderName = (this.gender != undefined && this.personModel.Person_Gender != undefined) ? this.gender.find(x => x.user_Gender_ID == this.personModel.Person_Gender).user_Gender : "";
 
-
+    this.pdfDataSharing.gender=this.genderName;
     // this.bankNamevalue = (this.BankName != undefined && this.personModel.BankName != undefined) ? this.BankName.find(x => x.bank_ID == this.personModel.BankName).bank_Name : "";
 
     // this.bankbranchvalue = (this.BankBranch != undefined && this.personModel.BankBranch != undefined) ? this.BankBranch.find(x => x.bank_Branch_ID == this.personModel.BankBranch).bank_Branch_Description : "";
