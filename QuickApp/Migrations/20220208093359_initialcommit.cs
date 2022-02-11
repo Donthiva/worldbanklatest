@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickApp.Migrations
 {
-    public partial class initial_commit : Migration
+    public partial class initialcommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
