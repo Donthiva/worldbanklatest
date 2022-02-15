@@ -429,9 +429,9 @@ export class AddAppComponent implements OnInit, OnChanges {
           formData.append("file" + i, this.fileListToUpload[i], this.fileListToUpload[i].name);
         }
 
-
+if(!this.userImageToUpload==undefined){
         formData.append('userImage', this.userImageToUpload, this.userImageToUpload.name)
-
+}
         formData.append('jsonString', JSON.stringify(this.personModel));
 
 
@@ -510,9 +510,9 @@ export class AddAppComponent implements OnInit, OnChanges {
           formData.append("BusinessFiles", this.BusinessFileListToUpload[i], this.BusinessFileListToUpload[i].name);
         }
 
-
+        if(!this.userImageToUpload==undefined){
         formData.append('userImage', this.userImageToUpload, this.userImageToUpload.name)
-
+        }
         formData.append('jsonString', JSON.stringify(this.personModel));
         this.spinner.show();
 
@@ -571,9 +571,9 @@ export class AddAppComponent implements OnInit, OnChanges {
           formData.append("file" + i, this.fileListToUpload[i], this.fileListToUpload[i].name);
         }
 
-
+        if(!this.userImageToUpload==undefined){
         formData.append('userImage', this.userImageToUpload, this.userImageToUpload.name)
-
+        }
         formData.append('jsonString', JSON.stringify(this.personModel));
         this.spinner.show();
 
@@ -627,9 +627,9 @@ export class AddAppComponent implements OnInit, OnChanges {
           formData.append("file" + i, this.fileListToUpload[i], this.fileListToUpload[i].name);
         }
 
-
+        if(!this.userImageToUpload==undefined){
         formData.append('userImage', this.userImageToUpload, this.userImageToUpload.name)
-
+        }
         formData.append('jsonString', JSON.stringify(this.personModel));
         this.spinner.show();
 
