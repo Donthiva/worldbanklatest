@@ -490,9 +490,9 @@ export class BusinessMonitorComponent implements OnInit {
 
 
     if ((this.businessMonitorModel.fileNumber == undefined || this.businessMonitorModel.fileNumber == null || this.businessMonitorModel.fileNumber == "") ||
-      (this.businessMonitorModel.monitor.monitor_Date == undefined || this.businessMonitorModel.monitor.monitor_Date == null) ||
+      // (this.businessMonitorModel.monitor.monitor_Date == undefined || this.businessMonitorModel.monitor.monitor_Date == null) ||
       (this.businessMonitorModel.business_changed == undefined || this.businessMonitorModel.business_changed == null) ||
-      (this.businessMonitorModel.oldBusinesses == undefined || this.businessMonitorModel.oldBusinesses == null || this.businessMonitorModel.oldBusinesses == "") ||
+      (this.businessMonitorModel.business_changed && (this.businessMonitorModel.oldBusinesses == undefined || this.businessMonitorModel.oldBusinesses == null || this.businessMonitorModel.oldBusinesses == "")) ||
       (this.businessMonitorModel.isbuinessDiversified == undefined || this.businessMonitorModel.isbuinessDiversified == null) ||
       (this.businessMonitorModel.currentBusiness == undefined || this.businessMonitorModel.currentBusiness == null || this.businessMonitorModel.currentBusiness == "") ||
       (this.businessMonitorModel.isAlternativeSite == undefined || this.businessMonitorModel.isAlternativeSite == null) ||

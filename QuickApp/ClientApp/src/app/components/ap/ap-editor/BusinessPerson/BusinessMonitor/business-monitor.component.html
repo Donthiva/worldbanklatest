@@ -67,7 +67,7 @@
                             <div>Business Changed is required</div>
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6" *ngIf="businessMonitorModel.business_changed">
                         <label for="city">How ?</label>
                         <textarea type=text class="form-control" id="city" placeholder="Note"   [(ngModel)]="businessMonitorModel.howBusinessCHange"
                             ></textarea>
@@ -85,7 +85,7 @@
                         <input type="text" class="form-control" id="city" placeholder="Old Business"
                             [(ngModel)]="businessMonitorModel.oldBusinesses">
                         <div style="margin-top: 5%;"
-                            *ngIf="(businessMonitorModel.oldBusinesses == null || businessMonitorModel.oldBusinesses == '')&& validationfailed"
+                            *ngIf="(businessMonitorModel.business_changed && businessMonitorModel.oldBusinesses == null || businessMonitorModel.oldBusinesses == '')&& validationfailed"
                             class="alert alert-danger">
                             <div>Old Business is required</div>
                         </div>
