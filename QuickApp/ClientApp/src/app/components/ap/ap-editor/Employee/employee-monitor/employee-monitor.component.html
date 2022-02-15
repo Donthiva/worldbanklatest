@@ -54,10 +54,6 @@
 
                     </div>
 
-                </div> 
-                
-                <div class="row">
-
                     <div class="form-group col-md-6">
                         <label for="city">How job found</label>
                         <input type="text" class="form-control" id="city" placeholder="How job found"
@@ -69,20 +65,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="city">Summary of monitoring</label>
-                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
-                            [(ngModel)]="employeeMonitor.employment_Remarks"> </textarea>
-                        <div style="margin-top: 5%;"
-                            *ngIf="(employeeMonitor.employment_Remarks == null || employeeMonitor.employment_Remarks == '') && validationfailed"
-                            class="alert alert-danger">
-                            <div>Summary is required</div>
-                        </div>
-                    </div>
+                </div> 
+                
+                <!-- <div class="row">
+
+                   
+
+                    
 
 
 
-                </div>
+                </div> -->
 
 
 
@@ -324,11 +317,11 @@
 
                 <div class="row">
 
-                    <div class="form-group col-md-6">
+                    <!-- <div class="form-group col-md-6">
                         <label> How job found</label>
                         <input type="text" class="form-control" id="city" placeholder="How job found" [(ngModel)]="employeeMonitor.howJobFound">
 
-                    </div>
+                    </div> -->
 
                     <div class="form-group col-md-6">
                         <label for="city">Any request needed</label>
@@ -404,6 +397,17 @@
                         <ng-select class="custom" [items]="EmployementStatus" bindLabel="status" bindValue="employment_Status_ID" [(ngModel)]="employeeMonitor.employment_Status">
                         </ng-select>
 
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="city">Summary of monitoring</label>
+                        <textarea type="text" class="form-control" id="city" placeholder="Summary"
+                            [(ngModel)]="employeeMonitor.employment_Remarks"> </textarea>
+                        <div style="margin-top: 5%;"
+                            *ngIf="(employeeMonitor.employment_Remarks == null || employeeMonitor.employment_Remarks == '') && validationfailed"
+                            class="alert alert-danger">
+                            <div>Summary is required</div>
+                        </div>
                     </div>
 
                     
