@@ -408,7 +408,7 @@ export class AddAppComponent implements OnInit, OnChanges {
 
     }
     if (this.personModel.PersonType == 7 && !this.validationfailed) {
-      if ((this.personModel.employeeRealocatedMonthandYear == undefined || this.personModel.employeeBusinessLivelihoodRealocation == null)) {
+      if ((this.personModel.employeeGeneral.employeeRealocatedMonthandYear == undefined || this.personModel.employeeGeneral.employeeBusinessLivelihoodRealocation == null)) {
         this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
         this.validationfailed = true;
       } else {
