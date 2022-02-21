@@ -123,7 +123,7 @@ namespace DAL.Repositories
 
 
 
-                if (data.PersonType == 1)
+                if (data.PersonType == 7)
                 {
                     eg.JobRole = data.JobRole;
                     eg.Salary = data.Salary;
@@ -131,7 +131,7 @@ namespace DAL.Repositories
 
                     p.employeeGeneral = eg;
                 }
-                else if(data.PersonType == 2 || data.PersonType == 5)
+                else if(data.PersonType == 3 || data.PersonType == 10)
                 {
 
                     bg.BusineesPlanId = data.businessGeneral.BusinessPlanId;
@@ -155,7 +155,7 @@ namespace DAL.Repositories
 
                     p.businessGeneral = bg;
                 }
-                else if (data.PersonType == 3)
+                else if (data.PersonType == 13)
                 {
                     tg.InitialParkAtGSBS = data.threeWheelDriver.initialParkAtGSBS;
                     tg.MonthlyIncomeAtGSBS = data.threeWheelDriver.MonthlyIncomeGSBS;
@@ -163,7 +163,7 @@ namespace DAL.Repositories
 
                     p.threeWheelGeneral = tg;
                 }
-                else
+                else if(data.PersonType == 11)
                 {
                     pg.BusinessPlan = data.phaseOut.PlanedBusiness;
                     pg.UseofEntitlementFund = data.phaseOut.UseOfEntileFund;

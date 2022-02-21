@@ -581,7 +581,7 @@
 
                         <div class="form-group col-md-6">
                             <label>Reallocated Month and year</label>
-                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.employeeGeneral.employeeRealocatedMonthandYear">
+                            <input type="month" class="form-control" id="city"  [(ngModel)]="personModel.employeeGeneral.employeeRealocatedMonthandYear">
                             <div style="margin-top: 5%;"
                                 *ngIf="(personModel.employeeGeneral.employeeRealocatedMonthandYear == null) && validationfailed"
                                 class="alert alert-danger">
@@ -930,7 +930,7 @@
 
                         <div class="form-group col-md-6">
                             <label>Reallocated Month and year</label>
-                            <input type="month" class="form-control" id="city" min="2018-03" value="2018-05" [(ngModel)]="personModel.threeWheelDriver.realocatedMonthandYear">
+                            <input type="month" class="form-control" id="city" min="2018-03"  [(ngModel)]="personModel.threeWheelDriver.realocatedMonthandYear">
                             <div style="margin-top: 5%;"
                                 *ngIf="(personModel.threeWheelDriver.realocatedMonthandYear == null) && validationfailed"
                                 class="alert alert-danger">
