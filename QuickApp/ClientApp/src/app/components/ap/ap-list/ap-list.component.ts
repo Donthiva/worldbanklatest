@@ -359,6 +359,8 @@ export class ApListComponent implements OnInit, AfterViewInit {
   VulnerabilityValidation: boolean = false;
   updatePersonData(person:PersonalData) {
 
+    console.log("persondata employee",person.employeeGeneral);
+
     var castnew = JSON.parse(JSON.stringify(person));
     castnew.employeeMonitorList = null;
     castnew.businessMonitorList = null;
@@ -434,7 +436,8 @@ export class ApListComponent implements OnInit, AfterViewInit {
       }
 
       if (person.EmployeeId > 0 && person.PersonType == 7) {
-        if ((person.Salary == undefined || person.Salary == null) || (person.JobRole == null || person.JobRole == undefined) || (person.Employer == null || person.Employer == undefined)) {
+        console.log("persondata employee",person.employeeGeneral);
+        if ((person.employeeGeneral.employeeRealocatedMonthandYear == undefined || person.employeeGeneral.employeeRealocatedMonthandYear == null) || (person.employeeGeneral.employeeBusinessLivelihoodRealocation == null || person.employeeGeneral.employeeBusinessLivelihoodRealocation == undefined) || (person.employeeGeneral.employeeSpecialNotes == null || person.employeeGeneral.employeeSpecialNotes == undefined)) {
           this.Empvalidation = false;
           this.alertService.showMessage('Validation Failed', 'Please fill employee specific information correctly', MessageSeverity.warn);
           this.validationfalied = true;
