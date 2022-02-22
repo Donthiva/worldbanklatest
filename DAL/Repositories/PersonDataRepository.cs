@@ -128,8 +128,12 @@ namespace DAL.Repositories
                     eg.JobRole = data.JobRole;
                     eg.Salary = data.Salary;
                     eg.Employer = data.Employer;
+                    eg.EmployeeBusinessLivelihoodRealocation = data.employeeGeneral.EmployeeBusinessLivelihoodRealocation;
+                    eg.EmployeeRealocatedMonthandYear = data.employeeGeneral.EmployeeRealocatedMonthandYear;
+                    eg.EmployeeSpecialNotes = data.employeeGeneral.EmployeeSpecialNotes;
 
                     p.employeeGeneral = eg;
+                    
                 }
                 else if(data.PersonType == 3 || data.PersonType == 10)
                 {

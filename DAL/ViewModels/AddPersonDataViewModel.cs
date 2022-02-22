@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DAL.Models.Genaral;
 using DAL.Models.Monitoring_Information;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,8 @@ namespace DAL.ViewModels
         public Vulnerability Vulnerability { get; set; }
 
         public string BankAccountName { get; set; }
+
+        public EmployeeGeneral employeeGeneral { get; set; }
         public BusinessGeneral businessGeneral { get; set; }
         public ThreeWheelDriver threeWheelDriver { get; set; }
         public PhaseOut phaseOut { get; set; }
