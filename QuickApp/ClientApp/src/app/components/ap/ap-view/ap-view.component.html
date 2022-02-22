@@ -261,7 +261,7 @@
             
                                             </div>
             
-                                            <div class="form-group col-md-4">
+                                            <!-- <div class="form-group col-md-4">
                                                 <div class="row">
                                                     <label for="city" style="font-weight:700;">GSBS livelihood engagement</label>
                                                 </div>
@@ -269,10 +269,10 @@
                                                     <label style="text-align: center;" for="company"></label>
                                                 </div>
             
-                                            </div>
+                                            </div> -->
             
             
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-4" *ngIf="CurrentType==3">
                                                 <div class="row">
                                                     <label for="city" style="font-weight:700;">GSBS income/profit</label>
                                                 </div>
@@ -288,7 +288,7 @@
                                     </div>
 
 
-                                    <div class="col-md-12 form-group" >
+                                    <!-- <div class="col-md-12 form-group" >
                                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
                                             <h6>Compensation package</h6>
                                         </div>
@@ -319,7 +319,7 @@
             
             
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-12 form-group" >
                                         <div class="row" style="color: blue;font-weight: bold;font-weight:700;">
@@ -333,18 +333,18 @@
                                                     <label for="company" style="font-weight:700;">Immediate AP category after relocation</label>
                                                 </div>
                                                 <div class="row">
-                                                    <label style="text-align: center;" for="company"></label>
+                                                    <label style="text-align: center;" for="company">{{personModel.PersonTypeName}}</label>
                                                 </div>
             
             
                                             </div>
             
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-4" >
                                                 <div class="row">
                                                     <label for="city" style="font-weight:700;">Business/livelihood relocation </label>
                                                 </div>
                                                 <div class="row">
-                                                    <label style="text-align: center;" for="company"></label>
+                                                    <label style="text-align: center;" for="company">{{businnessorlivehoodrelocation}}</label>
                                                 </div>
             
                                             </div>

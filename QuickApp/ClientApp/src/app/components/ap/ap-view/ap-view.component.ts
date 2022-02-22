@@ -93,6 +93,9 @@ export class ApViewComponent implements OnInit, OnChanges {
 
   personTypesarr: any = [];
 
+  Relocation: any = [
+
+  ]
 
   gender: any = [
 
@@ -163,6 +166,8 @@ export class ApViewComponent implements OnInit, OnChanges {
 
     this.loadage();
 
+    this.getAllRelocation();
+
    
 
 
@@ -202,6 +207,7 @@ export class ApViewComponent implements OnInit, OnChanges {
   personCityName: string;
   bankNamevalue: string;
   bankbranchvalue: string;
+  businnessorlivehoodrelocation: string;
 
   businessPlanvalue: string;
   businessTypevalue: string;
@@ -349,7 +355,7 @@ export class ApViewComponent implements OnInit, OnChanges {
 
       this.loadTrainingData(this.personData.Person_ID);
 
-      
+      this.getAllRelocation();
     }
 
 
@@ -903,8 +909,14 @@ loadage(){
 }
 
 loadprecatagory(){
-  if(this.personModel.previousTypeId==0||this.personModel.previousTypeId==1)
+  if(this.personModel.previousTypeId==8||this.personModel.previousTypeId==9)
   this.precatagory="employee";
+  else if(this.personModel.previousTypeId==17 || this.personModel.previousTypeId==18 || this.personModel.previousTypeId==19)
+  this.precatagory="Business Person";
+  else if(this.personModel.previousTypeId==13)
+  this.precatagory="Other";
+  else if(this.personModel.previousTypeId==11||this.personModel.previousTypeId==12)
+  this.precatagory="Threewheel Driver";
 }
 
 
@@ -958,7 +970,15 @@ loadprecatagory(){
     )
   }
 
-
+  getAllRelocation() {
+    this.Personservice.GetAllReallocationTypes().subscribe(
+      reponse => {
+        this.Relocation = reponse;
+        console.log("Relocation", this.Relocation);
+        this.businnessorlivehoodrelocation =(this.Relocation != undefined && this.personModel.businessOrLivelihoodRelocationId != undefined) ? this.Relocation.find(x => x.id == this.personModel.businessOrLivelihoodRelocationId).name : "";
+      }
+    )
+  }
 
 
 
