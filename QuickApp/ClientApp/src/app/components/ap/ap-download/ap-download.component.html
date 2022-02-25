@@ -252,5 +252,508 @@
 
 		</div>
 
+		<div class="col-md-12 form-group" >
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>GSBS Information</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">GSBS category</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.precatagory}}</label>
+					</div>
+
+
+				</div>
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">GSBS livelihood engagement</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company"></label>
+					</div>
+
+				</div> -->
+
+
+				<div class="form-group col-md-4" *ngIf="this.pdfDataSharing.CurrentType==3">
+					<div class="row">
+						<label for="city" style="font-weight:700;">GSBS income/profit</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.businessGeneral.GSBSPreviousIncome}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-12 form-group" >
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>Relocation Information</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Immediate AP category after relocation</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.personModel.PersonTypeName}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4" >
+					<div class="row">
+						<label for="city" style="font-weight:700;">Business/livelihood relocation </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.businnessorlivehoodrelocation}}</label>
+					</div>
+
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<div class="col-md-12 form-group" *ngIf="this.pdfDataSharing.CurrentType==7">
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>Employee Information</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Job</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.personModel.JobRole}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Salary</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.personModel.Salary}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Employer</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.Employer}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="col-md-12 form-group" *ngIf="this.pdfDataSharing.CurrentType==3">
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>Busineess General</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Business Plan</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.businessPlanvalue}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Business Type</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.businessTypevalue}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is EntilementFund</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.IsEntitlementname}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Is BankLoans</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.IsBankLoansname}}</label>
+					</div>
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is OwnService</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.IsOwnServicename}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is PawningJewellary</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.IsPawningJewellaryname}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Is PartnerShip</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.IsPartnerShipname}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is formalLoans</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;" for="company">{{this.pdfDataSharing.IsformalLoansname}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is BusinessChanged</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.IsBusinessChangedname}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group " *ngIf="this.pdfDataSharing.personModel.businessGeneral.IsBusinessChanged">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Previous Business at
+							GSBS</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.businessGeneral.PreviousBusinessAtGoodShed}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">GSBS Previous Income</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.businessGeneral.GSBSPreviousIncome}}</label>
+					</div>
+
+				</div>
+
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Reallocated Month and
+							year</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{IsBusinessChangedname}}</label>
+					</div>
+
+				</div> -->
+
+
+			</div>
+
+		</div>
+
+		<div class="col-md-12 form-group" *ngIf="this.pdfDataSharing.CurrentType==13">
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>ThreeWheel Information</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">initial Park at GSBS</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.threeWheelDriver.initialParkAtGSBS}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Monthly income at GSBS</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.threeWheelDriver.MonthlyIncomeGSBS}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Engagement at GSBS </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.threeWheelDriver.EngagementAtGSBS}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+
+		<div class="col-md-12 form-group" *ngIf="this.pdfDataSharing.CurrentType==11">
+			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
+				<h6>Phase Out Information</h6>
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">File Number</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.fileNumber}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Decision Made</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.DecisionMade}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Situation </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.Situation}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Month and Year</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.MonthAndYear}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Planed Business</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.PlanedBusiness}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Reason For PhaseOut </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.ReasonForPhaseOut}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Month and Year</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.MonthAndYear}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Use Of Entile Fund</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.UseOfEntileFund}}</label>
+					</div>
+
+				</div>
+
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Social Well Being </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.SocialWellBeing}}</label>
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+			<div class="row" style="font-size: small;">
+
+				<div class="col-md-4 form-group">
+					<div class="row">
+						<label for="company" style="font-weight:700;">Is Interest OfF Fixed
+							Deposit</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.IsInterestOfFFixedDepositvalue}}</label>
+					</div>
+
+
+				</div>
+
+				<div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Is lives with close family</label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.Isliveswithclosefamilyvalue}}</label>
+					</div>
+
+				</div>
+
+
+				<!-- <div class="form-group col-md-4">
+					<div class="row">
+						<label for="city" style="font-weight:700;">Social Well Being </label>
+					</div>
+					<div class="row">
+						<label style="text-align: center;"
+							for="company">{{this.pdfDataSharing.personModel.phaseOut.SocialWellBeing}}</label>
+					</div>
+
+				</div> -->
+
+
+			</div>
+
+		</div>
+
 		</div>
 		</div>

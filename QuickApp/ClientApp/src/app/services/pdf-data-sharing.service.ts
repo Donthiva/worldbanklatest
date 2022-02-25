@@ -14,6 +14,22 @@ export class PdfDataSharing
     personCountryName:String;
     personCityName:String;
     gender:String;
+    precatagory:string;
+    CurrentType: number = 1;
+
+    businnessorlivehoodrelocation: string;
+    businessPlanvalue: string;
+    businessTypevalue: string;
+    IsEntitlementname: string;
+    IsBankLoansname: string;
+    IsOwnServicename: string;
+    IsPawningJewellaryname: string;
+    IsPartnerShipname: string;
+    IsformalLoansname: string;
+    IsBusinessChangedname: string;
+
+    IsInterestOfFFixedDepositvalue: string;
+    Isliveswithclosefamilyvalue: string;
     
   constructor() 
   {

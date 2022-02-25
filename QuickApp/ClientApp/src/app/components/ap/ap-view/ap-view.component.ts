@@ -309,6 +309,7 @@ export class ApViewComponent implements OnInit, OnChanges {
       console.log("persondata", this.personData);
       this.personModel = this.personData;
       this.CurrentType = this.personData.PersonType
+      this.pdfDataSharing.CurrentType=this.CurrentType;
      
 
 
@@ -322,6 +323,7 @@ export class ApViewComponent implements OnInit, OnChanges {
       this.personModel = this.personData;
       this.pdfDataSharing.personModel=this.personData;
       this.CurrentType = this.personData.PersonType
+      this.pdfDataSharing.CurrentType=this.CurrentType;
       this.loadage();
       this.loadprecatagory();
       console.log("agenumber",this.age);
@@ -376,30 +378,39 @@ export class ApViewComponent implements OnInit, OnChanges {
     // this.bankbranchvalue = (this.BankBranch != undefined && this.personModel.BankBranch != undefined) ? this.BankBranch.find(x => x.bank_Branch_ID == this.personModel.BankBranch).bank_Branch_Description : "";
 
     this.businessPlanvalue = (this.BusinessPlan != undefined && this.personModel.businessGeneral.BusinessPlanId != undefined) ? this.BusinessPlan.find(x => x.buiness_Plan_ID == this.personModel.businessGeneral.BusinessPlanId).buiness_Plan_Description : "";
+    this.pdfDataSharing.businessPlanvalue=this.businessPlanvalue;
 
     this.businessTypevalue = (this.BusinessType != undefined && this.personModel.businessGeneral.BusinessTypeId != undefined) ? this.BusinessType.find(x => x.id == this.personModel.businessGeneral.BusinessTypeId).businessTypeName : "";
+    this.pdfDataSharing.businessTypevalue=this.businessTypevalue;
 
     this.IsEntitlementname = (this.IsList != undefined && this.personModel.businessGeneral.IsEntilementFund != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsEntilementFund).name : "";
+    this.pdfDataSharing.IsEntitlementname=this.IsEntitlementname;
 
     this.IsBankLoansname = (this.IsList != undefined && this.personModel.businessGeneral.IsBankLoans != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsBankLoans).name : "";
+    this.pdfDataSharing.IsBankLoansname=this.IsBankLoansname;
 
     this.IsOwnServicename = (this.IsList != undefined && this.personModel.businessGeneral.IsOwnService != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsOwnService).name : "";
-
-    this.IsOwnServicename = (this.IsList != undefined && this.personModel.businessGeneral.IsOwnService != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsOwnService).name : "";
+    this.pdfDataSharing.IsOwnServicename=this.IsOwnServicename;
+    // this.IsOwnServicename = (this.IsList != undefined && this.personModel.businessGeneral.IsOwnService != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsOwnService).name : "";
 
     this.IsPawningJewellaryname = (this.IsList != undefined && this.personModel.businessGeneral.IsPawningJewellary != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsPawningJewellary).name : "";
+    this.pdfDataSharing.IsPawningJewellaryname=this.IsPawningJewellaryname;
 
     this.IsPartnerShipname = (this.IsList != undefined && this.personModel.businessGeneral.IsPartnerShip != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsPartnerShip).name : "";
+    this.pdfDataSharing.IsPartnerShipname=this.IsPartnerShipname;
 
     this.IsformalLoansname = (this.IsList != undefined && this.personModel.businessGeneral.IsformalLoans != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsformalLoans).name : "";
+    this.pdfDataSharing.IsformalLoansname=this.IsformalLoansname;
 
     this.IsBusinessChangedname = (this.IsList != undefined && this.personModel.businessGeneral.IsBusinessChanged != undefined) ? this.IsList.find(x => x.id == this.personModel.businessGeneral.IsBusinessChanged).name : "";
+    this.pdfDataSharing.IsBusinessChangedname=this.IsBusinessChangedname;
 
     this.IsInterestOfFFixedDepositvalue = (this.IsList != undefined && this.personModel.phaseOut.IsInterestOfFixedDeposit != undefined) ? this.IsList.find(x => x.id == this.personModel.phaseOut.IsInterestOfFixedDeposit).name : "";
+    this.pdfDataSharing.IsInterestOfFFixedDepositvalue=this.IsInterestOfFFixedDepositvalue;
 
     this.Isliveswithclosefamilyvalue = (this.IsList != undefined && this.personModel.phaseOut.IsLivesWithcloseFamily != undefined) ? this.IsList.find(x => x.id == this.personModel.phaseOut.IsLivesWithcloseFamily).name : "";
-
-    this.Isliveswithclosefamilyvalue = (this.IsList != undefined && this.personModel.phaseOut.IsLivesWithcloseFamily != undefined) ? this.IsList.find(x => x.id == this.personModel.phaseOut.IsLivesWithcloseFamily).name : "";
+    this.pdfDataSharing.Isliveswithclosefamilyvalue=this.Isliveswithclosefamilyvalue;
+    // this.Isliveswithclosefamilyvalue = (this.IsList != undefined && this.personModel.phaseOut.IsLivesWithcloseFamily != undefined) ? this.IsList.find(x => x.id == this.personModel.phaseOut.IsLivesWithcloseFamily).name : "";
 
     this.Isincomegeneratingsourcesvalue = (this.IsList != undefined && this.personModel.phaseOut.IsIncomeGeneratingSources != undefined) ? this.IsList.find(x => x.id == this.personModel.phaseOut.IsIncomeGeneratingSources).name : "";
 
@@ -756,6 +767,7 @@ export class ApViewComponent implements OnInit, OnChanges {
   selectedCurrentType(data) {
     this.personModel.PersonType = data.person_Type_ID;
     this.CurrentType = data.person_Type_ID
+    this.pdfDataSharing.CurrentType=this.CurrentType;
   }
 
 
@@ -910,13 +922,17 @@ loadage(){
 
 loadprecatagory(){
   if(this.personModel.previousTypeId==8||this.personModel.previousTypeId==9)
-  this.precatagory="employee";
+  this.precatagory="employee",
+  this.pdfDataSharing.precatagory=this.precatagory;
   else if(this.personModel.previousTypeId==17 || this.personModel.previousTypeId==18 || this.personModel.previousTypeId==19)
-  this.precatagory="Business Person";
+  this.precatagory="Business Person",
+  this.pdfDataSharing.precatagory=this.precatagory;
   else if(this.personModel.previousTypeId==13)
-  this.precatagory="Other";
+  this.precatagory="Other",
+  this.pdfDataSharing.precatagory=this.precatagory;
   else if(this.personModel.previousTypeId==11||this.personModel.previousTypeId==12)
-  this.precatagory="Threewheel Driver";
+  this.precatagory="Threewheel Driver",
+  this.pdfDataSharing.precatagory=this.precatagory;
 }
 
 
@@ -976,6 +992,7 @@ loadprecatagory(){
         this.Relocation = reponse;
         console.log("Relocation", this.Relocation);
         this.businnessorlivehoodrelocation =(this.Relocation != undefined && this.personModel.businessOrLivelihoodRelocationId != undefined) ? this.Relocation.find(x => x.id == this.personModel.businessOrLivelihoodRelocationId).name : "";
+        this.pdfDataSharing.businnessorlivehoodrelocation=this.businnessorlivehoodrelocation;
       }
     )
   }
