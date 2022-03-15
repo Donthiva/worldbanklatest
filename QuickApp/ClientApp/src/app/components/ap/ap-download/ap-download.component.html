@@ -2,9 +2,9 @@
 <div class="m-4">
 	<button (click)="openPDF()">Get PDF</button>
 </div>
-<!-- <div class="row coupon-wrapper" id="pdfTable" style="align-items: center; text-align: center;" #pdfTable>
+<div class="row coupon-wrapper" id="pdfTable" style="align-items: center; text-align: center;" #pdfTable>
 
-	<div class="coupon-container">
+	<!-- <div class="coupon-container">
 		<table class="coupon-detail">
 			<tr>
 				<td>AP File Number:</td>
@@ -25,11 +25,103 @@
 				<td class="bold"></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 
-</div> -->
+	<table class="table" id="contentToConvert" style="font-size: 70%; width: 100%; border: 1ch;">
+		<tbody>
+		  <!-- <tr>
+			<th>AP</th>
+			<th>Report</th>
+			<th>Card</th>
+		  </tr> -->
+		  <tr>
+			<td>FileNumber :<br> {{this.pdfDataSharing.personModel.Person_File_number}} </td>
+			<td>Ap Name:<br> {{this.pdfDataSharing.personModel.Person_Name}}  </td>
+			<td>NIC :<br> {{this.pdfDataSharing.personModel.Person_NIC}}</td>
+		  </tr>
+		  <tr>
+			<td>Age :<br> {{this.pdfDataSharing.age}}</td>
+			<td>Gender :<br> {{this.pdfDataSharing.gender}}</td>
+			<td>Contact Number :<br> {{this.pdfDataSharing.personModel.Person_Contact_Number}} </td>
+		  </tr>
+		  <tr>
+			<td>Address Number :<br> {{this.pdfDataSharing.personModel.addressNo}}</td>
+			<td>Street :<br> {{this.pdfDataSharing.personModel.addressStreet}}</td>
+			<td>City :<br> {{this.pdfDataSharing.personCityName}}</td>
+		  </tr>
+		  <tr>
+			<td>District :<br> {{this.pdfDataSharing.personDistrictName}}</td>
+			<td>Country :<br> {{this.pdfDataSharing.personCountryName}}</td>
+			<td></td>			
+		  </tr>
+		  <tr>
+			<td>GSBS category :<br> {{this.pdfDataSharing.precatagory}}</td>
+			<td *ngIf="this.pdfDataSharing.CurrentType==3">GSBS income/profit :<br> {{this.pdfDataSharing.personModel.businessGeneral.GSBSPreviousIncome}}</td>
+			<td *ngIf="this.pdfDataSharing.CurrentType!=3"></td>
+			<td></td>			
+		  </tr>
+		  <tr>
+			<td>Immediate AP category after relocation :<br> {{this.pdfDataSharing.personModel.PersonTypeName}}</td>
+			<td>Business/livelihood relocation :<br> {{this.pdfDataSharing.businnessorlivehoodrelocation}}</td>
+			<td></td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==3">
+			<td>Business Plan :<br> {{this.pdfDataSharing.businessPlanvalue}}</td>
+			<td>Business Type :<br> {{this.pdfDataSharing.businessTypevalue}}</td>
+			<td>Is EntilementFund :<br> {{this.pdfDataSharing.IsEntitlementname}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==3">
+			<td>Is BankLoans :<br> {{this.pdfDataSharing.IsBankLoansname}}</td>
+			<td>Is OwnService :<br> {{this.pdfDataSharing.IsOwnServicename}}</td>
+			<td>Is PawningJewellary :<br> {{this.pdfDataSharing.IsPawningJewellaryname}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==3">
+			<td>Is PartnerShip :<br> {{this.pdfDataSharing.IsPartnerShipname}}</td>
+			<td>Is formalLoans :<br> {{this.pdfDataSharing.IsformalLoansname}}</td>
+			<td>Is BusinessChanged :<br> {{this.pdfDataSharing.IsBusinessChangedname}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==3">
+			<td>GSBS Previous Income :<br> {{this.pdfDataSharing.IsBankLoansname}}</td>
+			<td></td>
+			<td></td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==11">
+			<td>File Number :<br> {{this.pdfDataSharing.personModel.phaseOut.fileNumber}}</td>
+			<td>Decision Made :<br> {{this.pdfDataSharing.personModel.phaseOut.DecisionMade}}</td>
+			<td>Situation :<br> {{this.pdfDataSharing.personModel.phaseOut.Situation}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==11">
+			<td>Month and Year :<br> {{this.pdfDataSharing.personModel.phaseOut.MonthAndYear}}</td>
+			<td>Planed Business :<br> {{this.pdfDataSharing.personModel.phaseOut.PlanedBusiness}}</td>
+			<td>Reason For PhaseOut :<br> {{this.pdfDataSharing.personModel.phaseOut.ReasonForPhaseOut}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==11">
+			<td>Use Of Entile Fund :<br> {{this.pdfDataSharing.personModel.phaseOut.UseOfEntileFund}}</td>
+			<td>Social Well Being :<br> {{this.pdfDataSharing.personModel.phaseOut.SocialWellBeing}}</td>
+			<td>Is Interest OfF Fixed Deposit :<br> {{this.pdfDataSharing.IsInterestOfFFixedDepositvalue}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==11">
+			<td>Is lives with close family :<br> {{this.pdfDataSharing.Isliveswithclosefamilyvalue}}</td>
+			<td></td>
+			<td></td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==13">
+			<td>initial Park at GSBS :<br> {{this.pdfDataSharing.personModel.threeWheelDriver.initialParkAtGSBS}}</td>
+			<td>Monthly income at GSBS :<br> {{this.pdfDataSharing.personModel.threeWheelDriver.MonthlyIncomeGSBS}}</td>
+			<td>Engagement at GSBS :<br> {{this.pdfDataSharing.personModel.threeWheelDriver.EngagementAtGSBS}}</td>			
+		  </tr>
+		  <tr *ngIf="this.pdfDataSharing.CurrentType==7">
+			<td>Job :<br> {{this.pdfDataSharing.personModel.JobRole}}</td>
+			<td>Salary :<br> {{this.pdfDataSharing.personModel.Salary}}</td>
+			<td>Employer :<br> {{this.pdfDataSharing.personModel.Employer}}</td>			
+		  </tr>
+		 
+		</tbody>
+	  </table>
 
-<div class="card-body">
+</div>
+
+<!-- <div class="card-body">
             
 	<div class="row" id="pdfTable" style="align-items: center; text-align: center;"
 		style="background-color: rgb(255, 255, 255);padding: 20px;border-radius: 10;margin: 20px;">
@@ -38,12 +130,13 @@
 			<div class="row" style="color: blue;font-weight: bold;font-weight:700;">
 				<h6>General Information</h6>
 			</div>
-			<!-- <div class="row">
+
+			//<div class="row">
 				<div class="col-md-4" style="text-align:start;align-items:flex-start;">
 					<img [src]="apuserimage" alt="Avatar"
 						style="vertical-align: middle; width: 50;height: 50px; border-radius: 50%;margin-top: 10px;">
 				</div>
-			</div> -->
+			//</div>
 
 
 
@@ -80,7 +173,7 @@
 					</div>
 				</div>
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label for="city" style="font-weight:700;">File number</label>
 					</div>
@@ -88,7 +181,7 @@
 						<label style="text-align: center;"
 							for="company">{{personModel.Person_File_number}}</label>
 					</div>
-				</div> -->
+				//</div>
 
 			</div>
 
@@ -100,13 +193,13 @@
 						<label for="city" style="font-weight:700;">Age</label>
 					</div>
 					<div class="row">
-						<!-- <label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label> -->
+						//<label style="text-align: center;" for="city">{{personModel.Person_DOB}}</label>
 						<label style="text-align: center;" for="city">{{this.pdfDataSharing.age}}</label>
 					</div>
 
 				</div>
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label style="font-weight:700;" for="city">AP File number</label>
 					</div>
@@ -116,7 +209,7 @@
 							for="city">{{personModel.Person_File_number}}</label>
 					</div>
 
-				</div> -->
+				//</div>
 
 				<div class="form-group col-md-4">
 					<div class="row">
@@ -128,7 +221,7 @@
 					</div>
 				</div>
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label style="font-weight:700;" for="city">Current Type</label>
 					</div>
@@ -136,7 +229,7 @@
 					<div class="row">
 						<label style="text-align: center;">{{currentTypeName}}</label>
 					</div>
-				</div> -->
+				//</div>
 
 				<div class="col-md-4 form-group">
 					<div class="row">
@@ -231,7 +324,7 @@
 			</div>
 
 
-			<!-- <div class="row" style="font-size: small;">
+			//<div class="row" style="font-size: small;">
 
 				<div class="form-group col-md-4">
 					<div class="row">
@@ -245,10 +338,10 @@
 				</div>
 
 				
-			</div> -->
+			//</div>
 
 
-			<!-- <hr> -->
+			//<hr>
 
 		</div>
 
@@ -270,7 +363,7 @@
 
 				</div>
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label for="city" style="font-weight:700;">GSBS livelihood engagement</label>
 					</div>
@@ -278,7 +371,7 @@
 						<label style="text-align: center;" for="company"></label>
 					</div>
 
-				</div> -->
+				//</div>
 
 
 				<div class="form-group col-md-4" *ngIf="this.pdfDataSharing.CurrentType==3">
@@ -520,7 +613,7 @@
 				</div>
 
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label for="city" style="font-weight:700;">Reallocated Month and
 							year</label>
@@ -530,7 +623,7 @@
 							for="company">{{IsBusinessChangedname}}</label>
 					</div>
 
-				</div> -->
+				//</div>
 
 
 			</div>
@@ -739,7 +832,7 @@
 				</div>
 
 
-				<!-- <div class="form-group col-md-4">
+				//<div class="form-group col-md-4">
 					<div class="row">
 						<label for="city" style="font-weight:700;">Social Well Being </label>
 					</div>
@@ -748,7 +841,7 @@
 							for="company">{{this.pdfDataSharing.personModel.phaseOut.SocialWellBeing}}</label>
 					</div>
 
-				</div> -->
+				//</div>
 
 
 			</div>
@@ -756,4 +849,4 @@
 		</div>
 
 		</div>
-		</div>
+		</div> -->
